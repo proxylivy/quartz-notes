@@ -41,4 +41,8 @@ ip access-list extended ACL-CoPP-Management
 ip access-list extended ACL-CoPP-Routing
  permit tcp any eq bgp any established
  permit eigrp any host 224.0.0.10
+ permit ospf any host 224.0.0.5
+ permit ospf any host 224.0.0.6
+ permit pim any host 224.0.0.13
+ permit igmp any any
 ```

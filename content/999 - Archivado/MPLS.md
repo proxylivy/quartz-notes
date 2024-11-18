@@ -1,3 +1,5 @@
+# Info
+**M**ulti-**P**rotocol **L**abel **S**witching es un metodo para configurar rutas dedicadas aislando el trafico entre la red de clientes a travez de multiples [[999 - Archivado/VRF|VRF]]
 
 # Configuracion
 ```
@@ -28,4 +30,6 @@ ip vrf forwarding CLIENTE-A
 # Visualizacion
 `show mpls forwarding table`: Enlace L3
 `show ip bgp vpnv4 all`: Comprobar red MPLS
-``
+
+# Extra
+- Definido en el [RFC3031](https://www.rfc-editor.org/rfc/rfc3031)

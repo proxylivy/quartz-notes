@@ -16,3 +16,6 @@ Se separa en (`S/S/P.SV`) o (`Stack/Slot/Port.Sub-vlan`):
 # Visualizacion
 `show ip int brief` -> Ver estado interfaces
 `show ip int brief | include up` -> Ver interfaces up
+
+# Extra
+Dado Freak: En conexiones Seriales se configura el `[clock-rate]` el cual es para que la sincronizacion de paquetes no chocara, se usaba en topologias de DCU-DSU / DTE-(DCE)

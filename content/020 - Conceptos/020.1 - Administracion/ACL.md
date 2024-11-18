@@ -13,7 +13,7 @@ ACL tienen un uso para
 El funcionamiento de la ACL se basa en el **Procesamiento Descendente**
 1. Las ACL son procesadas en orden secuencial de la parte superior (Valor Menor) a la inferior (Valor Mayor)
 2. Se ejecuta inmediatamente cuando coincide con una regla permit o deny y las siguientes no afectan al paquete
-3. Se **Deniega Implicitamente** si no hay ninguna regla para aceptar el paquete.
+3. Se **Deniega Implicitamente** si no hay ninguna regla para aceptar el paquete. Para poder visualizar el trafico bloqueado, configura al final la regla `deny any`
 
 > [!IMPORTANT] Importante
 > Una ACL creada no hace nada a menos que se aplique a un servicio, una funcion o una interfaz

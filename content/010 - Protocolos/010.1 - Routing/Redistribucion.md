@@ -10,7 +10,7 @@ Se evita usar ACL:
 Tipos de redistibucion
 - Rutas Estaticas
 - Directa entre protocolos
-- Usar [[020 - Conceptos/020.1 - Administracion/Prefix-List|Prefix-List]] y [[010 - Protocolos/010.1 - Routing/Route-Map|Route-Map]]
+- Usar [[020 - Conceptos/020.1 - Administracion/Prefix-List|Prefix-List]] y [[020 - Conceptos/020.1 - Administracion/Route-Map|Route-Map]]
 
 ## BGP
 En [[010 - Protocolos/010.1 - Routing/BGP/BGP|BGP]] aliviana el procesamiento de rutas y acelera, tiene 2 tecnicas

@@ -179,6 +179,8 @@ access-list 101 permit tcp any any eq 80 time-range HORARIO_LABORAL
 - `show time-range [time-acl-name]`: Ver reglas permitidas por tiempo
 
 # Troubleshooting
+- `[acl-name]`
+	- Case-Sensitive: Mayuscula != Minuscula, cuidado con el nombre
 
 ## IPv6
 Los mensajes NA y NS para NDP deben estar permitidos una configuracion como `deny ipv6 any any log` puede romper eso y generar problemas en IPv6

@@ -5,7 +5,7 @@ Puede enviar trafico basandose en
 - Direccion IP de origen y destino
 - Protocolo
 - Longitud del prefijo
-- [[010 - Protocolos/010.1 - Routing/Route-Map|Route-Map]]
+- [[020 - Conceptos/020.1 - Administracion/Route-Map|Route-Map]]
 - [[020 - Conceptos/020.1 - Administracion/Prefix-List|Prefix-List]]
 - [[020 - Conceptos/020.1 - Administracion/ACL|ACL]]
 

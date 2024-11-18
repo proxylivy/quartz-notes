@@ -2,7 +2,7 @@
 ## Imagen Topologia
 ![500](https://slink.proxylivy.work/image/82603b01-6037-42fe-830b-e7f8e57de367.png)
 ## Sobre
-Implementacion de [[020 - Conceptos/020.1 - Administracion/Prefix-List|Prefix-List]] y [[010 - Protocolos/010.1 - Routing/Route-Map|Route-Map]]
+Implementacion de [[020 - Conceptos/020.1 - Administracion/Prefix-List|Prefix-List]] y [[020 - Conceptos/020.1 - Administracion/Route-Map|Route-Map]]
 ## Requerimientos
 - Habilitar [[010 - Protocolos/010.1 - Routing/EIGRP/EIGRP|EIGRP]] según AS propuesto y [[010 - Protocolos/010.1 - Routing/OSPF/OSPFv2|OSPFv2]] de forma clásica. Dejar interfaces pasivas donde sea necesario.
 - Considerar para R4, que las loopback en IPv4 deben ser enrutadas para EIGRP y para IPv6 enrutadas en OSPF.

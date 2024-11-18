@@ -57,7 +57,7 @@ ip router ospf [proceso]
 area [area-id] stub
 ```
 ### Not-Advertise
-Permite filtrar rutas sin usar [[020 - Conceptos/020.1 - Administracion/ACL|ACL]] o [[020 - Conceptos/020.1 - Administracion/Prefix-List|Prefix-List]] o [[010 - Protocolos/010.1 - Routing/Route-Map|Route-Map]]
+Permite filtrar rutas sin usar [[020 - Conceptos/020.1 - Administracion/ACL|ACL]] o [[020 - Conceptos/020.1 - Administracion/Prefix-List|Prefix-List]] o [[020 - Conceptos/020.1 - Administracion/Route-Map|Route-Map]]
 ```
 router ospf [proceso]
 area [area-id] range [ip-network] [dec-mask] not-advertise

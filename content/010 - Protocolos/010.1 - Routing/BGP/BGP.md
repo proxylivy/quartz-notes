@@ -101,5 +101,5 @@ Los ASN se pueden usar para enrutar pero no para internet (enviado por `as-path`
 
 
 - Rutas iBGP no se prograpan por la regla del horizonte dividido | [[#Router Reflector]]
-- Permite filtrar rutas con [[010 - Protocolos/010.1 - Routing/Route-Map|Route-Map]], [[020 - Conceptos/020.1 - Administracion/Prefix-List|Prefix-List]] y [[999 - Archivado/PBR|PBR]]
+- Permite filtrar rutas con [[020 - Conceptos/020.1 - Administracion/Route-Map|Route-Map]], [[020 - Conceptos/020.1 - Administracion/Prefix-List|Prefix-List]] y [[999 - Archivado/PBR|PBR]]
 - La [[020 - Conceptos/020.3 - Fundamentos/Sumarizacion de Redes|Sumarizacion]] puede ser sin o con supresion de redes

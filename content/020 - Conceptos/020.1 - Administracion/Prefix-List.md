@@ -1,5 +1,5 @@
  
-Solo Filtra pero se complementa con [[010 - Protocolos/010.1 - Routing/Route-Map|Route-Map]], y [[010 - Protocolos/010.1 - Routing/Redistribucion|Redistribucion]]. A diferencia de las [[020 - Conceptos/020.1 - Administracion/ACL|ACL]], que usan Wildcard y crea rutas para sumarizar, las prefix-list son mas exactas y flexibles, gracias al uso de los parametros `ge`(>) y `le`(<), que permiten `{permit|deny}` prefijos.
+Solo Filtra pero se complementa con [[020 - Conceptos/020.1 - Administracion/Route-Map|Route-Map]], y [[010 - Protocolos/010.1 - Routing/Redistribucion|Redistribucion]]. A diferencia de las [[020 - Conceptos/020.1 - Administracion/ACL|ACL]], que usan Wildcard y crea rutas para sumarizar, las prefix-list son mas exactas y flexibles, gracias al uso de los parametros `ge`(>) y `le`(<), que permiten `{permit|deny}` prefijos.
 
 El valor de tag aumenta de 5 en 5
 # Configuracion

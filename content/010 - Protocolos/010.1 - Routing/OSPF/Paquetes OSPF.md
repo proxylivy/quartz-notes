@@ -13,8 +13,13 @@ Tipos de LSA
 	- Solo existe en conexiones multiacceso, no se genera en conexiones seriales ni se mantiene info en LSDB
 - Tipo 3 (Summary) (OIA)
 	- Routers ABR comunican rutas de un area a otra transformando los LSA de tipo 1 -> tipo 3, solo cuando estan contiguas al area 0 (Excepto con Virtual Link)
-- Tipo 4 (Summary ASBR) (OE1/OE2)
-	- Rutas Externas sumarizadas de otro protocolo
+- Tipo 4 (Summary ASBR) 
+	- OE1
+		- Metrica varia y se suma con cada paso
+		- Rutas Externas sumarizadas de otro protocolo
+	- OE2
+		- Metrica estatica y exacta
+		- Rutas Externas sumarizadas de otro protocolo
 - Tipo 5 (AS Exteral) (OE1/OE2)
 	- Rutas Externas
 

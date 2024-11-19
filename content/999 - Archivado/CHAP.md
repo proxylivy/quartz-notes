@@ -1,21 +1,26 @@
+# Info
+**C**hallenge-**H**andshake **A**uthentication **P**rotocol es un enlace basado en el saludo de 3 vias, autenticacion mediante MD5. Su funcionamiento verifica ambas bases de datos locales para poder iniciar sesion
 
+`Username = Hostname Local Router`, la contraseña es compartida
 
 # Configuracion
 ```
 !# R1
-R1(config)#username R2 password cisco2023
-R1(config)#interface serial 1/0
-R1(config-if)#encapsulation ppp
-R1(config-if)#ppp authentication chap
-R1(config-if)#exit
+username R2 password cisco2023
+interface serial 1/0
+ encapsulation ppp
+ ppp authentication chap
+ exit
 
 !# R2
-R2(config)#username R1 password cisco2023
-R2(config)#interface serial 1/0
-R2(config-if)#encapsulation ppp
-R2(config-if)#ppp authentication chap
-R2(config-if)#exit
+username R1 password cisco2023
+interface serial 1/0
+ encapsulation ppp
+ ppp authentication chap
 ```
 
 # Visualizacion
-`debug ppp authentication`: se visualiza los mensajes solicitando autenticacion
+- `show ip int brief`
+- `show ppp all`
+- `show username`
+- `debug ppp authentication`: se visualiza los mensajes solicitando autenticacion

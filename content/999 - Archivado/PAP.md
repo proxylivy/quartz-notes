@@ -1,15 +1,20 @@
+# Info
+**P**assword **A**uthentication **P**rotocol es un enlace con autenticacion en texto plano y verifica ambas bases de datos locales
+
+`Username = Hostname Local Router` y la contraseña es compartida
 
 # Configuracion
 ```
-R1(config)#username R2 password cisco2023
-R1(config)#interface serial 1/0
-R1(config-if)#ppp authentication pap
-R1(config-if)#ppp pap sent-username R1 password cisco2023
-R1(config-if)#exit
-
-R2(config)#username 1 password cisco2023
-R2(config)#interface serial 1/0
-R2(config-if)#ppp authentication pap
-R2(config-if)#ppp pap sent-username R2 password cisco2023
-R2(config-if)#exit
+!# R1
+username R2 password cisco2023
+interface serial 1/0
+ ppp authentication pap
+ ppp pap sent-username R1 password cisco2023
+ exit
+!
+!# R2
+username 1 password cisco2023
+interface serial 1/0
+ ppp authentication pap
+ ppp pap sent-username R2 password cisco2023
 ```

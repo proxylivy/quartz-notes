@@ -76,7 +76,7 @@ ip default-gateway [ip-default-gateway]
 `show vlan id [number]` -> Muestra info por id
 `show vlan name [name]` -> Muestra info por nombre
 `show interface trunk` -> Resumen vlan -> Interfaz Troncal
-`show interfaces int [S/S/P] switchport` -> Ver informacion detallada de la interfaz
+`show interfaces [int S/S/P] switchport` -> Ver informacion detallada de la interfaz
 `show running-config | begin interface [int S/S/P]` -> Ver configuracion de puerto
 `show mac address-table dynamic` -> Resumen Relacion VLAN -> MAC
 

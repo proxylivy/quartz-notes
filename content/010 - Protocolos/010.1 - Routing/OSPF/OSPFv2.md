@@ -18,7 +18,7 @@
 ### Habilitar OSPF con Redes
 ```
 router ospf [proceso]
-network [ip-network] [wilcard or dec-mask] area [number-area]
+network [ip-network] [wilcard or dec-mask] area [area-id]
 ```
 
 ### Configuracion Router-ID

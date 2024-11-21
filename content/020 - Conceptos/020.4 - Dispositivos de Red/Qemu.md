@@ -2,7 +2,6 @@
 [KVM/Qemu](https://www.qemu.org/) es un emulador y virtualizador de maquinas Open-Source con un rendimiento casi nativo, usa librerias asociadas como [XEN](https://xenproject.org/) y [libvirt](https://libvirt.org/)
 
 
-
 Tiene una [wiki](https://wiki.qemu.org) con mas informacion
 
 Convertir discos de Virtualbox o VmWare(VDI, VHD, VHDX) a qemu(Raw o Qcow2)

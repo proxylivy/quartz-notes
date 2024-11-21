@@ -19,7 +19,7 @@ Nota: Es importante que use sus propias palabras, no se acepta copy-paste y refe
 
 ### ITEM III: Haga un Analisis del archivo FOTOS.EXE (10 puntos)
 Nota1: Debera usar MSFVENOM para generar el archivo "FOTOS.EXE" y generar el ataque de "REVERSE_TCP", este archivo estara ubicado en Descargas y Entregue los IoC(Indicadores de Compomiso) de ese archivo (IP, HASH) y recomendaciones de seguridad. Incluir Capturas de pantalla.
-Nota2: Usar VM "Win 7 IE" y los sitios [URLSCAN](), [Virustotal]() o alguna otra.
+Nota2: Usar VM "Win 7 IE" y los sitios URLSCAN, Virustotal o alguna otra.
 
 ### ITEM IV: Generar politicas de Firewall e IPtables (5 Puntos)
 Nota1: Usar VM "Kali Linux" y Evidenciar configuraciones en el informe

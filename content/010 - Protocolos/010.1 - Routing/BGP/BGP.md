@@ -31,20 +31,15 @@
 > Fuente: [Wikipedia - BGP Adjacency Status](https://upload.wikimedia.org/wikipedia/commons/a/a8/BGP_FSM.svg)
 >```mermaid
 >graph TD
->    Idle --> Idle
 >    Idle <--> Connect
->    Connect --> Connect
 >    Connect --> OpenSent
 >    Connect <--> Active
 >    Active <--> OpenSent
->    Active --> Active
 >    Active --> Idle
 >    OpenSent --> Idle
 >    OpenSent --> OpenConfirm
 >    OpenConfirm --> Idle
->    OpenConfirm --> OpenConfirm
 >    OpenConfirm --> Established
->    Established --> Established
 >    Established --> Idle
 >```
 

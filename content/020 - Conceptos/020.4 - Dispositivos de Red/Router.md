@@ -103,7 +103,7 @@ Cada interfaz puede conectar un tipo de red (Gigabit, FastEthernet, HWIC, Serial
 	- Prefix-list
 		- `sh ip prefix-list`
 7. Tecinas Manipulacion de rutas
-- Componenentes: [[020 - Conceptos/020.1 - Administracion/Route-Map|Route-Map]] / [[999 - Archivado/PBR|PBR]]
+- Componenentes: [[020 - Conceptos/020.1 - Administracion/Route-Map|Route-Map]] / [[020 - Conceptos/020.1 - Administracion/PBR|PBR]]
 - Problemas: Trafico mal aplicado, no funciona como se desea
 	- Route-Map
 		- `sh route-map`: Lista todas las listas

@@ -242,7 +242,7 @@ Hay protocolos que afectan mas de una capa, o que viven entre ellas, como los pr
 - Servicio de Seguridad en Telecomunicaciones (ITU-T X.800 recomendation)
 - CMIP (Common Management Information Protocol)
 - CMIS (Common Management Information Service)
-- MPLS (Multiprotocol Label Switching) | ATM | X.25: Se les dice "Capa 2.5"
+- [[010 - Protocolos/010.1 - Routing/MPLS|MPLS]] | ATM | X.25 | Frame Relay: Se les dice "Capa 2.5"
 - IEEE 802.11 Wi-fi (BSSID): Mac & Modulacion Inalambrica PHY: Se les dice "Capa 2.5"
 
 ## Capas de abstraccion como Stack de Protocolos

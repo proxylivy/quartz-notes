@@ -1,6 +1,6 @@
 **V**irtual **R**outing and **F**orwarding es una tecnologia que permite la coexistencia de multiples instancias de tablas de enrutamiento en un mismo router, lo que permite manetener separadas las rutas de diferentes clientes o redes
 
-`VRF-Lite` es la implementacion de VRF sin la necesidad de [[999 - Archivado/MPLS|MPLS]], Se utiliza para crear instancias de enrutamiento separadas en [[020 - Conceptos/020.4 - Dispositivos de Red/Router|Router]] sin la complejidad de MPLS, permitiendo la segmentacion de redes en entornos empresariales o para soportar multiples conexiones [[010 - Protocolos/010.3 - Comunicaciones/VPN|VPN]]
+`VRF-Lite` es la implementacion de VRF sin la necesidad de [[010 - Protocolos/010.1 - Routing/MPLS|MPLS]], Se utiliza para crear instancias de enrutamiento separadas en [[020 - Conceptos/020.4 - Dispositivos de Red/Router|Router]] sin la complejidad de MPLS, permitiendo la segmentacion de redes en entornos empresariales o para soportar multiples conexiones [[010 - Protocolos/010.3 - Comunicaciones/VPN|VPN]]
 
 Recuerda dar ip de las interfaces troncales entre routers antes de configurar VRF
 
@@ -69,7 +69,7 @@ router eigrp [AS-name]
 > Ejemplo Completo basado en la siguiente imagen
 
 > [!NOTE]- Nota
-> ![1000](https://slink.proxylivy.work/image/38e52e5a-58cb-4cd9-a04f-20dbe60e2947.png)
+> Topologia:  ![1000](https://slink.proxylivy.work/image/38e52e5a-58cb-4cd9-a04f-20dbe60e2947.png)
 
 ## SW-1
 ```
@@ -314,12 +314,24 @@ router eigrp TSHOOT
  exit
 ```
 
-# Visualizar
-- `show ip route | b Gateway`: Ver tabla de enrutamiento global
-- `show ip route vrf [vrf-name] | b Gateway`: Rutas de VRF
-- `show ip vrf int`: Ver interfaces asociadas con VRF
-- `ping vrf [vrf-name] [ip-host]`: Hace ping desde el contexto de una VRF
-
-
 # Troubleshooting
 El orden de creacion es muy importante, primero se crea la regla VRF, luego se aplica a la interfaz, y despues va la ip, configurar la ip primero hara que exista fuera del dominio de VRF
+
+- Definiciones VRF Creadas en cada router
+	- `sh vrf brief`
+- Sub-Interfaces Credas | Relacionado a [[020 - Conceptos/020.1 - Administracion/Enrutamiento Inter-Vlan|Enrutamiento Inter-Vlan]]
+	- `sh ip int brief`: Ver estado de Interfaces y Sub-Interfaces
+	- `show ip vrf int`: Ver Interfaces asocidadas a una definicion VRF
+- Etiquetas VNET asignadas
+	- `sh vrf detail`: Ver informacion general
+- Enrutamiento hacia Internet configurado
+	- `sh ip int brief`
+- Interfaces Troncales aplicadas
+	- `show vrf ipv4 interfaces`
+- Configuracion Protocolo IGP
+	- `show ip protocols vrf [definition-name]`
+- Revisar Rutas [[999 - Archivado/RIB|RIB]], no deberian haber rutas VRF
+	- `show ip route | b Gateway`: Rutas globales
+	- `show ip route vrf [vrf-name] | b Gateway`: Rutas dentro de VRF
+- Ping entre maquinas desde VRF
+	- `ping vrf [vrf-name] [ip-host]`

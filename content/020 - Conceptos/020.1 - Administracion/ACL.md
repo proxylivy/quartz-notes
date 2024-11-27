@@ -7,7 +7,7 @@
 ACL tienen un uso para
 - Identificar redes privadas o publicas que son traducidas por [[010 - Protocolos/010.1 - Routing/NAT#PAT|PAT]]
 - Controlar rutas en [[010 - Protocolos/010.1 - Routing/Redistribucion|Redistribucion]]
-- Definir que paquetes seran procesador por [[999 - Archivado/PBR|PBR]]
+- Definir que paquetes seran procesador por [[020 - Conceptos/020.1 - Administracion/PBR|PBR]]
 - Determinar que paquetes seran aceptados o rechazados por un [[020 - Conceptos/020.4 - Dispositivos de Red/Router|Router]]
 
 El funcionamiento de la ACL se basa en el **Procesamiento Descendente**

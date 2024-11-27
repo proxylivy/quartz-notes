@@ -121,6 +121,8 @@ El TTL en una comunicacion eBGP es de uno, por lo que solo puede llegar al sigui
 - `sh bgp ipv4 unicast`: Tabla BGP IPv4 Interna
 - `sh bgp ipv4 unicast summary`: Resumen BGP, Numero AS Local, adyancencia, prefix
 - `sh bgp ipv4 unicast neighbor [ip]`: Informacion especifica de un vecino BGP
+- `sh bgp ipv4 unicast neighbor | inc ^BGP neighbor |Local port|Foreign port`: mostrar vecinos y puertos usados
+- `sh bgp ipv4 unicast neighor | inc BGP neigbor|TTL`: Ver TTL configurado
 
 # Troubleshooting General
 > [!NOTE]- Nota
@@ -152,9 +154,9 @@ El comando `network` permite que una ruta de la RIB, vaya a la tabla de BGP.
 
 Los ASN se pueden usar para enrutar pero no para internet (enviado por `as-path` de la tabla BGP), crearia problemas, se puede detener con el comando `neighbor [ip] remove-private`
 
-- Permite filtrar rutas con [[020 - Conceptos/020.1 - Administracion/ACL|ACL]] y [[020 - Conceptos/020.1 - Administracion/Prefix-List|Prefix-List]] para poder gestionar el trafico con [[020 - Conceptos/020.1 - Administracion/Route-Map|Route-Map]] y [[999 - Archivado/PBR|PBR]]
+- Permite filtrar rutas con [[020 - Conceptos/020.1 - Administracion/ACL|ACL]] y [[020 - Conceptos/020.1 - Administracion/Prefix-List|Prefix-List]] para poder gestionar el trafico con [[020 - Conceptos/020.1 - Administracion/Route-Map|Route-Map]] y [[020 - Conceptos/020.1 - Administracion/PBR|PBR]]
 - La [[020 - Conceptos/020.3 - Fundamentos/Sumarizacion de Redes|Sumarizacion]] puede ser sin o con supresion de redes
-- Permite ser integrados en uso de [[010 - Protocolos/010.3 - Comunicaciones/VPN|VPN]] con [[999 - Archivado/MPLS|MPLS]]
+- Permite ser integrados en uso de [[010 - Protocolos/010.3 - Comunicaciones/VPN|VPN]] con [[010 - Protocolos/010.1 - Routing/MPLS|MPLS]]
 
 ## Estandares
 - BGP-3

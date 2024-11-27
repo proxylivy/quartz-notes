@@ -20,6 +20,7 @@
 - [ ] Reescribe [[010 - Protocolos/010.3 - Comunicaciones/010.3.1 - AAA/AAA|AAA]] en [[010 - Protocolos/010.3 - Comunicaciones/010.3.1 - AAA/Radius|Radius]] y [[010 - Protocolos/010.3 - Comunicaciones/010.3.1 - AAA/Tacacs+|Tacacs+]]
 - [ ] Linkear Bien los links de Puertos Acceso/Troncales a Puertos
 - [ ] Actualizar Packet Tracer a 8.2.2 (Low Priority)
+- [ ] Mueve el contenido no neutral de [[010 - Protocolos/010.3 - Comunicaciones/VPN|VPN]] a [[010 - Protocolos/010.1 - Routing/IPSEC|IPSEC]]
 
 ### Reescribe
 - [ ] Esta entrada de Wikipedia sobre [Suite de Protoclos de Internet](https://en.wikipedia.org/wiki/Template:Internet_protocol_suite) en [[020 - Conceptos/020.3 - Fundamentos/Modelo OSI|Modelo OSI]]

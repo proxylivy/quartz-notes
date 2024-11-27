@@ -132,6 +132,6 @@ router bgp [BGP-ASN]
 	- `clear bgp ipv6 unicast * soft`
 
 # Extra
-- En [[999 - Archivado/MPLS|MPLS]] se utiliza para intercambiar etiquetas [[010 - Protocolos/010.3 - Comunicaciones/VPN|VPN]] 
+- En [[010 - Protocolos/010.1 - Routing/MPLS|MPLS]] se utiliza para intercambiar etiquetas [[010 - Protocolos/010.3 - Comunicaciones/VPN|VPN]] 
 - Dentro de los AF no hay tabuleos
 

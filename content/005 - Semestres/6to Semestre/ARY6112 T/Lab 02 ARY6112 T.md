@@ -256,7 +256,7 @@ traceroute 192.168.1.1 source 10.10.1.1
 ```
 
 # Configuracion Parte 3
-Usar [[999 - Archivado/PBR|PBR]] a travez de [[020 - Conceptos/020.1 - Administracion/Route-Map|Route-Map]] con [[020 - Conceptos/020.1 - Administracion/ACL|ACL]]
+Usar [[020 - Conceptos/020.1 - Administracion/PBR|PBR]] a travez de [[020 - Conceptos/020.1 - Administracion/Route-Map|Route-Map]] con [[020 - Conceptos/020.1 - Administracion/ACL|ACL]]
 ## R1
 ```
 !# Crear ACL
@@ -282,7 +282,7 @@ show ip policy
 ```
 
 # Configuracion Parte 4
-[[999 - Archivado/PBR|PBR]] Local
+[[020 - Conceptos/020.1 - Administracion/PBR|PBR]] Local
 ## R1
 ```
 !# Crear ACL

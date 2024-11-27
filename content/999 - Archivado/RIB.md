@@ -1,8 +1,8 @@
 ---
 
 ---
-**R**outing **I**nformation **B**ase o Tabla de enrutamiento
-
+# Info
+**R**outing **I**nformation **B**ase o Tabla de enrutamiento, contiene las rutas a diferentes lugares, cuando se enruta, se revisa en la tabla FIB para revisar donde enviar
 
 # Visualizacion
 `show ip route`

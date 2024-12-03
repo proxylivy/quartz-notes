@@ -16,5 +16,6 @@ no shut
 ```
 
 # Visualizacion
-`show ip int brief`
-`show int multilink [multilink-group-number]`
+- `sh ip int brief`
+- `sh int multilink [multilink-group-number]`
+- `sh ppp all`

@@ -152,7 +152,7 @@ int [S/S/P]
  exit
 ```
 
-### Implementar MP-BGP y Montar VPNv4
+## Implementar MP-BGP y Montar VPNv4
 > - Solo se configura en los `PE` y entre `PE`
 > - Nota: Cuando se crea la adyancencia, se crea un `send-community extended` dentro de VPNv4 AF en BGP
 ```

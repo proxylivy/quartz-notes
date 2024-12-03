@@ -32,14 +32,10 @@ graph TD;
 	- `show ip int brief`: Resumen interfaces
 	- `show int status`: Velocidad, estado y err-disable
 	- `show int [int S/S/P]`: detalles sobre interfaz
-~~2. Interfaz encapsulacion (PPP - HDLC)~~
-	- ~~`show int [int S/S/P]`~~
 3. Asignacion de [[010 - Protocolos/010.2 - Switching/VLAN|VLAN]] (Troncales y Acceso)
 	- `show vlan brief`: Creacion de vlans | `show vlan`
 	- `show vlan id [vlan-id]`
 	- `show interfaces trunk`: VLANs permitidas en enlaces troncales
-	- ~~`show mac address-table dynamic`: IDK~~
-	- ~~`show vtp status`: Verifica modo VTP y la version (v1)~~
 4. [[010 - Protocolos/010.2 - Switching/Etherchannel|Etherchannel]]
 	1. General
 		- `show etherchannel summary`: Resumen y detalle grupos
@@ -47,7 +43,6 @@ graph TD;
 		- `sh etherchannel [po-number] detail | s Mode`
 		- `show etherchannel detail`: Detalle sobre Negociacion de grupo
 		- `show etherchannel port-channel`: VLAN asignadas
-		- ~~`show etherchannel load-balance`: Estado de balanceo de carga~~
 	2. LACP
 		- `show lacp internal`: Estado LACP, Ver modo Pasivo / Activo
 		- `show lacp neighbor`: Vecinos LACP

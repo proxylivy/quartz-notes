@@ -1,4 +1,5 @@
-**I**nterior **G**ateway **P**rotocol, son un conjunto de protocolos dentro de un AS(Autonomous System).
+# Info
+**I**nterior **G**ateway **P**rotocol, es un conjunto de protocolos dentro de un AS(Autonomous System).
 
 ## Vector-Distancia
 Cada nodo solo tiene informacion sobre los vecinos y sincronizan las tablas de enrutamiento que usan en cada ciclo, usa el algoritmo de [Bellman-Ford](https://es.wikipedia.org/wiki/Algoritmo_de_Bellman-Ford). 

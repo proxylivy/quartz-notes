@@ -53,7 +53,7 @@ int tunnel [tunnel-number]
 ```
 
 ### Asegurar IPSEC
-> Creo que esta configuracion se ignora en el ramo
+> Vaya Vaya Vaya...
 ```
 crypto isakmp policy 90
  hash sha384

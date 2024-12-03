@@ -73,16 +73,16 @@ Su labor será la detección, documentación y resolución de problemas, que han
 
 | Criterios de Evaluacion                                                                                                                                                | CL<br>10 pts. | L<br>5 pts. | PL<br>3 pts. | NL<br>0 pts. |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------- | ------------ | ------------ |
-| 1. Documenta los tickets solicitados indicando<br>- Enfoque<br>- Equipo y error correspondiente<br>- Comandos para encontrar error<br>- Comandos para solucionar error |               |             |              |              |
-| 2. Resolver Ticket 1: Tecnologias en Capa 2                                                                                                                            |               |             |              |              |
-| 3. Resolver Ticket 2: Alta disponibilidad                                                                                                                              |               |             |              |              |
-| 4. Resolver Ticket 3: Enrutamiento IGP                                                                                                                                 |               |             |              |              |
-| 5. Resolver Ticket 4: Enrutamiento EGP                                                                                                                                 |               |             |              |              |
-| 6. Resolver Ticket 5: Tunel GRE over 4                                                                                                                                 |               |             |              |              |
-| 7. Resolver Ticket 6: Servicios avanzados IP                                                                                                                           |               |             |              |              |
-| 8. Realiza Mejoras de Ticket 1 y 2                                                                                                                                     |               |             |              |              |
-| 9. Realiza Mejoras de Ticket 3 y 6                                                                                                                                     |               |             |              |              |
-| 10. Conectividad Completa PC-VLAN 10 -> ISP y EDGE                                                                                                                     |               |             |              |              |
+| 1. Documenta los tickets solicitados indicando<br>- Enfoque<br>- Equipo y error correspondiente<br>- Comandos para encontrar error<br>- Comandos para solucionar error |               | x           |              |              |
+| 2. Resolver Ticket 1: Tecnologias en Capa 2                                                                                                                            | x             |             |              |              |
+| 3. Resolver Ticket 2: Alta disponibilidad                                                                                                                              |               | x           |              |              |
+| 4. Resolver Ticket 3: Enrutamiento IGP                                                                                                                                 | x             |             |              |              |
+| 5. Resolver Ticket 4: Enrutamiento EGP                                                                                                                                 | x             |             |              |              |
+| 6. Resolver Ticket 5: Tunel GRE over 4                                                                                                                                 | x             |             |              |              |
+| 7. Resolver Ticket 6: Servicios avanzados IP                                                                                                                           | x             |             |              |              |
+| 8. Realiza Mejoras de Ticket 1 y 2                                                                                                                                     | x             |             |              |              |
+| 9. Realiza Mejoras de Ticket 3 y 6                                                                                                                                     | x             |             |              |              |
+| 10. Conectividad Completa PC-VLAN 10 -> ISP y EDGE                                                                                                                     | x             |             |              |              |
 
 # Configuracion
 ## Equipo: ALS1

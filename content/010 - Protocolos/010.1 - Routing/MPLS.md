@@ -59,8 +59,8 @@ int [int S/S/P]
 
 ### Configura enrutamiento
 > [!NOTE] Nota
-> Puedes Configurar protocolos de [[020 - Conceptos/020.3 - Fundamentos/IGP|IGP]]
-> Vecindad entre `PE` y `CE`
+> - Puedes Configurar protocolos de [[020 - Conceptos/020.3 - Fundamentos/IGP|IGP]]
+> - Vecindad entre `PE` y `CE`
 ```
 !# RIP
 !
@@ -116,9 +116,9 @@ router ospf [area-id]
 ```
 
 ### Modificar Costo Interfaz OSPF
-> OPCIONAL, configurado en `P` o `PE`
-> Usado para elegir rutas cuando hay mas de una
-> Se debe reiniciar el proceso OSPF
+> - OPCIONAL, configurado en `P` o `PE`
+> - Usado para elegir rutas cuando hay mas de una
+> - Se debe reiniciar el proceso OSPF
 ```
 int [S/S/P]
  ip ospf cost [ospf-cost-number]
@@ -128,17 +128,17 @@ clear ip ospf process
 ```
 
 ### Modificar Rango de Etiquetas en uso
-> Opcional, se configura en `PE`
-> Se debe reiniciar el router
+> - Opcional, se configura en `PE`
+> - Se debe reiniciar el router
 ```
 mpls label range [min-label] [max-label]
 do reload
 ```
 
 ### Implementar VRF
-> Solo se configura en los `PE`, la interfaz va hacia cada `CE`
-> `export`: Mi sucursal a la otra
-> `import`: La otra sucursal a la mia
+> - Solo se configura en los `PE`, la interfaz va hacia cada `CE`
+> - `export`: Mi sucursal a la otra
+> - `import`: La otra sucursal a la mia
 ```
 ip vrf [vrf-name]
  rd [BGP-ASN]:[NN]
@@ -153,8 +153,8 @@ int [S/S/P]
 ```
 
 ### Implementar MP-BGP y Montar VPNv4
-> Solo se configura en los `PE` y entre `PE`
-> Nota: Cuando se crea la adyancencia, se crea un `send-community extended` dentro de VPNv4 AF en BGP
+> - Solo se configura en los `PE` y entre `PE`
+> - Nota: Cuando se crea la adyancencia, se crea un `send-community extended` dentro de VPNv4 AF en BGP
 ```
 router bgp [BGP-ASN]
  bgp router-id [RID]
@@ -183,8 +183,8 @@ router bgp [BGP-ASN]
 ```
 
 ### Solucionar Problema con AS_PATH
-> Se configura en `CE`, con el vecino `PE`
-> Omite la verificacion del bucle anti-enrutamiento de BGP
+> - Se configura en `CE`, con el vecino `PE`
+> - Omite la verificacion del bucle anti-enrutamiento de BGP
 ```
 router bgp [BGP-ASN]
  neighbor [ip-neighbor] allowas-in

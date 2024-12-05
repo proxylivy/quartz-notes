@@ -128,15 +128,15 @@ int [int S/S/P]
 ip summary-address eigrp [AS-number] [IPv4-network/dec-mask]
 ```
 ### Modificar Temporizadores
-Pueden funcionar con tiempos disparejos entre routers
-Tiempos por Defecto en [[#Datos]]
+> - Pueden funcionar con tiempos disparejos entre routers
+> - Tiempos por Defecto en [[#Datos]]
 ```
 int [int S/S/P]
 ip hello-interval eigrp [AS-number] [hello-interval-sec]
 ip hold-time eigrp [AS-number] [hold-time-sec]
 ```
 ### Autenticacion
-Se configura en la vista de configuracion general `R1 (config)#`, ambas interfaces deben estar autenticadas para generar adyacencia
+> Se configura en la vista de configuracion general `R1 (config)#`, ambas interfaces deben estar autenticadas para generar adyacencia
 ```
 key chain [llavero]
 key 1

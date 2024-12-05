@@ -55,8 +55,8 @@ Cada interfaz puede conectar un tipo de red (Gigabit, FastEthernet, HWIC, Serial
 	- Problemas: R-ID / Pasivas / Network / Neighbor / Area / Tipo Area / Temporizadores (int) / Autenticacion (int) Incorrectas
 		- Ver Detalles configuracion (R-ID, A-ID, Pasivas, Estado, etc.)
 			- `sh ip protocol`
-			- `sh run | s router ospf`
 			- `show ip ospf`
+			- `sh run | s router ospf`
 		- Vecinos OSPF
 			- `sh ip ospf neighbor`
 			- `sh ipv6 ospf neighbor`

@@ -14,7 +14,7 @@ dns-server [ip-dns]
 domain-name [domain-name]
 ```
 ## IP Helper
-Se configura por ejemplo en las [[010 - Protocolos/010.2 - Switching/VLAN#|VLAN]] de un MLS para que apunte a un Router
+> `int` -> Dispositivos Finales
 ```
 int [int S/S/P]
 ip helper-address [ip-router-dhcp]

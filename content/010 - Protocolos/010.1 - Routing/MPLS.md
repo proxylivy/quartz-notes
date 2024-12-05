@@ -199,10 +199,9 @@ traceroute [ip-neighbor] source loopback 0 numeric
 - `sh cdp neighbors`: Ver conexiones entre sucursales MPLS L2
 - `sh mpls interfaces`
 - `sh mpls lpd neighbors`
-- `sh forwarding table`: Ver etiquetas de entrada y salida
+- `sh cef table`: Ver etiquetas de entrada y salida
 - `sh mpls label range`: Rango de etiquetas
-- `show ip bgp vpnv4 all`: Comprobar red MPLS
-- `sh ip bgp vpnv4 all`
+- `sh ip bgp vpnv4 all`: Comprobar red MPLS
 
 # Extra
 - Definido en el [RFC3031](https://www.rfc-editor.org/rfc/rfc3031)

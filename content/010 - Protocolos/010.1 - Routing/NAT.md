@@ -3,8 +3,8 @@ NOTA: si no piden nat, se configura ruta por defecto en el router antes del ISP
 # Configuracion
 ## PAT
 Tambien conocido como **NAT con sobrecarga**
-Nota: Debes crear una [[020 - Conceptos/020.1 - Administracion/ACL#ACL Estandar Nombrada (Denegando 1 ip)|ACL]] estandar para permitir las ip-network
-Nota 2: `int` de overload es la que va hacia afuera
+> - Nota: Debes crear una [[020 - Conceptos/020.1 - Administracion/ACL#ACL Estandar Nombrada (Denegando 1 ip)|ACL]] estandar para permitir las ip-network
+> - Nota 2: `int` de overload es la que va hacia afuera
 ```
 ip nat inside source list [list-name] int [int S/S/P] overload
 !# Aplicar PAT en las interfaces

@@ -19,28 +19,23 @@ ip address [ip] [dec-mask]
 exit
 router eigrp [eigrp-name]
 address-family ipv4 unicast autonomous-system [AS]
-network 0.0.0.0 255.255.255.255
+network [ip-network] [dec-mask]
 ```
 ## Autenticacion Nombrada
+> Configuracion en modo configuracion Global `RX(config)#`
 ```
-R1 (config)# !
 key chain [llavero]
 key 1
 key-string [password]
 exit
 exit
-router eigrp ??ROUTE??
+router eigrp TSHOOT
 address-family ipv4 autonomous-system [AS]
-network 10.10.0.0 0.0.255.255
+network [ip-network] [dec-mask]
 af-interface [int S/S/P]
 authentication key-chain [llavero]
 authentication mode hmac-sha-256 [password]
-end
 ```
-
-
-# Visualizacion
-
 
 ## Extras
 Funciona en 64 bits

@@ -160,7 +160,6 @@ router bgp [BGP-ASN]
  bgp router-id [RID]
  neighbor [ip-neighbor] remote-as [BGP-ASN]
  neighbor [ip-neighbor] update-source loopback [loopback-number]
-router bgp [BGP-ASN]
  address-family vpnv4 unicast
   neighbor [ip-neighbor] activate
 ```

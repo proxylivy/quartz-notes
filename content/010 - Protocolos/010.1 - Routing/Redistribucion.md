@@ -1,6 +1,8 @@
 La redistribucion es una tecnica que permite que diferentes protocolos "Hablen el mismo idioma" al permitir compartir informacion de rutas y que las usen en las tablas RIB (Routing Information Base), estas rutas que ingresan deben respetar las normas del protocolo donde se injectan.
 Se configura en la salida de la interfaz hacia el otro protocolo.
-Su mala aplicacion puede botar el protocolo que se intenta comunicar.
+
+> [!IMPORTANT] Importante
+> Su mala aplicacion puede botar el protocolo que se intenta comunicar.
 
 Se evita usar ACL:
 - Mascara de subred no puede ser facilmente igualada
@@ -10,7 +12,7 @@ Se evita usar ACL:
 Tipos de redistibucion
 - Rutas Estaticas
 - Directa entre protocolos
-- Usar [[020 - Conceptos/020.1 - Administracion/Prefix-List|Prefix-List]] y [[020 - Conceptos/020.1 - Administracion/Route-Map|Route-Map]]
+- [[020 - Conceptos/020.1 - Administracion/Prefix-List|Prefix-List]] y [[020 - Conceptos/020.1 - Administracion/Route-Map|Route-Map]]
 
 ## BGP
 En [[010 - Protocolos/010.1 - Routing/BGP/BGP|BGP]] aliviana el procesamiento de rutas y acelera, tiene 2 tecnicas

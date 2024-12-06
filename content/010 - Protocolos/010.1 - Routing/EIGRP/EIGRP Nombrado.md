@@ -12,29 +12,29 @@ Compatibilidad con [[010 - Protocolos/010.1 - Routing/EIGRP/EIGRP#Parametros K|E
 ## Network Nombrada
 ```
 int loopback [loopback-number]
-ip address [ip] [dec-mask]
-exit
+ ip address [ip] [dec-mask]
+ exit
 int [int S/S/P]
-ip address [ip] [dec-mask]
-exit
+ ip address [ip] [dec-mask]
+ exit
 router eigrp [eigrp-name]
-address-family ipv4 unicast autonomous-system [AS]
-network [ip-network] [dec-mask]
+ address-family ipv4 unicast autonomous-system [AS]
+  network [ip-network] [dec-mask]
 ```
 ## Autenticacion Nombrada
 > Configuracion en modo configuracion Global `RX(config)#`
 ```
 key chain [llavero]
-key 1
-key-string [password]
-exit
-exit
-router eigrp TSHOOT
-address-family ipv4 autonomous-system [AS]
-network [ip-network] [dec-mask]
-af-interface [int S/S/P]
-authentication key-chain [llavero]
-authentication mode hmac-sha-256 [password]
+ key 1
+  key-string [password]
+  exit
+ exit
+router eigrp TSHOOT 
+ address-family ipv4 autonomous-system [AS]
+  network [ip-network] [dec-mask]
+  af-interface [int S/S/P]
+   authentication key-chain [llavero]
+   authentication mode hmac-sha-256 [password]
 ```
 
 ## Extras

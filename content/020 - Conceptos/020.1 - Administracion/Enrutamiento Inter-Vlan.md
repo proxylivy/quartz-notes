@@ -32,6 +32,7 @@ Desventajas
 ### Sub-Int Router
 ```
 int [int S/S/P]
+no ip add
 no shut
 exit
 int [int S/S/P.SV]

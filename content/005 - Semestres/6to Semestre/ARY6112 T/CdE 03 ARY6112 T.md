@@ -76,7 +76,7 @@ Usted trabaja en la empresa “CASO 3 LTDA.”, la cual se encarga de prestar se
 ---
 ## Equipo: R12
 
-- Problema Detectado (Descripcion Breve): Interfaces NAT Incorrectas
+- Problema Detectado (Descripcion Breve): NAT: Flujo interfaces Incorrectas
 
 | Comando para encontrar el problema | Comando Aplicado                                                                                             |
 | ---------------------------------- | ------------------------------------------------------------------------------------------------------------ |
@@ -85,16 +85,9 @@ Usted trabaja en la empresa “CASO 3 LTDA.”, la cual se encarga de prestar se
 ---
 - Problema Encontrado (Descripcion Breve): No tiene configurado OSPF
 
-| Comando para encontrar el problema | Comando Aplicado                                                                                                                                                                                                       |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| show ip protocols<br>show ip ospf  | R12(config)#router ospf 1<br>R12(config-router)#router-id 12.12.12.12<br>R12(config-router)#network 172.16.102.12 0.0.0.0 area 1<br>R12(config-router)#network 172.16.106.12 0.0.0.0 area 1<br>R12(config-router)#exit |
-
----
-- Problema Encontrado (Descripcion Breve): 
-
-| Comando para encontrar el problema | Comando Aplicado |
-| ---------------------------------- | ---------------- |
-|                                    |                  |
+| Comando para encontrar el problema | Comando Aplicado                                                                                                                                                                            |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| show ip protocols<br>show ip ospf  | R12(config)#router ospf 1<br>R12(config-router)#router-id 12.12.12.12<br>R12(config-router)#network 172.16.102.12 0.0.0.0 area 1<br>R12(config-router)#network 172.16.106.12 0.0.0.0 area 1 |
 
 ---
 ## Equipo: R13
@@ -150,7 +143,7 @@ Usted trabaja en la empresa “CASO 3 LTDA.”, la cual se encarga de prestar se
 | show ip protocols                  | R10(config)#router ospf 1<br>R10(config-router)#no network 172.16.102.10 0.0.0.0 area 10<br>R10(config-router)#network 172.16.102.10 0.0.0.0 area 1 |
 
 ---
-- Problema Encontrado (Descripcion Breve): 
+- Problema Encontrado (Descripcion Breve): BGP: Configuracion de Vecinos Faltantes
 
 | Comando para encontrar el problema | Comando Aplicado                                                                                                                                                                                                                                                                 |
 | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -175,16 +168,9 @@ Usted trabaja en la empresa “CASO 3 LTDA.”, la cual se encarga de prestar se
 ---
 - Problema Encontrado (Descripcion Breve): No tiene configurado BGP
 
-| Comando para encontrar el problema | Comando Aplicado                                                                                                                                                                                                                                                                 |
-| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| show ip bgp                        | R11(config)#router bgp 12345<br>R11(config-router)#neighbor 172.16.101.9 remote-as 12345<br>R11(config-router)#neighbor 172.16.101.9 update-source l0<br>R11(config-router)#neighbor 172.16.103.13 remote-as 12345<br>R11(config-router)#neighbor 172.16.103.13 update-source l0 |
-
----
-- Problema Detectado (Descripcion Breve): BGP: Falta Loopback dentro de los prefijos
-
-| Comando para encontrar el problema | Comando Aplicado                                                                            |
-| ---------------------------------- | ------------------------------------------------------------------------------------------- |
-| show ip bgp summary                | R11(config)#router bgp 12345<br>R11(config-router)#network 11.11.11.11 mask 255.255.255.255 |
+| Comando para encontrar el problema | Comando Aplicado                                                                                                                                                                                                                                                                                                                                |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| show ip bgp                        | R11(config)#router bgp 12345<br>R11(config-router)#network 11.11.11.11 mask 255.255.255.255<br>R11(config-router)#neighbor 172.16.101.9 remote-as 12345<br>R11(config-router)#neighbor 172.16.101.9 update-source l0<br>R11(config-router)#neighbor 172.16.103.13 remote-as 12345<br>R11(config-router)#neighbor 172.16.103.13 update-source l0 |
 
 ---
 - Problema Encontrado (Descripcion Breve): VRF Ruta importadas incorrectas
@@ -196,9 +182,9 @@ Usted trabaja en la empresa “CASO 3 LTDA.”, la cual se encarga de prestar se
 ---
 - Problema Detectado (Descripcion Breve): BGP VPNv4 no esta configurado
 
-| Comando para encontrar el problema | Comando Aplicado                                                                                                                                                                                                                                                                                  |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| show ip bgp vpnv4 all              | R11(config)#router bgp 12345<br>R11(config-router)#bgp router-id 11.11.11.11<br>R11(config-router)#neighbor 7.7.7.7 remote-as 12345<br>R11(config-router)#neighbor 7.7.7.7 update-source l0<br>R11(config-router)#address-family vpnv4 unicast<br>R11(config-router-af)#neighbor 7.7.7.7 activate |
+| Comando para encontrar el problema                | Comando Aplicado                                                                                                                                                                                                                                                                                  |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| show ip bgp vpnv4 all<br>show run \| s router bgp | R11(config)#router bgp 12345<br>R11(config-router)#bgp router-id 11.11.11.11<br>R11(config-router)#neighbor 7.7.7.7 remote-as 12345<br>R11(config-router)#neighbor 7.7.7.7 update-source l0<br>R11(config-router)#address-family vpnv4 unicast<br>R11(config-router-af)#neighbor 7.7.7.7 activate |
 
 ---
 - Problema Encontrado (Descripcion Breve): OSPF: Falta ruta Loopback
@@ -208,11 +194,11 @@ Usted trabaja en la empresa “CASO 3 LTDA.”, la cual se encarga de prestar se
 | show ip protocols                  | R11(config)#router ospf 1<br>R11(config-router)#network 11.11.11.11 0.0.0.0 area 0 |
 
 ---
-- Problema Encontrado (Descripcion Breve): 
+- Problema Encontrado (Descripcion Breve): BGP VPNv4 VRF hacia R16
 
-| Comando para encontrar el problema | Comando Aplicado |
-| ---------------------------------- | ---------------- |
-|                                    |                  |
+| Comando para encontrar el problema                      | Comando Aplicado                                                                                                                                                                         |
+| ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| show ip vrf<br>show ip bgp <br>show run \| s router bgp | R11(config)#router bgp 12345<br>R11(config-router)#address-family ipv4 vrf SUCURSAL-PERA2<br>R11(config-router-af)#neighbor 180.180.185.19 remote-as 65002<br>R11(config-router-af)#exit |
 
 ---
 
@@ -240,9 +226,9 @@ Usted trabaja en la empresa “CASO 3 LTDA.”, la cual se encarga de prestar se
 ---
 - Problema Detectado (Descripcion Breve): BGP: No esta configurado
 
-| Comando para encontrar el problema | Comando Aplicado                                                                                                                                                                                              |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| show ip bgp                        | R9(config)#router bgp 12345<br>R9(config-router)#neighbor 172.16.89.8 remote-as 12345<br>R9(config-router)#neighbor 172.16.100.10 remote-as 12345<br>R9(config-router)#neighbor 172.16.101.11 remote-as 12345 |
+| Comando para encontrar el problema | Comando Aplicado                                                                                                                                                                                                                                                                                                                                                                                   |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| show ip bgp                        | R9(config)#router bgp 12345<br>R9(config-router)#neighbor 172.16.89.8 remote-as 12345<br>R9(config-router)#neighbor 172.16.89.8 update-source l0<br>R9(config-router)#neighbor 172.16.100.10 remote-as 12345<br>R9(config-router)#neighbor 172.16.100.10 update-source l0<br>R9(config-router)#neighbor 172.16.101.11 remote-as 12345<br>R9(config-router)#neighbor 172.16.101.11 update-source l0 |
 
 ---
 - Problema Detectado (Descripcion Breve): MPLS: Le falta configuracion Basica
@@ -252,14 +238,6 @@ Usted trabaja en la empresa “CASO 3 LTDA.”, la cual se encarga de prestar se
 | show mpls interfaces               | R9(config)#mpls ldp router-id l0<br>R9(config)#router ospf 1<br>R9(config-router)#mpls ldp autoconfig<br> |
 
 ---
-- Problema Encontrado (Descripcion Breve): 
-
-| Comando para encontrar el problema | Comando Aplicado |
-| ---------------------------------- | ---------------- |
-|                                    |                  |
-
----
-
 ## Equipo: R8
 - Problema Detectado (Descripcion Breve): BGP: No esta configurado
 
@@ -282,21 +260,6 @@ Usted trabaja en la empresa “CASO 3 LTDA.”, la cual se encarga de prestar se
 | show ip protocols<br>show run \| s router ospf | R8(config)#router ospf 1<br>R8(config-router)#no router-id 8.8.8.8<br>R8(config-router)#router-id 88.88.88.88<br>R8(config-router)#no network 88.88.88.8 0.0.0.0 area 0<br>R8(config-router)#network 88.88.88.88 0.0.0.0 area 0<br>R8(config-router)#do clear ip ospf process<br>Reset ALL OSPF processes? \[no\]: yes |
 
 ---
-- Problema Encontrado (Descripcion Breve): 
-
-| Comando para encontrar el problema | Comando Aplicado |
-| ---------------------------------- | ---------------- |
-|                                    |                  |
-
----
-- Problema Encontrado (Descripcion Breve): 
-
-| Comando para encontrar el problema | Comando Aplicado |
-| ---------------------------------- | ---------------- |
-|                                    |                  |
-
----
-
 ## Equipo: R7
 
 - Problema Detectado (Descripcion Breve): Rutas importadas estan incorrectas
@@ -315,9 +278,9 @@ Usted trabaja en la empresa “CASO 3 LTDA.”, la cual se encarga de prestar se
 ---
 - Problema Encontrado (Descripcion Breve): BGP: Faltan Redes de vecinos
 
-| Comando para encontrar el problema       | Comando Aplicado                                                                                                                                                                                                                                                                                                |
-| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| show ip bgp summary<br>show ip protocols | R7(config)#router bgp 12345<br>R7(config-router)#bgp router-id 7.7.7.7<br>R7(config-router)#neighbor 172.16.67.8 remote-as 12345<br>R7(config-router)#neighbor 172.16.67.8 update-source l0<br>R7(config-router)#neighbor 172.16.56.5 remote-as 2345<br>R7(config-router)#neighbor 172.16.56.5 update-source l0 |
+| Comando para encontrar el problema       | Comando Aplicado                                                                                                                                                                                                                                                                                                                                                          |
+| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| show ip bgp summary<br>show ip protocols | R7(config)#router bgp 12345<br>R7(config-router)#bgp router-id 7.7.7.7<br>R7(config-router)#network 7.7.7.7 mask 255.255.255.255<br>R7(config-router)#neighbor 172.16.67.8 remote-as 12345<br>R7(config-router)#neighbor 172.16.67.8 update-source l0<br>R7(config-router)#neighbor 172.16.56.5 remote-as 2345<br>R7(config-router)#neighbor 172.16.56.5 update-source l0 |
 
 ---
 - Problema Detectado (Descripcion Breve): Configurar VRF a R17
@@ -327,22 +290,6 @@ Usted trabaja en la empresa “CASO 3 LTDA.”, la cual se encarga de prestar se
 | show ip vrf brief                  | R7(config)#router bgp 12345<br>R7(config-router)#address-family ipv4 vrf SUCURSAL-PERA1<br>R7(config-router-af)#neighbor 180.180.184.18 remote-as 65001 |
 
 ---
-- Problema Encontrado (Descripcion Breve): BGP: Falta ruta loopback
-
-| Comando para encontrar el problema | Comando Aplicado                                                                      |
-| ---------------------------------- | ------------------------------------------------------------------------------------- |
-| show ip bgp summary                | R7(config)#router bgp 12345<br>R7(config-router)#network 7.7.7.7 mask 255.255.255.255 |
-
----
-- Problema Encontrado (Descripcion Breve): EIGRP Redistribuir Directa Nombrado -> Numerado  1500 10000 1000 255 1 1
-
-
-| Comando para encontrar el problema | Comando Aplicado                                                                                                                                                                                                             |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| show ip protocols                  | R3(config)#router eigrp TSHOOT<br>R3(config-router)#address-family ipv4 autonomous-system 200<br>R3(config-router-af)#topology base<br>R3(config-router-af-topology)#redistribute eigrp 100 metric 10000 1000 255 1 1500<br> |
-
----
-
 ## Equipo: R6
 - Problema Detectado (Descripcion Breve): Loopback 0 no esta configurada
 
@@ -360,21 +307,28 @@ Usted trabaja en la empresa “CASO 3 LTDA.”, la cual se encarga de prestar se
 ---
 - Problema Encontrado (Descripcion Breve): BGP: no esta configurado
 
-| Comando para encontrar el problema | Comando Aplicado                                                                                                                               |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| show ip bgp                        | R6(config)#router bgp 12345<br>R6(config-router)#neighbor 172.16.68.8 remote-as 12345<br>R6(config-router)#neighbor 172.16.56.5 remote-as 2345 |
+| Comando para encontrar el problema | Comando Aplicado                                                                                                                                                                                          |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| show ip bgp                        | R6(config)#router bgp 12345<br>R6(config-router)#neighbor 172.16.68.8 remote-as 12345<br>R6(config-router)#neighbor 172.16.68.8 update-source l0<br>R6(config-router)#neighbor 172.16.56.5 remote-as 2345 |
 
 ---
 ## Equipo: R5
-- Problema Detectado (Descripcion Breve): EIGRP: Configuracion Nombrada con autenticacion inexistente
+- Problema Detectado (Descripcion Breve): EIGRP: Configuracion Nombrada con autenticacion SHA-256 inexistente
 
 | Comando para encontrar el problema              | Comando Aplicado                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | show ip protocols<br>show run \| s router eigrp | R5(config)#no router eigrp 200<br>R5(config)#key chain caso3<br>R5(config-keychain)#key 1<br>R5(config-keychain-key)#key-string caso3<br>R5(config-keychain-key)#exit<br>R5(config-keychain)#exit<br>R5(config)#router eigrp TSHOOT<br>R5(config-router)#address-family ipv4 autonomous-system 200<br>R5(config-router-af)#network 10.10.35.5 0.0.0.0<br>R5(config-router-af)#network 10.10.45.5 0.0.0.0<br>R5(config-router-af)#af-interface e0/1<br>R5(config-router-af-interface)#authentication key-chain caso3<br>R5(config-router-af-interface)#authentication mode hmac-sha-256 caso3<br>R5(config-router-af)#af-interface e0/2<br>R5(config-router-af-interface)#authentication key-chain caso3<br>R5(config-router-af-interface)#authentication mode hmac-sha-256 caso3<br> |
 
 ---
+- Problema Detectado (Descripcion Breve): No debe ser parte de MPLS
+
+| Comando para encontrar el problema | Comando Aplicado                                                                                                                            |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| show mpls interfaces               | R5(config)#no mpls ldp router-id l0<br>R5(config)#router ospf 1<br>R5(config-router)#no mpls ldp autoconfig<br>R5(config-router)#no mpls ip |
+
+---
 ## Equipo: R4
-- Problema Detectado (Descripcion Breve): EIGRP: Configuracion Nombrada Autenticada Inexistente
+- Problema Detectado (Descripcion Breve): EIGRP: Configuracion Nombrada Autenticada SHA-256 Inexistente
 
 | Comando para encontrar el problema              | Comando Aplicado                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -396,7 +350,7 @@ Usted trabaja en la empresa “CASO 3 LTDA.”, la cual se encarga de prestar se
 | show access-lists                  | R2(config)#no ip access-list standard OPTIMIZACION |
 
 ---
-- Problema Encontrado (Descripcion Breve): EIGRP Nombrado Autenticacion SHA 256 no Existe
+- Problema Encontrado (Descripcion Breve): EIGRP Nombrado Autenticacion SHA-256 no Existe
 
 | Comando para encontrar el problema              | Comando Aplicado                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -407,18 +361,11 @@ Usted trabaja en la empresa “CASO 3 LTDA.”, la cual se encarga de prestar se
 
 | Comando para encontrar el problema | Comando Aplicado                                                                                                                      |
 | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| show ppp all                       | R2(config)#int multilink 1<br>R2(config-if)#no ip add<br>R2(config-if)#ip address 10.10.12.2 255.255.255.252<br>R2(config-if)#no shut |
-
----
-- Problema Detectado (Descripcion Breve): EIGRP: Falta red Multilink
-
-| Comando para encontrar el problema | Comando Aplicado                                                            |
-| ---------------------------------- | --------------------------------------------------------------------------- |
-| show ip protocols                  | R2(config)#router eigrp 200<br>R2(config-router)#network 10.10.12.2 0.0.0.0 |
+| show ppp all<br>show ip int brief  | R2(config)#int multilink 1<br>R2(config-if)#no ip add<br>R2(config-if)#ip address 10.10.12.2 255.255.255.252<br>R2(config-if)#no shut |
 
 ---
 ## Equipo: R1
-- Problema Detectado (Descripcion Breve): Multilink Mascara incorrecta
+- Problema Detectado (Descripcion Breve): Interfaz Multilink con mascara incorrecta
 
 | Comando para encontrar el problema | Comando Aplicado                                                                                                 |
 | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
@@ -436,9 +383,31 @@ Usted trabaja en la empresa “CASO 3 LTDA.”, la cual se encarga de prestar se
 
 | Comando para encontrar el problema | Comando Aplicado                                                                                         |
 | ---------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| show run \| s router eigrp         | R1(config)#router eigrp 200<br>R1(config-router)#no shut<br>R1(config-router)#network 10.10.12.1 0.0.0.0 |
+| show run \| s router eigrp         | R1(config)#router eigrp 200<br>R1(config-router)#network 10.10.12.1 0.0.0.0<br>R1(config-router)#no shut |
 
 ---
+- Problema Detectado (Descripcion Breve): DMVPN
+
+| Comando para encontrar el problema | Comando Aplicado                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| show dmvpn                         | R1(config)#int tunnel 0<br>R1(config-if)#ip add 10.10.200.2 255.255.255.0<br>R1(config-if)#tunnel source multi 1<br>R1(config-if)#tunnel mode gre multipoint<br>R1(config-if)#ip nhrp network-id 1<br>R1(config-if)#ip nhrp nhs 10.10.200.1<br>R1(config-if)#ip nhrp map 10.10.200.1 180.180.180.4<br>R1(config-if)#ip nhrp map multicast 180.180.180.4<br>R1(config-if)#exit<br>R1(config)#router eigrp 200<br>R1(config-router)#network 10.10.11.0 255.255.255.0<br>R1(config-router)#network 10.10.200.2 255.255.255.0<br>R1(config-router)#exit<br>R1(config)#crypto isakmp policy 10<br>R1(config-isakmp)#encryption 3des<br>R1(config-isakmp)#authentication pre-share<br>R1(config-isakmp)#group 5<br>R1(config-isakmp)#lifetime 3600<br>R1(config-isakmp)#exit<br>R1(config)#crypto isakmp key RROJASC address 0.0.0.0<br>R1(config)#crypto ipsec transform-set TRANSFO ah-sha-hmac esp-3des<br>R1(cfg-crypto-trans)#mode transport<br>R1(cfg-crypto-trans)#exit<br>R1(config)#crypto ipsec profile DMVPN<br>R1(ipsec-profile)#set transform-set TRANSFO<br>R1(ipsec-profile)#int tunnel 0<br>R1(config-if)#tunnel protection ipsec profile DMVPN |
+
+---
+- Problema Encontrado (Descripcion Breve): 
+
+| Comando para encontrar el problema | Comando Aplicado |
+| ---------------------------------- | ---------------- |
+|                                    |                  |
+
+---
+- Problema Encontrado (Descripcion Breve): 
+
+| Comando para encontrar el problema | Comando Aplicado |
+| ---------------------------------- | ---------------- |
+|                                    |                  |
+
+---
+
 ## Equipo: R18
 
 - Problema Detectado (Descripcion Breve): Interfaz s1/1 apagada para multilink
@@ -460,6 +429,13 @@ Usted trabaja en la empresa “CASO 3 LTDA.”, la cual se encarga de prestar se
 | Comando para encontrar el problema | Comando Aplicado                                                                                                                |
 | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | show ip protocols                  | R18(config)#router eigrp 200<br>R18(config-router)#network 10.10.184.1 0.0.0.0<br>R18(config-router)#network 10.10.18.1 0.0.0.0 |
+
+---
+- Problema Detectado (Descripcion Breve): DMVPN: Falta configuracion SPOKE
+
+| Comando para encontrar el problema | Comando Aplicado                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| show dmvpn                         | R18(config)#int tunnel 0<br>R18(config-if)#ip add 10.10.200.3 255.255.255.0<br>R18(config-if)#tunnel source multi 2<br>R18(config-if)#tunnel mode gre multipoint<br>R18(config-if)#ip nhrp network-id 1<br>R18(config-if)#ip nhrp nhs 10.10.200.1<br>R18(config-if)#ip nhrp map 10.10.200.1 180.180.180.4<br>R18(config-if)#ip nhrp map multicast 180.180.180.4<br>R18(config-if)#exit<br>R18(config)#router eigrp 200<br>R18(config-router)#network 10.10.18.0 255.255.255.0<br>R18(config-router)#network 10.10.200.3 255.255.255.0<br>R18(config-router)#exit<br>R18(config)#crypto isakmp policy 10<br>R18(config-isakmp)#encryption 3des<br>R18(config-isakmp)#authentication pre-share<br>R18(config-isakmp)#group 5<br>R18(config-isakmp)#lifetime 3600<br>R18(config-isakmp)#exit<br>R18(config)#crypto isakmp key RROJASC address 0.0.0.0<br>R18(config)#crypto ipsec transform-set TRANSFO ah-sha-hmac esp-3des<br>R18(cfg-crypto-trans)#mode transport<br>R18(cfg-crypto-trans)#exit<br>R18(config)#crypto ipsec profile DMVPN<br>R18(ipsec-profile)#set transform-set TRANSFO<br>R18(ipsec-profile)#int tunnel 0<br>R18(config-if)#tunnel protection ipsec profile DMVPN |
 
 ---
 ## Equipo: R3
@@ -488,9 +464,9 @@ Usted trabaja en la empresa “CASO 3 LTDA.”, la cual se encarga de prestar se
 ## Equipo: R16
 - Problema Detectado (Descripcion Breve): BGP AS Incorrecto
 
-| Comando para encontrar el problema | Comando Aplicado                                                                                                               |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| show ip protocols                  | R16(config)#no router bgp 650002<br>R16(config)#router bgp 65002<br>R16(config-router)#neighbor 180.180.185.11 remote-as 12345 |
+| Comando para encontrar el problema | Comando Aplicado                                                                                                                                                                           |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| show ip protocols                  | R16(config)#no router bgp 650002<br>R16(config)#router bgp 65002<br>R16(config-router)#network 10.10.26.0 mask 255.255.255.0<br>R16(config-router)#neighbor 180.180.185.11 remote-as 12345 |
 
 ---
 - Problema Encontrado (Descripcion Breve): Enrutamiento subvlan
@@ -509,15 +485,15 @@ Usted trabaja en la empresa “CASO 3 LTDA.”, la cual se encarga de prestar se
 
 ---
 ## Equipo: R14
-- Problema Detectado (Descripcion Breve): EIGRP: Redistribucion al EIGRP AS 200
+- Problema Encontrado (Descripcion Breve): Creacion de DMVPN
 
-| Comando para encontrar el problema | Comando Aplicado                                                                                       |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| show ip protocols                  | R14(config)#router eigrp 100<br>R14(config-router)#redistribute eigrp 200 metric 10000 1000 255 1 1500 |
+| Comando para encontrar el problema | Comando Aplicado                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| show dmvpn                         | R14(config)#int tunnel 0<br>R14(config-if)#ip address 10.10.200.1 255.255.255.0<br>R14(config-if)#tunnel source e1/0<br>R14(config-if)#tunnel mode gre multipoint<br>R14(config-if)#ip nhrp network-id 1<br>R14(config-if)#ip nhrp map multicast dynamic<br>R14(config-if)#exit<br>R14(config)#router eigrp 100<br>R14(config-router)#network 10.10.200.1 255.255.255.0<br>R14(config-router)#exit<br>R14(config)#int tunnel 0<br>R14(config-if)#no ip split-horizon eigrp 100<br>R14(config)#crypto isakmp policy 10<br>R14(config-isakmp)#encryption 3des<br>R14(config-isakmp)#authentication pre-share<br>R14(config-isakmp)#group 5<br>R14(config-isakmp)#lifetime 3600<br>R14(config-isakmp)#exit<br>R14(config)#crypto isakmp key RROJASC address 0.0.0.0<br>R14(config)#crypto ipsec transform-set TRANSFO ah-sha-hmac esp-3des<br>R14(cfg-crypto-trans)#mode transport<br>R14(cfg-crypto-trans)#exit<br>R14(config)#crypto ipsec profile DMVPN<br>R14(ipsec-profile)#set transform-set TRANSFO<br>R14(ipsec-profile)#int tunnel 0<br>R14(config-if)#tunnel protection ipsec profile DMVPN |
 
 ---
 ## Equipo: SW2
-- Problema Detectado (Descripcion Breve): Mascara Incorrecta Interfaz e0/0
+- Problema Detectado (Descripcion Breve): Interfaz e0/0 con mascara incorrecta
 
 | Comando para encontrar el problema    | Comando Aplicado                                                                                            |
 | ------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
@@ -533,9 +509,9 @@ Usted trabaja en la empresa “CASO 3 LTDA.”, la cual se encarga de prestar se
 ---
 - Problema Encontrado (Descripcion Breve): Interfaz e0/3 Apagada y no tiene configurada la seguridad de puerto
 
-| Comando para encontrar el problema   | Comando Aplicado                                                                                                                                                                                                                                                                                         |
-| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| show ip int brief<br>show int status | SW2(config)#int e0/3<br>SW2(config-if)#no switchport port-security mac-address aaaa.bbbb.cccc<br>SW2(config-if)#switchport port-security violation shutdown<br>SW2(config-if)#switchport port-security maximum 3<br>SW2(config-if)#switchport port-security mac-address sticky<br>SW2(config-if)#no shut |
+| Comando para encontrar el problema   | Comando Aplicado                                                                                                                                                                                                                                                                                                                |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| show ip int brief<br>show int status | SW2(config)#int e0/3<br>SW2(config-if)#no switchport port-security mac-address aaaa.bbbb.cccc<br>SW2(config-if)#switchport port-security violation shutdown<br>SW2(config-if)#switchport port-security maximum 3<br>SW2(config-if)#switchport port-security mac-address sticky<br>SW2(config-if)#shut<br>SW2(config-if)#no shut |
 
 ---
 - Problema Detectado (Descripcion Breve): DHCP: No tiene IP-Helper ni IP
@@ -547,16 +523,9 @@ Usted trabaja en la empresa “CASO 3 LTDA.”, la cual se encarga de prestar se
 ---
 - Problema Encontrado (Descripcion Breve): Red VLAN 20 falta en EIGRP y BGP
 
-| Comando para encontrar el problema | Comando Aplicado                                                                                                                                                                     |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| show ip protocols                  | SW2(config)#router eigrp 100<br>SW2(config-router)#network 192.168.20.1 0.0.0.0<br>SW2(config-router)#exit<br>SW2(config)#router bgp 1415<br>SW2(config-router)#network 192.168.20.0 |
-
----
-- Problema Detectado (Descripcion Breve): EIGRP: Redistribucion al EIGRP AS 200
-
-| Comando para encontrar el problema | Comando Aplicado                                                                                       |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| show ip protocols                  | R15(config)#router eigrp 100<br>R15(config-router)#redistribute eigrp 200 metric 10000 1000 255 1 1500 |
+| Comando para encontrar el problema | Comando Aplicado                                                                                                                                                             |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| show ip protocols                  | SW2(config)#router eigrp 100<br>SW2(config-router)#network 192.168.20.1 0.0.0.0<br>SW2(config)#router bgp 1415<br>SW2(config-router)#network 192.168.20.0 mask 255.255.255.0 |
 
 ---
 ## Equipo: R17
@@ -568,7 +537,7 @@ Usted trabaja en la empresa “CASO 3 LTDA.”, la cual se encarga de prestar se
 | show run \| s ip dhcp              | R17(config)#no ip dhcp pool 10.10.27.1 |
 
 ---
-- Problema Encontrado (Descripcion Breve): DHCP: Default Router Incorrecto
+- Problema Encontrado (Descripcion Breve): DHCP: Default Route Incorrecto
 
 | Comando para encontrar el problema | Comando Aplicado                                                                                                               |
 | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -582,7 +551,13 @@ Usted trabaja en la empresa “CASO 3 LTDA.”, la cual se encarga de prestar se
 | show ip bgp                        | R17(config)#router bgp 65001<br>R17(config-router)#network 10.10.27.0 mask 255.255.255.0<br>R17(config-router)#neighbor 180.180.184.7 remote-as 12345 |
 
 ---
+- Problema Detectado (Descripcion Breve): Falta configurar Sub-Interfaces
 
+| Comando para encontrar el problema | Comando Aplicado                                                                                                                                                                                                                                               |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| show ip int brief                  | R17(config)#int e0/2<br>R17(config-if)#no ip add<br>R17(config-if)#no shut<br>R17(config-if)#exit<br>R17(config)#int e0/2.50<br>R17(config-subif)#encapsulation dot1q 50<br>R17(config-subif)#ip address 10.10.27.1 255.255.255.0<br>R17(config-subif)#no shut |
+
+---
 ## Equipo: SW1
 - Problema Detectado (Descripcion Breve): EIGRP: AS Incorrecto
 
@@ -623,25 +598,18 @@ Usted trabaja en la empresa “CASO 3 LTDA.”, la cual se encarga de prestar se
 ---
 - Problema Encontrado (Descripcion Breve): Interfaz e0/3 de acceso tiene activado mecanismos de establizacion y desactivada la seguridad de puerto
 
-| Comando para encontrar el problema             | Comando Aplicado                                                                                                                                                                                                                                  |
-| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| show int status<br>show port-security int e0/3 | SW6(config)#int e0/3<br>SW6(config-if)#no spanning-tree portfast<br>SW6(config-if)#switchport port-security maximum 3<br>SW6(config-if)#switchport port-security mac-address sticky<br>SW6(config-if)#switchport port-security violation shutdown |
-
----
-- Problema Encontrado (Descripcion Breve): 
-
-| Comando para encontrar el problema | Comando Aplicado |
-| ---------------------------------- | ---------------- |
-|                                    |                  |
+| Comando para encontrar el problema             | Comando Aplicado                                                                                                                                                                                                                                                                                   |
+| ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| show int status<br>show port-security int e0/3 | SW6(config)#int e0/3<br>SW6(config-if)#no spanning-tree portfast<br>SW6(config-if)#switchport port-security maximum 3<br>SW6(config-if)#switchport port-security mac-address sticky<br>SW6(config-if)#switchport port-security violation shutdown<br>SW6(config-if)#shut<br>SW6(config-if)#no shut |
 
 ---
 ## Equipo: SW5
 
 - Problema Detectado (Descripcion Breve): Interfaz e0/3 Apagada y no tiene configurada la seguridad de puerto
 
-| Comando para encontrar el problema               | Comando Aplicado                                                                                                                                                                                                                           |
-| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| show ip int brief<br>show port-security int e0/3 | SW5(config)#int e0/3<br>SW5(config-if)#no switchport port-security mac-address 0aaa.0bbb.0ccc<br>SW5(config-if)#switchport port-security maximum 3<br>SW5(config-if)#switchport port-security mac-address sticky<br>SW5(config-if)#no shut |
+| Comando para encontrar el problema               | Comando Aplicado                                                                                                                                                                                                                                                                                                                |
+| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| show ip int brief<br>show port-security int e0/3 | SW5(config)#int e0/3<br>SW5(config-if)#no switchport port-security mac-address 0aaa.0bbb.0ccc<br>SW5(config-if)#switchport port-security maximum 3<br>SW5(config-if)#switchport port-security mac-address sticky<br>SW5(config-if)#switchport port-security violation shutdown<br>SW5(config-if)#shut<br>SW5(config-if)#no shut |
 
 ---
 - Problema Encontrado (Descripcion Breve): Interfaz e0/2 no esta configurada como troncal
@@ -653,8 +621,8 @@ Usted trabaja en la empresa “CASO 3 LTDA.”, la cual se encarga de prestar se
 ---
 - Problema Encontrado (Descripcion Breve): Falta configurar la VLAN50
 
-| Comando para encontrar el problema | Comando Aplicado                                                                                       |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| show run                           | SW5(config)#int vlan 50<br>SW5(config-if)#ip helper-add<br>SW5(config-if)#ip helper-address 10.10.27.1 |
+| Comando para encontrar el problema | Comando Aplicado                                                       |
+| ---------------------------------- | ---------------------------------------------------------------------- |
+| show run                           | SW5(config)#int vlan 50<br>SW5(config-if)#ip helper-address 10.10.27.1 |
 
 ---

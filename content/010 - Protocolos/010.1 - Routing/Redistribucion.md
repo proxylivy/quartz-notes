@@ -41,7 +41,16 @@ Protocolos de Vector Distancia ([[010 - Protocolos/010.1 - Routing/EIGRP/EIGRP|E
 
 # Configuracion
 ## EIGRP IPv4
-[[010 - Protocolos/010.1 - Routing/EIGRP/EIGRP|EIGRP]]
+[[010 - Protocolos/010.1 - Routing/EIGRP/EIGRP|EIGRP]] ([[010 - Protocolos/010.1 - Routing/EIGRP/EIGRP Numerado|EIGRP Numerado]] y [[010 - Protocolos/010.1 - Routing/EIGRP/EIGRP Nombrado|EIGRP Nombrado]])
+> [!IMPORTANT] Importante
+> Para redistribuir en EIGRP Nombrado, se debe agregar a `topology base` y se usa [[020 - Conceptos/020.1 - Administracion/Route-Map|Route-Map]]
+> ```
+> router eigrp [AS-name]
+>  address-family ipv4 unicast autonomous-system [AS-number]
+>   topology base
+>    redistribute [protocol] route-map [map-name]
+> ```
+
 ### Rutas Estaticas EIGRP IPv4
 ```
 router eigrp [AS]
@@ -59,6 +68,16 @@ redistribute eigrp [AS1] metric [BW] [DLY] [CONF] [Carga] [MTU]
 ```
 router ospf [proceso]
 redistribute eigrp [AS] subnets
+```
+### Route-Map Rutas EIGRP -> EIGRP
+```
+ip prefix-list [prefix-name-eigrp] permit [ip-network/CIDR-mask]
+route-map [map-name-eigrp] permit
+ match ip address prefix-list [prefix-name-eigrp]
+ set metrix [BW] [DLY] [CONF] [CARGA] [MTU]
+ exit
+router eigrp [AS-local]
+ redistribute eigrp [AS-remote] route-map [map-name-eigrp]
 ```
 ### Route-Map Rutas EIGRP -> OSPFv2 IPv4
 ```
@@ -111,7 +130,7 @@ address-family ipv6
 redistribute eigrp [EIGRP-AS] metric [metric-value] included-connected
 ```
 ## OSPFv2
-[[010 - Protocolos/010.1 - Routing/OSPF/OSPFv2|OSPFv2]]
+[[010 - Protocolos/010.1 - Routing/OSPF/OSPF|OSPF]] ([[010 - Protocolos/010.1 - Routing/OSPF/OSPFv2|OSPFv2]] y [[010 - Protocolos/010.1 - Routing/OSPF/OSPFv3|OSPFv3]])
 ### Rutas Estaticas OSPFv2 IPv4
 Nota: Router ABSR o que conecta con otro protocolo
 ```

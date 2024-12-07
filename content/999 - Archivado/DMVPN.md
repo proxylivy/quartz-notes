@@ -26,43 +26,37 @@ int [S/S/P]
 ```
 
 ### Configura el Tunnel
-> - `network-id`, `authentication` es el mismo en HUB Y SPOKE
+> - `network-id` es el mismo en HUB y SPOKE
 ```
-!
-!# mGRE
-!
 int tunnel [tunnel-number]
- tunnel mode gre multipoint
+ ip address [ip-tunnel] [dec-mask]
  tunnel source [int S/S/P] 
- tunnel key [key-number]
- ip address [ip-source] [dec-mask]
-!
-!# NHRP
-!
+ tunnel mode gre multipoint
  ip nhrp network-id 1
- ip nhrp authentication [password]
  ip nhrp map multicast dynamic
- ip nhrp redirect
-!
-!# Ajustes Finos
-!
- bandwidth 4000
- ip mtu 1400
- ip tcp adjust-mss 1360
- exit
 ```
 
-### Asegurar IPSEC
-> Vaya Vaya Vaya...
+### Implementa Protocolo IGP
+> Se configura la IP de Loopback y del tunnel
 ```
-crypto isakmp policy 90
- hash sha384
- encryption aes 256
- group 14
- authentication pre-share
+router eigrp [AS]
+ network [ip-network] [dec-mask]
+!
+!# Desactivar Regla del Horizonte Dividido
+!
+int tunnel [tunnel-number]
+ no ip split-horizon eigrp [AS]
+```
+
+### Configurar IPSEC
+```
+crypto isakmp policy [policy-number]
+ encryption [encryption-type]
+ group [DH-number]
+ lifetime [life-number]
  exit
 crypto isakmp key [password] address 0.0.0.0
-crypto ipsec transform-set [set-name] esp-aes 256 esp-sha384-hmac
+crypto ipsec transform-set [set-name] [encryption-type2] [encryption-type3]
  mode transport
  exit
 crypto ipsec profile [profile-name]
@@ -92,34 +86,66 @@ int loopback [lookback-number]
 ### Configurar Tunnel
 > `network-id` es el mismo en HUB Y SPOKE
 ```
-!
-!# Tunnel GRE IP
-!
 int tunnel [tunnel-number]
- tunnel mode gre multipoint
- tunnel source loopback 0
- tunnel key [key-number]
  ip address [ip-tunnel] [dec-mask]
-!
-!# NHRP
-!
+ tunnel source [int S/S/P]
+ tunnel mode gre multipoint
  ip nhrp network-id 1
- ip nhrp authentication [password]
- ip nhrp map multicast [ip-tunnel-hub]
- ip nhrp map [ip-tunnel-hub] [ip-normal-hub]
  ip ngrp nhs [ip-tunnel-hub]
- ip nhrp shortcut
-!
-!# Ajustes Finos
-!
- ip mtu 1400
- ip tcp adjust-mss 1360
+ ip nhrp map [ip-tunnel-hub] [ip-public-hub]
+ ip nhrp map multicast [ip-public-hub]
+```
+
+### Implementa Protocolo IGP
+> Se configura la IP de Loopback y la del tunnel
+```
+router eigrp [AS]
+network [ip-network] [dec-mask]
+```
+
+### Configurar IPSEC
+```
+crypto isakmp policy [policy-number]
+ encryption [encryption-type]
+ group [DH-number]
+ lifetime [life-number]
+ exit
+crypto isakmp key [password] address 0.0.0.0
+crypto ipsec transform-set [set-name] [encryption-type2] [encryption-type3]
+ mode transport
+ exit
+crypto ipsec profile [profile-name]
+ set transform-set [set-name]
+ exit
+int tunnel [tunnel-number]
+ tunnel protection ipsec profile [profile-name]
+ exit
 ```
 
 # Visualizacion
 - `sh int tunnel [tunnel-number]`: Configuracion Tunnel
+- `sh dmvpn`
 - `sh dmvpn detail`: Estado de enlace DMVPN
+- `sh ip route`: 
 - `sh ip nhrp detail`: Detalles NHRP
+- `sh crypto ipsec sa`
 
 # Extra
 - NHRP Definido en [RFC2332](https://datatracker.ietf.org/doc/html/rfc2332)
+
+Se puede ajustar las interfaces de forma fina dentro de tunel
+```
+int tunnel [tunnel-number]
+ ip nhrp shortcut
+ bandwidth 4000
+ ip mtu 1400
+ ip tcp adjust-mss 1360
+ exit
+```
+
+Se puede autenticar el tunnel
+```
+int tunnel [tunnel-number]
+ tunnel key [key-number]
+ ip nhrp authentication [password]
+```

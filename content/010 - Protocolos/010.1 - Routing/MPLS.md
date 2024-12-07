@@ -153,7 +153,7 @@ int [S/S/P]
 ```
 
 ## Implementar MP-BGP y Montar VPNv4
-> - Solo se configura en los `PE` y entre `PE`
+> - Solo se configura en los `PE` y entre `PE`, `ip-neighbor` es la Loopback del vecino
 > - Nota: Cuando se crea la adyancencia, se crea un `send-community extended` dentro de VPNv4 AF en BGP
 ```
 router bgp [BGP-ASN]

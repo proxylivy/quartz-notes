@@ -25,7 +25,7 @@ Permite ver la fuente de preferencia para la eleccion de rutas en la [[999 - Arc
 ```
 ### EIGRP Clasico Interno
 Nota: EIGRP Externo no puede variar
-[[010 - Protocolos/010.1 - Routing/EIGRP/EIGRP Clasico|EIGRP Clasico]]
+[[010 - Protocolos/010.1 - Routing/EIGRP/EIGRP Numerado|EIGRP Numerado]]
 ```
 distance eigrp 90 [ad-metric]
 ```

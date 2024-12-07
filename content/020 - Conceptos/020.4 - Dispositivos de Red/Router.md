@@ -74,7 +74,7 @@ Cada interfaz puede conectar un tipo de red (Gigabit, FastEthernet, HWIC, Serial
 			- `show int [int S/S/P]`
 			- `show ip ospf int [int S/S/P]`
 
-	2. [[010 - Protocolos/010.1 - Routing/EIGRP/EIGRP|EIGRP]] ([[010 - Protocolos/010.1 - Routing/EIGRP/EIGRP Clasico|EIGRP Clasico]] - [[010 - Protocolos/010.1 - Routing/EIGRP/EIGRP Nombrado|EIGRP Nombrado]])
+	2. [[010 - Protocolos/010.1 - Routing/EIGRP/EIGRP|EIGRP]] ([[010 - Protocolos/010.1 - Routing/EIGRP/EIGRP Numerado|EIGRP Numerado]] - [[010 - Protocolos/010.1 - Routing/EIGRP/EIGRP Nombrado|EIGRP Nombrado]])
 	- Problemas: Valores K / Pasivas / Network / AS / Temporizadores (int) / Autenticacion (int)
 		- Configuracion EIGRP
 			- `sh ip protocols`

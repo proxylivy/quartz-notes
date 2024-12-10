@@ -4,18 +4,22 @@ Multilink es una tecnologia para agrupar seriales, parecido a [[010 - Protocolos
 ## Habilitar Multilink en Interfaz
 ```
 int serial [S/S/P]
-encapsulation ppp
-ppp multilink
-ppp multilink group [multilink-group-number]
+ encapsulation ppp
+ ppp multilink
+ ppp multilink group [multilink-group-number]
 ```
 ## Configurar Multilink
 ```
 int multilink [multilink-group-number]
-ip address [ip] [dec-mask]
-no shut
+ ip address [ip] [dec-mask]
+ no shut
 ```
 
 # Visualizacion
 - `sh ip int brief`
 - `sh int multilink [multilink-group-number]`
 - `sh ppp all`
+- `sh ppp multilink`
+- `sh ppp multilink fragment`
+- `sh ppp multilink interface multilink`
+- `sh ppp multilink links`

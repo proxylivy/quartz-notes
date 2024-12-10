@@ -29,27 +29,28 @@ graph TD;
 # Troubleshooting
 > Enfoques para utilizar: De abajo hacia arriba - Comparacion
 1. Interfaz Encendida
-	- `show ip int brief`: Resumen interfaces
-	- `show int status`: Velocidad, estado y err-disable
-	- `show int [int S/S/P]`: detalles sobre interfaz
-3. Asignacion de [[010 - Protocolos/010.2 - Switching/VLAN|VLAN]] (Troncales y Acceso)
-	- `show vlan brief`: Creacion de vlans | `show vlan`
-	- `show vlan id [vlan-id]`
-	- `show interfaces trunk`: VLANs permitidas en enlaces troncales
-4. [[010 - Protocolos/010.2 - Switching/Etherchannel|Etherchannel]]
+	- `sh ip int brief`: Resumen interfaces
+	- `sh int status`: Velocidad, estado y err-disable
+	- `sh int [int S/S/P]`: detalles sobre interfaz
+	- `sh cdp neighbor`
+2. Asignacion de [[010 - Protocolos/010.2 - Switching/VLAN|VLAN]] (Troncales y Acceso)
+	- `sh vlan brief`: Creacion de vlans | `show vlan`
+	- `sh vlan id [vlan-id]`
+	- `sh interfaces trunk`: VLANs permitidas en enlaces troncales
+3. [[010 - Protocolos/010.2 - Switching/Etherchannel|Etherchannel]]
 	1. General
-		- `show etherchannel summary`: Resumen y detalle grupos
-		- `show etherchannel [po-number] detail`
+		- `sh etherchannel summary`: Resumen y detalle grupos
+		- `sh etherchannel [po-number] detail`
 		- `sh etherchannel [po-number] detail | s Mode`
-		- `show etherchannel detail`: Detalle sobre Negociacion de grupo
-		- `show etherchannel port-channel`: VLAN asignadas
+		- `sh etherchannel detail`: Detalle sobre Negociacion de grupo
+		- `sh etherchannel port-channel`: VLAN asignadas
 	2. LACP
-		- `show lacp internal`: Estado LACP, Ver modo Pasivo / Activo
-		- `show lacp neighbor`: Vecinos LACP
+		- `sh lacp internal`: Estado LACP, Ver modo Pasivo / Activo
+		- `sh lacp neighbor`: Vecinos LACP
 	3. PAgP
-		- `show pagp internal`: Estado PAgP, timers y flags
-		- `show pagp neighbor`: Vecinos PAgP
-5. [[010 - Protocolos/010.2 - Switching/spanning-tree/802.1D (STP)|802.1D (STP)]] o [[010 - Protocolos/010.2 - Switching/spanning-tree/802.1W (RSTP)|802.1W (RSTP)]]
+		- `sh pagp internal`: Estado PAgP, timers y flags
+		- `sh pagp neighbor`: Vecinos PAgP
+4. [[010 - Protocolos/010.2 - Switching/spanning-tree/802.1D (STP)|802.1D (STP)]] o [[010 - Protocolos/010.2 - Switching/spanning-tree/802.1W (RSTP)|802.1W (RSTP)]]
 - Problemas:
 	- Estado STP
 		- `sh spa`
@@ -64,9 +65,9 @@ graph TD;
 		- `sh spa int [int S/S/P]`
 		- `sh spa mst int [int S/S/P]`
 	- [[010 - Protocolos/010.2 - Switching/spanning-tree/Mecanismos de estabilizacion|Mecanismos de estabilizacion]] STP y [[010 - Protocolos/010.2 - Switching/Seguridad de Puerto|Seguridad de Puerto]] 
-		- `show int status`
-		- `show por int [int S/S/P]`
-6. [[010 - Protocolos/010.2 - Switching/spanning-tree/802.1S (MSTP)|802.1S (MSTP)]]
+		- `sh int status`
+		- `sh por int [int S/S/P]`
+5. [[010 - Protocolos/010.2 - Switching/spanning-tree/802.1S (MSTP)|802.1S (MSTP)]]
 - Problemas: 
 	- Estado MSTP
 		- `sh spa`

@@ -20,7 +20,7 @@ En [[010 - Protocolos/010.1 - Routing/BGP/BGP|BGP]] aliviana el procesamiento de
 - Dinamica: Usa prefijos de red, y las rutas que coincidan ingresan a la tabla BGP, generando el prefijo, el router de origen da el siguiente salto en Null0 como ruta de descarte para evitar loops.
 
 ## Metrica Semilla por defecto
-Protocolos de Vector Distancia ([[010 - Protocolos/010.1 - Routing/EIGRP/EIGRP|EIGRP]] y [[010 - Protocolos/010.1 - Routing/RIP|RIP]]): Se le asigna metrica infinita(0), por lo que hay que configurar una metrica o no compartira las rutas, excepto cuando se distribuyen rutas estaticas o 2 AS de EIGRP.
+Protocolos de Vector Distancia ([[010 - Protocolos/010.1 - Routing/EIGRP/EIGRP|EIGRP]] y [[010 - Protocolos/010.1 - Routing/RIP|RIP]]): Se le asigna metrica infinita (0), por lo que hay que configurar una metrica o no compartira las rutas, excepto cuando se distribuyen rutas estaticas o 2 AS de EIGRP.
 [[010 - Protocolos/010.1 - Routing/OSPF/OSPFv2|OSPFv2]]: por defecto son de tipo 2 (E2), con metrica 20, cuando se distribuyen a BGP se le asigna metrica  "1".
 [[010 - Protocolos/010.1 - Routing/BGP/BGP|BGP]]: Mantiene las metricas IGP.
 

@@ -13,7 +13,7 @@ Funciones:
 Al habilitarlo, por defecto solo aprende 1 [[020 - Conceptos/020.3 - Fundamentos/MAC|MAC]], se usa en puertos de [[010 - Protocolos/010.2 - Switching/VLAN#Access|Acceso]]
 ```
 int [int S/S/P]
-switchport port-security
+ switchport port-security
 ```
 ## Accion Violacion Puerto
 Diferencias entre reportes
@@ -21,27 +21,27 @@ Diferencias entre reportes
 - Protect: Ignora nuevas mac, pero continua funcionando con las viejas mac
 - Restrict: Ignora nuevas mac, notifica por SNMP o SYSLOG, y funcionan viejas MAC
 ```
-switchport port-security violation {protect | restrict | shutdown | shutdown vlan}
+int [int S/S/P]
+ switchport port-security violation {protect | restrict | shutdown | shutdown vlan}
 ```
 ## Seguridad de Puerto por Aprendizaje
 ```
 int [int S/S/P]
-switchport port-security
-switchport port-security maximum [number]
-switchport port-security mac-address [mac-address]
-switchport port-security mac-address sticky
+ switchport port-security
+ switchport port-security maximum [number]
+ switchport port-security mac-address [mac-address]
+ switchport port-security mac-address sticky
 ```
 ## Habilitar puertas de un err-disable
 ```
 int [int S/S/P]
-shutdown
-no shutdown
+ shutdown
+ no shutdown
 ```
 ## Enlazado Con
 - [[020 - Conceptos/020.2 - Seguridad/Mitigacion de ataques#Spoofing MACs|Spoofing MACs]]
 
 # Visualizacion
-`show port-security int [int S/S/P]`
-`show interfaces status` → Ver estado de puertas, como “Connected“ o “err-disable“
-
-# Extras
+- `sh port-security`
+- `sh port-security int [int S/S/P]`
+- `sh interfaces status` → Ver estado de puertas, como “Connected“ o “err-disable“

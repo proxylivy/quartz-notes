@@ -1,61 +1,86 @@
 # Info
-Hola, soy Livy, gracias por interesarte en este vault, el cual esta basado en mis notas de [Obsidian](https://obsidian.md/) :D.
-Se centra mayormente en notas sobre la carrera de [Ingenieria en Conectividad y Redes](https://www.duoc.cl/carreras/ingenieria-redes-telecomunicaciones/) (a la cual le estan cambiando el nombre) en DuocUC.
+¡Hola! Soy Livy. Gracias por interesarte en este vault, el cual esta basado en mis notas ^^
 
-Puedes enviarme un mensaje Unicast en mi [Github](https://github.com/proxylivy) o [Linkedin](https://www.linkedin.com/in/gabo-z-montecinos) y mandare un ACK con mi mejor esfuerzo para ayudarte
+Actualmente estoy cursando mi carrera de [Ingenieria en Conectividad y Redes](https://www.duoc.cl/carreras/ingenieria-redes-telecomunicaciones/) (Le cambiaron el nombre y retocaron la malla curricular) en DuocUC
 
-Lo importante de [Obsidian](https://obsidian.md/) es crear un "2do cerebro", en otras palabras, crear un espacio donde hayan notas entrelazadas como si fueran neuronas transmitiendo solo lo importante y dejando otra info a las otras notas, esto hace un uso mas eficiente de las notas y ayuda a no duplicar informacion innecesariamente
+Si tienes alguna duda, consejo o solamente quieres contactar en alguna red de [Littlelink](https://littlelink.proxylivy.work/), en los cuales estan [Github](https://github.com/proxylivy), [Linkedin](https://www.linkedin.com/in/gabo-z-montecinos), entre otros
+
+Mi principal punto con tomar notas en [Obsidian](https://obsidian.md/) es crear un "2do cerebro", el cual es un sistema o metodo para manejar informacion para mejorar el aprendizaje, la productividad o el crecimiento, este concepto esta acuñado por [Tiago Forte](https://fortelabs.com/), el cual uso para tomar notas unicas que estan interconectadas, esto me permite un uso eficiente de la informacion evitndo la duplicacion de informacion. Tambien me interesa sobre la extension de la mente, explicada en el paper [The Extended Mind by Andy Clark and David Chalmers](https://web-archive.southampton.ac.uk/cogprints.org/320/1/extended.html)
 
 ## Carpetas
-`.*`: Todos los archivos ocultos son de la configuracion de los programas, no estan hechos para modificarlos a mano a excepcion de saber lo que estas haciendo, por ejemplo "`.obsidian`" esta bloqueado de la sincronizacion de dispositivos para que cada equipo pueda configurar su entorno sin generar conflicto de archivos.
+`.*`
+- Archivos ocultos que contienen configuraciones de programas
 
-`000 - Config`: Configuracion del funcionamiento del vault en obsidian
-- `Plantillas`: Notas para acceder rapidamente con `Ctrl+o` y evitar escribir cosas de mas, como por ejemplo, "Sumarizacion", estructura de laboratorios, callouts, entre otros
-- [[000 - Config/Lista To-Do|Lista To-Do]]: Nota que recopila mis dudas, proyectos pendientes, dudas generales, preguntas, sitios donde extraer informacion para reescribirlas, hacer resumenes, corregir notas, entre otras cosas. Perfectamente puedes ayudarme solucionando algunos problemas que tenga y enviandome la solucion ^^.
+`000 - Config`: Configuración de plugins para el vault
+- `Plantillas`: Notas para acceder de forma rapida y evitar reescribir
+- [[000 - Config/Lista To-Do|Lista To-Do]]: Nota donde recopilo dudas, proyectos pendientes, sitios de referencia y más. ¡Si quieres ayudar, mándame tu solución!
 
-`005 - Semestres`: Mi coleccion de trabajos y tareas de cada ramo que he pasado durante los semestres, se centra en "Actividades", "Evaluaciones" y "Casos de Estudio", toda la materia y clases entregada por los profesores es clasificada en su propia categoria repartido en el vault en carpetas con el conocimiento general y especifico.
+`005 - Semestres`: Trabajos y tareas organizados por semestre y por ramo
 
-`010 - Protocolos`: Informacion general de Protocolos, se separan en:
-- `010.1 - Routing`: Informacion de protocolos que funcionan en Capa 3, usualmente pertenecen a la configuracion de routers
-- `010.2 - Switching`: Informacion de protocolos que funcionan en Capa 2, usualmente pertenecen a la configuracion de routers
-- `010.3 - Comunicaciones`: Informacion de protocolos que funcionan en Capa 4-7, usualmente pertenecen a la configuracion de Servidores/Dispositivos Finales
-- `010.9 - Estandares`: (WIP) Informacion de estandares importantes que regulan el comportamiento de los protocolos para que funcionen correctamente, por lo general, entran estandares de la [RFC](https://www.rfc-editor.org/standards) o la [IEEE IETF](https://www.ietf.org/)
+`010 - Protocolos`: Informacion sobre protocolos de red, dividida en:
+- `010.1 - Routing`: Protocolos de capa 3 ([[020 - Conceptos/020.4 - Dispositivos de Red/Router|Router]]).
+- `010.2 - Switching`: Protocolos de capa 2 ([[020 - Conceptos/020.4 - Dispositivos de Red/Switch|Switch]]).
+- `010.3 - Comunicaciones`: Protocolos de capas 4-7 ([[020 - Conceptos/020.3 - Fundamentos/Modelo OSI|Modelo OSI]])
+- `010.9 - Estándares` (WIP): Información de estándares como [RFC](https://www.rfc-editor.org/standards) o [IEEE IETF](https://www.ietf.org/).
 
-`020 - Conceptos`: Componentes generales que no aplican al [[020 - Conceptos/020.3 - Fundamentos/Modelo OSI|Modelo OSI]] perse
-- `020.1 - Administracion`: Tecnicas para poder separar redes o administrarlas
-- `020.2 - Seguridad`: Tecnicas o herramientas relacionadas a la seguridad de un sistema
-- `020.3 - Fundamentos`: Raiz o reunion de informacion base para el funcionamiento de los dispositivos, como `mac` o `ip`
-- `020.4 - Dispositivos de Red`: Dispositivos o Herramientas que se usan dentro de una red
+`020 - Conceptos`: Conceptos Generales, Herramientas y Tecnicas ordenadas por tema
+- `020.1 - Administración`: Segmentación y Gestión de redes
+- `020.2 - Seguridad`: Minimizar las superficies de ataque
+- `020.3 - Fundamentos`: Informacion Base para comprender como funcionan las redes
+- `020.4 - Dispositivos de Red`: Diferentes Marcas y Modelos que se usan en redes
 
-`999 - Archivado`: Notas en un estado incompleto, en proceso de contruccion temprana, con errores o buscando un lugar donde ser clasificadas, podrian considerarse parte extendida de [[000 - Config/Lista To-Do|Lista To-Do]].
+`999 - Archivado`: Notas incompletas o en proceso de clasificación, similar a [[000 - Config/Lista To-Do|Lista To-Do]].
 
+---
 ## Extensiones
-Intento mantener mi vault con los menos plugins posibles, aunque son maravillosos los que uso, hacen una experiencia mas agradable
-
-- [scambier/obsidian-omnisearch](https://github.com/scambier/obsidian-omnisearch): Motor de busqueda que simplemente funciona a travez de fuzzy search
-- [l1xnan/obsidian-better-export-pdf](https://github.com/l1xnan/obsidian-better-export-pdf): Exportar pdf pero con mas funciones
+Uso pocos plugins para mantener mi vault en orden, recomiendo explorar los siguientes:
+- [scambier/obsidian-omnisearch](https://github.com/scambier/obsidian-omnisearch): Motor de Busqueda basado en Fuzzy Search
+- [l1xnan/obsidian-better-export-pdf](https://github.com/l1xnan/obsidian-better-export-pdf): Exportación de PDF con funciones avanzadas.
 - [kepano/obsidian-minimal-settings](https://github.com/kepano/obsidian-minimal-settings): Mas opciones en base al tema [kepano/obsidian-minimal](https://github.com/kepano/obsidian-minimal), ademas incluye una [Guia de uso](https://minimal.guide/home)
 - [mgmeyers/obsidian-style-settings](https://github.com/mgmeyers/obsidian-style-settings): Configurar aun mas detalles en profundidad, como el tamaño de los bloques H1, H2, entre muchas otras cosas mas
 - [Vinzent03/find-unlinked-files](https://github.com/Vinzent03/find-unlinked-files): Busca archivos que apuntan a ningun lado y te los recopila en una pagina para hacer debug o los eliminas de plano, ayuda a mantener un vault cohesionado
 - [LBF38/obsidian-syncthing-integration](https://github.com/LBF38/obsidian-syncthing-integration): Integra [Syncthing](https://syncthing.net/) al vault para ayudarte a detectar conflictos en los documentos y solucionarlos, ignorar archivos y mas cosas desde obsidian
 - [ms3056/Tokei](https://github.com/ms3056/Tokei): Un simple widget de reloj para poder ver la hora en el vault.
 
-## Shortcut del Vault
-Atajos de teclado que tengo configurado para que
-Los comandos son case-sensitive, por lo que `p != P`
-**Sistema**
-- `Ctrl+p`: Abrir Consola de Comandos
-- `Ctrl+o`: Abrir Selector de Plantillas
 
-**[smambier/obsidian-omnisearch](https://github.com/scambier/obsidian-omnisearch)**
-- `Ctrl+f`: Buscar Archivo en toda la boveda
-- `Ctrl+s`: Buscar dentro de la nota
 
+---
 ## Flujo de trabajo
-Para tomar notas desde mi hogar, uso [Obsidian](https://obsidian.md/), para leerlas, estan en mi [sitio web](https://obsidian.deathgabox.work/), que esta siendo hosteado gracias a [jackyzha0/Quartz](https://github.com/jackyzha0/quartz) y ~~[shommey/dockerized-quartz](https://github.com/shommey/dockerized-quartz)~~ Puedo enviarlas a internet con Cloudflare Pages mediante la [Guia Hosting Oficial](https://quartz.jzhao.xyz/hosting#cloudflare-pages).
-En caso de no estar en mi hogar, acceso a una instancia autohosteada de [Docmost](https://docmost.com/), lo que me permite anotar y colaborar con otras personas sin tener que configurar todo el vault de obsidian, la sincronizacion de archivos y configurar el servidor, ahora se puede ver a travez de la pagina web :D.
-Para crear las imagenes de topologias en red con [[020 - Conceptos/020.4 - Dispositivos de Red/IOU WEB|IOU WEB]] se puede usar Visio + "[Network Topology Icons Web for Visio](https://www.cisco.com/c/en/us/about/brand-center/network-topology-icons.html)" by Cisco.
+Se basa en varias herramientas y/o servicios que pueden ser autohosteados para Capturar, Procesar, Sincronizar y Publicar informacion, las estapas son las siguientes:
+1. Utilizo [Firefox ESR](https://www.mozilla.org/es-ES/firefox/enterprise/) + [Ublock Origin](https://ublockorigin.com/) como navegador principal
+	- Permite buscar Feed RSS nuevos
+	- Articulos especializados
+	- Autores
+	- Repositorios
+	- Documentacion, Wikis y Foros
+2. Configuro la informacion a [Freshrss](https://www.freshrss.org/)
+	- Permite hacer seguimiento de nuevas publicaciones
+	- Tener un orden de investigacion
+	- 0 Distracciones
+3. Clasifico la informacion segun su categoria y funcionalidad en Obsidian
+	- Protocolos: Segun [[020 - Conceptos/020.3 - Fundamentos/Modelo OSI|Modelo OSI]]
+	- Conceptos: Fundamentos, administracion, seguridad, etc.
+	- Dispositivos: Switches, routers y firewalls
+	- Extraigo las imagenes a [Slink](https://github.com/andrii-kryvoviaz/slink)
+	- Si la informacion no tiene un lugar claro va a [[000 - Config/Lista To-Do|Lista To-Do]] o `999 - Archivado`
+4. Se conectan las notas con WikiLinks
+	- Conceptos en comun para mejorar la comprension
+	- Ideas que no deben ser reescritas
+5. Se sincronizan entre mis dispositivos usando [Syncthing](https://syncthing.net/)
+	- Nota: Hize una [charla en Youtube](https://www.youtube.com/live/bVE38L8jteM?si=6SGVhERlULggcX0s) de como usar Dominios de Cloudflare, lo puedes usar para guiarte y conectar Syncthing en cualquier parte del mundo :D
+	- Excluyo paginas ocultas "`.*`" y configuraciones para evitar conflictos entre dispositivos
+	- Mantengo versiones incrementales en caso de errores
+6. Publicacion en Quartz
+	- Las notas de Obsidian tambien se envian a Github en el repo [proxylivy/quartz-notes](https://github.com/proxylivy/quartz-notes)
+	- Usando [Cloudflare Pages](https://pages.cloudflare.com/) para publicar notas en [notes.proxylivy.work](https://notes.proxylivy.work/) basado en la [guia oficial](https://quartz.jzhao.xyz/hosting#cloudflare-pages)
+7. Notas Temporales
+	- Cuando no tengo acceso a mi vault, utilizo [Docmost](https://docmost.com/)
+	- Notas de clase, ideas espontáneas, o apuntes sin referencias claras.
+8. Al regresar a casa, transfiero estas notas a Obsidian reescribiéndolas a mano
+   - Elimino ideas sin sentido.
+   - Vuelvo al paso 3-6
 
+---
 ## Bibliografia
 
 **Coleccion de Libros Redes**
@@ -88,3 +113,9 @@ Para crear las imagenes de topologias en red con [[020 - Conceptos/020.4 - Dispo
 
 **Acceso Onedrive Duoc Modo Lectura**
 [Onedrive - Duoc](https://duoccl0-my.sharepoint.com/:f:/g/personal/ga_zunigam_duocuc_cl/Et3dYEWc6GpKlGCNntyIS90BeIeDJM0zPPRTCG4jdM7WZQ?e=jWwSEw)
+
+# Extra
+Para crear las imagenes de topologias en red con [[020 - Conceptos/020.4 - Dispositivos de Red/IOU WEB|IOU WEB]] se puede usar Visio + "[Network Topology Icons Web for Visio](https://www.cisco.com/c/en/us/about/brand-center/network-topology-icons.html)" by Cisco.
+
+Una vez, un profesor de redes dijo en una prueba:
+> *"Le pueden pedir ayuda a Diosito, pero Diosito no sabe sobre topologías de red."*

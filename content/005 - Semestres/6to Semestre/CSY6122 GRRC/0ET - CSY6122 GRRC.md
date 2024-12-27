@@ -26,17 +26,40 @@ Se le ha encargado realizar las siguientes tareas:
 
 El servidor web de la empresa es un activo crítico, ya que a través de ella se realizan diversos servicios de cara a los clientes, además almacena información sensible. La empresa desea saber cuánto es el riesgo y las pérdidas debido a su inactividad y, finalmente con esta información, decidir la aplicación de un control que mitigue el riesgo.
 
+El servidor se ha valorizado en $20.000.000, se ha definido que la exposición es del 75%. Con esto calcule el SLE. Según la exposición debido a las vulnerabilidades que se conocen y que se descubren cada cierto tiempo, se ha estimado que el servidor puede ser atacado y comprometido 1 vez cada 2 años. Con esto obtenga el ALE. Con esta información y considerando que el costo de un control es de $2.000.000 al año
+
 1. El servidor se ha valorizado en $20.000.000, se ha definido que la exposición es del 75%. Con esto calcule el SLE.
 
-R: 
+R: El SLE representa la pérdida esperada en caso de que ocurra un único incidente. Se calcula utilizando la siguiente fórmula:
+SLE = Valor del activo × Exposicion
+Dado que: Valor del activo = $20.000.000
+Exposición = 75% (0,75)
+SLE = 20.000.000 × 0,75 = 15.000.000
+
+El SLE es $15.000.000.
 
 2. Según la exposición debido a las vulnerabilidades que se conocen y que se descubren cada cierto tiempo, se ha estimado que el servidor puede ser atacado y comprometido 1 vez cada 2 años. Con esto obtenga el ALE.
 
-R: 
+R: El ALE representa la pérdida esperada en un año debido a incidentes relacionados con el activo. Se calcula con la fórmula:
+
+ALE = SLE × Frecuencia de ocurrencia anual
+Dado que: SLE = $15.000.000
+Frecuencia de ocurrencia anual = 1 vez cada 2 años (0,5)
+ALE = 15.000.000 × 0,5 = 7.500.000
+El ALE es $7.500.000.
 
 3. Con esta información y considerando que el costo de un control es de $2.000.000 al año, ¿usted tomaría o descartaría el control?
 
-R:
+R: El costo del control propuesto para mitigar el riesgo es de $2.000.000 al año. Para tomar una decisión, se comparan los costos:
+
+- Pérdidas anuales estimadas (ALE) = $7.500.000
+- Costo del control = $2.000.000
+
+Dado que el costo del control es significativamente menor que las pérdidas anuales
+estimadas, sería recomendable implementar el control, ya que reduce el impacto
+financiero del riesgo de inactividad del servidor.
+
+Con base en los cálculos realizados, se recomienda aplicar el control, ya que su costo anual de $2.000.000 es mucho menor que el ALE de $7.500.000. Esto permitiría mitigar el riesgo y proteger un activo crítico para la empresa.
 
 ### Ayuda Item 1
 > No hay nada al respecto :(
@@ -50,11 +73,21 @@ El servidor está directamente conectado a internet, es un servidor web apache, 
 
 1. Defina las fases que se deben realizar para implementar un plan de continuidad del negocio (BCP)
 
-R: 
+R: Este plan garantiza que las operaciones críticas continúen frente a incidentes. Las fases principales son:
+- Análisis del impacto (BIA): Identificar los procesos críticos y evaluar el impacto de su inactividad en la empresa.
+- Evaluación de riesgos: Analizar los riesgos, priorizarlos y documentarlos.
+- Estrategias de continuidad: Diseñar soluciones como servidores de respaldo o replicación en la nube.
+- Documentación: Crear un plan con acciones claras y responsables asignados.
+- Pruebas: Validar el plan con simulaciones y actualizarlo regularmente.
 
 2. También para un plan de recuperación ante un desastre (DRP).
 
-R: 
+R: Este plan busca restaurar operaciones después de un incidente grave. Sus fases son:
+- Preparación: Definir tiempos de recuperación (RTO/RPO) y activos críticos.
+- Respaldos: Configurar copias de seguridad periódicas y almacenarlas en lugares seguros.
+- Plan de recuperación: Documentar todos los pasos para restaurar el sistema y los datos asociados.
+- Sitio alterno: Tener un servidor de respaldo activable en caso de emergencias.
+- Pruebas: Generar simulaciones de desastres para validar y ajustar el plan.
 
 ### Ayuda Item 2
 > No hay nada al respecto :(
@@ -86,9 +119,21 @@ Para este ítem se recomienda usar 2 máquinas virtuales, una, en donde va a imp
 Le han solicitado configurar lo siguiente:
 1. Configure el direccionamiento IP según se solicita.
 2. Levante el servicio web y SSH en el firewall.
+	- `systemctl status apache2`
+	- `systemctl status ssh`
+	- `systemctl enable --now ssh`
+	- `systemctl enable --now apache2`
 3. Habilite el enrutamiento IP en el firewall y pruebe conectividad entre todos los dispositivos.
+	- `cat /proc/sys/net/ipv4/ip_forwarding`
+	- `sysctl -w net.ipv4.ip_forward=1`
+	- `cat /proc/sys/net/ipv4/ip_forward`
+	- `ip -br a`
+	- `ping {windows-host}`
+	- `ping {win7}`
 4. Configure NAT en el firewall, de tal manera que el cliente Windows salga a Internet. Defina la red origen en NAT y pruebe salida desde el cliente.
 5. En el firewall establezca políticas restrictivas (DROP) en la tabla filter en las cadenas INPUT y FORWARD, no toque OUTPUT.
+	- `iptables -P INPUT DROP`
+	- `iptables -P FORWARD DROP`
 6. Configure una regla que permita la salida a Internet desde la red interna a través del firewall. Debe permitir salir todo el tráfico, defina red origen, interfaz de entrada e interfaz de salida.
 7. Configure una regla que permita entrar, desde Internet, hacia la red interna, sólo el tráfico solicitado, para esto establezca reglas established.
 8. Configure una regla de entrada para permitir las respuestas de DNS, esta es la que va a permitir la resolución de nombres.
@@ -109,59 +154,28 @@ Nota: [[999 - Archivado/IPtables|IPtables]]
 > 5. Busca en el menu `Advanced Network`, Configura la interfaz desde el menu, configura su IP y mascara
 > 6. Reinicia la maquina y revisa que consiga sus ip correctamente
 
-- Levantar Servicios
-	- `systemctl status sshd`
-	- `systemctl status httpd`
-	- `systemctl enable --now sshd`
-	- `systemctl enable --now httpd`
-
-- Habilitar Enrutamiento IP (Temporalmente)
-	- `cat /proc/sys/net/ipv4/ip_forwarding`
-	- `sysctl -w net.ipv4.ip_forward=1`
-	- `cat /proc/sys/net/ipv4/ip_forward`
-
-- Habilitar Enrutamiento IP (Permanentemente)
-	- `sudo nano /etc/sysctl.conf`
-		- `net.ipv4.ip_forward = 1`
-	- `sysctl -p`
-
-- Probar Conectividad
-	- `ip -br a`
-	- `ping {ip-vecino}`
-
-- Regla NAT Linux -> Win 7 salga a INTERNET
-
-- Iptables: Politica por defecto DROP cadena INPUT y FORWARD
-	- `iptables -P INPUT DROP`
-	- `iptables -P FORWARD DROP`
-
-- Regla NAT Todo el trafico de red Interna -> INTERNET
-
-- Regla INTERNET -> Solo el trafico de red Interna (established)
-
-- Regla INTERNET Accede DNS -> Algun lugar supongo
-
-- Regla SSH del Firewall -> Win 10 Fisico
-
-- Regla Puerto 80 y 443 -> Red Interna
-
-- Usar [tcpdump](https://www.kali.org/tools/tcpdump/) ver interfaz hacia INTERNET, revisa funcionamiento NAT
-	- `tcpdump -D`
-	- `tcpdump -i {interface}`
-	- `tcpdump -A tcp`
-
 ## Ítem 4
 **Sistema de detección de intrusos**
 
 Usando la misma red anterior, pero levantando la VM de Kali Linux con interfaz de Red Nat, realice lo siguiente:
 1. Borre todas las reglas de iptables
+	- `iptables -F`
+	- `iptables -t NAT -F`
+	- `iptables -t filter -F`
+	- `iptables -t mangle -F`
+	- `iptables -X`
+	- `iptables -L`
 2. Restablezca las políticas por defecto a ACCEPT
-3. Realice un apt update en la VM Linux, no haga el upgrade
-4. Instale SNORT usando apt install snort -y
-5. Usando el modo alerta de SNORT visualice las alertas generadas por un nmap desde Kali hacia la VM Linux
-6. Cree una regla que permita alertar los pings (debe visualizar los paquetes 7. ICMP con una alerta personalizada) hacia el servidor Linux
-7. Cree una regla que permita alertar los accesos vía SSH (debe visualizar los accesos SSH con una alerta personalizada) hacia el servidor Linux
-8. Cree una regla que permita alertar los accesos al servicio WEB (debe visualizar los paquetes HTTP con una alerta personalizada) hacia el servidor Linux
+	- `iptables -P INPUT ACCEPT`
+	- `iptables -P FORWARD ACCEPT`
+1. Realice un apt update en la VM Linux, no haga el upgrade
+	- `apt update`
+2. Instale SNORT usando apt install snort -y
+	- `apt install snort -y`
+3. Usando el modo alerta de SNORT visualice las alertas generadas por un nmap desde Kali hacia la VM Linux
+4. Cree una regla que permita alertar los pings (debe visualizar los paquetes 7. ICMP con una alerta personalizada) hacia el servidor Linux
+5. Cree una regla que permita alertar los accesos vía SSH (debe visualizar los accesos SSH con una alerta personalizada) hacia el servidor Linux
+6. Cree una regla que permita alertar los accesos al servicio WEB (debe visualizar los paquetes HTTP con una alerta personalizada) hacia el servidor Linux
 
 ### Ayuda Item 4
 #### Sistema de deteccion de instrusos
@@ -185,7 +199,6 @@ Borrar todas las reglas de iptables
 
 Definir reglas por defecto en ACCEPT
 - `iptables -P input ACCEPT`
-- `iptables -P output ACCEPT`
 - `iptables -P forward ACCEPT`
 - `iptables -P prerouting ACCEPT`
 - `iptables -P postrouting ACCEPT`
@@ -247,10 +260,20 @@ Accede a la pagina web (Kali debe tener un servidor web habilitado)
 Use la máquina Linux (Ubuntu) como la parte Manager del ossec o wazuh y un cliente Windows 7 como el agente ossec (wazuh).
 
 1. Instale en la VM Linux los componentes del Manager de ossec o Wazuh
+	- `curl -sO https://packages.wazuh.com/4.9/wazuh-install.sh && sudo bash ./wazuh-install.sh -a`
 2. Instale el agente en el cliente Windows
-3. En el cliente Windows cree y elimine usuarios desde el panel de control o desde la CLI, observe y evidencie esos eventos
-4. Cierre la sesión o reinicie el cliente Windows, observe y evidencie ese evento en el dashboard o terminal del Manager
-5. Esos cambios se deben ver reflejados en el dashboard o terminal del Manager
+	- Descarga desde [Wazzuh - Install Windows Endpoint Agent Guide](https://documentation.wazuh.com/current/installation-guide/wazuh-agent/wazuh-agent-package-windows.html)
+	- Ejecutar desde Powershell en Modo Administrador
+	- `.\wazuh-agent-4.9.2.1.msi \q WAZUH_MANAGER="{ip-dashboard}"`
+	- `NET START Wazuh`
+1. En el cliente Windows cree y elimine usuarios desde el panel de control o desde la CLI, observe y evidencie esos eventos
+	- Abre la IP de Wazuh en el navegador
+	- ve a `{ip-dashboard}/app/security-dashboards-plugins#/users/create` para crear un usuario interno
+	- en el mismo menu de usuarios internos y podras borrarlo
+1. Cierre la sesión o reinicie el cliente Windows, observe y evidencie ese evento en el dashboard o terminal del Manager
+	- Desde GUI no encontre esta opcion
+2. Esos cambios se deben ver reflejados en el dashboard o terminal del Manager
+	- Ve a `{ip-dashboard}/app/logs#/manager/?tab=logs`
 
 ### Ayuda Item 5
 #### Deteccion de Instrusos basados en HOSTS (Wazuh)
@@ -306,10 +329,49 @@ Instalacion Agente Windows 7
 
 Para este ítem puede dejar sólo 2 VMs activas, Kali Linux y un Windows 7. Ambas máquinas virtuales con interfaz de Red Nat:
 
-1. Instale openvpn en Windows 7, usar la [versión 2.5 de OpenVPN](https://swupdate.openvpn.org/community/releases/OpenVPN-2.5.0-I601-x86.msi) | No veo porque no usar la [ultima version](https://openvpn.net/community-downloads/)
+Adjunto: El archivo de configuracion de `server.conf` contiene la siguiente informacion
+```
+dev tun
+ifconfig 192.168.10.1 192.168.10.2
+secret /etc/openvpn/ta.key
+port 1194
+proto udp
+keepalive 10 120
+persist-key
+persist-tun
+verb 3
+```
+
+Adjunto: EL archivo de configuracion de `cliente.opvn` contiene la siguiente informacion
+```
+remote {ip-kali} 1194
+dev tun
+ifconfig 192.168.16.0.2 192.168.16.0.1
+secret ta.key
+proto udp
+nobind
+persist-key
+persist-tun
+verb 3
+```
+
+1. Instale openvpn en Windows 7, usar la [versión 2.5 de OpenVPN](https://swupdate.openvpn.org/community/releases/OpenVPN-2.5.0-I601-x86.msi)
+	- No veo porque no usar la [ultima version](https://openvpn.net/community-downloads/), Apreta Next y Next hasta que este instalado
 2. Configure lo necesario en Kali en los archivos de openvpn, genere la llave y compártala con el cliente, establezca como IP origen la 192.168.10.1 y la destino la 192.168.10.2 y levante openvpn.
+	- Configura OpenVPN
+		- `apt update`
+		- `apt install openvpn`
+	- Configura
+		- `cd /etc/openvpn`
+		- `openvpn --genkey secret ta.key`
+		- Modifica `nano /etc/openvpn/server.conf` con el codigo adjunto al principio
+		- Luego inicia el servidor con `systemctl start openvpn@server`
 3. Configure lo necesario en Windows, en el archivo de configuración de openvpn, establezca como IP origen la 192.168.0.2 y la destino la 192.168.0.1 y levante openvpn.
+	- Copia el archivo `/etc/openvpn/server.conf` y muevelo a Windows 7 con le nombre `cliente.ovpn`
+	- Modifica la 3ra linea a lo siguiente: `ifconfig 192.168.0.2 192.168.0.1`
 4. Pruebe conectividad entre las IP de la VPN.
+	- Haz Ping a la ip `192.168.0.1` desde Windows
+	- Haz Ping a la ip `192.168.0.2` desde Kali
 
 ### Ayuda Item 6
 #### Crear VPN

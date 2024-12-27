@@ -29,7 +29,7 @@ Lea atentamente cada uno de los ítems indicados a continuación:
 - El archivo debe ser guardado con el nombre: ET_ARY6112_NOMBRE, y debe ser enviado mediante AVA Ultra en el link indicado por el docente.
 ## Recursos
 Recursos necesarios:
-- [VM IOU WEB]([IOU WEB](https://duoccl0-my.sharepoint.com/:f:/g/personal/ga_zunigam_duocuc_cl/ElTeBCifMqJBhacbv5sdSAYBOMJP9e8P5JejXMTSIQjPAw?e=jPCisp))
+- [VM IOU WEB](https://duoccl0-my.sharepoint.com/:f:/g/personal/ga_zunigam_duocuc_cl/ElTeBCifMqJBhacbv5sdSAYBOMJP9e8P5JejXMTSIQjPAw?e=jPCisp)
 - [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 ## Contexto
 La empresa “ENARSI_ET” dedicada al rubro financiero, actualmente presentes con 3 sucursales. Desde hace un tiempo la organización comenzó a actualizar su infraestructura y servicios TI. Para esta actualización se contrató a una empresa externa, la cual no realizó un buen trabajo dejando sin conectividad a la empresa y con muchos problemas en su funcionamiento, tanto a nivel interno como externo incluyendo tecnología del proveedor de servicios.
@@ -82,10 +82,10 @@ En cada problema detectado, debe completar con la información solicitada para c
 1. Para comprobar conectividad tomar un recorte de una traza de ruta desde Sucursal Central hacia Sucursal Norte y Sucursal Sur.
 2. Evidenciar el cifrado entre Sucursales Remotas y Sucursal Sur.
 
-
 # Configuracion
 > [!NOTE]- Nota
-> Estas configuraciones no estan completas devido a que nos quedamos sin tiempo
+> Estas configuraciones no estan completas debido a que nos quedamos sin tiempo
+> Este examen no pide anotar los comandos "show" usados para identificar el problema
 
 ## Equipo: SW1
 - Problema Detectado (Descripcion Breve): El switch1 está configurado para operar con el protocolo PVST en lugar de MST.

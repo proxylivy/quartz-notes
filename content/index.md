@@ -8,25 +8,25 @@ Mi intencion es crear un "2do Cerebro", un sistema o metodo de estudio acuñado 
 ## Carpetas
 Explicaciones de la finalidad de las carpetas, para poder navegar mejor por los directorios
 
-- `000 - Config`: Configuración de plugins para el vault
-	- `Plantillas`: Notas para acceder de forma rapida y evitar reescribir
-	- [[000 - Config/Lista To-Do|Lista To-Do]]: Nota donde recopilo dudas, proyectos pendientes, sitios de referencia y más. ¡Si quieres ayudar, mándame tu solución!
+`000 - Config`: Configuración de plugins para el vault
+- `Plantillas`: Notas para acceder de forma rapida y evitar reescribir
+- [[000 - Config/Lista To-Do|Lista To-Do]]: Nota donde recopilo dudas, proyectos pendientes, sitios de referencia y más. ¡Si quieres ayudar, mándame tu solución!
 
-- `005 - Semestres`: Trabajos y tareas organizados por semestre y por ramo
+`005 - Semestres`: Trabajos y tareas organizados por semestre y por ramo
 
-- `010 - Protocolos`: Informacion sobre protocolos de red, dividida en:
-	- `010.1 - Routing`: Protocolos de capa 3 ([[020 - Conceptos/020.4 - Dispositivos de Red/Router|Router]]).
-	- `010.2 - Switching`: Protocolos de capa 2 ([[020 - Conceptos/020.4 - Dispositivos de Red/Switch|Switch]]).
-	- `010.3 - Comunicaciones`: Protocolos de capas 4-7 ([[020 - Conceptos/020.3 - Fundamentos/Modelo OSI|Modelo OSI]])
-	- `010.9 - Estándares` (WIP): Información de estándares como [RFC](https://www.rfc-editor.org/standards) o [IEEE IETF](https://www.ietf.org/).
+`010 - Protocolos`: Informacion sobre protocolos de red, dividida en:
+- `010.1 - Routing`: Protocolos de capa 3 ([[020 - Conceptos/020.4 - Dispositivos de Red/Router|Router]]).
+- `010.2 - Switching`: Protocolos de capa 2 ([[020 - Conceptos/020.4 - Dispositivos de Red/Switch|Switch]]).
+- `010.3 - Comunicaciones`: Protocolos de capas 4-7 ([[020 - Conceptos/020.3 - Fundamentos/Modelo OSI|Modelo OSI]])
+- `010.9 - Estándares` (WIP): Información de estándares como [RFC](https://www.rfc-editor.org/standards) o [IEEE IETF](https://www.ietf.org/).
 
-- `020 - Conceptos`: Conceptos Generales, Herramientas y Tecnicas ordenadas por tema
-	- `020.1 - Administración`: Segmentación y Gestión de redes
-	- `020.2 - Seguridad`: Minimizar las superficies de ataque
-	- `020.3 - Fundamentos`: Informacion Base para comprender como funcionan las redes
-	- `020.4 - Dispositivos de Red`: Diferentes Marcas y Modelos que se usan en redes
+`020 - Conceptos`: Conceptos Generales, Herramientas y Tecnicas ordenadas por tema
+- `020.1 - Administración`: Segmentación y Gestión de redes
+- `020.2 - Seguridad`: Minimizar las superficies de ataque
+- `020.3 - Fundamentos`: Informacion Base para comprender como funcionan las redes
+- `020.4 - Dispositivos de Red`: Diferentes Marcas y Modelos que se usan en redes
 
-- `999 - Archivado`: Notas incompletas o en proceso de clasificación, similar a [[000 - Config/Lista To-Do|Lista To-Do]].
+`999 - Archivado`: Notas incompletas o en proceso de clasificación, similar a [[000 - Config/Lista To-Do|Lista To-Do]].
 
 ---
 ## Bibliografia

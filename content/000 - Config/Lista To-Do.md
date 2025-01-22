@@ -26,6 +26,7 @@
 - [ ] Esta entrada de Wikipedia sobre [Suite de Protoclos de Internet](https://en.wikipedia.org/wiki/Template:Internet_protocol_suite) en [[020 - Conceptos/020.3 - Fundamentos/Modelo OSI|Modelo OSI]]
 - [ ] Esta entrada de blog sobre [Protocolos IGP](https://disenoredesuptc.blogspot.com/2015/09/protocolos-igp.html)
 - [ ] Reescribe en [[010 - Protocolos/010.1 - Routing/MPLS|MPLS]] sobre la eleccion de un paquete en referencia a este [diagrama](http://networkstatic.net/wp-content/uploads/2012/04/flow.jpg) extraido de [aqui](http://networkstatic.net/juniper-and-cisco-comparisons-of-rib-lib-fib-and-lfib-tables/)
+- [ ] Extrae la explicacion sobre [Medium - Arquitectura de Docker](https://medium.com/@ravipatel.it/understanding-docker-architecture-a-comprehensive-guide-5ce9129df1a4) y [Github - acastan/Servicios - Repaso Virtualizacion](https://github.com/acastan/Servicios/blob/master/repaso/Ejercicio%200a%20-%20repaso%20Virtualizaci%C3%B3n%20-%20Docker.md) en [[999 - Archivado/Docker|Docker]]
 
 ---
 ## Buscale un lugar a esto

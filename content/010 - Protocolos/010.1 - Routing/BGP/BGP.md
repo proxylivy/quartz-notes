@@ -125,8 +125,8 @@ El TTL en una comunicacion eBGP es de uno, por lo que solo puede llegar al sigui
 - `sh bgp ipv4 unicast neighor | inc BGP neigbor|TTL`: Ver TTL configurado
 
 # Troubleshooting General
-> [!NOTE]- Nota
-> BGP no funcioan sobre rutas por defecto | No [[010 - Protocolos/010.1 - Routing/Ruta Estatica|Ruta Estatica]]
+> [!NOTE] Nota
+> BGP no funciona sobre rutas por defecto | No [[010 - Protocolos/010.1 - Routing/Ruta Estatica|Ruta Estatica]]
 
 - Numero de AS Incorrecto
 	- `show ip protocols`

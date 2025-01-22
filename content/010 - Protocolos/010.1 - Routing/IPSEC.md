@@ -1,7 +1,6 @@
 # Info
 IP Secure, fue creado con el desarrollo de IPv6 en mente, luego fue adaptado a IPv4 y es usado desde la Capa 3 hacia arriba protegiendo al implementar estandares abiertos, usa Confidencialidad de datos e integridad de datos usando [[020 - Conceptos/020.2 - Seguridad/Criptografia|Criptografia]]
 ## Modos de IPSEC
-
 Ambos usan Modo IKE para transportar informacion
 - Transporte: No encripta "Header IP Original", se especifica, usado en DMVPN
 - Tunel: Encripta "Header IP Original" y agrega un nuevo "Header IP"

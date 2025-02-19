@@ -1,6 +1,13 @@
 # Info
-Un dispositivo ubicado dentro de la capa 3 del [[020 - Conceptos/020.3 - Fundamentos/Modelo OSI#Capa 3|Modelo OSI]], Dispositivo principal de la capa anterior es un [[020 - Conceptos/020.4 - Dispositivos de Red/Switch|Switch]] 
-Cada interfaz puede conectar un tipo de red (Gigabit, FastEthernet, HWIC, Seriales, DSL o cable)
+Permiten la interconexion de redes mediante interfaces y direccionamiento [[010 - Protocolos/010.3 - Comunicaciones/010.3.4 - IP/IPv4|IPv4]]/[[010 - Protocolos/010.3 - Comunicaciones/010.3.4 - IP/IPv6|IPv6]], para alcanzar redes externas se usan protocolos dinamicos [[020 - Conceptos/020.3 - Fundamentos/IGP|IGP]] o [[020 - Conceptos/020.3 - Fundamentos/EGP|EGP]].
+Las interfaces fisicas pueden ser clasificadas segun su tipo (HWIC, Seriales, DSL, etc.) o por Velocidades (FastEthernet (100Mbps), Gigabit (1000Mbps), etc).
+
+
+
+
+Un dispositivo ubicado dentro de la capa 3 del [[020 - Conceptos/020.3 - Fundamentos/Modelo OSI#Capa 3|Modelo OSI]], Dispositivo principal de la capa anterior es un [[020 - Conceptos/020.4 - Dispositivos de Red/Switch|Switch]] 
+
+
 
 # Troubleshooting
 > Enfoques: Seguimiento de Ruta - Divide y Venceras - Comparacion

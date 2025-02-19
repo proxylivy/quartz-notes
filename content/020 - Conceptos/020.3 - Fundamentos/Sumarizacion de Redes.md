@@ -7,7 +7,6 @@ Agrupas varias subredes que comparten un prefijo comun, determinando un espacio 
 2. Convierte esa seccion de octeto de IP a Binario
 3. Define la nueva mascara de red
 
-
 ## Ejemplo IPv4
 Tenemos las siguientes redes
 - 192.168.10.0/24

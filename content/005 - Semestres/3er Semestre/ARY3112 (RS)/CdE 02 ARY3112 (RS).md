@@ -3,11 +3,7 @@
 [Onedrive](https://duoccl0-my.sharepoint.com/:u:/g/personal/ga_zunigam_duocuc_cl/ETc01RzyIQVIrkB5RhKMzQ0BrFB9VvfQJCYSzJjbjNWEeA?e=IWKVIS)
 ## Apoyo
 [Calculadora VLSM](http://www.vlsmcalc.com/)
-[[002 - Ordenar/3er Semestre/ARY3112 (RS)/Actividades/2.- Confiabilidad y disponibilidad en redes de pequeña y mediana embergadura/2.1- Agregacion de enlace EtherChannel|2.1- Agregacion de enlace EtherChannel]]
-[[002 - Ordenar/3er Semestre/ARY3112 (RS)/Actividades/2.- Confiabilidad y disponibilidad en redes de pequeña y mediana embergadura/2.2- Protocolo de configuración dinámica de host DHCP|2.2- Protocolo de configuración dinámica de host DHCP]]
-[[002 - Ordenar/3er Semestre/ARY3112 (RS)/Actividades/2.- Confiabilidad y disponibilidad en redes de pequeña y mediana embergadura/2.3- Protocolo de redundancia de primer salto FHRP|2.3- Protocolo de redundancia de primer salto FHRP]]
-[[002 - Ordenar/3er Semestre/ARY3112 (RS)/Actividades/2.- Confiabilidad y disponibilidad en redes de pequeña y mediana embergadura/2.5- Seguridad de Capa 2|2.5- Seguridad de Capa 2]]
-[[002 - Ordenar/3er Semestre/ARY3112 (RS)/Actividades/2.- Confiabilidad y disponibilidad en redes de pequeña y mediana embergadura/2.6- Conceptos de Seguridad de LAN|2.6- Conceptos de Seguridad de LAN]]
+
 ## Notas
 NOTA: No lleva IPv6, ni configuracion basica
 NOTA: Si la Ip es mayor a 256, se divide la ip que se necesita por 256, la parte entera se va al tercer octeto y la decimal se multiplica por 256 y se queda en el cuarto octeto

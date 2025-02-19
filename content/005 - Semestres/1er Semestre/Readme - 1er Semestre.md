@@ -16,7 +16,7 @@ SRY1132: Detectar errores en PC finales, armar cables coaxiales y sus normativas
 
 SRY1142: Mantencion del Hardware y sus perifericos, Sistemas de archivos, Software de configuracion, plan de accion cambios con problemas de red, plan mantencion de perfiles en ambientes y directorios en red, Servicios de comunicacion, Documentar mantenciones, Mesas de ayuda
 
-VTY1112: Usa [Packet Tracer](https://www.netacad.com/resources/lab-downloads), Configuracion de Packet Tracer, Diagramas de Red, Configuracion Inalambrica, Ciberseguridad, DHCP, Switch y Router, IOT
+VTY1112: La transformacion Digital es la aplicacion de tecnologia digital para proporcionar escenarios en que las personas, empresas e industrias puedan innovar. Se utiliza y configuran laboratorios en [Packet Tracer](https://www.netacad.com/resources/lab-downloads), y se ven los conceptos de [[020 - Conceptos/020.3 - Fundamentos/IoT|IoT]], , Diagramas de Red, Configuracion Inalambrica, Ciberseguridad, DHCP, Switching y Routing
 
 ---
 Puedes revisar el contenido de 1er semestre en [Onedrive](https://duoccl0-my.sharepoint.com/:f:/g/personal/ga_zunigam_duocuc_cl/EnMp1EHZSJBDnnqhChIjnmYBJCUZCzDlH1gvfVkuuSv4pQ?e=GMDMXc)

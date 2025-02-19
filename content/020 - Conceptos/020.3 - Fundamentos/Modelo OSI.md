@@ -1,5 +1,5 @@
 # Info
-**O**pen **S**ystem **I**nterconection o **I**nterconexion de **S**istemas **A**biertos) es un modelo de referencia ISO/IEC 7498-1:1994, el cual consiste en la separacion de 7 capas de abstraccion, en el que se provee bases para cordinar otros estandares de interconexion, no es una arquitectura de red
+**O**pen **S**ystem **I**nterconection o **I**nterconexion de **S**istemas **A**biertos) es un modelo de referencia que esta descrito en la norma [ISO/IEC 7498-1:1994](https://www.iso.org/standard/20269.html), el cual consiste en la separacion de 7 capas de abstraccion, en el que se provee bases para cordinar otros estandares de interconexion, no es una arquitectura de red
 ## Tabla Comparativa
 
 | Standard TCP/IP model | OSI model      | Equivalent TCP/IP model | PDU                 |
@@ -234,6 +234,7 @@ Ejemplos:
 - DNS
 - FTP | TFTP | SFTP
 - DHCP
+- BOOTP
 - MQTT (Message Queuing Telemetry Transport)
 - [[010 - Protocolos/010.1 - Routing/IPSEC|IPSEC]] (ISAKMP)
 

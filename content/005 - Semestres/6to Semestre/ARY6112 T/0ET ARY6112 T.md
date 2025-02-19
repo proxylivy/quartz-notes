@@ -12,7 +12,7 @@ Contenidos para repasar ET
 7. Configuración y verificación de errores de [[010 - Protocolos/010.1 - Routing/Redistribucion|Redistribucion]] de protocolos
 8. Configuración y verificación de errores de [[010 - Protocolos/010.1 - Routing/BGP/BGP|BGP]] con [[010 - Protocolos/010.1 - Routing/BGP/BGP-3|BGP-3]]
 9. Configuración y verificación de errores de [[010 - Protocolos/010.1 - Routing/MPLS|MPLS]] (generación de etiquetas, RD, VPNv4, VRF)
-10. Configuración y verificación de errores de [[999 - Archivado/DMVPN|DMVPN]] (NHRP, enrutamiento, IPSEC)
+10. Configuración y verificación de errores de [[010 - Protocolos/010.3 - Comunicaciones/DMVPN|DMVPN]] (NHRP, enrutamiento, IPSEC)
 11. Configuración y verificación de errores de [[010 - Protocolos/010.3 - Comunicaciones/DHCP|DHCP]]
 12. Configuración y verificación de errores de enrutamiento estático | [[010 - Protocolos/010.1 - Routing/Ruta Estatica|Ruta Estatica]]
 13. Comprobación de conectividad (ping, traceroute)

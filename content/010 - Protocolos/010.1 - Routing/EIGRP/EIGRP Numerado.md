@@ -156,7 +156,7 @@ Relacionados a la Relacion de Vecindad
 		- `sh ipv6 eigrp neighbors detail`
 		- `sh ip eigrp topology all-links`: Ver rutas aprendidas, redistribuidas posibles y en espera
 		- `sh ipv6 eigrp topology all-links`
-		- `show ip route eigrp`: Ver rutas en [[999 - Archivado/RIB|RIB]]
+		- `show ip route eigrp`: Ver rutas en [[010 - Protocolos/010.1 - Routing/RIB|RIB]]
 		- `sh ipv6 route eigrp`
 		- `sh ip eigrp redistribution`: Ver rutas compartidas hacia EIGRP
 		- `sh ipv6 eigrp redistribution

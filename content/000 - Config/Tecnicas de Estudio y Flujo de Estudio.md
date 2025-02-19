@@ -8,7 +8,7 @@ Para mi, estudiar es mas que simplemente leer y memorizar, se trata de comprende
 
 > No es solo un repositorio de notas; es un reflejo dinamico de mi aprendizaje y la forma en que conecto lo que estudio
 
-### Extensiones
+### Extensiones de Obsidian
 Uso pocos plugins para mantener mi vault en orden, recomiendo explorar los siguientes:
 - [scambier/obsidian-omnisearch](https://github.com/scambier/obsidian-omnisearch): Motor de Busqueda basado en Fuzzy Search
 - [l1xnan/obsidian-better-export-pdf](https://github.com/l1xnan/obsidian-better-export-pdf): Exportación de PDF con funciones avanzadas.
@@ -98,7 +98,7 @@ Tambien me interesa sobre la extension de la mente, explicada en el paper [The E
 - Surely You're Joking, Mr. Feynman! by Richard P. Feynman 3rd ed
 	- ISBN-13: 978-0606412728
 - Feynman's Tips on Physics: Reflections, Advice, Insights, Practice by Richard P. Feynman
-	- ISBN-13: 978-0465027972|
+	- ISBN-13: 978-0465027972
 
 ### Recursos Active Recall
 - "Make It Stick: The Science of Successful Learning" by Peter C. Brown, Henry L. Roediger III, and Mark A. McDaniel
@@ -116,7 +116,7 @@ Tambien me interesa sobre la extension de la mente, explicada en el paper [The E
 - "The Bullet Journal Method" by Ryder Carroll
 	- ISBN-13: 978-0008261375
 
-## Uso de IA
+## Recursos Uso de IA
 - Juan Pablo Flores - Adoptando IA en Educacion
 	- [Youtube - Nerdearla Chile 2024](https://youtu.be/vU4rtXapTCg?si=XZ8JZ0zsJcdoiZGW)
 - Eleanor Konik - Secondary Sources are pretty great

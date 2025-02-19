@@ -39,7 +39,7 @@ Usted trabaja en la empresa “CASO 3 LTDA.”, la cual se encarga de prestar se
 - Debe documentar todos los errores encontrados en la hoja de documentación, señalando de forma correcta lo solicitado.
 
 ### G. Ticket 7: DMVPN
-- Implementar solución de [[999 - Archivado/DMVPN|DMVPN]] de Fase 2, entre Sucursales Perita 1 y Perita 2, hacia "Sucursal Pera Mayor". Es importante que las conexiones se encuentren cifradas.
+- Implementar solución de [[010 - Protocolos/010.3 - Comunicaciones/DMVPN|DMVPN]] de Fase 2, entre Sucursales Perita 1 y Perita 2, hacia "Sucursal Pera Mayor". Es importante que las conexiones se encuentren cifradas.
 - Compruebe el funcionamiento de túnel y que exista conectividad entre las sucursales mediante el túnel.
 - Debe documentar todos los errores encontrados en la hoja de documentación, señalando de forma correcta lo solicitado.
 

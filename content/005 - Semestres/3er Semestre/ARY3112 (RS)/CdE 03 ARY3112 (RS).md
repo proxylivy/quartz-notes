@@ -6,11 +6,6 @@ ERRATA: La Ipv6 las da el profe, se usan pero no se calculan
 ![1000](https://slink.proxylivy.work/image/fdce221b-218f-4674-a299-46dfaced69bc.png)
 ## Apoyo:
 [Calculadora VLSM](http://vlsmcalc.com/)
-[[002 - Ordenar/3er Semestre/ARY3112 (RS)/Actividades/3.- Confiabilidad y disponibilidad en redes de pequeña y mediana embergadura/3.1- Fundamentos Wlan]]
-[[002 - Ordenar/3er Semestre/ARY3112 (RS)/Actividades/3.- Confiabilidad y disponibilidad en redes de pequeña y mediana embergadura/3.2- Implementación de redes inalámbricas WLAN]]
-[[002 - Ordenar/3er Semestre/ARY3112 (RS)/Actividades/3.- Confiabilidad y disponibilidad en redes de pequeña y mediana embergadura/3.3- Enrutamiento de redes LAN]]
-[[002 - Ordenar/3er Semestre/ARY3112 (RS)/Actividades/3.- Confiabilidad y disponibilidad en redes de pequeña y mediana embergadura/3.4- Enrutamiento IP Estático]]
-[[002 - Ordenar/3er Semestre/ARY3112 (RS)/Actividades/3.- Confiabilidad y disponibilidad en redes de pequeña y mediana embergadura/3.5- Seguridad de Capa 2]]
 
 ## Requerimientos
 ### A. IMPLEMENTACIÓN DIRECCIONAMIENTO IPv4/IPv6:

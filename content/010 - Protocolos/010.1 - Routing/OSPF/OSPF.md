@@ -88,7 +88,7 @@ TO-DO: Hace un Dibujo y Explica mejor
 - Full: Los routers vecinos tienen adyacencia
 
 ## Sumarizacion
-La [[020 - Conceptos/020.3 - Fundamentos/Sumarizacion de Redes|Sumarizacion de Redes]] en OSPF reduce la cantidad de rutas en la [[999 - Archivado/RIB|RIB]], disminuye la complejidad de la [[010 - Protocolos/010.1 - Routing/OSPF/Paquetes OSPF#LSDB|LSDB]] en cada area.
+La [[020 - Conceptos/020.3 - Fundamentos/Sumarizacion de Redes|Sumarizacion de Redes]] en OSPF reduce la cantidad de rutas en la [[010 - Protocolos/010.1 - Routing/RIB|RIB]], disminuye la complejidad de la [[010 - Protocolos/010.1 - Routing/OSPF/Paquetes OSPF#LSDB|LSDB]] en cada area.
 Los [[010 - Protocolos/010.1 - Routing/OSPF/Paquetes OSPF#LSA|LSA]] tipo 1 y tipo 3 detallados se remplazan con [[010 - Protocolos/010.1 - Routing/OSPF/Paquetes OSPF#LSA|LSA]] Tipo 3 resumidos, ocultando los prefijos especificos y evitar calculos complejos de SPF.
 
 # Extras

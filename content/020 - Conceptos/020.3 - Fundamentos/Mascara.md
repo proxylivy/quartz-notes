@@ -3,7 +3,7 @@ aliases:
  - mask
 ---
 
-Note: La cantidad de IP Usables es (N° IP Dispo - 2) excepto en la Mascara /31 puede usar 2 ip en Enlaces Punto a Punto [RFC3021](https://datatracker.ietf.org/doc/html/rfc3021)
+Note: La cantidad de IP Usables es ($\text{N° IP Disponibles} - 2$) excepto en la Mascara /31 puede usar 2 ip en Enlaces Punto a Punto [RFC3021](https://datatracker.ietf.org/doc/html/rfc3021)
 
 Formas de anotacion
 CIDR o Lenght: /32

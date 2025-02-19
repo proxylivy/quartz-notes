@@ -1,5 +1,5 @@
 # Info
-Funciona en [[020 - Conceptos/020.3 - Fundamentos/Modelo OSI#Capa 2|Capa 2]], crea una relacion de confianza entre una [[020 - Conceptos/020.3 - Fundamentos/Interfaz|Interfaz]] y [[020 - Conceptos/020.3 - Fundamentos/MAC|MAC]] en la tabla [[020 - Conceptos/020.4 - Dispositivos de Red/IOU WEB#CAM|CAM]], enviando mensajes entre dispositivos a travez del "Data Plane"
+Funciona en [[020 - Conceptos/020.3 - Fundamentos/Modelo OSI#Capa 2 Enlace de Datos|Modelo OSI]], crea una relacion de confianza entre una [[020 - Conceptos/020.3 - Fundamentos/Interfaz|Interfaz]] y [[020 - Conceptos/020.3 - Fundamentos/MAC|MAC]] en la tabla [[020 - Conceptos/020.4 - Dispositivos de Red/IOU WEB#CAM|CAM]], enviando mensajes entre dispositivos a travez del "Data Plane"
 
 ## Metodo Aprendizaje
 - MAC Origen
@@ -59,7 +59,7 @@ graph TD;
 		- `sh spa root`: Switch Raiz para cada VLAN
 		- `sh spa bri`: Prioridades y costo del switch
 		- `sh spa bri det`: Ver info sobre el [[010 - Protocolos/010.2 - Switching/spanning-tree/Root Bridge|Root Bridge]] y mas info
-	- [[010 - Protocolos/010.2 - Switching/spanning-tree/Tipos de Puerto|Tipos de Puerto]] STP
+	- [[010 - Protocolos/010.2 - Switching/spanning-tree/Estado Puerto STP|Estado Puerto STP]] STP
 		- `sh spa act`
 		- `sh spa inc`
 		- `sh spa int [int S/S/P]`

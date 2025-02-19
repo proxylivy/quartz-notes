@@ -109,7 +109,7 @@ El TTL en una comunicacion eBGP es de uno, por lo que solo puede llegar al sigui
 	- **s** son rutas que se suprimen (Porque hay rutas resumen)
 	- **d** son rutas penalizadas por no ser confiables
 	- **h** son rutas historicas, por lo que posiblemente ya no existan
-	- **r** son rutas con fallos y no pasaran a la [[999 - Archivado/RIB|RIB]]
+	- **r** son rutas con fallos y no pasaran a la [[010 - Protocolos/010.1 - Routing/RIB|RIB]]
 	- **S** son rutas viciadas, que continen inconvenientes
 - `sh ip bgp summary`: Tabla enrutamiento de BGP resumida
 - `sh ip bgp neighbors`: Vecinos BGP

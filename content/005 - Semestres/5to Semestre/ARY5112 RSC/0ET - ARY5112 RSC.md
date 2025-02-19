@@ -3,7 +3,7 @@ Ejecucion Practica tipo Prueba Practica
 Fecha: 09-07-2024
 Duracion: 4 Horas
 ## Imagen Topologia
-![](https://slink.proxylivy.work/image/aebbc1c0-45ab-4710-ba18-f215efa7bf98.jpg)
+![](https://slink.proxylivy.work/image/7a7acddf-07d3-41a3-a2ca-7e4a0b7ca2b0.png)
 ## Sobre
 ## Instrucciones Generales
 La ejecución práctica tiene un 100% de ponderación del puntaje total de este Examen.

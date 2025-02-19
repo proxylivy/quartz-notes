@@ -1,4 +1,11 @@
 # Info
+**D**ynamic **H**ost **C**onfiguration **P**rotocol
+
+Proporciona
+- Direccion IP
+- Mascara de Subred
+- Gateway Predeterminado
+- Informacion Extra para la configuracion
 ## Datos
 - Server: UDP 67
 - Cliente: UDP 68

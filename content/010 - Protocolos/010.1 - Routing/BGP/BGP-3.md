@@ -21,7 +21,7 @@ router bgp [BGP-ASN]
  neighbor [ip-neighbor] update-source loopback [loopback-number]
 ```
 ### Network iBGP
-> Consideradas las `[loopback]` y `[ip-network]`, estas rutas deben existir en la [[999 - Archivado/RIB|RIB]]
+> Consideradas las `[loopback]` y `[ip-network]`, estas rutas deben existir en la [[010 - Protocolos/010.1 - Routing/RIB|RIB]]
 ```
 router bgp [BGP-ASN]
  network [ip-network] mask [dec-mask]

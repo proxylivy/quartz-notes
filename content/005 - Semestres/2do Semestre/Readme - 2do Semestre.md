@@ -7,7 +7,7 @@ Durante el segundo semestre, tome los siguientes ramos
 - SRY2142 (SOS) - Sistema Operativo Servidor
 - VTY2112 (CE) - Conectividad Escencial
 
-FCE1100: "El hombre nace con dignidad y debe ser respetada", ademas el profe le gustaba el cafe
+FCE1100: "El hombre nace con dignidad intrinseca y debe ser respetada", ademas el profe le gustaba el cafe
 
 INY2122: Estructura de Red, Instalacion y Reparacion de Acometidas de Red, SLA, Anomalias en WI-FI, Roleplay Cliente-Tecnico
 

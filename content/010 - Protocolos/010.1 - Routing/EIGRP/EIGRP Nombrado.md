@@ -6,7 +6,7 @@ Basado en [[010 - Protocolos/010.1 - Routing/EIGRP/EIGRP|EIGRP]], Funciona en un
 - Facilita el uso de [[010 - Protocolos/010.3 - Comunicaciones/010.3.4 - IP/IPv4|IPv4]] y [[010 - Protocolos/010.3 - Comunicaciones/010.3.4 - IP/IPv6|IPv6]] mediante AF
 - Mejor organizacion y mantenimiento de configuraciones
 - No es compatible con [[010 - Protocolos/010.1 - Routing/EIGRP/EIGRP Numerado|EIGRP Numerado]] en el mismo ASN
-- Funciona con address family, compatible con [[999 - Archivado/VRF|VRF]]
+- Funciona con address family, compatible con [[010 - Protocolos/010.1 - Routing/VRF|VRF]]
 - Permite tener una configuracion mas ordenada
 
 ## Parametros K

@@ -3,7 +3,7 @@ Apoyo
 [Google drive profe](https://drive.google.com/drive/folders/1ltz_dNvsPAmWGl8aKHMr1_4YH1xGgG94)
 Descarga [Kali Linux](https://www.kali.org/get-kali/#kali-virtual-machines) y su [Documentacion](https://www.kali.org/docs/) y la de sus [Herramientas](https://www.kali.org/tools/)
 - `extras/Adjuntos/1_2_2_Actividad_Generacion_de_un_Malware_JCalderon.pdf`
-Apoyarse con [[999 - Archivado/IPtables|IPtables]]
+Apoyarse con [[020 - Conceptos/020.2 - Seguridad/IPtables|IPtables]]
 ## Contexto
 Una empresa naviera sufrió un ataque de tipo Ransomware. Este [[020 - Conceptos/020.2 - Seguridad/Malware|Malware]] llegó a través de un archivo del tipo Office al correo de uno de los empleados, y rápidamente infectó los servidores críticos cifrando el contenido, dejando a la empresa inhabilitada para funcionar por varios días. Los ciberdelincuentes solicitaron un rescate en Bitcoin que la empresa tuvo que pagar para recuperar sus activos críticos.
 ## Instrucciones

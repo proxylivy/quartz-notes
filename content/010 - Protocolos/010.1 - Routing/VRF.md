@@ -330,7 +330,7 @@ El orden de creacion es muy importante, primero se crea la regla VRF, luego se a
 	- `show vrf ipv4 interfaces`
 - Configuracion Protocolo IGP
 	- `show ip protocols vrf [definition-name]`
-- Revisar Rutas [[999 - Archivado/RIB|RIB]], no deberian haber rutas VRF
+- Revisar Rutas [[010 - Protocolos/010.1 - Routing/RIB|RIB]], no deberian haber rutas VRF
 	- `show ip route | b Gateway`: Rutas globales
 	- `show ip route vrf [vrf-name] | b Gateway`: Rutas dentro de VRF
 - Ping entre maquinas desde VRF

@@ -1,5 +1,5 @@
 # Info
-**M**ulti-**P**rotocol **L**abel **S**witching es una tecnologia de transporte de datos de alto rendimiento que esta basado en etiquetas de [[999 - Archivado/VRF|VRF]] para separar el trafico entre clientes, trabajando en la [[020 - Conceptos/020.3 - Fundamentos/Modelo OSI#Capas Multiples|Capa 2.5]] del Modelo OSI debido a que agrega una etiqueta al paquete, es usado junto a [[010 - Protocolos/010.1 - Routing/OSPF/OSPF|OSPF]]. Es una alternativa a la "Fibra Oscura" o "Fibra de enlace dedicado", no se conecta mediante internet sino que se usa WAN
+**M**ulti-**P**rotocol **L**abel **S**witching es una tecnologia de transporte de datos de alto rendimiento que esta basado en etiquetas de [[010 - Protocolos/010.1 - Routing/VRF|VRF]] para separar el trafico entre clientes, trabajando en la [[020 - Conceptos/020.3 - Fundamentos/Modelo OSI#Capas Multiples|Capa 2.5]] del Modelo OSI debido a que agrega una etiqueta al paquete, es usado junto a [[010 - Protocolos/010.1 - Routing/OSPF/OSPF|OSPF]]. Es una alternativa a la "Fibra Oscura" o "Fibra de enlace dedicado", no se conecta mediante internet sino que se usa WAN
 
 ## Terminologia
 - [[020 - Conceptos/020.4 - Dispositivos de Red/IOU WEB#CEF|CEF]] (**C**isco **E**xpress **F**orwarding)
@@ -9,7 +9,7 @@
 - LSR (**L**abel **S**witching **R**outer): Routers dentro de MPLS que envian y traducen etiquetas
 	- LER (**L**abel **E**dge **R**outer): Inicia o termina la comunicacion MPLS, traduce IP a Etiquetas y viceversa
 - LDP (**L**abel **D**istribute **P**rotocol): Protocolo que etiqueta los paquetes de MPLS
-- [[999 - Archivado/RIB|RIB]] (**R**outing **I**nformation **B**ase)
+- [[010 - Protocolos/010.1 - Routing/RIB|RIB]] (**R**outing **I**nformation **B**ase)
 - FIB (**F**orwarding **I**nformation **B**ase)
 - LIB (**L**abel **I**nformation **B**ase)
 - LFIB (**L**abel **F**orwarding **I**nstance **B**ase)

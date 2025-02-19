@@ -1,4 +1,4 @@
-Permite ver la fuente de preferencia para la eleccion de rutas en la [[999 - Archivado/RIB|RIB]], entre menor el valor, mejor
+Permite ver la fuente de preferencia para la eleccion de rutas en la [[010 - Protocolos/010.1 - Routing/RIB|RIB]], entre menor el valor, mejor
 
 | Fuente                                                                  | Valor Default |
 | ----------------------------------------------------------------------- | ------------- |

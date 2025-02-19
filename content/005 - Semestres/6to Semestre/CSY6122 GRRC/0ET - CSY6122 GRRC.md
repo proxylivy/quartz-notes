@@ -142,7 +142,7 @@ Le han solicitado configurar lo siguiente:
 11. Usando [tcpdump](https://www.kali.org/tools/tcpdump/), visualice en tráfico saliente de la interfaz que va hacia internet, principalmente evidenciando la funcionalidad de NAT.
 
 ### Ayuda Item 3
-Nota: [[999 - Archivado/IPtables|IPtables]]
+Nota: [[020 - Conceptos/020.2 - Seguridad/IPtables|IPtables]]
 
 - Sigue la guia para configurar IP en Kali
 > [!IMPORTANT]- Evita que Kali se maree
@@ -184,7 +184,7 @@ Maquinas a usar en modo Red NAT
 - [Metasploitable](https://www.rapid7.com/products/metasploit/metasploitable/) | [Guia de instalacion](https://github.com/z0s3r77/Metasplotable_2)
 
 Paginas Apoyo
-- Leer Nota [[999 - Archivado/IPtables|IPtables]]
+- Leer Nota [[020 - Conceptos/020.2 - Seguridad/IPtables|IPtables]]
 - [Kali - Tools/snort](https://www.kali.org/tools/snort/)
 - [Guia Snort en kali](https://laboratoriolinux.es/index.php/-noticias-mundo-linux-/software/35752-como-usar-snort-en-kali-linux-guia-paso-a-paso.html)
 

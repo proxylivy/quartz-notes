@@ -1,5 +1,5 @@
 # Info
-Son formas de onda que transportan informacion, permiten sincronizar y controlar las comunicaciones
+Son formas de [[020 - Conceptos/020.5 - Red HFC/Ondas|Ondas]] que transportan informacion, permiten sincronizar y controlar las comunicaciones
 
 Tipos
 - Analogicas: Continuas (Onda Sinusoidal), pueden tener infinitos valores

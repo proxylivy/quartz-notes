@@ -81,15 +81,15 @@ ip address [ipv4] [dec-mask] secondary
 IPv4 a formato Decimal, puede ser usado para programas especificos o en bases de datos
 
 Siguen la siguiente formula
-$(\text{Oct1}\times{256^3})+(\text{Oct2}\times{256^2})+(\text{Oct3}\times{256^1})+(\text{Oct4}\times{256^0})$
+- $(\text{Oct1}\times{256^3})+(\text{Oct2}\times{256^2})+(\text{Oct3}\times{256^1})+(\text{Oct4}\times{256^0})$
 
 Ejemplo con 192.168.1.1
-$(192\times{256^3})+(168\times{256^2})+(1\times{256^1})+(1\times{256^0})=3232235777$
+- $(192\times{256^3})+(168\times{256^2})+(1\times{256^1})+(1\times{256^0})=3232235777$
 
 Para pasar de Formato Decimal a IPv4
 
 Sigue la siguiente Formula (Dec es el resultado decimal)
-$\text{Oct1}=(\dfrac{\text{Dec}}{256^3})$
-$\text{Oct2}=\text{Dec}-(\dfrac{\text{Oct1}\times256^3}{256^2})$
-$\text{Oct3}=\text{Dec}-\dfrac{(\text{Oct1}\times256^3)-(\text{Oct2}\times256^2)}{256^1}$
-$\text{Oct4}=\text{Dec}-(\text{Oct1}\times256^3)-(\text{Oct2}\times256^2)-(\text{Oct3}\times256^1)$
+- $\text{Oct1}=(\dfrac{\text{Dec}}{256^3})$
+- $\text{Oct2}=\text{Dec}-(\dfrac{\text{Oct1}\times256^3}{256^2})$
+- $\text{Oct3}=\text{Dec}-\dfrac{(\text{Oct1}\times256^3)-(\text{Oct2}\times256^2)}{256^1}$
+- $\text{Oct4}=\text{Dec}-(\text{Oct1}\times256^3)-(\text{Oct2}\times256^2)-(\text{Oct3}\times256^1)$

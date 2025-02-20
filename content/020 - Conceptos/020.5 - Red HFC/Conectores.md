@@ -1,4 +1,4 @@
-Son elementos escenciales para unir cables con equipos de radio (Antenas, Routers, Modems, etc.) Existen muchos tipos y tamaños, algunos estandar y otros no estandar. En el ambito de la [[020 - Conceptos/020.5 Red HFC/RF|RF]] es comun encontrar:
+Son elementos escenciales para unir cables con equipos de radio (Antenas, Routers, Modems, etc.) Existen muchos tipos y tamaños, algunos estandar y otros no estandar. En el ambito de la [[020 - Conceptos/020.5 - Red HFC/RF|RF]] es comun encontrar:
 - Conectores de polaridad invertida (RP, Reverse Polarity): se intercambian pines o generos (Macho/Hembra) de manera diferente a los conectores normales
 - Roscas Invertidas: Algunas roscas se diseñan al revez de lo habitual
 

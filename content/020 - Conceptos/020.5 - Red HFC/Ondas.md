@@ -8,7 +8,7 @@ Una onda es una perturbacion de alguna propiedad de un medio que se propaga a tr
 	- Ondas Gravedad: Olas en el mar, formadas por la interaccion entre la gravedad y la tierra
 - Ondas Electromagneticas: No necesitan un medio para propagarse, pueden viajar por el Vacio. Son generadas por oscilaciones en un campo electrico que inducen un campo magnetico asociado, Ejemplos:
 	- Luz Visible: Lo que podemos ver con nuestros ojos
-	- Ondas de Radio: Utilizadas en la comunicacion [[020 - Conceptos/020.5 Red HFC/RF|RF]] (AM/FM, WiFi, Bluetooth)
+	- Ondas de Radio: Utilizadas en la comunicacion [[020 - Conceptos/020.5 - Red HFC/RF|RF]] (AM/FM, WiFi, Bluetooth)
 	- Rayos X: Para poder ver los huesos
 	- Rayos Gamma: Emitidos en reacciones nucleares y en el espacio
 - Ondas Gravitacionales: Alteran la geometria del espacio-tiempo

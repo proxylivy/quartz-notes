@@ -1,0 +1,21 @@
+Los elementos Pasivos no requieren energia electrica para funcionar, ademas permiten dividir la señal en 2 señales o mas aunque producen atenuaciones de señal
+
+- Ejemplos
+	- Cables
+		- [[020 - Conceptos/020.5 - Red HFC/Coaxial|Coaxial]]
+		- [[020 - Conceptos/020.5 - Red HFC/Fibra Optica|Fibra Optica]]
+	- Conectores
+		- RG-6 Gilbert
+		- RG-6 CONN
+		- F-81 Union Hembra
+	- TAP: Dispositivo que divide una señal y las deriva a diferentes salidas
+		- GL 4x26
+		- 8 Salidas + Conectores Antirrobo
+	- Acoplador: Divide la señal en multiples ramas
+		- Spliter 2 vias
+		- Spliter 3 vias
+		- Regal DC-6
+		- DB 1 via Regal GRDC 1-6
+		- SSP-9N RF
+	- Ecualizador: Ajustan la amplitud de la señal segun la frecuencia, compensando perdidas
+	- Otros: Grampas, Ground Block, Filtro de Ruido, Roseta, Pasacables

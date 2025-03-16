@@ -8,11 +8,7 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-<<<<<<< Updated upstream
-    pageTitle: "Quartz 4",
-=======
     pageTitle: "Proxylivy Notes",
->>>>>>> Stashed changes
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,

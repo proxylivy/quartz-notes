@@ -12,6 +12,7 @@
 - Sobre los atributos, si no se usan para seleccionar camino, ¿Esta correcto decir que son "Atributo Locales"?
 - Los atributos son los mismos entre [[010 - Protocolos/010.1 - Routing/BGP/BGP-4|BGP-4]] con [[010 - Protocolos/010.1 - Routing/BGP/BGP|BGP]]-3?? Aunque solo se le agrega a [[010 - Protocolos/010.1 - Routing/BGP/BGP-4|BGP-4]] el NLRI??
 - Como afecta NLRI (Network Layer Reachability Information) a BGP-4([[010 - Protocolos/010.1 - Routing/BGP/BGP-4|BGP-4]])
+- Buscar en "Clase 8 pagina 5 de Troubleshooting" y escribir sobre rutas IN (Rutas Externas hacia Dentro) y OUT (Rutas Internas hacia Afuera) para [[010 - Protocolos/010.1 - Routing/BGP/BGP|BGP]]
 
 ---
 ## Vault Obsidian

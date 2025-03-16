@@ -8,15 +8,19 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
+<<<<<<< Updated upstream
     pageTitle: "Quartz 4",
+=======
+    pageTitle: "Proxylivy Notes",
+>>>>>>> Stashed changes
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
-      provider: "plausible",
+      provider: "null",
     },
-    locale: "en-US",
-    baseUrl: "quartz.jzhao.xyz",
+    locale: "es-CL",
+    baseUrl: "notes.proxylivy.work",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "created",
     theme: {

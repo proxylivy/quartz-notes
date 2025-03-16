@@ -11,13 +11,14 @@ Apoyo:
 [[extras/Adjuntos/Procedimientos linux ASY3132.docx.pdf|Mega Guia Profe.pdf]]
 [[002 - Ordenar/3er Semestre/ASY3132 (ASOE)/Apuntes/Instalar CentOS (ASOE)|Ayuda Instalacion CentOS]]
 
-Configurar Nombre Hostname
+> Configurar Nombre Hostname
 ```
 hostnamectl set-hostname Server01-Apellido1-Apellido2
 ```
 
+> Comprueba la configuracion del Hostname
 ```
-hostname
+hostnamectl
 ```
 
 ---

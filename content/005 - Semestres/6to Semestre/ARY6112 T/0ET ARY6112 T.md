@@ -293,7 +293,7 @@ En cada problema detectado, debe completar con la información solicitada para c
 | CE33(config)#router bgp 14501<br>CE33(config-router)#no neighbor 190.90.9.10 remote-as 1234<br>CE33(config-router)#neighbor 190.90.9.10 remote-as 123 |
 
 ---
-- Problema Encontrado (Descripcion Breve): BGP: Loopback no se encuentran sumarizadas
+- Problema Encontrado (Descripcion Breve): BGP: Loopback no se encuentran sumarizadas para Loopback Norte, deberia ser "120.0.32.0/21"
 
 | Comando Aplicado                                                                                             |
 | ------------------------------------------------------------------------------------------------------------ |

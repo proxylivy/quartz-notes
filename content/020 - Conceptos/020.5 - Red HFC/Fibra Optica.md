@@ -57,7 +57,7 @@ La **Reflexion interna total** permite confinar la luz en el nucleo. Se produce 
 En el vacio la velocidad de la luz es aproximadamente $3 \times 10^{8}\text{m/s}$, cuando se desplaza por un medio (Agua, Vidrio, etc.) su velocidad se reduce
 
 ### Indice de Refraccion
-Se representa como $n$ y relaciona la velocidad de la luz en el vacio ($C$) con su velocidad de algun medio ($V_{p}$) $$n=\dfrac{C}{V_{p}}$$
+Se representa como $n$ y relaciona la velocidad de la luz en el vacio ($C$) con su velocidad de algun medio ($V_{p}$): $$n=\dfrac{C}{V_{p}}$$
 Donde:
 - $C$ es la velocidad de la luz en el vacio
 - $V_p$ es la velocidad de la luz en el medio
@@ -84,7 +84,9 @@ El **Angulo de aceptacion** ($\phi_{NA}$) es el maximo angulo (medido respecto a
 
 ### Ejemplo de Calculo
 Si $n_{1}=1,45$ y $n_{2}=1,35$: $$NA=\sqrt{(1,45)^{2}-(1,35)^{2}}\approx0,529$$
+
 El angulo de aceptacion: $$\phi_{NA}=\arcsin{(0,529)}\approx31,94^\circ$$
+
 En este ejemplo, las ondas con un grado menor a $31,94^\circ$ (medido respecto al eje de la fibra) quedara confinado dentro del nucleo por reflexiones internas totales. 
 
 ## Fabricacion
@@ -94,7 +96,7 @@ Se elabora a partir de Dioxido de silicio ($SiO_{2}$) con dopantes como Fluor ($
 	- Se inyectan vapores de dopantes y se calientan con llama de hidrogeno a ~2000°C
 	- Los dopantes se condensan y forman el "Nucleo" con las propiedades deseadas
 2. Estirado en la Torre
-	- La pregorma se introduce en un horno de alta temperatura (~2000°C) y se estira de ella para obtener la fibra del diametro requerido ($125\micro m$ con nucleo y revestimiento)
+	- La pregorma se introduce en un horno de alta temperatura (~2000°C) y se estira de ella para obtener la fibra del diametro requerido ($125\micro \text{m}$ con nucleo y revestimiento)
 	- Se controla mediante sistemas automatizados y computarizados
 
 Los metodos mas habituales:
@@ -103,12 +105,12 @@ Los metodos mas habituales:
 
 ## Tipos de Fibra
 1. Monomodo (SM)
-	- Nucleo Estrecho (Tipicamente $9\micro{m}$)
+	- Nucleo Estrecho (Tipicamente $9\micro \text{m}$)
 	- Permite propagar una Longitud de Onda por fibra
-	- Ideal para largas distancias (50Km entre repetidores)
+	- Ideal para largas distancias (90Km entre repetidores)
 	- Ejemplo de nomenclatura: SM 9/125 (Nucleo/Revestimiento)
 2. Multimodo (SM)
-	- Nucleo mas ancho (ej. 50 o 62,5 $\micro{m}$)
+	- Nucleo mas ancho (ej. 50 o 62,5 $\micro \text{m}$)
 	- Permite propagar varias Longitudes de Onda por fibra
 	- Adecuado para distancias mas cortas (Hasta 2Km)
 	- Ejemplo de nomenclatura:
@@ -132,76 +134,3 @@ El cableado se distingue entre:
 	- Capa de proteccion pegada al revestimiento para mayor flexibilidad
 
 La norma [ANSI/TIA/EIA 598-D (Autodescarga)](https://incab.co/files/tia-598-d.pdf) (o equivalentes) regula los colores de los hilos en el interior del cable, facilitando la identificacion y la gestion de varios hilos/fibras, tambien hay [explicaciones](https://www.daenotes.com/electronics/communication-system/EIA-598-A-Standard) al respecto
-
-# Instalacion
-## Materiales
-La instalacion y el mantenimiento de fibra optica requieren un conjunto de herramientas especializadas. En general, podemos agruparlas en tres grandes categorias segun la fase del trabajo: 
-- *Preparacion de la Fibra*, se remueven cubiertas (Chaquetas), Buffers y protecciones exteriores hasta dejar la fibra lista para unir o conectar.
-- *Union de la Fibra*, Una vez que la fibra esta pelada y preparada, se procede a su empalme. Estas herramientas aseguran cortes limpios y alineaciones para un correcto empalme. 
-- *Limpieza de la Fibra*, para garantizar la baja atenuacion y evitar perdidas por suciedad. La limpieza aplica tanto a las puntas de los conectores como a la fibra antes de empalmarla
-
-1. Preparacion de la Fibra
-	- Deschaquetadora de cable (Cable Slitter)
-		- Diseñada para cortar con precision la cubierta de cables con diametros de hasta 44,5mm
-	- Cortador de minitubos
-		- Permite seccionar minitubos o microductos de hasta 3,17mm
-	- Pelador de Fibra Optica (Stripper) de 3 medidas
-		- Quita la Chaqueta "Tight Buffer" de 3mm
-		- Pela la cubierta de 250$\micro{m}$
-		- Retira el buffer de 900$\micro{m}$
-		- Retira el acrilato, dejando la fibra desnuda
-	- Tijeras de Kevlar
-		- Cortan la aramida (Kevlar) que refuerza el cable
-	- Deschaquetadora para fibras Tight Buffer
-		- Preparada para diametros de 500$\micro{m}$
-2. Union de la Fibra
-	- Cortadora de presicion de 3 pasos
-		- Indicada para empalmes mecanicos o para conectar fibras a conectores pre-pulidos
-	- Cortadora de precision (Fiber Cleaver)
-		- Apta para fibras de 250$\micro{m}$ y 900$\micro{m}$
-		- Permite cortes ajustable entre 5mm y 20mm
-	- Microcospio de 200x
-		- Adaptador Universal (ST, LC y SC), apto para fibras MM y SM
-		- Permite enfocar manualmente para detecta suciedad, grietas o roturas en la superficie de contacto
-3. Limpieza de la Fibra
-	- Toallitas de limpieza de fibra
-		- Alta Absorcion, no deja residuos
-	- Alcohol Isopropilico
-		- Disuelve y remueve impurezas sin dejar rastro
-	- Limpiador de conectores (Tipo Cinta)
-		- Retira particulas y suciedad del ferulo del conector
-	- Limpiador One Click
-		- Un sistema rapido y efectivo que limpia el extremo del conector con un solo movimiento
-4. Medicion y Certificacion
-	- OTDR (Optical Time Domain Reflectometer)
-		- Utiliza Tecnica de Retrodispersion, dibuja su atenuacion a lo largo de todo el enlace
-	- OLTS (Optical Loss Test Set)
-		- Medir la perdida total en el cable
-	- Localizador Visual de Fallas (VFL)
-		- Emite un Laser de luz Visible Roja clase 2 a 650mm para detectar roturas y fallas hasta 5km de distancia
-		- Conexion Universal ST, FC y SC
-	- Medidor de Redes PON
-		- Para redes FTTH (GPON, GEPON)
-		- Debe transportar la señal triple play en tres ventanas (1301nm, 1490nm, 1550nm)
-
-Un empalme es la union permamente de dos extremos de una fibra para transmitir luz, ambos extremos se someten a una temperatura tan alta como para fundir sus extremos y unirlos y genera atenuacion dependiendo de la calidad del empalme.
-
-Existen 2 tipos de empalme
-- Fusion: Se genera un arco electrico por una fuente de 4000 y 5000 volts mediante una Fusionadora y realiza el alineamiento de las fibras, las fusiona, calcula las perdidas y no se demora mas de 10 segundos, luego tienes que proteger las fibras fusionadas con un manguito termocontraible de 40mm o de 60mm
-- Mecanico: Se empalman en un contenedor relleno con gel igualador de indice de refraccion, son conexiones provisorias y que solo se usan en situaciones de emergencia no permanentes
-
-## Fusion de Fibra
-Para empalmar un cable de [[020 - Conceptos/020.5 - Red HFC/Fibra Optica|Fibra Optica]] se siguen los siguientes pasos
-1. Desenchaquetar el cable de Fibra Optica
-	- Usa un Stripper calibrado a 125$\micro{m}$, retira entre 3 y 4 centimetros de Coating, dejando la fibra desnuda
-2. Retirar el recubrimiento primario de la fibra optica
-3. Retira todos los elementos de proteccion axial
-4. Limpieza total de las fibras
-	- Usa una toallita suave con alcohol isopropilico
-5. Corte de la fibra optica
-	- Usa el cortador de precision entre 8mm y 15mm, dependiendo del largo de la proteccion termocontraible
-6. Introduce la fibra en la Fusionadora
-	- Deja no menos de 1mm de distancia entre ambas fibras y que esten rectas
-	- Al fusionar, la maquina Alinea los ejes X e Y, y acerca los extremos a una distancia de 1$\micro$ o 2$\micro$
-Nota: Considera la "Matriz de Riesgo", condiciones de entorno y configuracion correcta de la maquina de fusion
-

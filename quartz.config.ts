@@ -15,7 +15,7 @@ const config: QuartzConfig = {
     analytics: {
       provider: "null",
     },
-    locale: "es-CL",
+    locale: "es-ES",
     baseUrl: "notes.proxylivy.work",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "created",

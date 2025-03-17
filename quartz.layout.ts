@@ -5,16 +5,21 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [Component.Comments({
-    provider: 'giscus',
-  	options: {
-  		repo: 'proxylivy/quartz-notes',
-  	    repoId: 'R_kgDONQhebA',
-  	    category: 'Announcements',
-  	    categoryId: 'DIC_kwDONQhebM4CoJNB',
-  	    reactionsEnabled: true,
-  	  }
-  	}),
+  afterBody: [
+    Component.Comments({
+      provider: 'giscus',
+      options: {
+        // from data-repo
+        repo: 'proxylivy/quartz-notes',
+        // from data-repo-id
+        repoId: 'R_kgDONQhebA',
+        // from data-category
+        category: 'Announcements',
+        // from data-category-id
+        categoryId: 'DIC_kwDONQhebM4CoJNB',
+        reactionsEnabled: true,
+      }
+    }),
   ],
   footer: Component.Footer({
     links: {

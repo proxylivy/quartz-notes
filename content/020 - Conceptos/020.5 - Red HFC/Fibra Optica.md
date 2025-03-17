@@ -57,7 +57,10 @@ La **Reflexion interna total** permite confinar la luz en el nucleo. Se produce 
 En el vacio la velocidad de la luz es aproximadamente $3 \times 10^{8}\text{m/s}$, cuando se desplaza por un medio (Agua, Vidrio, etc.) su velocidad se reduce
 
 ### Indice de Refraccion
-Se representa como $n$ y relaciona la velocidad de la luz en el vacio ($C$) con su velocidad de algun medio ($V_{p}$): $$n=\dfrac{C}{V_{p}}$$
+Se representa como $n$ y relaciona la velocidad de la luz en el vacio ($C$) con su velocidad de algun medio ($V_{p}$): 
+
+$$n=\dfrac{C}{V_{p}}$$
+
 Donde:
 - $C$ es la velocidad de la luz en el vacio
 - $V_p$ es la velocidad de la luz en el medio
@@ -70,7 +73,10 @@ Ejemplos de indices de refraccion
 - $\text{Diamante} \approx 2,417$
 
 ### Ley de Snell
-Al cambiar de un medio con indice $n_1$ a otro de indice $n_2$: $$n_1 \sin(\theta_{1})=n_2\sin(\theta_{2})$$
+Al cambiar de un medio con indice $n_1$ a otro de indice $n_2$: 
+
+$$n_1 \sin(\theta_{1})=n_2\sin(\theta_{2})$$
+
 - $\theta_{1}$: Angulo de incidencia
 - $\theta_{2}$: Angulo de refraccion
 
@@ -83,9 +89,13 @@ El **Angulo de aceptacion** ($\phi_{NA}$) es el maximo angulo (medido respecto a
 3. $NA=\sin(\alpha_{c})$
 
 ### Ejemplo de Calculo
-Si $n_{1}=1,45$ y $n_{2}=1,35$: $$NA=\sqrt{(1,45)^{2}-(1,35)^{2}}\approx0,529$$
+Si $n_{1}=1,45$ y $n_{2}=1,35$: 
 
-El angulo de aceptacion: $$\phi_{NA}=\arcsin{(0,529)}\approx31,94^\circ$$
+$$NA=\sqrt{(1,45)^{2}-(1,35)^{2}}\approx0,529$$
+
+El angulo de aceptacion: 
+
+$$\phi_{NA}=\arcsin{(0,529)}\approx31,94^\circ$$
 
 En este ejemplo, las ondas con un grado menor a $31,94^\circ$ (medido respecto al eje de la fibra) quedara confinado dentro del nucleo por reflexiones internas totales. 
 
@@ -96,7 +106,7 @@ Se elabora a partir de Dioxido de silicio ($SiO_{2}$) con dopantes como Fluor ($
 	- Se inyectan vapores de dopantes y se calientan con llama de hidrogeno a ~2000°C
 	- Los dopantes se condensan y forman el "Nucleo" con las propiedades deseadas
 2. Estirado en la Torre
-	- La pregorma se introduce en un horno de alta temperatura (~2000°C) y se estira de ella para obtener la fibra del diametro requerido ($125\micro \text{m}$ con nucleo y revestimiento)
+	- La pregorma se introduce en un horno de alta temperatura (~2000°C) y se estira de ella para obtener la fibra del diametro requerido ($125\mu \text{m}$ con nucleo y revestimiento)
 	- Se controla mediante sistemas automatizados y computarizados
 
 Los metodos mas habituales:
@@ -105,12 +115,12 @@ Los metodos mas habituales:
 
 ## Tipos de Fibra
 1. Monomodo (SM)
-	- Nucleo Estrecho (Tipicamente $9\micro \text{m}$)
+	- Nucleo Estrecho (Tipicamente $9\mu \text{m}$)
 	- Permite propagar una Longitud de Onda por fibra
 	- Ideal para largas distancias (90Km entre repetidores)
 	- Ejemplo de nomenclatura: SM 9/125 (Nucleo/Revestimiento)
 2. Multimodo (SM)
-	- Nucleo mas ancho (ej. 50 o 62,5 $\micro \text{m}$)
+	- Nucleo mas ancho (ej. 50 o 62,5 $\mu \text{m}$)
 	- Permite propagar varias Longitudes de Onda por fibra
 	- Adecuado para distancias mas cortas (Hasta 2Km)
 	- Ejemplo de nomenclatura:

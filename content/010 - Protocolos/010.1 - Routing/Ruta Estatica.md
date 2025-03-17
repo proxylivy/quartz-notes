@@ -54,7 +54,7 @@ redistribute static include-connected
 ```
 
 # Visualizacion
-`show running-config | include ip route` -> Ver rutas IPv4
-`show running-config | include ipv6 route` -> Ver rutas IPv6
-`show ip route`
-`show ip route [ip]` -> Ver informacion detallada ruta, donde va y donde la aprendio
+- `show running-config | include ip route` -> Ver rutas IPv4
+- `show running-config | include ipv6 route` -> Ver rutas IPv6
+- `show ip route`
+- `show ip route [ip]` -> Ver informacion detallada ruta, donde va y donde la aprendio

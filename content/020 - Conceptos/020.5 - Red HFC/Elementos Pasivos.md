@@ -4,7 +4,7 @@ Los elementos Pasivos no requieren energia electrica para funcionar, ademas perm
 	- Cables
 		- [[020 - Conceptos/020.5 - Red HFC/Coaxial|Coaxial]]
 		- [[020 - Conceptos/020.5 - Red HFC/Fibra Optica|Fibra Optica]]
-	- Conectores
+	- [[020 - Conceptos/020.5 - Red HFC/Conectores|Conectores]]
 		- RG-6 Gilbert
 		- RG-6 CONN
 		- F-81 Union Hembra

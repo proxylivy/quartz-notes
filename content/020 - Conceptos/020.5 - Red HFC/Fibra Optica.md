@@ -89,7 +89,7 @@ El **Angulo de aceptacion** ($\phi_{NA}$) es el maximo angulo (medido respecto a
 3. $NA=\sin(\alpha_{c})$
 
 ### Ejemplo de Calculo
-Si $n_{1}=1,45$ y $n_{2}=1,35$: 
+Si $n_{1}=1,45$ y $n_{2}=1,35$, entonces: 
 
 $$NA=\sqrt{(1,45)^{2}-(1,35)^{2}}\approx0,529$$
 
@@ -115,7 +115,7 @@ Los metodos mas habituales:
 
 ## Tipos de Fibra
 1. Monomodo (SM)
-	- Nucleo Estrecho (Tipicamente $9\mu \text{m}$)
+	- Nucleo Estrecho (Tipicamente 9 $\mu \text{m}$)
 	- Permite propagar una Longitud de Onda por fibra
 	- Ideal para largas distancias (90Km entre repetidores)
 	- Ejemplo de nomenclatura: SM 9/125 (Nucleo/Revestimiento)

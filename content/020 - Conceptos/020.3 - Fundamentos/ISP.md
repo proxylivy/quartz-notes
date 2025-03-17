@@ -2,13 +2,18 @@
 **I**nternet **S**ervice **P**roviders, son empresas que ofrecen conexion a internet.
 
 Se clasifican jerarquicamente en diferentes niveles:
-- Nivel 1: Proporcionan transito hacia el Backbone de Internet, atendiendo a clientes globales o empresariales con accesos dedicados. Ejemplos: [Arelion Sweden AB](https://www.arelion.com/), [Cogent Communications](https://www.cogentco.com/es/), [Hibernia Networks](https://www.gtt.net/us-en/), [GTT](https://www.gtt.net/us-en/)
-- Nivel 2: Interconectan ISPs de nivel 1 con los de nivel 3 o brindan acceso a nivel regional. Ejemplos: [Vodafone](https://www.vodafone.com/), [Entel](https://www.entel.cl/mayoristas/datos-infraestructura/servicio-datos/internet-dedicado), [GTD](https://www.gtd.cl/corporaciones/red-de-datacenter)
-- Nivel 3: Ofrecen cobertura a clientes en areas localizadas, generalmente utilizando la infraestructura de ISPs de niveles superiores. Ejemplos: [VTR](https://vtr.com/), [Claro](https://www.clarochile.cl), [Movistar](https://ww2.movistar.cl/)
+- Nivel 1: Proporcionan transito hacia el Backbone de Internet, atendiendo a clientes globales o empresariales con accesos dedicados. 
+	- Ejemplos: [Arelion Sweden AB](https://www.arelion.com/), [Cogent Communications](https://www.cogentco.com/es/), [Hibernia Networks](https://www.gtt.net/us-en/), [GTT](https://www.gtt.net/us-en/)
+- Nivel 2: Interconectan ISPs de nivel 1 con los de nivel 3 o brindan acceso a nivel regional. 
+	- Ejemplos: [Vodafone](https://www.vodafone.com/), [Entel](https://www.entel.cl/mayoristas/datos-infraestructura/servicio-datos/internet-dedicado), [GTD](https://www.gtd.cl/corporaciones/red-de-datacenter)
+- Nivel 3: Ofrecen cobertura a clientes en areas localizadas, generalmente utilizando la infraestructura de ISPs de niveles superiores. 
+	- Ejemplos: [VTR](https://vtr.com/), [Claro](https://www.clarochile.cl), [Movistar](https://ww2.movistar.cl/)
 
 El Peering es un acuerdo entre dos o mas ISPs para intercambiar trafico de forma directa, con el objetivo de reducir la latencia y mejorar la eficiencia. Exsiten 2 tipos principales:
-- Publico: Los ISPs se conectan a travez de un IXP (Internet Exchange Point) o PIT (Punto de Intercambio de Transito). Ejemplos: [PITChile](https://www.pitchile.cl/wp/), [IX.br](https://ix.br/), [DE-CIX](https://www.de-cix.net/), [LINX](https://www.linx.net/), [AMS-IX](https://www.ams-ix.net/ams)
-- Privado: Dos empresas establecen un enlace dedicado para intercambiar trafico directamente entre ellas. Ejemplo: Google y Comcast, Netflix y AT&T, Facebook y Verizon)
+- Publico: Los ISPs se conectan a travez de un IXP (Internet Exchange Point) o PIT (Punto de Intercambio de Transito). 
+	- Ejemplos: [PITChile](https://www.pitchile.cl/wp/), [IX.br](https://ix.br/), [DE-CIX](https://www.de-cix.net/), [LINX](https://www.linx.net/), [AMS-IX](https://www.ams-ix.net/ams)
+- Privado: Dos empresas establecen un enlace dedicado para intercambiar trafico directamente entre ellas. 
+	- Ejemplo: Google y Comcast, Netflix y AT&T, Facebook y Verizon)
 
 # Extras
 ## Recursos Adicionales

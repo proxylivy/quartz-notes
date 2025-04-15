@@ -23,3 +23,4 @@ El Peering es un acuerdo entre dos o mas ISPs para intercambiar trafico de forma
 - [Lacnic](https://www.lacnic.net/)
 	- [Lacnic 34 - Lacnog 2020 - PPT Guillermo Cicileo - Peering y PIT (Autodescarga)](https://www.lacnic.net/innovaportal/file/4753/1/interconexion-y-peering.pdf)
 	- [Lacnic 32 - Lacnog 2019 - Charla Guillermo Cicileo - Tutorial Peering](https://youtu.be/7-Tv4zllc0U?si=QQTp3z5WCkzOhWW7)
+- [PeeringDB](https://www.peeringdb.com/)

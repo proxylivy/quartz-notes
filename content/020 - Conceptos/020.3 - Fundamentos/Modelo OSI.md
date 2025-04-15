@@ -1,5 +1,9 @@
 # Info
-**O**pen **S**ystem **I**nterconection o **I**nterconexion de **S**istemas **A**biertos) es un modelo de referencia que esta descrito en la norma [ISO/IEC 7498-1:1994](https://www.iso.org/standard/20269.html), el cual consiste en la separacion de 7 capas de abstraccion, en el que se provee bases para cordinar otros estandares de interconexion, no es una arquitectura de red
+**O**pen **S**ystem **I**nterconection o **I**nterconexion de **S**istemas **A**biertos) es un modelo de referencia que esta descrito en la norma [ISO/IEC 7498-1:1994](https://www.iso.org/standard/20269.html), el cual separa los protocolos en 7 capas de abstraccion diferentes entre si
+
+> [!IMPORTANT] Importante
+> OSI Es un sistema de cordinacion para poder dirigir la estandarizacion de interconexiones entre sistemas, **NO es una arquitectura de red**
+
 ## Tabla Comparativa
 
 | Standard TCP/IP model | OSI model      | Equivalent TCP/IP model | PDU                 |

@@ -19,6 +19,7 @@ Ademas, existen reglas de simplificacion:
 - Se pueden Usar "::" una sola vez por direccion para representar grupos consecutivos de ceros.
 	- Por Ejemplo, "`2001:cd::0/128`" implica que hay hextetos de "0000" omitidos en medio.
 
+Este dibujo esta disponible en [Excalidraw](https://excalidraw.com/#json=AKcY3AQk_eNB-MDLoE1Du,SVkOte64SL7QGg2Zh9I4nw)
 ![](https://slink.proxylivy.work/image/2e26d3e5-43a4-4054-b3b2-9425ee2a28c9.svg)
 
 Migrar a esta nueva arquitectura es crucial para poder continuar expandiendo internet, existen 3 categorias

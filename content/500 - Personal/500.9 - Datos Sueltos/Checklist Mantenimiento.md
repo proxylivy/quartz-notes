@@ -1,0 +1,173 @@
+Herramientas
+- Brocha
+- Cepillo de Dientes
+- Alcohol Isopropilico
+- Trapo Seco
+- Adaptador Sata a USB (Solo para SSD y Discos Duros 2.5")
+- Kit Destornillador y Puntas
+
+1. Reconocimiento
+	- Haz una lista de los componentes actuales y sus capacidades
+		- Software
+			- [Glow](https://github.com/turkaysoftware/glow)
+			- [Speeccy](https://duoccl0-my.sharepoint.com/:f:/g/personal/ga_zunigam_duocuc_cl/EszSTvS_d7dNuvXyrlMn1McB0K8JTW1JdghosYOReqHMag?e=nq3DRQ)
+		- Gabinete
+		- Motherboard
+		- Refrigeracion
+		- Ventiladores
+		- CPU
+		- GPU
+		- RAM
+		- PSU
+	- Verifica cuales son los problemas y las posibles soluciones
+2. Mantenimiento Fisico
+	- Apagar y desconectar completamente el equipo, asegurando su descarga
+	- Abrir el Gabinete y tomar imagenes de refencia del interior
+	- Limpiar el Gabinete
+		- Ventiladores (Cuidado con la electricidad estatica)
+		- Disipador de CPU
+		- Tarjeta Grafica
+		- Fuente de poder
+		- Filtros antipolvo
+		- Placa Base
+		- Ranuras de memoria RAM
+	- Verificar la direccion correcta del flujo de aire segun su modelo de refrigeracion
+	- Comprobar conexiones fisicas y calidad de instalacion
+	- Inspeccionar visualmente algun fallo en algun componente o condensador
+3. Mantenimiento Logico
+	- Crear un punto de restauracion en caso de alguna caga mayor
+	- Revisa y Elimina Software desconocido o no utilizado con [Bulk Crap Uninstaler](https://www.bcuninstaller.com/)
+	- Verifica que el unico antivirus configurado sea Windows Defender y borra cualquier otro
+	- Haz un escaneo completo de antivirus
+		- Puedes usar [The Second Opinion](https://jijirae.github.io/thesecondopinion/) para un analisis mas en profundidad, tiene una [Guia](https://jijirae.github.io/thesecondopinion/how-to.html)
+	- Quita el maximo posible de programas con inicio automatico
+	- Actualiza Windows ([Windows 10 Muere el 14 de Octubre](https://learn.microsoft.com/es-mx/windows/release-health/release-information))
+		- Activa Win 7, 10 y 11 con [MAS](https://massgrave.dev/)
+	- Actualiza Controladores segun Fabricante, GPU NVIDIA revisar [NVCleanstall](https://www.techpowerup.com/nvcleanstall/)
+	- Verifica las librerias importantes
+		- DirectX (`dxdiag`)
+			- 12 (Mediante Windows Update)
+			- [Runtime End-User](https://www.microsoft.com/es-es/download/details.aspx?id=35) (Incluye D3DX9)
+		- .NET Framework 3.5 [Microsoft](https://www.microsoft.com/es-mx/download/details.aspx?id=21) or [DotNet](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net35-sp1)
+		- [.NET Framework Latest (4.8.1)](https://dotnet.microsoft.com/en-us/download/dotnet-framework)
+		- [Microsoft XNA Framework](https://www.microsoft.com/en-my/download/details.aspx?id=20914)
+		- [Visual C++ Redistribute](https://learn.microsoft.com/es-es/cpp/windows/latest-supported-vc-redist?view=msvc-170) | [VC_REDIST-x64 (Autodescarga)](https://aka.ms/vs/17/release/vc_redist.x64.exe)
+			- Instala la version combinada mas actual (ej. 2015-2022) y solamente alguna extra solo si un juego la necesita
+		- [Vulkan](https://www.vulkan.org/tools#vulkan-gpu-resources)
+		- [OpenGL](https://www.opengl.org/) (Windows Update)
+	- Programas Importantes para Instalar
+		- [Powershell](https://github.com/PowerShell/PowerShell)
+	- Desactivar servicios innecesarios (ej. Telemetria)
+		- [WPD](https://wpd.app/)
+		- [WindowsSpyBlocker](https://crazymax.dev/WindowsSpyBlocker/)
+		- [TronScript](https://old.reddit.com/r/TronScript/) ([Github Repo](https://github.com/bmrf/tron))
+	- Usar extensiones de navegador imprecindibles
+		- [Ublock Origin](https://ublockorigin.com/) + [Filterlist](https://github.com/yokoffing/filterlists) + [FMHYFilterList](https://github.com/fmhy/FMHYFilterlist)
+		- [Improve Youtube](https://github.com/code-charity/youtube)
+		- [Unhook Youtube](https://unhook.app/)
+		- Bypass Paywalls [Firefox](https://github.com/bpc-clone/bypass-paywalls-firefox-clean) or [Chrome](https://gitflic.ru/project/magnolia1234/bypass-paywalls-chrome-clean)
+		- [SponsorBlock](https://sponsor.ajay.app/)
+		- [DeArrow](https://dearrow.ajay.app/)
+4. Mantenimiento Avanzado
+	- Si lleva mas de 4 años, cambiar la Pila CMOS
+	- Actualizar Firmware de los componentes (HDD, SSD y NVMe) y Perifericos (Mouse, Teclado, Audifonos, etc)
+	- Actualizar la BIOS/UEFI a su ultima version
+	- Cargar configuracion predeterminada de BIOS
+	- Configurar BIOS
+		- Realiza una copia de seguridad de la configuracion
+		- Activar perfil XMP para RAM
+		- Configurar Curva de ventiladores (Evita Ruidos, mantiene Temperaturas)
+		- Selecciona modo de energia
+		- Ajustar multiplicadores y frecuencias base
+		- Activar "AMD Precision Boost o Intel Turbo Boost"
+		- Activa Secure Boot
+		- Activa TPM 2.0
+		- Desactiva "Legacy Boot" para usar EUFI Puro
+	- Revisar configuraciones de arranque
+	- Optimiza el plan de energia de Windows
+	- Verificar Calidad de Pasta Termica (Cambiar cada 2 años)
+	- Configuracion Avanzada del [NVIDIA APP](https://www.nvidia.com/es-la/software/nvidia-app/) o [AMD Software: Adrenalin](https://www.amd.com/es/products/software/adrenalin.html)
+	- Calibrar Pantallas con los siguientes materiales siguiendo 
+		- [Youtube - Proxylivy - Calibracion Video + Test Proxylivy](https://www.youtube.com/playlist?list=PLbwUH3-YtNub2Eay-VwNdePAYofWkrvGI)
+		- [Youtube - Calibracion HD - Patrones de video FullHD](https://www.youtube.com/playlist?list=PLBv-8cNXCcDSTMAZuCdxife3YITusVryG)
+		- [Lagom LCD Test](http://www.lagom.nl/lcd-test/)
+		- [EIZO Monitor Test](https://www.eizo.be/monitor-test/)
+		- [TestUFO](https://www.testufo.com)
+		- [TFT Central Blog - Calibrating](https://tftcentral.co.uk/articles/calibrating)
+		- [Internet Archive - TFT Central ICC Profiles and Monitor Calibration Settings](https://archive.org/details/tft-central-icc-profiles/ICC%20Profiles.png)
+	- Verificar y corregir errores en windows
+		- `sfc /scannow`: Analiza y repara automaticamente los archivos del sistema dañados o modificados, reemplazandolos por versiones originales y correctas
+		- `DISM /Online /Cleanup-Images /RestoreHealth`: Verifica y Repara la imagen de windows a nivel profundo utilizando Windows Update, solucionando problemas que sfc no puede 
+		- `chkdsk /f /r`: Analiza y corrige errores fisicos y logicos en Discos Duros o SSD, `/f` repara errores logicos, `/r` Identifica sectores defectuosos e intenta recuperar informacion dañada
+5. Pruebas y Benchmark
+	- Realiza Benchmarks sinteticos para ver la estabilidad de los componentes durante minimo 30 min - 1 hora
+		- CPU
+			- [Prime95](https://prime95.net/download/)
+			- [Cinebench](https://www.maxon.net/es/downloads/cinebench-2024-downloads) | [Info](https://www.maxon.net/es/tech-info-cinebench)
+			- [OCCT](https://www.ocbase.com/occt/personal)
+		- GPU
+			- [FurMark](https://geeks3d.com/furmark/downloads/)
+			- [Benchmark Unigine](https://benchmark.unigine.com/)
+		- Ram
+			- [MemTest86+](https://github.com/memtest86plus/memtest86plus)
+		- Almacenamiento
+			- [CristalDiskMark](https://crystalmark.info/en/download/#CrystalDiskMark)
+			- [ATTO Disk Benchmark](https://www.techpowerup.com/download/atto-disk-benchmark/)
+		- Red
+			- Debes revisar
+				- Throughput: Contratado a la Empresa en Mbps
+				- Packet Loss: 0%
+				- Latencia: <30ms
+				- Jitter: <5ms
+				- RSSI: > -65 dBm
+			- [OCCT](https://www.ocbase.com/occt/personal)
+			- `ping 8.8.8.8 -t`
+			- [Iperf](https://github.com/esnet/iperf)
+			- [LibreSpeed](https://librespeed.org)
+			- [OpenSpeedTest](https://openspeedtest.com/)
+			- [NetLine](http://speedtest.netline.cl/)
+			- [Wavemon](https://github.com/uoaerg/wavemon): Linux
+		- Sistema General
+			- [Phoronix Test Suite](https://www.phoronix-test-suite.com/)
+	- Monitorear temperaturas durante pruebas
+		- [MSI Afterburner](https://www.msi.com/Landing/afterburner/graphics-cards)
+		- [OpenHardwareMonitor](https://openhardwaremonitor.org/)
+	- Estabilidad de internet con ping, velocidad, estabilidad ()
+6. Inventario y Documentacion
+	- Extraer lista completa y exacta de componentes
+		- [CristalDiskInfo](https://crystalmark.info/en/download/#CrystalDiskInfo): Ver estadisticas SMART
+		- [CPU-Z](https://www.cpuid.com/softwares/cpu-z.html)
+		- [GPU-Z](https://www.techpowerup.com/download/techpowerup-gpu-z/)
+		- Speccy (Pagado - 1.33.75) - [CRACKSurl - Speccy 1.33.079 + Keygen](https://cracksurl.com/speccy/)
+	- Anotar versiones de drivers y BIOS instalados
+	- Guardar resultados de benchmarks y temperaturas promedio
+	- Guardar fotos del antes y despues
+7. Dar Recomendaciones
+	- Almacenamiento: SSD, NVMe, o Discos Duros
+	- RAM: Velocidades, Tipos y Nombres
+	- Upgrade de GPU o CPU segun cuello de botella
+	- Mejorar fuente de poder
+	- Mejorar Refrigeracion
+	- Revisar posibles brechas de seguridad en contraseñas en bases de datos con [HaveIBeenPwned](https://haveibeenpwned.com/) o [DeHashed](https://dehashed.com/)
+	- Explicar Guias de como eliminar y borrar SPAM del correo y telefono
+	- Explicar Buenas Practicas sobre Seguridad Informatica y Navegacion web segura
+	- Usar recursos para optimizar el sistema
+		- [ChrisTitusTech/winutils](https://github.com/christitustech/winutil) | [Docs](https://christitustech.github.io/winutil/userguide/)
+		- [PC-Otimization-Hub](https://github.com/BoringBoredom/PC-Optimization-Hub)
+		- [Awesome-Windows11/windows11 Tweaks](https://github.com/awesome-windows11/windows11)
+		- [Debloat](https://rentry.co/debloatguide)
+		- [Sophia Script](https://github.com/farag2/Sophia-Script-for-Windows)
+	- Usar Luz Azul con [Flux](https://justgetflux.com/)
+8. Enseñar a Piratear y Buscar Informacion
+	- Aprender a Aprender
+		- [mtdvio/every-programmer-should-know](https://github.com/mtdvio/every-programmer-should-know)
+		- [kdeldycke/awesome-falsehood](https://github.com/kdeldycke/awesome-falsehood)
+		- [CheatSheetSeries OWASP](https://cheatsheetseries.owasp.org/index.html)
+	- Recursos Generales
+		- [Rentry - Reddit r/piracy Megathread](https://rentry.co/megathread)
+		- [MediaSaavy Wiki](https://mediasavvy.pages.dev/Wiki/)
+		- [Wiki Index](https://wiki-index.pages.dev/)
+		- [FreeMediaHeckYeah](https://fmhy.lol/)
+		- [Github Awesome](https://github.com/sindresorhus/awesome)
+		- [Github Lists](https://github.com/jnv/lists)
+		- [Terminologia](https://old.reddit.com/r/Piracy/wiki/terminology)

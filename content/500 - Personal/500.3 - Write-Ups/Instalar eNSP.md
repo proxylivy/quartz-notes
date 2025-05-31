@@ -6,8 +6,9 @@ Y que wireshark al final y al cabo si puede ser la mas moderna
 
 Estas son las ultimas versiones compatibles con Windows 32 bits, estan disponibles en [Onedrive](https://duoccl0-my.sharepoint.com/:f:/g/personal/ga_zunigam_duocuc_cl/EuCvefQ9MB1Br3OH4Iqon6UBkFA8pfqbXkYACdvtlEiDBA?e=AJDBlS)
 - Virtualbox | [x86](https://download.virtualbox.org/virtualbox/5.2.44/) (5.2.44) | x64 (5.2.44) | Es el limite de eNSP
-- Wireshark | [x86]() (???) | [x64]() (4.2.2)
+- Wireshark | [x86]() (???) | [x64]() (4.2.2 o 4.0.17)
 - eNSP Setup V100R002C00B510 (1.2.00.510) y su actualizacion V100R003C00SPC100 (1.3.00.100)
+- Npcap | [x64](https://npcap.com/) tiene una API compatible con WinPcap, por lo que se podria cambiar eventualmente, se instala la version 1.7.8 al instalar Wireshark 4.2.2 en x64
 
 Lee sobre eNSP
 - [Huawei Forums - Download eNSP simulator installation Software](https://forum.huawei.com/enterprise/intl/en/thread/download-ensp-simulator-installation-software-here/667238396713648128?from=latestPostsReplies&blogId=667238396713648128)

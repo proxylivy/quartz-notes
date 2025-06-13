@@ -1,6 +1,7 @@
 # Info
+
 ## Que tiene de nuevo?
-IOU WEB Interface
+IOU WEB Interface 32 Bits
 Modded by Proxylivy
 
 Version 4:
@@ -15,7 +16,7 @@ Version 4:
 - Mejoras de Virtualbox `[Guest-Additions ISO]` y VMWare `[Repo Arreglado]`
 - No IPTABLES, No Firewall
 - Hora y Fecha Sincronizadas con NTP Chile
-- No DUP Ping ^^
+- No DUP Ping desde la maquina
 - Particion Swap Eliminada
 - Extension del disco: 7GB -> 12GB desde Administrador de medios virtuales de Virtualbox | [Guia](https://edgarjayo.wordpress.com/2020/11/09/aumentar-el-espacio-del-disco-duro-en-oracle-vm-virtualbox/)
 - Link Simbolico de las nuevas imagenes para remplazar las antiguas
@@ -637,60 +638,5 @@ history -wc && poweroff
 ```
 
 
-# Virtualbox (Host)
-Deberas apagar la maquina y configurar la maquina por cada punto
-
-**General**
-Basico
-- Nombre (El que quieras la verdad, aunque luego tendras que validarlo con VBoxManage y es mas sencillo sin espacios)
-- Version (Red Hat 6.x (64 Bits o 32 Bits)), solo cambialo si te da algun error
-Descripcion
-- Solo mira esas mejoras ^^
-
-**Sistema**
-Placa Base
-- Deja 4096 o 8196, depende cuanto sea tu maximo de ram
-- Chipset: ICH9, me parece que es mas nuevo, y podria generar menos errores
-- Dispositivo Apuntador: Tableta Multitactil USB, asi permite no "absorber el mouse", quedara libre cuando quieras hacer alguna otra cosa
-- APIC: Habilitado, es para mejor compatibilidad en entornos Windows
-- Reloj Hardware Tiempo UTC: Habilitado, Manda la hora a la maquina virtual, podria evitar errores de NTP, aunque esta corrido por configuraciones de IOU-WEB (TO-DO)
-- EFI y Secure Boot: Desabilitado pk es BIOS; duh
-
-Procesador
-- Nucleos: El maximo que puedas, No es intensivo pero tareas multinucleo seran mejor recibidas por la maquina
-- Limite de ejecucion: 100%, Nunca he movido esto en mi vida
-- Caracteristicas Extendidas: Deberian estar con Ticket Ambas "PAE/NX" y "VT-X/AMD-V anidado"
-
-Aceleracion
-- Interfaz de Paravirtualizacion: "KVM" -> Esto es porque CentOS es linux, y le dice a tu maquina que el entorno de emulacion funciona con KVM, este es un paso gigante para el IOU web, antes no iniciaba si no era en Heredado, aunque la verdad, no se exactamente para que sirve, todos sirven, te recomiendo KVM
-- Hardware de Virtualizacion: Habilitado, Permite emular emulaciones dentro de lo emulado (WOW)
-
-**Pantalla**
-Pantalla
-- Memoria de Video: 24MB; es importante cuando estas en una GUI; si tienes problemas visuales, subelo a 48, si continuas, dejalo en 64mb
-- Controlador Grafico: VMSVGA, tengo entendido que funciona mejor, ademas no hay errores
-- Caracteristicas Extendidas: Habilita la Aceleracion 3D; asi no tendras problemas con pequeñas cosas que corren mejor en "3D", incluidas set de instrucciones
-- Ignora Pantalla Remota y Grabacion
-
-**Almacenamiento**
-Controladora SATA
-- Unidad de estado solido: Si tienes SSD -> Check, Si tienes Disco Duro -> No Check
-Audio: La verdad no se, pero alli esta, no genera problemas, tampoco se usa para nada
-
-**Red**
-Adaptador 1
-- Conectado a: "Adaptador Puente": Esta es la configuracion por defecto para hacer tareas y cosas, funciona bien y un 7, aunque hay veces en la que cambiarlo por "Red Solo Anfitrion" Como lo es en Seguridad, Recuerda crear una red
-- Nombre: Aqui va el nombre de tu extension, Hay uno para el Ethernet y otro para Wifi, ten ojo al configurarlo, aunque usualmente se posiciona en el correcto
-Avanzado
-- Tipo de Adaptador: "Intel Pro/1000 MT Server (82545EM)" o "Virtio-net" Porque no?
-- Modo Promuisco: "Permitir Todo", Casi siempre debemos usar esa
-- Direccion MAC: RENOVAR SIEMPRE
-- Cable Conectado: Habilitado, por dios, imaginate desactivar esto, un terror
-
-**Puerto Serial**: ni se usarlos
-
-**USB**
-- Habilita Controlador USB, Obligatorio para que funcione la pantalla tactl emulada
-- Version Controlador: 2.0 (OCHI+EHCI), Mayor Compatibilidad
-
-**Lo demas dejalo como esta**
+---
+Para configurar el Host de Windows, recomiendo leer [[500 - Personal/500.3 - Write-Ups/IOU-WEB/IOU WEB - Config Win 10-11|IOU WEB - Config Win 10-11]]

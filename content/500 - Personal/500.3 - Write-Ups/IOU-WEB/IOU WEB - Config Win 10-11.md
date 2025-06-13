@@ -39,7 +39,101 @@ En algunos casos, al igual que con Hypr-V no funcionara correctamente la virtual
 2. Y Desactiva `Aislamiento del nucleo` y luego reiniciar la maquina
 
 ---
-**Forzar VT-X**
+## Virtualbox Config
+Esta configuracion tiene en mente la version de IOU WEB de 64 bits `icarus` y `nirvana` para que tengan el mejor rendimiento.
+
+Recuerda que los cambios se hacen con la maquina apagada y configurar la maquina por cada punto desde el menu de configuraciones de virtualbox
+
+
+Creas una nueva VM, le pones un nombre creativo con los siguientes datos
+- Nombre y Sistema Operativo
+	- Nombre: iou-web-icarus
+	- Tipo: Linux
+	- Subtype: Red Hat
+	- Version: Red Hat (64 bits)
+- Omite Instalacion Desatendida
+- Hardware
+	- Memoria Base: 4096MB
+	- Procesadores: 2vCPU
+	- Omite Habilitar EFI (Por ahora)
+- Disco Duro
+	- Selecciona "Usa un archivo de disco duro existente"
+	- Seleccion un archivo de disco virtual
+		- Apreta "Añadir" y busca el disco que descargaste, posiblemente `iou-web-icarus.vdi`
+- Haz Click en "Terminar"
+
+Ahora seleccionas la maquina virtual, le das en "Configuracion" y activas el "modo experto"
+
+**General**
+Basico
+- Omite estas configuraciones, ya estan aplicadas
+
+**Sistema**
+Placa Base
+- Memoria Base: Configura `4096` o `8196` dependiendo de cuanta ram tengas disponible
+- Chipset: ICH9
+- Dispositivo Apuntador: Tableta USB
+- Caracteristicas Extendidas:
+	- Marca "Habilitar I/O APIC"
+	- Marca "Reloj Hardware Tiempo UTC"
+	- Desmarca "EFI"
+	- Desmarca "Secure Boot"
+
+Procesador
+- Procesadores: Selecciona el maximo que permita la barra verde
+- Limite de ejecucion: 100%
+- Caracteristicas Extendidas:
+	- Marca "Habilitar PAE/NX"
+	- Al final podras marcar "Habilitar VT-X/AMD-V Anidado"
+
+Aceleracion
+- Interfaz de Paravirtualizacion: "KVM"
+- Hardware de Virtualizacion
+	- Marca "Habilitar paginacion anidada"
+
+**Pantalla**
+Pantalla
+- Memoria de Video: Rango 64MB - 128MB (Es mas importante para una GUI, no es el caso ahora)
+- Controlador Grafico: VMSVGA, tengo entendido que funciona mejor, ademas no hay errores
+- Caracteristicas Extendidas:
+	- Marca "Habilitacion Aceleracion 3D"
+- Ignora las secciones Pantalla Remota y Grabacion, todo va desmarcado
+
+**Almacenamiento**
+Controladora: IDE
+- Presiona el boton "Eliminar controlador"
+Controladora: SATA
+- Cantidad de puertos: 2
+- Atributos: Marca "Usar cache de I/O anfitrion"
+iou-web-icarus.vdi
+- Unidad de estado solido:
+	- Marca SOLO Si tienes SSD -> Check
+	- Desmarca SOLO Si tienes Disco Duro -> No Check
+
+**Audio**
+Audio: Deja las opciones por defecto
+
+**Red**
+Adaptador 1
+- Conectado a: "Adaptador Puente"
+- Nombre: "La misma que tu interfaz de red que quieres conectar"
+- Tipo de Adaptador: "virtio-net" o "Intel Pro/1000 MT Server (82545EM)"
+- Modo Promuisco: "Permitir Todo"
+- Direccion MAC: RENOVAR SIEMPRE
+- Cable Conectado: Habilitado, por dios, imaginate desactivar esto, un terror
+
+**Puerto Serial**: Dejalos por defecto
+
+**USB**
+- Habilita Controlador USB, Obligatorio para que funcione la pantalla tactl emulada
+- Version Controlador: 2.0 (OCHI+EHCI), Mayor Compatibilidad
+Interfaz de Usuario
+- Minibarra de herramientas: Desmarcar "Mostar en pantalla completa/fluido"
+
+**Lo demas dejalo como esta**
+
+---
+**Forzar marcar "Habilitar VT-X/AMD-V Anidado"**
 Tambien puedes forzar la habilitacion de la opcion Nested VT-X que esta marcada en gris, aunque varios foros dicen que aunque la fuerzes no hara nada con el sistema. Pero es mejor que sosobre a que falte
 
 > Ve a la carpeta donde instalaste Virtualbox
@@ -49,12 +143,12 @@ cd C:\Program Files\Oracle\VirtualBox\
 
 > Habilita la opcion virtualizada, "VM-Name" es el nombre de la maquina virtual
 ```
-.\VboxManage modifyvm "VM-Name" --nested-hw-virt on
+.\VboxManage modifyvm "iou-web-icarus" --nested-hw-virt on
 ```
 
 > Forzar Nested VT-X en Linux
 ```
-VBoxManage modifyvm "VM-Name" --nested-hw-virt on
+VBoxManage modifyvm "iou-web-icarus" --nested-hw-virt on
 ```
 
 ---
@@ -74,6 +168,7 @@ Necesitas instalar [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/sn
 
 > [!IMPORTANT] Notas sobre la ruta de instalacion
 > El archivo .reg esta hecho para que funcione cuando se instala directamente en `C:\`, esto es para evitar problemas con los idiomas en Programs Files y rutas de instalacion, puedes editar las rutas manualmente y funcionaran si no quieres tener desordenado `C:\`
+
 
 > **Configura Putty.exe**
 

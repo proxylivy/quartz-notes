@@ -141,9 +141,12 @@ NAT es una solucion parche para el gran problema de direcciones IP Publicas disp
 
 ---
 ## Soluciones
-### Cloudflare Register (Domains)
+### Dominios
+Cloudflare Register (Domains)
 **¿Que es un dominio?**
 Un dominio es un nombre de alto nivel (TLD) el cual permite identificar un dispositivo a travez de internet
+
+https://tld-list.com/
 
 **¿Porque es importante tener un dominio?**
 Debido a que la asignacion de IPv4 como mostre arriba, esta agotada, es una forma de poder ser identificable en la gran red
@@ -181,7 +184,7 @@ Este servicio se encarga de transformar tu IP Hostname privada (http://hostname:
 7. Instala y corre el conector
 
 ```
-docker run -itd --name cloudflare --network host --restart unless-stopped cloudflare/cloudflared:latest tunnel --no-autoupdate run --token eyJhIjoiZjFkODFjOGZjYTdjOTA2MWI2NTk2OTY4ZjBjNGJmOTciLCJ0IjoiZjEzMmE5MWYtY2ZhMy00Y2I0LTkxYmItMGY3ZWVlMWU1MTE2IiwicyI6Ik1qazJNRE13WVdFdE9EWTROeTAwWXpjd0xUZzBOall0WTJVeE16aGpOR1ZpTVRBMiJ9
+docker run -itd --name cloudflare --network host --restart unless-stopped cloudflare/cloudflared:latest tunnel --no-autoupdate run --token {Token}
 ```
 
 Learn More in

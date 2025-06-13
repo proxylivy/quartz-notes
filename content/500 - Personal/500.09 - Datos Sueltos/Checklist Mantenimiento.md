@@ -171,3 +171,10 @@ Herramientas
 		- [Github Awesome](https://github.com/sindresorhus/awesome)
 		- [Github Lists](https://github.com/jnv/lists)
 		- [Terminologia](https://old.reddit.com/r/Piracy/wiki/terminology)
+
+Extras
+**chkdsk /f /r C:**
+**bootrec /fixmbr**  
+**bootrec /fixboot**  
+**bootrec /scanos**  
+**bootrec /rebuildbcd**

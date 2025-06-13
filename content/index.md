@@ -1,5 +1,5 @@
 # Info
-¡Hola! Soy Livy. Gracias por interesarte en este vault, el cual esta basado en los apuntes y notas tomadas en [Obsidian](https://obsidian.md/) y estan enfocados principalmente en mi carrera de [Ingenieria en Conectividad y Redes](https://www.duoc.cl/carreras/ingenieria-redes-telecomunicaciones/) (En 2025 el nombre cambio a Redes y Telecomunicaciones) en DuocUC Sede Plaza Oeste
+¡Hola! Soy Livy. Gracias por interesarte en este vault, el cual esta basado en los apuntes y notas tomadas en [Obsidian](https://obsidian.md/) y estan enfocados principalmente en mi carrera de [Ingenieria en Conectividad y Redes](https://www.duoc.cl/carreras/ingenieria-redes-telecomunicaciones/) (En 2025 el nombre cambio a Redes y Telecomunicaciones) en DuocUC
 
 Si tienes alguna duda, consejo o solamente quieres contactar en alguna red de [Littlelink](https://littlelink.proxylivy.work/), en los cuales estan [Github](https://github.com/proxylivy), [Linkedin](https://www.linkedin.com/in/gabo-z-montecinos), entre otros
 

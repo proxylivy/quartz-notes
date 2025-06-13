@@ -1,4 +1,7 @@
 # Info
+
+https://raw.githubusercontent.com/Sohrabian/IOU-Licence-EVE-NG-Python/refs/heads/master/ioukeygen.py
+
 El nombre de IOU WEB Creativo viene de un profesor de universidad que tuve al cual le tengo mucho respeto, le gustaba bromear mucho y sus clases eran muy dinamicas, usualmente no habia nadie que se saliera de la norma con preguntas raras y rebuscadas, hasta que llegue yo, rapidamente el profe me noto con que tenia una base teorica muy grande y le iba encontrando la ultima pata al gato en todo, asi que cuando me puse a trabajar en una opcion mejorada de un virtualizador que tenian avandonado pero todos usaban, en vez de llamarme loco, me llamo "Creativo", segun el decia que el creativo era aquel que rompia con los esquemas y que le gustaba andar molestando, me lo tome con mucha gracia y desde alli, a este proyecto, le llame "IOU-WEB-Creativo"
 
 ## Frases que me ayudaron a continuar
@@ -605,12 +608,11 @@ enter
 ```
 
 > Modificar `/etc/hosts`
+> hostnamectl set-hostname iou.example.com
 ```
-127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
-::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
-127.0.0.2   iou.example.com iou
+127.0.0.1   iou.example.com iou
 127.0.0.127 xml.cisco.com
-127.0.0.3   www.routereflector.com routereflector.com public.routereflector.com ww25.public.routereflector.com
+127.0.0.254   www.routereflector.com routereflector.com public.routereflector.com ww25.public.routereflector.com
 ```
 
 > Modificar `/etc/hostname`

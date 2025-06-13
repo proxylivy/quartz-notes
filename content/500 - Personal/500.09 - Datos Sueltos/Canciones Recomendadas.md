@@ -1,139 +1,111 @@
-AD: Como me encanta Malice Mizer ^^
-Canciones Sultas de Artista que escucho
+- [Almendra - A estos hombres tristes](https://www.youtube.com/watch?v=mXyamTEFa6M)
 
-Almendra - A estos hombres tristes
-https://www.youtube.com/watch?v=mXyamTEFa6M
+- [Anri - Last Summer Whisper](https://www.youtube.com/watch?v=KYNAuv7VqNw)
 
-Anri - Last Summer Whisper
-https://www.youtube.com/watch?v=KYNAuv7VqNw
+- [Aphex Twins - Xtal](https://www.youtube.com/watch?v=2tOutF8B3f8)
 
-Aphex Twins - Xtal
-https://www.youtube.com/watch?v=2tOutF8B3f8
+- [Clairo - Pretty Girl](https://www.youtube.com/watch?v=mngtcfcaVrI)
 
-Clairo - Pretty Girl
-https://www.youtube.com/watch?v=mngtcfcaVrI
+- [Dr. Gabba - Googo Lagoon](https://www.youtube.com/watch?v=58uvJ10tcb4)
 
-Dr. Gabba - Googo Lagoon
-https://www.youtube.com/watch?v=58uvJ10tcb4
+- [Funkadelic - Maggot Brain](https://www.youtube.com/watch?v=JOKn33-q4Ao) (1971)
 
-Funkadelic - Maggot Brain (1971)
-https://www.youtube.com/watch?v=JOKn33-q4Ao
-"I was not offended, for i knew i has to rise above it all, or drown in my own shit"
+> "I was not offended, for i knew i has to rise above it all, or drown in my own shit"
 
-Ichiko Aoba - Asleep Among Endives
-https://www.youtube.com/watch?v=9aED02XuLwo
+- [Ichiko Aoba - Asleep Among Endives](https://www.youtube.com/watch?v=9aED02XuLwo)
 
-Kyllie Minogue - Cant Get You out of my head
-https://www.youtube.com/watch?v=c18441Eh_WE
+- [Kylie Minogue - Cant get you out of my head](https://www.youtube.com/watch?v=c18441Eh_WE)
 
-Lovewave - The Night" "그 밤
-https://www.youtube.com/watch?v=Lrv5U2UUSp8
+- [Lovewave - The Night "그 밤")](https://www.youtube.com/watch?v=Lrv5U2UUSp8)
 
-Machine Girl - Frenesi
-https://www.youtube.com/watch?v=ILaESWrjgPw
+- [Machine Girl - Frenesi](https://www.youtube.com/watch?v=ILaESWrjgPw)
 
-Tatsuro Yamashita - Fragile
-https://youtu.be/B8mI9lLUtqc?si=U6EdI3G27EC8iE2u
-Este tema siempre lo borrar de internet por Copyright, asi que te recomiendo buscarlo casi siempre
+- [Tatsuro Yamashita - Fragile](https://youtu.be/xo-jiYC6BQE?si=fXvPaHPIyMJa5DWN)
+
+> Este tema siempre lo borrar de internet por Copyright, asi que te recomiendo buscarlo casi siempre
+
+- [Tatsuro Yamashita - Sparkle](https://youtu.be/15Mu6FORLNM?si=sCH-5FEc77ufhVEW)
 
 ---
 
 Albumnes que recomiendo
 
-Kenichiro Isoda - プリオシンの浜辺(1990)
-https://www.youtube.com/watch?v=Vfjc1V8DVMs
-Tiene olitas y musiquita tranquila
+- [Kenichiro Isoda - プリオシンの浜辺](https://www.youtube.com/watch?v=Vfjc1V8DVMs) (1990)
 
-Kenichiro Isoda - Frustration Elimination (2001)
-https://www.youtube.com/watch?v=tvCyONtrn4M
-Siempre lo uso para relajarme
+> Tiene olitas y musiquita tranquila
 
-Ken-Ichiro Isoda - ナチュラル・トリップ マジエルの星(1990)
-https://www.youtube.com/watch?v=0uVOzkJB-QM
-Que paz
+- [Kenichiro Isoda - Frustration Elimination](https://www.youtube.com/watch?v=tvCyONtrn4M) (2001)
 
-Takashi Kokubo - Oasis Of The Wind ～ Forest Of Ion ～(1992)
-https://www.youtube.com/watch?v=YEgmpe8nToU
+> Siempre lo uso para relajarme
 
-Takashi Kokubo - Water
-https://www.youtube.com/watch?v=sAL9ieJt71k
+- [Kenichiro Isoda - ナチュラル・トリップ マジエルの星](https://www.youtube.com/watch?v=0uVOzkJB-QM) (1990)
 
-Hiromasa Suzuki - High-Flying(1976)
-https://www.youtube.com/watch?v=oZame1Brs9k
+> Que paz
 
-Hiroshi Yoshimura - Wet Land (1993)
-https://www.youtube.com/watch?v=Z3m7HXeiHpg
+- [Takashi Kokubo - Oasis Of The Wind ～ Forest Of Ion ～](https://www.youtube.com/watch?v=YEgmpe8nToU) (1992)
 
-Hiroshi Yoshimura - Flora 1987 (2006)
-https://www.youtube.com/watch?v=j6n4FpHbqZs
+- [Takashi Kokubo - Water](https://www.youtube.com/watch?v=sAL9ieJt71k)
 
-Jiro Inagaki & Soul Media - Funky Stuff(1975)
-https://www.youtube.com/watch?v=kjxxVkSd0XA
-Musica que suena a cosas Funk
+- [Hiromasa Suzuki - High-Flying](https://www.youtube.com/watch?v=oZame1Brs9k) (1976)
 
-Jiro Inagaki & Soul Media - In the Groove(1973)
-https://www.youtube.com/watch?v=tJ6fyxjF-tU
+- [Hiroshi Yoshimura - Wet Land](https://www.youtube.com/watch?v=Z3m7HXeiHpg) (1993)
 
-Haruka Nakamura - Still Life
-https://www.youtube.com/watch?v=rmStms5Fo68
-Un piano tan hermoso, me hace sentir humano
+- [Hiroshi Yoshimura - Flora 1987](https://www.youtube.com/watch?v=j6n4FpHbqZs) (2006)
 
-Haruka Nakamura - Still Life 2
-https://www.youtube.com/watch?v=7qDfoGwP0G0
+- [Jiro Inagaki & Soul Media - Funky Stuff](https://www.youtube.com/watch?v=kjxxVkSd0XA) (1975)
 
-Pink Floyd - The dark side of the Moon(1973)
-https://www.youtube.com/watch?v=Hh1Xyvu68P0
+- [Jiro Inagaki & Soul Media - In the Groove](https://www.youtube.com/watch?v=tJ6fyxjF-tU) (1973)
+
+- [Haruka Nakamura - Still Life](https://www.youtube.com/watch?v=rmStms5Fo68)
+
+- [Haruka Nakamura - Still Life 2](https://www.youtube.com/watch?v=7qDfoGwP0G0)
+
+- [Pink Floyd - The dark side of the Moon](https://www.youtube.com/watch?v=Hh1Xyvu68P0) (1973)
 
 ---
 
-Recomendacion de Artistas y sus obras
+Recomendacion mas en profundidad
 
-1.- Malice Mizer
-Me descargue toda su discografia que recorre tres etapas que varian segun su cantante principal (Tetsu, Gatck y Khlara) a los largo de 1995 hasta 2001, alargandose hasta 2006. es tan hermosa esta banda y tiene una historia atrapante.
-Tiene canciones muy bonitas como "Mayonaka ni Kawashita yaku soku"(https://www.youtube.com/watch?v=o7jLWG9fSWE), "Gardenia"(https://www.youtube.com/watch?v=70rXExy0rCc), o "Ma Cherie"(https://www.youtube.com/watch?v=uT_Uf5uS27w), si te gustan escuchar estas canciones, te recomiendo buscar sobre el genero "Visual Kei", aunque usualmente se pillan solo por Youtube subidas por fans.
+1. [MALICE MIZER](http://www.malice-mizer.co.jp/)
 
-Los Albumnes:
-Memoire DX:
-https://www.youtube.com/watch?v=SU1Qu7ts_Kw
-Fun Fact: DX es una extension la cual incluye un single llamado "Baroque" el cual no estaba en el lanzamiento original, el cual es mi favorito
+Tengo toda la discografia descargada desde un post de Blogger ^^. Hay info sobre sus 3 vocalistas (Tetsu, Gatck y Khlara) en [wikipedia](https://en.wikipedia.org/wiki/Malice_Mizer) a lo largo de 1995 hasta 2001, alargandose hasta 2006. Es tan hermosa esta banda y tiene una historia atrapante. Tiene canciones muy bonitas como "[Mayonaka ni Kawashita yaku soku](https://youtu.be/o7jLWG9fSWE?si=9ZUH6C3k051TcRoB), "[Gardenia](https://youtu.be/70rXExy0rCc?si=YHjKa9qeO1Bpuvcn)", o "[Ma Cherie](https://youtu.be/uT_Uf5uS27w?si=D_6qsA2MqbpOQ0Go)".
 
-Voyage ~Sans Retour~:
-https://www.youtube.com/watch?v=t6jiuWsRiZQ
-Mi cancion favorita es "Premiere Amour"
-Tambien me encanta una version interpretada exclusiva en la gira de Voyage ~Sans Retour~ de 2001 llamada "Regret", se puede escuchar aqui: https://youtu.be/y63US9_YET0?si=u5FJGLUqgsZGMtiK
+1.1- Albumns:
 
-Merveilles:
-https://www.youtube.com/watch?v=MIuA8rHI5GY
-Mi cancion favorita es "エーゲ～過ぎ去りし風と共に～", tambien conocida como "Aegean", es muy hermosa la version de esta cancion en vivo (https://www.youtube.com/watch?v=1mNN3Qg5RkM)
+- [Memoire DX](https://youtu.be/SU1Qu7ts_Kw?si=dQjFUSYWe5RL7y-z): DX o Deluxe incluye el single "Baroque", el cual no estaba en el lanzamiento original
 
-Bara no Saidou:
-https://www.youtube.com/watch?v=xW7lrDo9T2Q
-Este es sin duda mi album favorito, toda la composicion es perfecta y me encanta, creo que no podria elegir mi cancion favorita, sino mi album favorito, lo he escuchado unas 50 veces completo(Sin Exageracion), me fascina. pero elegiria "再会の血と薔薇 (Saikai no Chi to Bara)" Me dan ganas de llorar cada vez que la escucho, es como si retratara el tiempo y su paso, a travez de las campanas que no te sueltan y el piano y los instrumentos tocando de una forma melodramatica y rapida, corriendo hacia el final de la cancion, con una emocion impenetrable, siempre me da esa sensacion de buscar algo pero no sabes que es, solo te maravilla el momento, sin duda una cancion que me fascina. Otra cancion que me gusta muchisimo de este album es "地下水脈の迷路 (Chikasuimyaku no Meiro)", es que los gritos, asi se debe sentir el cielo, me genera una paz y un lugar seguro como si nada, intentando mostrar que esos lugares no existen y se corrompen pero siempre vuelve a su hermosura, es encantador <3
+- [Voyage ~Sans Retour~](https://youtu.be/t6jiuWsRiZQ?si=P3MU8n__E_nPNL3Y): Hay una cancion en vivo que se dio en la gira de "Voyage ~Sans Retour~ (2001)" llamada "[Regret](https://youtu.be/y63US9_YET0?si=4A16BVk2Z_3-z9c0)", el cual es un dueto entre Gackt y Kami
 
-PD: Los albumnes que faltan son recopilaciones de singles, pero si te gusta mucho esta banda, capaz los encuentras ;D
+- [Merveilles](https://youtu.be/MIuA8rHI5GY?si=Z9KdYbzfKtjEzH0O): Mi cancion favorita es [Aegean (エーゲ～過ぎ去りし風と共に～)](https://youtu.be/1mNN3Qg5RkM?si=zAKZ3ZyE9nOVV-HB) en vivo
 
-2.- Fishmans
-Es una banda japonesa que me gusta muchisimo, con una historia mas que interesante y la impactante muerte de Shinji Sato luego de su punto maximo en Akasaka Blitz
+- [Bara no Saidou](https://youtu.be/xW7lrDo9T2Q?si=ru2WB0e2CnFY08Nd): Sin duda, mi album favorito, todo es perfecto, lo he escuchado 50 veces completo, elegiria "[Saikai no Chi to Bara (再会の血と薔薇)](https://youtu.be/bsS5VrdUdas?si=ugdoh6gcxK-J8sVu)" como mi cancion favorita.
 
-Fishmans - Uchu Nippon Setagaya:
+
+2. [Fishmans](www.fishmans.jp)
+Una bada japonesa con una historia muy interesante, y su punto maximo en Akasaka Blitz en 1998, y la muerte de su vocalista Shinki Sato en Marzo de 1999, puedes consultar la [wikipedia](https://en.wikipedia.org/wiki/Fishmans)
+
+- Fishmans - Uchu Nippon Setagaya:
 https://www.youtube.com/watch?v=SxsvkiCzFjg
 Mi cancion favorita es "Magic Love"
 
-Fishmans - Kuchu Camp
+- Fishmans - Kuchu Camp
 https://www.youtube.com/playlist?list=OLAK5uy_l0_vYrYMKdivKvvnWtdzfGp_qvO7a5Fu0
 Mi cancion favorita de este album es "Night Cruising"
 
-Fishmans - 98.12.98 Otokotachi No Warake at Akasaka Blitz
+- Fishmans - 98.12.98 Otokotachi No Warake at Akasaka Blitz
 https://www.youtube.com/watch?v=ftRK6fzX-Uo
 Long Season es simplemente maravillosa, una vez que empieza debo escucharla completa
+
 ---
 
-3.- Gregory and the Hawk
+3. Gregory and the Hawk
+
 Moenie and Kitchi: https://www.youtube.com/watch?v=EMZOtHIL7QM 
 Aunque solamente he escuchado este album es digno de mencion especial, todas las canciones pegan en algun momento o lugar en especial, es algo increiblemente genial, me gustan todas las canciones, el ambiente, la voz, todo, mi cancion favorita es "Oats We Sow"
+
 ---
 
-4.- Lamp
+4. Lamp
 Es una banda japonesa con canciones tan bonitas, se esta volviendo popular en el ultimo tiempo :D
 
 Lamp - Gensou (2008)
@@ -146,7 +118,7 @@ Mi cancion favorita es la primera tambien llamada "For Lovers", es corta y descr
 
 ---
 
-5.- Masayoshi Takanaka
+5. Masayoshi Takanaka
 Me gusta tanto este artista, siempre me da una sonrisa en la cara, he escuchado un album recopilatorio llamado "All of Me (1979)" (https://www.youtube.com/watch?v=BNig6xG36i4), el cual recopila algunas canciones de sus primeros tres albumnes "Seychelles", "Brasilian Skyes", "Takanaka", pero tiene muchos albumnes mas que me alegran muchisimo, aun a sus 70 años, sigue dando conciertos :D
 
 Masayoshi Takanaka - The Rainbow Goblins (1981)
@@ -159,7 +131,7 @@ Takanaka en 2022: https://www.youtube.com/watch?v=M1utfsOXs4I
 Video sobre Takanaka (Ingles): https://www.youtube.com/watch?v=hUHrEFiktKI
 
 ---
-6.- Casiopea
+6. Casiopea
 Una banda japonesa que es energia pura, esta musica esta llena de pasion, me encanta. La masterizacion de sus presentaciones me impresiona, los japoneses siempre hacen magia cuando se trata de tecnologia, pensar que la mayoria de sus canciones son de los años 70 y 80 en presentaciones en vivo, toda la musica es tan genial.
 
 Casiopea - Mint Jams (1982)
@@ -176,7 +148,7 @@ Video sobre Casiopea (Ingles): https://www.youtube.com/watch?v=RVzld8ES9hQ
 
 ---
 
-7.- Liana Flores (✿◠‿◠)
+7. Liana Flores (✿◠‿◠)
 Liana Flores - Recently (2019)
 https://www.youtube.com/watch?v=v7_dalAMLrs
 Mi cancion favorita es "Rises the moon", es un EP cortito y muy bonito
@@ -189,13 +161,13 @@ Tambien pude recuperar el cover original en ukelele: https://docs.google.com/doc
 ---
 
 8.- Monsune
-La verdad esta es su discografia entera, es perfecta
+Esta seria toda su discografia
 
-Monsune - Nothing in return
+- Monsune - Nothing in return
 https://www.youtube.com/watch?v=XDN2wbm6zi8
 
-Monsune - Tradition (Album)
+- Monsune - Tradition (Album)
 https://www.youtube.com/playlist?list=OLAK5uy_l0t8Gyopq6RdbSmJ1sq2LPcbasPzgjvNY
 
-Monsune - Outta my mind (Mi favorita del album anterior)
+- Monsune - Outta my mind (Mi favorita del album anterior)
 https://www.youtube.com/watch?v=SjgMmo6_DH0

@@ -1,10 +1,9 @@
 # Info
 ## Datos
-La intencion es instalar una maquina virtual de Windows 7, la cual siempre tiene implementacion muy malas, cuando solo debe ser un cliente rapido listo para hacer pruebas. Es opcional hacerlo ligero, la idea es que funcione siempre de la mejor manera
+La intencion es instalar una maquina virtual de Windows 7 Ultimate 64 bits, la cual siempre tiene implementacion muy malas, cuando solo debe ser un cliente rapido listo para hacer pruebas. Es opcional hacerlo ligero, la idea es que funcione siempre de la mejor manera
 
 Notas:
 - La instalacion en 64 bits pesa 16GB y el .ova 8GB
-- La instalacion en 32 bits pesa ?? y el .ova ??
 
 Sistema:
 - Basado gran parte en el trabajo de [FastOS 7 v4 Pro F.E (Final Edition)](https://www.projectfastos.top/2025/03/fastos-7.html) by [Tester Machine](https://www.youtube.com/c/TesterMachine). La cual esta basada en Windows 7 Professional Version 6.1 SP1 (Compilacion: 7601), se recomienda apoyar usando el acordator [Cuty](https://cuty.io/VOPMYM5tpVuC), pero dejare el Link directo a [Mediafire - FastOS7V4FEx64B10](https://www.mediafire.com/file/09pnm2rh17vr9hz/FastOS7V4FEx64B10.iso/file)
@@ -35,14 +34,34 @@ Gracias a:
 	- [This reply](https://github.com/virtio-win/virtio-win-pkg-scripts/issues/40#issuecomment-1704103962)
 - [Windows 7 DotNet support](https://learn.microsoft.com/en-us/dotnet/core/install/windows#windows-7--81--server-2012) | [Powershell DotNet Framework vs DotNet Core](https://learn.microsoft.com/en-us/powershell/scripting/whats-new/differences-from-windows-powershell?view=powershell-7.5#net-framework-vs-net-core)
 
-# Instalacion
+# Creacion del VM
+**Desde QEMU/KVM**
 
-Necesitamos Descargar
-- La imagen de Windows 7, puede ser la original, la que recomiendo o la que te interese, los pasos son parecidos
-- VBoxGuestAdditions.iso | [Descarga](https://download.virtualbox.org/virtualbox/)
-- virtio-win 0.1.173-4 (Version Exacta Obligatoria, las mas actuales no permiten maquinas windows 7) | [Descarga](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/?C=M;O=D)
+Yo hare la instalacion desde QEMU/KVM, ya que funciona mejor a mi parecer
 
-## Virtualbox
+Configuracion de QEMU (virt-viewer)
+
+Vista General
+- Nombre: Win7-eNSP
+- Titulo: Win7 eNSP
+- Chipset: Q35
+- Firmware: BIOS
+CPU (Depende Obviamente de tu cantidad de CPU, en mi caso, tengo 1 CPU, con 2 Nucleo, 4 Hilos)
+- Configuracion: Marcar "host-passthrough"
+- Topologia
+	- Marcar: "Establecer Manualmente la topologia de CPU"
+	- Socket: 1
+	- Centros: 2
+	- Hilos: 2
+Memoria (Depende cuanta memoria tengas)
+- Asignacion Actual: 4096 o 8196
+- Asignacion Maxima: 4096 o 8196
+
+Le das en instalar nomas
+
+**Desde Virtualbox**
+Si utilizas Virtualbox, tambien puedes crearla usando los siguientes datos
+
 Crea una nueva VM, le pongo un nombre creativo con los siguientes datos
 - Tipo: Microsoft Windows
 - Version: Windows 7 (64 Bits)
@@ -86,6 +105,11 @@ Seleccionas las siguientes configuraciones
 		- Activar controlador USB
 		- Seleccionar Controlador USB 2.0 (OHCI + EHCI)
 
+# Instalacion
+**Materiales Previos**
+- Windows 7: Puede ser [Original desde Massgrave](https://massgrave.dev/windows_7_links) o Modificada, recomiendo la de Tester Machine [FastOS7v4](https://www.projectfastos.top/2025/03/fastos-7.html) | [Link Mediafire Directo](https://www.mediafire.com/file/09pnm2rh17vr9hz/FastOS7V4FEx64B10.iso/file)
+- VBoxGuestAdditions.iso | [Descarga](https://download.virtualbox.org/virtualbox/)
+
 Das en "Aceptar" y estamos listos para instalar
 
 ## Instalacion de Windows 7
@@ -127,7 +151,7 @@ Enciende Windows, y te hable el instalador
 	- Optimizar la GPU: No, al ser virtualizado podria dar problemas
 	- Funciones Rapidas: No
 	- Instalar Fast Menu: No. En caso de si quererlo, presiona Si y luego Avanzado, Luego "Instalar", se demora un rato
-	- Tipo de optimizacion: Laptop
+	- Tipo de optimizacion: "Oficina" o "Gaming", NUNCA LAPTOP, porque bloquea funciones del sistema
 - Continua con "Optimizar", se demora un minuto
 - Luego apretas en "Finalizar" y despues otra vez en "Finalizar" para salir de AST, cierra sesion, se reinicia y deberia Iniciar Windows
 - Se conectara a Ethernet, te pedira una red, le das en "Red Domestica", luego das en "Siguiente" y finalmente en "Finalizar"
@@ -146,13 +170,23 @@ Apagas la maquina, abres las configuraciones de la maquina
 	- Luego das en "Aceptar"
 
 ---
-## Activa la Paravirtualizacion en Windows
-Inicias la maquina, vas al explorador de archivos, en la seccion de "Equipos" para luego abrir cada disco
 
-- Partamos con "virtio-win"
-	- Instala "virtio-win-gt-x64" (o x86)
-	- Seleccionas "Next", lees y aceptas la licencia y le das en "Next"
-	- Sale un menu de caracteristicas, debes deshabilitar "Spice Agent", luego le das en "Next" y esperas que se instale
+La instalacion base de Windows 7 limpio pesa 15GB, KIEEE
+
+Necesitamos un buen navegador para ser instalado
+
+Vaya
+Tendriamos que probar con:
+NOTA: Si necesitas un navegador, podrias probar alguno del repositorio de "[adeii/supermium-portable](https://github.com/adeii/supermium-portable/releases)", probe "[Firefox Portable 132 x64](https://github.com/adeii/supermium-portable/releases)" y funciono perfectamente
+
+## Activa la Paravirtualizacion en Windows
+> [!TIP] Lecturas Recomendadas
+> - [WinCDEmu Download](https://wincdemu.sysprogs.org/download/)
+> - [WinCDEmu Wiki - Mount an ISO](https://wincdemu.sysprogs.org/tutorials/mount/)
+
+Debes tener una forma de montar los .iso para instalar su contenido, recomiendo WinCDEmu, facil, como y sencillo
+
+### Virtualbox
 - Ahora con "Virtualbox Guest Additions"
 	- Instala "VBoxWindowsAdditions-amd64" (o x86) como administrador
 	- Seleccionas 3 veces "Next", se empezara a instalar
@@ -160,8 +194,23 @@ Inicias la maquina, vas al explorador de archivos, en la seccion de "Equipos" pa
 	- Saldra otro popup, seleccionas "Instalar este software de controlador de todas formas"
 	- Cuando termine de instalar, simplemente le das en "reboot now" y la maquina ahora iniciara con los drivers correctos
 
+### QEMU/KVM
+> [!TIP] Lecturas Recomendadas
+> - [Virtio Wiki - Driver Installation](https://virtio-win.github.io/Knowledge-Base/Driver-installation.html)
+> - [Proxmox Wiki - Qemu-guest-agent](https://pve.proxmox.com/wiki/Qemu-guest-agent)
+> - [Fedora - Virtio Download](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/?C=M;O=D) | [0.1.173-4](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.173-4/)
+
+Debido a que Windows 7 es una version ya viejita, no se comportara bien con sistemas modernos. Debes descarga exactamente la version "0.1.173-4"
+
+Abres la carpeta "virtio-win"
+- Instala "virtio-win-gt-x64" (o x86)
+- Seleccionas "Next", lees y aceptas la licencia y le das en "Next"
+- Sale un menu de caracteristicas, debes deshabilitar "Spice Agent", luego le das en "Next" y esperas que se instale
+
+Abres la carpeta "Qemu-Agent"
+- Instalas "qemu-ga-x86_64"
+
 ## Configurar Navegador
-NOTA: Si necesitas un navegador, podrias probar alguno del repositorio de "[adeii/supermium-portable](https://github.com/adeii/supermium-portable/releases)", probe "[LibreWolf Portable 137.0.2 Win7.7z](https://github.com/adeii/supermium-portable/releases)" y funciono perfectamente
 
 Abres "[FlashPeak SlimBrowser](https://www.slimbrowser.net/)" el cual es un fork de Firefox compatible con windows 7, posiblemente, porque su ultima actualizacion es del 31 de Agosto de 2023 (Firefox 115.0)
 
@@ -195,7 +244,6 @@ Partamos por activar Windows, se utilizara [Massgrave](https://massgrave.dev/#me
 - Ejecutamos otra vez "MAS_AIO.cmd" en modo administrador
 	- Seleccionamos "`[3] TSforge`", luego "`[1] Activate - Windows`", hara unas validaciones, y luego saldra un mensaje "`[Ultimate] is permanently activated with ZeroCID`", apretamos cualquier tecla y cerramos la ventana
 
-
 Con el sistema activado, aprovechamos de actualizarlo para no tener problemas de compatibilidad con las herramientas que aun existen
 - NOTA: Por alguna razon se demora 1 hora, asi que hace otras cosas por mientras, luego que termine de buscar, instala las actualizaciones importantes solo de Windows 7
 - Abre "Panel de Control", "Sistema" y luego "Windows Update", selecciona "Buscar Actualizaciones". Las actualizacion son:
@@ -220,7 +268,7 @@ Con el sistema activado, aprovechamos de actualizarlo para no tener problemas de
 Instala los siguientes programas
 - BCUninstaller | [Github Klocman/Bulk-Crap-Uninstaller](https://github.com/Klocman/Bulk-Crap-Uninstaller)
 - Wireshark | [x86](https://www.wireshark.org/download.html#spelunking) (3.2.18) | [x64](https://www.wireshark.org/download.html) (4.0.17) |
-- Filezilla Client | [x86]() (3.50) | [Official Site](https://filezilla-project.org/)
+- Filezilla Client | x86 (3.50) | [Official Site](https://filezilla-project.org/)
 - VLC | [Download](https://www.videolan.org/vlc/download-windows.html)
 - Powershell | [x86](https://github.com/PowerShell/PowerShell/releases/tag/v7.2.24) 7.2.x (7.2.24) |
 	- C++ 2015-2019 Redistributable | [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe) | [x86](https://aka.ms/vs/16/release/vc_redist.x86.exe)
@@ -231,7 +279,7 @@ Instala los siguientes programas
 - SSH via Win32-OpenSSH | [Github PowerShell/Win32-OpenSSH](https://github.com/PowerShell/Win32-OpenSSH/releases)
 - Putty | [Download Snapshot](https://www.chiark.greenend.org.uk/~sgtatham/putty/snapshot.html)
 - Cmder | [Official Page](https://cmder.app/) | [Github cmderdev/cmder](https://github.com/cmderdev/cmder) | Recomiendo Full
-- eNSP -> Sigue [[500 - Personal/500.3 - Write-Ups/Instalar eNSP|Instalar eNSP]]
+- eNSP -> Sigue [[500 - Personal/500.3 - Write-Ups/eNSP/Instalar eNSP|Instalar eNSP]]
 
 Modificar las opciones con "`netplwiz`"
 - Modificar ambos usuarios como administradores
@@ -296,7 +344,31 @@ Puedes encontrarlo dentro de "Programador de Tareas"
 		- End of Support
 		- Defrag
 
-**ELIMINA EL TRABAJO DE TESTER MACHINE PARA PODER CAMBIAR LAS CONFIGURACIONES DEL FIREWALL AAAAAAAAAAAAAAAAAAAAAA**
+> Posiblemente
+```
+net user
+
+net user "nombre_de_usuario"
+
+net localgroup Administrators "nombre_de_usuario" /add
+
+secedit /configure /cfg %windir%\inf\defltbase.inf /db defltbase.sdb /verbose
+
+netsh advfirewall set allprofiles state on
+
+netdom remove "NombrePC" /domain:"Tester Machine" /ud:UsuarioAdmin /pd:Contraseña
+
+regedit
+
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
+
+net user Administrator /active:yes
+
+dism /online /cleanup-image /restorehealth
+
+
+```
+
 
 ## Pasos para Exportar
 

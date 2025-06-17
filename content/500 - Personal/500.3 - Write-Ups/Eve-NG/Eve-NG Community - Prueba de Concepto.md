@@ -14,7 +14,7 @@ Durante ese tiempo existio un sitio web llamado "Evil Routers" a.k.a "routerefle
 > [!NOTE] Nota sobre IOU WEB
 > He trabajado un buen tiempo en maquinas virtuales con [[020 - Conceptos/020.4 - Dispositivos de Red/IOU WEB|IOU WEB]], solucionando un par de problemas importantes, puedes ver mi esfuerzo en distintos Write UPS
 > - [[500 - Personal/500.3 - Write-Ups/IOU-WEB/IOU WEB - 32 Bits CentOS 6 (Original Upgrade)|IOU WEB - 32 Bits CentOS 6 (Original Upgrade)]]: La implementacion que me entregaron, una maquina de 32 bits con CentOS 6, es la que mejor funciona
-> - [[500 - Personal/500.3 - Write-Ups/IOU-WEB/IOU WEB - 64 Bits CentOS 7 (Icarus to Nirvana)|IOU WEB - 64 Bits CentOS 7 (Icarus to Nirvana)]]: Intente mejorar el funcionamiento para aceptar maquinas de 64 bits como los routers XE
+> - [[500 - Personal/500.3 - Write-Ups/IOU-WEB/IOU WEB - 64 Bits CentOS 7|IOU WEB - 64 Bits CentOS 7]]: Intente mejorar el funcionamiento para aceptar maquinas de 64 bits como los routers XE
 > - [[500 - Personal/500.3 - Write-Ups/IOU-WEB/IOU WEB - Config Win 10-11|IOU WEB - Config Win 10-11]]: Set de configuraciones para Windows
 > - [[500 - Personal/500.3 - Write-Ups/IOU-WEB/IOU WEB - Intentos Fallidos|IOU WEB - Intentos Fallidos]]: Coleccion de ideas que no llegaron a buen puerto...
 > - [Youtube - Nicolas Contador - IOU-WEB](https://youtu.be/Wo_W6hcBXy0?si=GzVKPTpF-42eVTHx)
@@ -44,7 +44,7 @@ En 2016, se crea "EVE-NG LTD", con la cual fue trabajando internamente, El 5 de 
 
 Durante mas de dos decadas, han existido intentos para emular o virtualizar entornos de red complejos sin necesidad de hardware fisico. Aunque muchos proyectos han quedado obsoletos o abandonados, otros todavia persisten hasta el dia de hoy (10-Junio-2025)
 
-Aunque si tienes dinero de sobre y luz para gastar, podrias hasta comprar el equipamiento de red que necesites, es el mas entretenido pero mas costoso de realizar y no es muy dinamico para intercambiar dispositivos, pero es una opcion
+Aunque si tienes dinero de sobra y luz para gastar, podrias hasta comprar el equipamiento de red que necesites, es el mas entretenido pero mas costoso de realizar y no es muy dinamico para intercambiar dispositivos, pero es una opcion
 
 ### Emuladores Clasicos
 Estos son los primeros que se crearon y los que van evolucionando por una linea muy marcada por el uso de imagenes IOS tradicionales, extension de funcionalidades y laboratorios estilo CCNA/CCNP.
@@ -56,22 +56,47 @@ Estos son los primeros que se crearon y los que van evolucionando por una linea 
 > - [Dynagen Blog via Internet Archive Wayback Machine](https://web.archive.org/web/20151127223804/https://www.dynagen.org/)
 > - [IPflow Blog - Cisco 7200 Simulator via Internet Archive Wayback Machine](https://web.archive.org/web/20140314073202/www.ipflow.utc.fr/index.php/Cisco_7200_Simulator)
 > - [Dynagen Docs - Tutorial via Internet Archive Wayback Machine](https://web.archive.org/web/20120212144911/http://dynagen.org/tutorial.htm)
+> - [Dyna-Gen Sourceforge](https://web.archive.org/web/20070226133132/http://dyna-gen.sourceforge.net/)
 > - [Dynagui Sourceforge via Internet Archive Wayback Machine](https://web.archive.org/web/20140714192058/http://dynagui.sourceforge.net/)
 
-Es el tio abuelo de la emulacion, nacio en Agosto de 2005 por Fabien Devaux, Christophe Fillot y MtvE para emular routers cisco 1700, 2600, 3600, 3700 y 7200. Fue pionero y todavia sobrevive como parte del backend de GNS3, aunque no se recomienda para entornos modernos
+Es el tio abuelo de la emulacion, nacio en Agosto de 2005 por Fabien Devaux, Christophe Fillot y MtvE para emular routers cisco 1700, 2600, 3600, 3700 y 7200. Fue pionero en su tiempo, pero han evolucionado a otras tecnologias, su ultima version fue la 0.2.8-community lanzada el 4 de Julio del 2013
 
-En 2006, Greg Anuzelli creo Dynagen, un front-end escrito en Python para facilitar el uso
+El 20 de febrero de 2006, Greg Anuzelli creo Dynagen, un front-end escrito en Python para facilitar el uso de Dynamips mediante archivos `.ini`, y la ultima lanzada fue del 18 de febrero de 2007
 
-Dynagui esta basado en la libreria Dyna-gen, creado por "Yannick Le Teigner" para aplicar distintos parches
+En 22 de Julio de 2006, Yannick Le Teigner creo Dynagui, el cual esta basado en la libreria Dynagen para comunicarse con dynamips, su objetivo es aplicar distintos parches y configurar una GUI, su ultima version lanzada fue el 13 de Diciembre del 2007
 
-Luego el "30 de Julio de 2013", con el lanzamiento de la version 0.2.9 de Dinamips se creo un fork a cargo de GNS3 disponible en Github, continua siendo usado, pero no es recomendado realmente
+El 19 de Noviembre de 2006, Thomas Pani lanzo gDynagen, otro herramienta que funcionaba sobre Dynagen, los parches fueron aplicados al upstream, este proyecto tuvo su ultima version el 27 de marzo de 2008
+
+Luego el 30 de Julio de 2013, con el lanzamiento de la version 0.2.9 de Dinamips se creo un fork a cargo de GNS3 disponible en Github, el cual continua desarrollandose y arreglando errores, la ultima version es la 0.2.23 del 2 de enero de 2023, aunque realmente no se recomienda usarlo.
+
+```mermaid
+gantt
+    title Evolución de Dynamips y sus Derivados
+    dateFormat  YYYY-MM-DD
+
+	section Dynamips
+    Dynamips (Community) :dyn, 2005-08-01, 2890d
+
+    section Dynagen
+    Dynagen            :dgn, 2006-02-20, 363d
+
+    section Dynagui
+    Dynagui            :dgui, 2006-07-22, 509d
+
+    section gDynagen
+    gDynagen           :gdgn, 2006-11-19, 494d
+
+    section Dynamips (GNS3 Fork)
+    Dynamips GNS3 Fork :fork, 2013-07-30, 3452d
+```
 
 **Cisco Packet Tracer**
 > [!TIP] Lectura Recomendada
 > - [Netacad Learning Resources - Download Packet Tracer](https://www.netacad.com/es/resources/lab-downloads)
 > - [Packettracer Networks Blog - New Features Packet Tracer 9.0.0 Beta](https://www.packettracernetwork.com/features/packet-tracer-9-new-features.html)
+> - [Sysnettech Blog - What is Cisco Packet Tracer](https://www.sysnettechsolutions.com/en/what-is-cisco-packet-tracer-software/)
 
-Packet Tracer es la herramienta de simulacion oficial desarrollada por Cisco para entornos educativos, la cual es gratuita pero necesita una cuenta registrada en el programa Netacad (Network Academy). Su objetivo no es emular el hardware real, sino ofrecer una plataforma para crear topologias ilustrativas con configuraciones y comportamientos simplificados.
+Packet Tracer es una herramienta de simulacion oficial desarrollada por Cisco para entornos educativos, la cual es gratuita pero necesita una cuenta registrada en el programa Netacad (Network Academy). Su objetivo no es emular el hardware real, sino ofrecer una plataforma para crear topologias ilustrativas con configuraciones y comportamientos simplificados. 
 
 Desde la version 8 en adelante, Cisco ha ido integrando soporte para dispositivos IoT, programacion con Python y microcontroladores como parte de las iniciativas STEM.
 
@@ -175,6 +200,45 @@ Common Research Emulator
 > - https://netkit-jh.github.io/
 
 Fork activo y mantenido de Netkit-ng y Netkit, se enfoca en laboratorios ligeros de red en entornos Linux. Se basa en User Mode Linux (UML) y tiene una fisolofia muy academica: terminal, scripting y ligereza. Ideal para contextos universitarios o cursos introductorios
+
+### Evolucion de Proyectos
+Actualizado a 13 de Junio de 2025
+
+```mermaid
+gantt
+	title Evolucion de Simuladores de red
+    dateFormat  YYYY-MM-DD
+    todayMarker off
+
+	section Emuladores Cisco-Like
+	Dynamips            :a5, 2006-08-01, 2025-06-13
+    Packet Tracer       :a6, 2003-06-01, 2025-06-13
+	WebIOL              :a1, 2011-01-01, 2025-06-13
+    IOU WEB             :a2, 2012-01-23, 2015-05-28
+
+	section Comercial
+    CML-P               :a8, 2014-01-01, 2025-06-13
+
+    section Emuladores Multi-Vendor
+    GNS3                :a7, 2007-01-01, 2025-06-13
+	UNetLab             :a3, 2014-10-01, 2016-06-01
+    EVE-NG              :a4, 2016-06-01, 2025-06-13
+
+    section Emuladores Modernos
+    ContainerLab        :b1, 2020-04-01, 2025-06-13
+    Kathara             :b2, 2018-01-01, 2025-06-13
+    Cloonix             :b3, 2008-01-01, 2025-06-13
+
+	section Emuladores Academicos
+	Mininet             :b6, 2010-01-01, 2025-06-13
+    Netkit-JH           :b9, 2011-01-01, 2025-06-13
+
+	section Simuladores de Red
+    Shadow              :b8, 2012-01-01, 2025-06-13
+    NS-3                :b7, 2006-06-01, 2025-06-13
+    CORE                :b4, 2005-01-01, 2025-06-13
+    IMUNES              :b5, 2003-01-01, 2025-06-13
+```
 
 ## Finalmente EVE-NG
 **Licenciamiento de Eve-NG**

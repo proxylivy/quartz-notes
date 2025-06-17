@@ -6,7 +6,7 @@ Y que wireshark al final y al cabo si puede ser la mas moderna
 
 Estas son las ultimas versiones compatibles con Windows 32 bits, estan disponibles en [Onedrive](https://duoccl0-my.sharepoint.com/:f:/g/personal/ga_zunigam_duocuc_cl/EuCvefQ9MB1Br3OH4Iqon6UBkFA8pfqbXkYACdvtlEiDBA?e=AJDBlS)
 - Virtualbox | [x86](https://download.virtualbox.org/virtualbox/5.2.44/) (5.2.44) | x64 (5.2.44) | Es el limite de eNSP
-- Wireshark | [x86]() (???) | [x64]() (4.2.2 o 4.0.17)
+- Wireshark | x86 (???) | x64 (4.2.2 o 4.0.17)
 - eNSP Setup V100R002C00B510 (1.2.00.510) y su actualizacion V100R003C00SPC100 (1.3.00.100)
 - Npcap | [x64](https://npcap.com/) tiene una API compatible con WinPcap, por lo que se podria cambiar eventualmente, se instala la version 1.7.8 al instalar Wireshark 4.2.2 en x64
 
@@ -52,7 +52,7 @@ Fixed Bugs:
 ```
 
 # Instalacion
-Se recomienda usar una maquina Win 7, sigue esta guia [[500 - Personal/500.3 - Write-Ups/Optimizar VM Win 7|Optimizar VM Win 7]], sobre esa maquina instalaras Virtualbox, WinPcap, Wireshark y por ultimo eNSP Setup.
+Se recomienda usar una maquina Win 7, sigue esta guia [[500 - Personal/500.3 - Write-Ups/Optimizar VM Win 7 64 bits|Optimizar VM Win 7 64 bits]], sobre esa maquina instalaras Virtualbox, WinPcap, Wireshark y por ultimo eNSP Setup.
 
 1. Instala eNSP Setup 1.2.00.510
 	- Selecciona "English" y luego seleccionas el boton de la izquierda
@@ -85,4 +85,82 @@ Se recomienda usar una maquina Win 7, sigue esta guia [[500 - Personal/500.3 - W
 Instala Hack [Nerd Font](https://www.nerdfonts.com/)
 Cambiar Fuentes
 Ve a Opciones > Fonts > CLI Fonts: y elegimos Hack Nerd Font 10
+
+
+
+¿Que Beneficios Tiene?
+- Windows 7 Permanentemente activado con TSForge
+- Programas actualizados
+	- eNSP Actualizado a 1.3.00.100 (V100R003C00SPC100)
+	- Virtualbox Actualizado a 5.2.44-139111
+	- Wireshark actualizado a 3.6.16
+- Imagenes Actualizadas
+	- Router NE Series (NE40E) (NE5000E) (NE9000)
+	- Router CX Series (CX200)
+	- Switch CE Series (CE6800)
+	- USG6000V Firewall (using vfw_usg.vdi)
+
+
+Tomando como base el OVA del vitoco, permite la ejecucion de USG6000V Firewall
+## Activar Licencia por siempre
+Descarga Massgrave desde el [Link autodescarga](`https://github.com/massgravel/Microsoft-Activation-Scripts/archive/refs/heads/master.zip`)
+
+Luego lo descomprimes, abres carpetas, ejecutas la cosa, luego 3, y luego 1, y fin, activado para siempre
+
+## Virtualbox Guest Addons
+
+Descarga desde el [centro de descargas](https://download.virtualbox.org/virtualbox/) la ultima version, en mi caso 7.0.10
+
+Descarga [Wincdemu](https://wincdemu.sysprogs.org/) para montar imagenes .iso si es que no hay ninguno
+
+Instala los drivers y reinicia la maquina
+
+Ahora deberia poder ajustarse automaticamente a la ventana
+
+## Instala RSYNC
+> [!TIP] Sitios Recomendados
+> - [Said - Install Rsync on Windows](https://ayewo.com/how-to-install-rsync-on-windows/)
+> - 
+
+
+
+Asi poder pasar las imagenes desde un host mas rapido
+
+
+## Actualizar eNSP
+Descarga la imagen fea
+
+Next
+Acepta la licencia y Next
+Next
+
+Espera que se instale la actualizacion, desmarca "Launch eNSP" y "Show update log"
+
+## Actualiza los dispositivos faltantes
+
+Primero debes descargar las imagenes necesarias desde algun lugar misterioso
+
+Lo dejas en alguna carpeta igual de misteriosa, se me podria ocurrir `C:\Program Files\Huawei` en una carpeta llamada `Extra Images`
+
+Luego debes abrir eNSP, arrastrar un nodo de cada router que quieras instalar, tengo las imagenes de
+- CE6800 (Using CE.xd)
+- USG6000V Firewall (using vfw_usg.vdi)
+
+Luego debes dar segundo click y apretar en "Start", te saldra una ventana llamada "Import Package", pidiendote la ruta y el paquete que necesitas
+
+Y le das la ruta `C:\Program Files\Huawei\Extra Images\`, la imagen correspondiente y le das en "Import"
+
+Ahora le das el segundo click, "Start", ahora la imagen deberia empezar a cargar, puede demorarse de 3-5 minutos en recien iniciar, asi que paciencia
+
+Y fin, con eso tienes las ultimas imagenes funcionando
+
+
+
+Luego lo inicias y listo
+
+Bueno, debes iniciar sesion
+- User: `admin`
+- Pass: `Admin@123`
+
+Cuando inicia, debes cambiar la contraseña, yo elegi `Wena@123`
 

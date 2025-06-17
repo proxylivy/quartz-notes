@@ -2,12 +2,11 @@
 ## ¿Que hay de nuevo?
 
 IOU WEB Interface 64 Bits
-Modded by @Proxylivy
+Based on work of Andrea Dainese (dainok) and modded by @Proxylivy
 
 Version 2 (Icarus):
 - Instalacion desde .iso limpio en 64 bits
 - IOU WEB Actualizado (`1.2.2-23`)
-- Soporte para imagenes cisco 64 bits, como `x86_64_crb_linux`
 - IOU WEB, Base de datos limpia, logs limpios y arreglado los tiempos de espera
 - Activada la Paravirtualizacion de CPU para instrucciones VT-X y emulacion KVM en virtualbox
 - Instalacion y configuracion de drivers virtio
@@ -22,32 +21,34 @@ Version 2 (Icarus):
 - No IPTABLES, No Firewall
 - Hora y Fecha Sincronizadas con NTP Chile
 - Links simbolicos de las nuevas imagenes, reemplazando las antiguas
-- Xinha actualizado a `1.5.4`
-- Plymouth configurado
-- No Firewall
+- Varias servicios innecesarios abajo
 - No "DUP Ping" desde la maquina
 - Documentacion lo mas completa y transparente posible
+- Instalacion base con UEFI y soporte BIOS legacy
+- `$PATH` configurado para priorizar programas compilados, IOU WEB y luego el sistema
 
-Planeado Version 3 (Nirvana)
-- (WIP) Binarios 64 bits pre-parchados con patchelf para soporte GLIBC <=2.27 (2.28)
-- (WIP) Compilar OpenSSL y OpenSSL y que el VM no explote
-- (WIP) Hacer que el sistema sea compatible tanto con UEFI como BIOS
+> [!WARNING] Sobre Emulacion x86_64
+> - A pesar de ser una instalacion 64 bits, no soporta los routers y switch XE (`x86_64_crb_linux`), intente compilar una version de GLIBC mayor a >=2.27 (2.34) y solo XE L3 funciona sin problemas, XE L2 tiene problemas extraños y no me da el cerebro para solucionarlos
+> - Si quieres ayuda, puedes leer [[500 - Personal/500.3 - Write-Ups/IOU-WEB/IOU WEB - Intentos Fallidos|IOU WEB - Intentos Fallidos]], compilar los otros programas y solucionar el problema de los XE L2, y me mandas un correo ^^
+> - La compilacion de OpenSSL y OpenSSH todavia no se hace realmente
 
 > [!TIP] Lecturas recomendadas sobre IOU WEB
 > - [My Howtos and Projects Blog - Cisco IOU: Installing and Running (Lite)](https://myhowtosandprojects.blogspot.com/2013/08/installing-and-running-iou-checking_10.html)
-> - [Thomas Low Blog - Cisco IOU Installation Steps on VMware](https://thomaslowblog.wordpress.com/2015/08/18/cisco-iou-installation-steps-on-vmware/)
 > - [Network Haven Blog - Cisco IOU FAQ mirror](https://networkhaven.blogspot.com/2014/02/cisco-iou.html)
-> - [ThomasLow Blog - Using Cisco IOU](https://thomaslowblog.wordpress.com/2015/08/18/using-cisco-iou/)
 > - [VMgeeks Blog - Deploying Cisco IOU web interface on Vsphere](https://vmgeeks.wordpress.com/2012/07/21/deploying-cisco-iou-web-interface-on-vmware-esxi/)
 > - [Daniel Kovacs Blog - Cisco IOU with web interface](https://kovacsdaniel.blogspot.com/2015/02/cisco-iou-with-web-interface.html)
 > - [TΩИΨ Blog - How to install GlibC and libGCC 32 bits on 64 bits OS](https://www.lixu.ca/2017/06/redhat-how-to-install-glibc-and-libgcc.html)
-> - [Brezular Blog - Using IOUl2 Loaded on CentOS Qemu](https://brezular.com/2011/10/23/creating-a-cisco-switch-using-ioul2-loaded-on-centos-qemu-image/)
-> - [Brezular Blog - Creating a Cisco Switch using IOLl2 loaded on Linux Core QEMU Image](https://brezular.com/2011/11/01/cisco-network-device-based-on-iou-installed-on-core-linux/)
-> - [Brezular Blog - How to Connect IOU to Real Cisco Gear Using IOU Live - int2netio](https://brezular.com/2013/10/15/how-to-connect-iou-to-a-real-cisco-gear-using-iou-live-int2netio/)
-> - [Brezular Blog - How to Connect IOU to a Real Cisco Gear Using iou2net.pl](https://brezular.com/2013/10/09/how-to-connect-iou-to-a-real-cisco-gear-using-iou2net-pl/)
-> - [Brezular Blog - Cisco L3 and L2 IOUs running on Fedora Linux](https://brezular.com/2011/04/30/iou-on-fedora-linux/)
 > - [Evil Routers Blog - Defeating Cisco IOU License Protection via Internet Archive](https://web.archive.org/web/20180323124250/http://evilrouters.net/2011/01/09/defeating-cisco-iou%E2%80%99s-license-protection/)
-> - [FreeCCNALabs Blog - Cisco IOU Licencing](https://web.archive.org/web/20160302020104/http://freeccnalabs.com/cisco-ios-on-unix-licensing/)
+> - [FreeCCNALabs Blog - Cisco IOU Licencing via Internet Archive Wayback Machine](https://web.archive.org/web/20160302020104/http://freeccnalabs.com/cisco-ios-on-unix-licensing/)
+> - ThomasLow Blogs
+> 	- [Cisco IOU Installation Steps on VMware](https://thomaslowblog.wordpress.com/2015/08/18/cisco-iou-installation-steps-on-vmware/)
+> 	- [Using Cisco IOU](https://thomaslowblog.wordpress.com/2015/08/18/using-cisco-iou/)
+> - Brezular Blogs
+> 	- [Cisco L3 and L2 IOUs running on Fedora Linux](https://brezular.com/2011/04/30/iou-on-fedora-linux/)
+> 	- [Creating a Cisco Switch using IOLl2 loaded on Linux Core QEMU Image](https://brezular.com/2011/11/01/cisco-network-device-based-on-iou-installed-on-core-linux/)
+> 	- [How to Connect IOU to a Real Cisco Gear Using iou2net.pl](https://brezular.com/2013/10/09/how-to-connect-iou-to-a-real-cisco-gear-using-iou2net-pl/)
+> 	- [How to Connect IOU to Real Cisco Gear Using IOU Live - int2netio](https://brezular.com/2013/10/15/how-to-connect-iou-to-a-real-cisco-gear-using-iou-live-int2netio/)
+> 	- [Using IOUl2 Loaded on CentOS Qemu](https://brezular.com/2011/10/23/creating-a-cisco-switch-using-ioul2-loaded-on-centos-qemu-image/)
 
 > [!TIP] Brezular Blog - Building Linux L3 switch/router on x86 Series
 > - [Part 1 - Introduction](https://brezular.com/2011/09/01/building-linux-l3-switchrouter-on-x86-part1-introduction/)
@@ -60,17 +61,55 @@ Planeado Version 3 (Nirvana)
 > - [Part 8 - DNS Cache Server Installation and Configuration](https://brezular.com/2011/09/11/building-linux-l3-switchrouter-on-x86-part8-dns-cache-server-installation-and-configuration/)
 > - [Part 9 - DHCP and Samba server Instalattion and Configuration](https://brezular.com/2011/09/11/building-linux-l3-switchrouter-on-x86-part9-dhcp-and-samba-server-installation-and-configuration/)
 
-## Comentarios del creador
-Esta idea de proyecto nace desde un problema aparentemente trivial que descubri en 5to semestre (Routing y Switching Corporativo a cargo de Victor Araneda) en una instancia de 32 bits en CentOS 6.0: el retardo al asignar una interfaz con `ip nat inside` dentro de un entorno IOU WEB. A partir de esa falla, comenzo un proceso que, lejos de frustarme, desperto mi curiosidad.
+## Porfiado y Creativo: Asi nacio IOU WEB Icarus
 
-Un año y medio mas tarde, luego de incontables pruebas, configuracion y reconstrucciones basadas en ingenieria inversa y mucha lectura, logre una instalacion completa y funcional de IOU WEB en arquitectura de 64 bits con la intencion de poder ejecutar de la mejor forma en distintos sistemas, como lo es Linux y Windows; A travez de distintos emuladores como Virtualbox, KVM/QEMU o VMware.
+Este proyecto nacio durante las clases de *Routing y Switching Coporativo* de 5to Semestre de la carrera de Ing. Conectividad y Redes (DuocUC). Un profesor muy particular, Victor Araneda (Vitoco), nos enseño a utilizar IOU WEB, soltando frases que se me quedaron muy grabadas. Una en especial me hizo mucho ruido:
 
-Porque si la mejor forma de aprender a programar es programando, entonces para un Ingeniero en redes solo le falta ser porfiado y creativo
+> "Cuando configuren `ip nat inside` dentro de una interfaz, ese router quedara cargando por una hora."
 
-Cualquier cosa, `Sapienti sat` (Para el sabio, basta)
+A simple vista no parecia normal, asi que empeze a investigar. Descubri que IOU WEB tiene dos ramas principales de soporte en su epoca: una basada en la familia Debian y otra en RedHat. Durante 1 año estuve trabajando en la variante de 32 bits de CentOS 6.x como lo documente en [[500 - Personal/500.3 - Write-Ups/IOU-WEB/IOU WEB - 32 Bits CentOS 6 (Original Upgrade)|IOU WEB - 32 Bits CentOS 6 (Original Upgrade)]], pero siempre me incomodo no contar con un entorno completamente funcional de 64 bits.
 
-# Instalacion
-## Antes de Empezar
+A partir de esa inquietud, decidi contruir el sistema desde cero, haciendo ingeniera inversa al funcionamiento, investigando sobre la estructura, apache2, php y mas intentos de otras personas por lograr algo parecido. 
+
+Pero tambien comenzo la verdadera odisea, IOU WEB no recibe mas actualizaciones desde 2014-2015, utiliza un stack muy especifico, `php56`, `apache2` y otras dependencias que han ido cambiando con el tiempo. Intente solventar los errores de plano con Rocky Linux 8.10, pero a pesar de escribir mucha documentacion, nunca logre hacer funcionar esa version, asi que la archive. Luego probe con Arch Linux, pero por ahora, el paquete `php56` esta roto en AUR, asi que lo abandone y archive hasta nuevo aviso.
+
+Al final lo clasico siempre gana, y me decante por CentOS 7.9 (2207) la cual es la ultima version de la rama 7.x, y fue el mejor equilibrio, la unica gran aspereza son `glibc 2.17` (deberia ser 2.27), OpenSSL y OpenSSH un poco viejos y otros detalles menores, pero el sistema como reemplazo directo de 32 bits, es espectacular
+
+Aprendi que *es mejor un pajaro practico en mano que cien teoricos en el aire*. El papel aguanta mucho, pero hacer que un entorno asi funcione de verdad... ya es otro cuento. En este camino lei de todo, hasta unir muchas piezas sueltas que encontre en internet, probando y ajustando todo con cariño para la persona que este leyendo esto ^^
+
+**¿Porque Icarus?**
+
+El nombre IOU WEB Icarus nace de la leyenda de Icaro: el joven que volo demaciado cerca del sol y cayo al mar con sus alas derretidas. Asi veo el proyecto: Hermoso, ambicioso pero con limitaciones fuertes que lo llevaran tarde o temprano a su muerte
+
+Porque aunque hoy existen opciones mejores como GNS3 o EVE-NG, IOU WEB tiene su encanto, especialmente para entornos livianos o Cisco-Only, utilizando imagenes en su version 15.x. 
+
+Aun sabiendo sobre sus limites, *Quise hacerlo volar*
+
+No para reemplazar lo moderno, sino para honrar lo antiguo y mostrar que aun no esta viejo, solo hay que cuidarlo
+
+> [!QUOTE] QUOTE
+> "dictum sapienti sat est"
+> -- Plauto
+> 
+> (Para el sabio, basta con una palabra)
+
+# Preparacion
+> [!TIP] Lecturas Recomendadas
+> - [EndOfLife - CentOS EOL](https://endoflife.date/centos)
+> - [CentOS - CentOS Linux EOL](https://www.centos.org/centos-linux-eol/)
+
+## Descarga Materiales
+CentOS, como producto, murio hace un tiempo, la ultima version en terminar de recibir soporte fue la rama 7.x que su soporte de seguridad termino el 30 de junio de 2024. Aun asi, existen distintos mirrors archivados que podemos utilizar y configurar para continuar utilizando CentOS.
+
+La ultima rama disponible es la `7.9-2009` y la iso que recomiendo es la `CentOS-7-x86_64-Minimal-2207-02`
+
+> [!TIP] Mirrors Disponibles
+> - [CentOS - CentOS Vault](https://vault.centos.org/)
+> - [Archive Kernel - CentOS Vault](http://archive.kernel.org/centos-vault/)
+> - [Linux @ CERN - CentOS Vault](http://linuxsoft.cern.ch/centos-vault/)
+> - [NSC LIU (National Supercomputer Centre at Linkoping University) - CentOS Store](http://mirror.nsc.liu.se/centos-store/)
+
+## Comandos Utiles
 > Para buscar el nombre exacto de un paquete, usas:
 ```
 rpm -qa | grep <package>
@@ -93,53 +132,151 @@ lscpu
 grep flags /proc/cpuinfo
 ```
 
-> Revisa los formatos soportados por qemu-img con `qemu-img --help | grep Supported`
+> Ver el espacio de disco utilizado
 ```
-Supported formats: blkdebug blklogwrites blkverify bochs cloop compress copy-before-write copy-on-read dmg file ftp ftps gluster host_cdrom host_device http https iscsi iser luks nbd nfs null-aio null-co nvme parallels preallocate qcow qcow2 qed quorum raw replication snapshot-access ssh throttle vdi vhdx vmdk vpc vvfat
-```
-
-> Puedes revisar el estado de uso del disco con
-```
-df -hm
+df -h | awk 'NR==1 || $1 ~ /^\/dev\//'
 ```
 
-## Comenzamos
-IOU WEB, tiene dos ramas principales de soporte: una enfocada en la familia de debian y otra basada en Red Hat. Durante 2 años trabaje con la variante 32 bits en CentOS 6.10. como lo documente en [[500 - Personal/500.3 - Write-Ups/IOU-WEB/IOU WEB - 32 Bits CentOS 6 (Original Upgrade)|IOU WEB - 32 Bits CentOS 6 (Original Upgrade)]], sin embargo, sin embargo, siempre me incomodo no poder contar con un entorno completo de 64 bits.
+## Creacion del VM
+**Desde QEMU/KVM (Virt-viewer)**
 
-Pasaron dos años de experimentacion, intentos fallidos y versiones descartadas, hasta que encontre la combinacion exacta que me permite sacarle el mayor provecho a IOU WEB en 64 bits: CentOS 7.9-2207-02, en su version x86_64 Minimal ISO. Esta version se puede descargar desde distintos mirrors basados en CentOS-Vault, como lo son:
-- [Archive Kernel](http://archive.kernel.org/centos-vault/7.9.2009/)
-- [Linux @ CERN](http://linuxsoft.cern.ch/centos-vault/7.9.2009/)
-- [NSC LiU(National Supercomputer Centre at Linkoping University)](http://mirror.nsc.liu.se/centos-store/7.9.2009/)
+*Etapa 1*
+- El medio de instalacion sera "Medio de Instalacion Local (Imagen ISO o CDROM)", seleccionas adelante
+- Luego "exploras" el .iso a instalar "`CentOS-x86-64-Minimal-2207-02`" y eliges el sistema operativo a instalar "`Red Hat Enterprise Linux 7.9 (rhel7.9)`"
+- Despues le das en "Adelante" nomas
+- Creas el disco de 20GB (Por defecto)
+- Le cambias el nombre a IOU-WEB-Icarus
+- Le das click en "Personalizar configuracion antes de instalar" y click en Finalizar, abrira el menu de la Etapa 2
 
-A partir de esta base, el sistema fue construido desde cero, optimizado especificamente para ejecutar imagenes de Cisco en 64 bits con compatibilidad extendida y varias mejoras mas anotadas mas arriba.
+*Etapa 2*
 
-Cuando inicies la instalacion de la ISO de CentOS, se mostrara un menu grafico de instalacion, estos son los pasos a seguir
-- Idioma y Localidad: Seleccionas "Español (Latinoamerica)", asegurate que tu teclado sea el correcto
-- Destino de instalacion: Abre el menu del disco y le das en Aceptar para confirmar las particiones automaticas. No es necesario configurar manualmente LVM o particiones personalizadas
-- Red e Internet: Activa la interfaz de red
+Vista General
+- Nombre: IOU-WEB-Icarus
+- Titulo: IOU WEB Icarus
+- Chipset: Q35
+- Firmware: UEFI
+CPU (Depende Obviamente de tu cantidad de CPU, en mi caso, tengo 1 CPU, con 2 Nucleo, 4 Hilos)
+- Configuracion: Marcar "host-passthrough"
+- Topologia
+	- Marcar: "Establecer Manualmente la topologia de CPU"
+	- Socket: 1
+	- Centros: 2
+	- Hilos: 2
+Memoria (Depende cuanta memoria tengas)
+- Asignacion Actual: `4096` (Minimo), Idealmente `8196`
+- Asignacion Maxima: Se autoconfigura con el valor que escribiste arriba
 
-Luego le das en "Instalar", por mientras le configuras la contraseña a root y creas un usuario administrador
-- `root:cisco`
-- `duoc:cisco`
+Le das en instalar nomas
 
-El proceso de instalacion toma 6 minutos aproximadamente en un SSD. Al terminar, presiona manualmente el boton de Reiniciar, ya que el instalador no lo hace automaticamente
+**Desde Virtualbox**
+Si utilizas Virtualbox, tambien puedes crearla usando los siguientes datos
 
-Luego de que encienda, te recomiendo conectarte por ssh directamente mediante el usuario root, de esta forma todo se hace mas sencillo
+Crea una nueva VM, le pongo un nombre creativo con los siguientes datos
+- Tipo: IOU WEB Icarus
+- Version: Red Hat (64-bits)
+- Memoria Base: 8196MB (Minimo 4096MB)
+- Procesadores: 2vCPU (La verdad podria ser el maximo posible)
+- Habilitar EFI
+- Creas un disco duro virtual ahora de 20GB
+- Le das en "Terminar" y seleccionas "Configuracion"
+Seleccionas las siguientes configuraciones
+- Basico (Omitir ya esta configurado)
+- Sistema
+	- Placa Base
+		- Chipset: ICH9
+		- Dispositivo Apuntador: Tableta USB
+		- Habilitar reloj hardware en tiempo UTC
+	- Procesador
+		- Habilitar PAE/NX
+		- Forzar Habilitar VT-x/AMD-V anidado con "`VBoxManage modifyvm "IOU WEB Icarus" --nested-hw-virt on`"
+		- Interfaz de paravirtualizacion: "KVM"
+		- Activar Hardware de virtualizacion
+	- Pantalla
+		- Memoria de Video: 128MB
+		- Controlador Grafico: VBoxSVGA (Default)
+		- Activar Aceleracion 3D
+	- Almacenamiento (Depende si tienes SSD o HDD, si tienes HDD ignora esta parte)
+		- Controlador SATA
+			- Tipo: AHCI
+			- Cantidad de puertos: 3
+			- Activa Usar cache de I/O anfitrion
+		- VM-name.vdi
+			- Activa Unidad de estado solido
+	- Audio (Omitido por defecto)
+	- Red
+		- Adaptador 1
+			- Activar esta interfaz
+			- Conectado a: Adaptador Puente
+			- Tipo de adaptador: Defecto (Luego de la instalacion de drivers, sera configurado a "virtio-net")
+			- Modo Promiscuo: Permitir todo
+	- Puertos Serie (Omitido por defecto)
+	- USB
+		- Activar controlador USB
+		- Seleccionar Controlador USB 2.0 (OHCI + EHCI)
+
+# Instalacion
+
+**Inicia el .iso de Instalacion**
+
+Cuando inicies la ISO de CentOS 7.9, se presentara un menu grafico de instalacion. Aqui tienes los pasos escenciales de la configuracion basica del instalador:
+1. Idioma y Localizacion
+	- Idioma: Selecciona `Español`
+	- Localizacion: Selecciona `Español (Chile)`
+2. Configuracion del sistema
+	- Regionalizacion: Deberia Autoconfigurarse
+	- Software: Ya esta configurado
+	- Sistema
+		- Seleccion "Destino de la Instalacion"
+		- Selecciona "Voy a configurar las particiones" y luego en "Listo"
+			- Del meny de puntos de montaje, cambia "LVM" a "Particion Estandar" y apretamos el boton "mas"
+				- Punto de Montaje: `/grub`
+				- Capacidad: 5MiB
+				- Sistema de archivos: `vfat` y apreta "Actualizar Parametros"
+			- Apretamos el boton "mas"
+				- Punto de Montaje: `/boot/efi`
+				- Capacidad: 512MiB
+				- Sistema de archivos: EFI System Partition
+			- Seleccionamos "Particion Estandar" y apretamos el boton "mas"
+				- Punto de Montaje: `/boot`
+				- Capacidad: 1GiB
+				- Sistema de archivos: `ext4` y apreta "Actualizar Parametros"
+			- Apretamos "mas"
+				- Punto de Montaje `/`
+				- Capacidad: todo, vacio y dar enter
+				- Sistema de archivos: `xfs`
+				- Tipo de Dispositivo: `LVM` y selecciona "Actualizar Parametros"
+		- Seleccion "Listo" 2 veces (Dira que falta Swap)
+		- Selecciona "Red y Nombre del Equipo"
+			- Enciendes la interfaz de red y le das en "Listo"
+3. Ahora apretas en "Empezar Instalacion" y mientras carga, continua
+4. Ajustes de Usuario
+	- Contraseña de Root: Configura `cisco` en ambas y apreta 2 veces Listo
+	- Creacion de Usuario
+		- Nombre Completo: `duoc`
+		- Nombre de Usuario: `duoc`
+		- Marcar en "Hacer que este usuario sea administrador"
+		- Contraseña: `cisco`
+		- Confirma Contraseña: `cisco`
+	- Apretas 2 veces en Listo y esperas que la instalacion termine (Se demora unos 6 minutos en un SSD)
+5. Cuando termine apreta "Reiniciar", ya que el instalador no lo hace automaticamente
+
+Como recomendacion, te recomiendo conectarte por ssh directamente mediante el usuario root, de esta forma todo es mas sencillo
+
+La instalacion base consume 1.2GB
 
 ## Instalar Paquetes
-> Marcar Repositorios como Backup desde `/etc/yum.repos.d/` o simplemente borrar con `rm -f *.repo`
+
+> Borra todos los repos `/etc/yum.repos.d/` o simplemente borrar con `rm -f *.repo`
 ```
-mv CentOS-Base.repo CentOS-Base.repo.bak
-mv CentOS-CR.repo CentOS-CR.repo.bak
-mv CentOS-Debuginfo.repo CentOS-Debuginfo.repo.bak
-mv CentOS-fasttrack.repo CentOS-fasttrack.repo.bak
-mv CentOS-Media.repo CentOS-Media.repo.bak
-mv CentOS-Sources.repo CentOS-Sources.repo.bak
-mv CentOS-Vault.repo CentOS-Vault.repo.bak
-mv CentOS-x86_64-kernel.repo CentOS-x86_64-kernel.repo.bak
+rm -f /etc/yum.repos.d/*.repo
 ```
 
-> Crea un repo en `/etc/yum.repos.d/` llamado "`CentOS-Vault.repo`" (Posiblemente solo este disponible "`vi`")
+> [!TIP] Notas sobre `vi`
+> - Abres el editor con `vi` y la ruta del archivo como cualquier otro editor}
+> - Apretar `i` y abrira el modo interactivo, yo copie y pegue cada linea, 1 por 1
+> - Luego apretas el boton "`Esc`" y luego escribes "`:wq`" y asi guarda y sales
+
+> Crea un repo en `/etc/yum.repos.d/` llamado "`CentOS-Vault.repo`"
 ```
 [base]
 name=CentOS-Vault - Base
@@ -158,6 +295,12 @@ name=CentOS-Vault - Extras
 baseurl=http://archive.kernel.org/centos-vault/7.9.2009/extras/x86_64/
 enabled=1
 gpgcheck=0
+
+[RHLo]
+name=CentOS-Vault - RHLo
+baseurl=http://archive.kernel.org/centos-vault/7.9.2009/sclo/x86_64/rh
+enabled=1
+gpgcheck=0
 ```
 
 > Actualiza los repositorios
@@ -167,7 +310,29 @@ yum repolist
 
 > Instala Nano
 ```
-yum install nano
+yum install nano wget
+```
+
+**Install Micro 2.0.13 (Editor)**
+
+> Descarga el lanzamiento desde [Github - zyedida/micro](https://github.com/zyedidia/micro/releases/tag/v2.0.13)
+```
+wget https://github.com/zyedidia/micro/releases/download/v2.0.13/micro-2.0.13-linux64.tar.gz
+```
+
+> Descomprime el archivo tar
+```
+tar xvf micro-2.0.13-linux64.tar.gz
+```
+
+> Mueve el archivo micro a los binarios
+```
+mv micro-2.0.13/micro /bin
+```
+
+> Elimina archivo sobrantes
+```
+rm -drf micro-2.0.13 micro-2.0.13-linux64.tar.gz
 ```
 
 > Instala Epel Release
@@ -180,9 +345,19 @@ yum install epel-release
 rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 ```
 
+> Ve a `/etc/yum.repos.d`
+```
+cd /etc/yum.repos.d/
+```
+
 > Luego descarga el repositorio
 ```
 wget https://download.opensuse.org/repositories/shells:fish:release:3/CentOS_7/shells:fish:release:3.repo
+```
+
+> Vuelve al sistema
+```
+cd
 ```
 
 > Actualiza la base de datos
@@ -200,9 +375,19 @@ yum install dnf
 dnf update
 ```
 
+> Rescata CentOS-Vault.repo
+```
+mv /etc/yum.repos.d/CentOS-Vault.repo /etc/yum.repos.d/CentOS-Vault.repo.rpmnew
+```
+
 > Elimina todos los repos de CentOS e instala el repo del principio otra vez
 ```
 rm -drf /etc/yum.repos.d/CentOS*.repo
+```
+
+> Vuelve a mover el repositorio
+```
+mv /etc/yum.repos.d/CentOS-Vault.repo.rpmnew /etc/yum.repos.d/CentOS-Vault.repo
 ```
 
 > Actualiza la base de datos de DNF
@@ -217,17 +402,27 @@ dnf groupinstall "Compatibility Libraries" "Development Tools"
 
 > Instalar Paquetes compatibilidad 32 bits
 ```
-dnf install glibc.i686 libstdc++.i686 zlib.i686 openssl-libs.i686 libpcap.i686 libX11.i686 libXext.i686 glibc-static libstdc++-static glibc.i686 openssl-devel.i686 xulrunner.i686 libcurl.i686
+dnf install glibc.i686 libstdc++.i686 zlib.i686 openssl-libs.i686 libpcap.i686 libX11.i686 libXext.i686 glibc-static libstdc++-static glibc.i686 openssl-devel.i686 xulrunner.i686 libcurl.i686 glibc-devel.i686
 ```
 
 > Instalar Paquetes Programacion
 ```
-dnf install rsync openssl-devel tar git gcc cmake autoconf wget gzip libxml2-devel sqlite-devel libcurl-devel libjpeg-devel libpng-devel freetype-devel dialog open-vm-tools net-tools psmisc dos2unix gmp-devel libmpc-devel mpfr-devel dbus dbus-devel zlib patchelf strace perl-IPC-Cmd perl-Test-Simple perl-Net-Pcap.x86_64
+dnf install cmake cmake3 libxml2-devel sqlite-devel libcurl-devel libjpeg-devel libpng-devel freetype-devel dialog open-vm-tools net-tools psmisc dos2unix gmp-devel libmpc-devel mpfr-devel dbus-devel patchelf strace perl-IPC-Cmd perl-Test-Simple perl-Net-Pcap.x86_64 texinfo python3 python3-pip bzip2-devel ncdu
 ```
 
 > Instalar Paquetes Sueltos
 ```
-dnf install libvirt virt-viewer qemu-guest-agent telnet-server xinetd cmake htop tmux screen byobu man php-gd php-xml httpd-devel pcre-devel dkms xclip xsel libcap-devel dosfstools rsyslog syslog-ng tftp-server lsof perl-IO-Tty perl-Time-HiRes perl-Authen-PAM terminus-fonts-* perl-LDAP ntp terminus-fonts bind-utils telnet ImageMagick tree fish iperf3 yum-utils efibootmgr zstd grub2-efi-x64 shim-x64 mlocate hdparm xorg-x11-server-Xorg xorg-x11-drv-qxl xorg-x11-drv-vmware open-vm-tools spice-vdagent spice-protocol remmina-plugins-spice xorg-x11-drv-fbdev xorg-x11-server-Xvfb gdisk grub2-efi-x64-modules mdadm cryptsetup ntfs-3g cifs-utils dmraid device-mapper-multipath ncurses-static openssl-devel openssl-static vtun sysstat
+dnf install libvirt virt-viewer qemu-guest-agent telnet-server xinetd htop tmux screen byobu httpd-devel dkms xclip xsel libcap-devel syslog-ng tftp-server lsof perl-IO-Tty  perl-Authen-PAM terminus-fonts-* perl-LDAP ntp terminus-fonts bind-utils telnet ImageMagick tree fish iperf3 yum-utils zstd mlocate hdparm xorg-x11-server-Xorg xorg-x11-drv-qxl xorg-x11-drv-vmware spice-vdagent spice-protocol remmina-plugins-spice xorg-x11-drv-fbdev xorg-x11-server-Xvfb gdisk grub2-efi-x64-modules mdadm cryptsetup ntfs-3g cifs-utils dmraid device-mapper-multipath ncurses-static openssl-static vtun sysstat
+```
+
+> Instala Dependencias de Grub
+```
+dnf install grub2-efi grub2-efi-modules shim
+```
+
+> Instala un modulo con PIP3
+```
+pip3 install abnf
 ```
 
 > Actualiza la base de datos de locate
@@ -235,41 +430,9 @@ dnf install libvirt virt-viewer qemu-guest-agent telnet-server xinetd cmake htop
 sudo updatedb
 ```
 
-> [!Warning] Cuidado con PHP
-> No hay ningun paquete con el nombre: `php-pecl-mysql`, pero IOU WEB funciona perfectamente
-
 > Instalar PHP
 ```
 dnf install php php-common php-cli php-curl php-fpm php-mysqlnd php-gd php-xml php-mbstring php-pdo php-zip php-sqlite3 php-pspell
-```
-
-> Actualiza otra vez, uno nunca sabe
-```
-dnf update
-```
-
-**Instala micro 2.0.13**
-
-> Descarga el lanzamiento desde [Github - zyedida/micro](https://github.com/zyedidia/micro/releases/tag/v2.0.13)
-```
-wget https://github.com/zyedidia/micro/releases/download/v2.0.13/micro-2.0.13-linux64.tar.gz
-```
-
-> Descomprime el archivo tar
-```
-tar xvf micro-2.0.13-linux64.tar.gz
-```
-
-> Mueve el archivo micro a los binarios
-```
-mv micro-2.0.13/micro /bin
-```
-
-**Instalar devtoolset-11**
-
-> Instala el repositorio centos-release-scl
-```
-dnf install centos-release-scl
 ```
 
 > Instala las herramientas devtoolset-11
@@ -293,7 +456,7 @@ chmod 755 ./busybox-x86_64
 
 > Mueve el archivo bonito
 ```
-mv busybox-x86_64 /bin/busybox
+mv ./busybox-x86_64 /bin/busybox
 ```
 
 ## Instalar Kernel
@@ -361,7 +524,12 @@ rpm -qa kernel*
 
 > Deberas borrar todos los paquetes de paquetes que no tengan dependencias (Los siguientes se sobreescriben)
 ```
-dnf remove kernel-3.10.0-1160.71.1.el7.x86_64 kernel-3.10.0-1160.119.1.el7.x86_64 kernel-tools-libs-3.10.0-1160.119.1.el7.x86_64
+dnf remove kernel-3.10.0-1160.71.1.el7.x86_64 kernel-3.10.0-1160.119.1.el7.x86_64 kernel-tools-libs-3.10.0-1160.119.1.el7.x86_64 kernel-tools-3.10.0-1160.119.1.el7.x86_64
+```
+
+> Instala Kernel-Headers, reemplazando la version del paquete anterior con `--alowerasing`
+```
+dnf install https://mirrors.coreix.net/elrepo-archive-archive/kernel/el7/x86_64/RPMS/kernel-ml-headers-6.9.7-1.el7.elrepo.x86_64.rpm --allowerasing
 ```
 
 > Instala Kernel-ML-Tools-libs
@@ -374,11 +542,6 @@ dnf install https://mirrors.coreix.net/elrepo-archive-archive/kernel/el7/x86_64/
 dnf install https://mirrors.coreix.net/elrepo-archive-archive/kernel/el7/x86_64/RPMS/kernel-ml-tools-6.9.7-1.el7.elrepo.x86_64.rpm
 ```
 
-> Instala Kernel-Headers, reemplazando la version del paquete anterior con `--alowerasing`
-```
-dnf install https://mirrors.coreix.net/elrepo-archive-archive/kernel/el7/x86_64/RPMS/kernel-ml-headers-6.9.7-1.el7.elrepo.x86_64.rpm --allowerasing
-```
-
 > Instala Kernel-ML-Tools-Libs-devel
 ```
 dnf install https://mirrors.coreix.net/elrepo-archive-archive/kernel/el7/x86_64/RPMS/kernel-ml-tools-libs-devel-6.9.7-1.el7.elrepo.x86_64.rpm
@@ -387,6 +550,11 @@ dnf install https://mirrors.coreix.net/elrepo-archive-archive/kernel/el7/x86_64/
 > Instala Kernel-ML-devel
 ```
 dnf install https://mirrors.coreix.net/elrepo-archive-archive/kernel/el7/x86_64/RPMS/kernel-ml-devel-6.9.7-1.el7.elrepo.x86_64.rpm
+```
+
+> Elimina el ultimo pedazo de kernel viejo
+```
+dnf remove kernel-debug-devel-3.10.0-1160.119.1.el7.x86_64
 ```
 
 > Actualizamos configuracion de GRUB para sistemas BIOS
@@ -402,6 +570,289 @@ grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
 > [!TIP] Reinicio Opcional
 > Como habia dicho, este es el segundo punto donde se debe reiniciar para aprovechar las capacidades del kernel con los nuevos paquetes
 
+## Instalar UEFI + BIOS
+
+**Configura GRUB Default**
+
+> Modificamos el archivo `/etc/default/grub` y ordenamos `GRUB_CMDLINE_LINUX=` para que se vea asi. Agregamos `selinux=0` y `loglevel=1`, eliminamos `spectre_v2` y `rhgb` y cambiamos el orden (No tengo Swap)
+```
+GRUB_TIMEOUT=1
+GRUB_DISABLE_SUBMENU=false
+GRUB_CMDLINE_LINUX="crashkernel=auto selinux=0 quiet loglevel=3 rd.lvm.lv=centos/root"
+```
+
+**Permite inicio BIOS**
+
+> [!NOTE] Uso de discos
+> Actualmente utilizo QEMU, y me di cuenta que los discos cambian, por lo que debes tener ojo
+> - QEMU: `/dev/vda`
+> - VBox: `/dev/sda`
+
+
+> Desmonta `/grub`
+```
+umount /grub
+```
+
+> Crea la particion de bios
+```
+parted /dev/vda set 3 bios_grub on
+```
+
+> Elimina la linea `/grub` de `/etc/fstab` para que no se autoinicie
+```
+UUID=7575-87A8 /grub vfat umask=0077,shortname=winnt 0 0
+```
+
+> Genera una configuracion para BIOS
+```
+grub2-mkconfig --output=/boot/grub2/grub.cfg
+```
+
+> Genera una configuracion para UEFI
+```
+grub2-mkconfig --output=/boot/efi/EFI/centos/grub.cfg
+```
+
+> Instala GRUB para BIOS
+```
+grub2-install --target=i386-pc --boot-directory=/boot /dev/vda
+```
+
+> Instala GRUB Para UEFI
+```
+grub2-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=centos --recheck
+```
+
+> Regenera la configuracion para GRUB BIOS
+```
+grub2-mkconfig -o /boot/grub2/grub.cfg
+```
+
+> Regenera la configuracion para GRUB UEFI
+```
+grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
+```
+
+> Modifica las entradas UEFI para el GRUB BIOS para que las reconosca
+```
+sudo sed -i 's/linuxefi/linux/g; s/initrdefi/initrd/g' /boot/grub2/grub.cfg
+```
+
+## Compilar Programas
+> [!TIP] Sitios Recomendados Generales
+> - [GNU.org Manual Docs](https://www.gnu.org/manual/manual.html)
+> - [GNU.org Software List](https://www.gnu.org/software/software.html)
+
+> Crear carpeta de compilacion para git
+```
+mkdir ~/git
+```
+
+### bbe 0.2.2
+> [!TIP] Sitios Recomendados
+> - [SourceForge - tjsa - bbe](https://sourceforge.net/projects/bbe-/)
+> - [Github - Mirror - tml - bbe](https://github.com/tml/bbe)
+> - [FSF Directory - bbe](https://directory.fsf.org/wiki/Bbe)
+> - [Tracker Debian PKG - bbe](https://tracker.debian.org/pkg/bbe)
+
+> Este programa se usa para parchear imagenes de IOU WEB, mejor que sosobre a que fafalte
+```
+cd ~/git
+```
+
+> Clonar Repositorio, entrar en el, crear la carpeta build e ir a ella
+```
+git clone https://github.com/hdorio/bbe.git && cd bbe && mkdir build && cd build
+```
+
+> Autoconfigura BBE por defecto
+```
+../configure
+```
+
+> Compila el programa utilizando el 100% de la CPU
+```
+make -j$(nproc)
+```
+
+> Instala el programa Compilado
+```
+make install -j$(nproc)
+```
+
+> Limpiar la carpeta build de compilacion
+```
+make clean -j$(nproc)
+```
+
+> Verifica si se compilo correctamente
+```
+bbe --version
+```
+
+> [!TIP] Sitios Utiles
+> - [GNU.org - Software - Make](https://www.gnu.org/software/make/)
+> - [GNU.org - Docs - Make](https://www.gnu.org/software/make/manual/)
+> - [GNU.org - Mirror List](https://www.gnu.org/prep/ftp.html)
+> - [GNU Mirror Status](http://download.savannah.gnu.org/mirmon/allgnu/)
+
+### GNU Make 4.4.1
+
+> Ir a la carpeta `/usr/src`
+```
+cd /usr/src
+```
+
+> Descargar Make
+```
+wget https://ftp.gnu.org/gnu/make/make-4.4.1.tar.gz
+```
+
+> Descomprimir Make
+```
+tar -xzvf make-4.4.1.tar.gz
+```
+
+> Eliminar el archivo TAR
+```
+rm -f make-4.4.1.tar.gz
+```
+
+> Ir a la carpeta de Make
+```
+cd make-4.4.1
+```
+
+> Crear la carpeta de build e ir a ella
+```
+mkdir build && cd build
+```
+
+> Configurar Make, configurando un prefijo local (TODO: Sobreescribir la herramienta del sistema)
+```
+../configure --prefix=/usr/local/make-4.2.1
+```
+
+> Compilar make utilizando el 100% de nuestro hardware
+```
+make -j$(nproc)
+```
+
+> Instalar la version compilada al prefijo antes configurado
+```
+make install -j$(nproc)
+```
+
+> Limpia la carpeta de BUILD
+```
+make clean -j$(nproc)
+```
+
+> Exportar temporalmente al PATH
+```
+export PATH=/usr/local/make-4.2.1/bin:$PATH
+```
+
+> Respalda el Make original
+```
+mv /usr/bin/make /usr/bin/make.backup
+```
+
+> Crea un enlace simbolico a make
+```
+sudo ln -s /etc/alternatives/make /usr/bin/make
+```
+
+> Configura la preferencia
+```
+sudo alternatives --install /usr/bin/make make /usr/local/make-4.2.1/bin/make 20
+```
+
+> Elige la version de make a utilizar, la respuesta posiblemente sea `1`
+```
+sudo alternatives --config make
+```
+
+### GNU Binutils 2.35.1
+> [!TIP] Sitios Recomendados
+> - [GNU.org Software - Binutils](https://www.gnu.org/software/binutils/)
+> - [GNU.org Docs - Binutils](https://sourceware.org/binutils/docs/)
+> - [GNU.org - Mirror List](https://www.gnu.org/prep/ftp.html)
+> - [GNU Mirror Status](http://download.savannah.gnu.org/mirmon/allgnu/)
+
+> Ve a la carpeta de fuentes
+```
+cd /usr/src
+```
+
+> Descarga la ultima version de Binutils (en mi caso)
+```
+wget http://gnu.c3sl.ufpr.br/ftp/binutils/binutils-2.35.1.tar.gz
+```
+
+> Descomprime el archivo TAR
+```
+tar -xzvf binutils-2.35.1.tar.gz
+```
+
+> Elimina el archivo TAR
+```
+rm -f binutils-2.35.1.tar.gz
+```
+
+> Ve a la carpeta de Binutils, crea la carpeta build y ve a ella
+```
+cd binutils-2.35.1 && mkdir build && cd build
+```
+
+> Configura el prefijo por defecto /usr/local y desactiva los warning errors
+```
+../configure --prefix=/usr/local/binutils-2.35.1 --disable-werror
+```
+
+> Compila los programas con el 100% de la CPU
+```
+make -j$(nproc)
+```
+
+> Instala los paquetes compilados usando el 100% de la CPU
+```
+make install -j$(nproc)
+```
+
+> Limpia el build
+```
+make clean -j$(nproc)
+```
+
+> Exporta temporalmente
+```
+export PATH=/usr/local/binutils-2.35.1/bin:$PATH
+```
+
+> Prueba si se instalo correctamente
+```
+ld --version
+```
+
+## Elimina los archivos de las compilaciones
+
+> Ve a la carpeta principal
+```
+cd
+```
+
+> Borra make y binutils de /usr/src/ (Los que hayas compilado)
+```
+rm -drf /usr/src/make-4.4.1 /usr/src/binutils-2.35.1
+```
+
+> Borra la compilacion de bbe
+```
+rm -drf ~/git/bbe
+```
+
 ## Instalacion de IOU WEB
 
 > [!CAUTION] Rutas Importantes
@@ -416,12 +867,12 @@ grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
 
 > Crear carpeta para git
 ```
-mkdir ~/git && cd ~/git
+cd ~/git
 ```
 
 > Clonar Repositorio de IOU WEB
 ```
-git clone https://github.com/dainok/iou-web.git
+git clone https://github.com/dainok/iou-web.git && cd iou-web
 ```
 
 > Crea la carpeta iou
@@ -451,7 +902,42 @@ rm -f iou-web-1.2.2-23.i386.rpm
 
 > Mueve la carpeta `opt` hacia el root del sistema
 ```
-rsync -Phvar ~/iou/opt/* /
+rsync -Phvar ~/iou/opt/* /opt/
+```
+
+> Crea Carpetas Faltantes
+```
+mkdir -p /tmp/iou /opt/iou/labs /opt/iou/scripts /opt/iou/data/{Export,Import,Logs,Sniffer} /opt/iou/html/iou-web/yum/repodata/
+```
+
+> Crea archivos vacios faltantes
+```
+touch /opt/iou/html/iou-web/version /opt/iou/html/iou-web/whatsnew /opt/iou/html/iou-web/yum/repodata/repomd.xml /opt/iou/scripts/keygen.py /opt/iou/bin/NETMAP /opt/iou/bin/iourc /opt/iou/data/Logs/error.txt
+```
+
+> Elimina la carpeta de repos de iou (Los Links estan muertos)
+```
+rm -drf ~/iou/etc/yum.repos.d
+```
+
+> Copia el archivo de configuracion de Apache
+```
+cp ~/iou/etc/httpd/conf.d/iou.conf /etc/httpd/conf.d/iou.conf
+```
+
+> Copia el archivo de Logrotate
+```
+cp ~/iou/etc/logrotate.d/iou /etc/logrotate.d/iou
+```
+
+> Instala el archivo de Sudoers sin corromper el sistema
+```
+install -m 0440 ~/iou/etc/sudoers.d/iou /etc/sudoers.d/iou
+```
+
+> Arregla los permisos de apache para las carpetas
+```
+chown -Rh apache:apache /opt/iou /tmp/iou 
 ```
 
 > Arregla los permisos de html
@@ -464,24 +950,29 @@ find /opt/iou/html -type f -exec chmod 644 {} \;
 chmod 755 /opt/iou/bin/* /opt/iou/cgi-bin/*
 ```
 
-> Elimina la carpeta de repos de iou (Los Links estan muertos)
+> Configura los permisos
 ```
-rm -drf ~/iou/etc/yum.repos.d/
-```
-
-> Mueve los archivos de iou/etc a /etc
-```
-rsync -Phvar ~/iou/etc/* /etc/
+chmod 755 /opt/iou/labs /opt/iou/data/{Export,Import,Logs,Sniffer}
 ```
 
-> Arregla los permisos de sudoers
+> Crea una base de datos limpia en caso de que no exista
 ```
-chmod 440 /etc/sudoers.d/iou
+[ ! -f /opt/iou/data/database.sdb ] && cp -a /opt/iou/data/template.sdb /opt/iou/data/database.sdb
 ```
 
 > Debes descargar libcrypto.so.4, recomiendo [Labhub](https://drive.labhub.eu.org/0:/addons/iol/lib/), y copia a `/usr/lib/`
 ```
 rsync -Phvar libcrypto.so.4 root@{ip-server}:/usr/lib/
+```
+
+> Arregla el acceso a la liberia `libcrypto.so.4`
+```
+chown duoc:root /usr/lib/libcrypto.so.4
+```
+
+> Arregla los permisos de la libreria `libcrypto.so.4`
+```
+chmod 755 /usr/lib/libcrypto.so.4
 ```
 
 > Modifica `/etc/hostname`
@@ -494,43 +985,6 @@ iou.example.com
 127.0.0.1   iou.example.com iou
 127.0.0.127 xml.cisco.com
 127.0.0.127 www.routereflector.com routereflector.com public.routereflector.com ww25.public.routereflector.com
-```
-
-> Crea las carpetas extras
-```
-mkdir -p /tmp/iou /opt/iou/labs
-```
-
-> Crea las carpetas de data
-```
-mkdir -p /opt/iou/data/{Export,Import,Logs,Sniffer}
-```
-
-> Arregla los permisos de apache para las carpetas
-```
-chown -R apache:apache /opt/iou/data /opt/iou/labs /tmp/iou
-```
-
-> Configura los permisos
-```
-chmod 755 /opt/iou/labs /opt/iou/data/{Export,Import,Logs,Sniffer}
-```
-
-> Crea una base de datos limpia en caso de que no exista
-```
-[ ! -f /opt/iou/data/database.sdb ] && cp -a /opt/iou/data/template.sdb /opt/iou/data/database.sdb
-```
-
-> Crear las carpetas necesarias y archivos vacios
-```
-mkdir -p /opt/iou/html/iou-web/yum/repodata/
-```
-
-> Crea los archivos vacios
-```
-touch /opt/iou/html/iou-web/version
-touch /opt/iou/html/iou-web/whatsnew
-touch /opt/iou/html/iou-web/yum/repodata/repomd.xml
 ```
 
 # Configuraciones
@@ -554,12 +1008,12 @@ Require all granted
 
 Para modificar las directivas por defecto y apunten correctamente a IOU-WEB
 
-> Encuentra la linea `DocumentRoot` (Aprox Linea 119)
+> Encuentra la linea `DocumentRoot "/var/www/html"` y cambiala por lo siguiente (Aprox Linea 119)
 ```
 DocumentRoot "/opt/iou/html"
 ```
 
-> Encuentra la linea `Directory` (Aprox Linea 124)
+> Encuentra la linea `<Directory "/var/www"` (Aprox Linea 124)
 ```
 <Directory "/opt/iou/html">
     Options Indexes FollowSymLinks
@@ -568,7 +1022,7 @@ DocumentRoot "/opt/iou/html"
 </Directory>
 ```
 
-> Modifica la linea "`Directory`" (Linea 255-259)
+> Modifica la linea "`<Directory "/var/www/cgi-bin">`" (Linea 256-269)
 ```
 <Directory "/opt/iou/cgi-bin">
     AllowOverride All
@@ -577,67 +1031,21 @@ DocumentRoot "/opt/iou/html"
 </Directory>
 ```
 
-> Comenta todos los demas `Directory` para que no intervengan en nada (Aprox Lineas, 131, 144, 151, 156, 157.)
+> Comenta `<Directory "/var/www/html"`, Lineas Aprox (132, 145, 152, 157 y 158)
 
 > Elimina la pagina de prueba de apache
 ```
 sudo rm -f /etc/httpd/conf.d/welcome.conf
 ```
 
-> Permite que Selinux se conecte con la red
-```
-sudo setsebool -P httpd_can_network_connect on
-```
-
-> Crea el archivo de logs
-```
-touch /opt/iou/data/Logs/error.txt
-```
-
-> Al archivo de logs dale permiso a apache
-```
-chown apache:apache /opt/iou/data/Logs/error.txt
-```
-
-> Arregla permisos de imagenes
-```
-chmod 755 /opt/iou/bin/* /opt/iou/cgi-bin/*
-```
-
-> Asocia todo IOU WEB a Apache otra vez
-```
-chown apache:apache -Rh /opt/iou
-```
-
-> Crea la carpeta scripts
-```
-mkdir /opt/iou/scripts
-```
-
-> Todo iou debe tener permiso apache
-```
-chown apache:apache -Rh /opt/iou
-```
-
-> Cambia el contexto de seguridad con Selinux
-> Nota: Puedes ver esos permisos con `ls -lZ /opt/iou/data/Logs/error.txt`
-```
-sudo chcon -Rv system_u:object_r:httpd_log_t:s0 /opt/iou/data/Logs
-```
-
-> Modifica los permisos con Selinux
-```
-sudo chcon -R -t httpd_sys_content_t /opt/iou/html
-```
-
 > Deten Firewall para que no moleste
 ```
-systemctl stop firewall
+systemctl stop firewalld
 ```
 
 > Si no lo usas, puedes deshabilitarlo (Lo hare tarde o temprano)
 ```
-systemctl disable firewall
+systemctl disable firewalld
 ```
 
 **Deshabilitamos Selinux**
@@ -649,23 +1057,63 @@ setenforce 0
 
 > Desabilita Selinux para siempre modificando el archivo `/etc/selinux/config`
 ```
-SELINUX: disabled
-SELINUXTYPE: minimum
+SELINUX=disabled
+SELINUXTYPE=minimum
 ```
 
-> Modificamos el archivo `/etc/default/grub`, bucando la linea `GRUB_CMDLINE_LINUX=`, agregamos `selinux=0` y `loglevel=3` al principio y eliminamos la variable "spectre_v2", para que se vea asi 
+> [!WARNING] Paso Critico
+> - Debes reiniciar la maquina con `reboot` para que cargue correctamente el Host, Hostname y configuraciones para apache
+
+## Arregla problemas de Xinha
+
+> Hacer Link desde IOU WEB a Unsupported_Plugins
 ```
-GRUB_CMDLINE_LINUX="crashkernel=auto selinux=0 loglevel=3 rd.lvm.lv=centos/root rd.lvm.lv=centos/swap rhgb quiet"
+ln -s /opt/iou/html/xinha/plugins/SpellChecker /opt/iou/html/xinha/unsupported_plugins/SpellChecker
 ```
 
-> Actualiza la configuracion de grub
+> Hacer Link de Linker desde plugins a plugins
 ```
-grub2-mkconfig -o /boot/grub2/grub.cfg
+ln -s /opt/iou/html/xinha/plugins/Linker/Linker.js /opt/iou/html/xinha/plugins/Linker/linker.js
 ```
 
-> Actualiza la configuracion EFI de grub
+> Arreglar Linker desde plugins a unsupported_plugins
 ```
-grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
+ln -s /opt/iou/html/xinha/plugins/Linker /opt/iou/html/xinha/unsupported_plugins/
+```
+
+> Actualiza SuperClean.js desde plugins a plugins
+```
+ln -s /opt/iou/html/xinha/plugins/SuperClean/SuperClean.js /opt/iou/html/xinha/plugins/SuperClean/super-clean.js
+```
+
+> Actualiza SuperClean.js desde plugins a unsupported_plugins
+```
+ln -s /opt/iou/html/xinha/plugins/SuperClean /opt/iou/html/xinha/unsupported_plugins/
+```
+
+> Arregla Character Maps desde plugins a plugins
+```
+ln -s /opt/iou/html/xinha/plugins/CharacterMap/CharacterMap.js /opt/iou/html/xinha/plugins/CharacterMap/character-map.js
+```
+
+> Arreglar Character Maps desde plugins a unsupported_plugins
+```
+ln -s /opt/iou/html/xinha/plugins/CharacterMap /opt/iou/html/xinha/unsupported_plugins/
+```
+
+> Arreglar TableOperations desde plugins a plugins
+```
+ln -s /opt/iou/html/xinha/plugins/TableOperations/TableOperations.js /opt/iou/html/xinha/plugins/TableOperations/table-operations.js
+```
+
+> Arreglar TableOperations desde plugins a unsupported_plugins
+```
+ln -s /opt/iou/html/xinha/plugins/TableOperations /opt/iou/html/xinha/unsupported_plugins/
+```
+
+> Limpia el log de access para empezar a arreglar todo
+```
+echo "" > /opt/iou/data/Logs/access.txt
 ```
 
 > Reinicia los archivos modificados
@@ -678,96 +1126,11 @@ systemctl daemon-reload
 systemctl enable httpd
 ```
 
-> Reinicia la maquina
-```
-reboot
-```
-
-> [!WARNING] Paso Critico
-> - Debes reiniciar la maquina con `reboot` para que cargue correctamente el Host, Hostname y configuraciones para apache
-
-## Actualizar Xinha
-> [!TIP] Lectura Recomendada
-> - [Xinha](https://trac.xinha.org/): Editor HTML usado por IOU WEB (usa la version 0.96)
-> 	- Posiblemente se pueda actualizar con un drag and drop a la version mas actual, tendria cuidado con la carpeta `lang` y 
-> 	- Existen algunos `plugins` perdidos
-> 		- `CSS` (Ahora es CSSDropDowns)
-> 		- `plugins/ExtendedFileManager` (esta en "unsupported_plugins")
-> 		- `plugins/ImageManager` (esta en "unsupported_plugins")
-> 		- `plugins/PersistentStorage` (esta en "unsupported_plugins")
-> 		- `plugins/PSFixed` (esta en "unsupported_plugins")
-> 		- `plugins/PSLocal` (esta en "unsupported_plugins")
-> 		- `plugins/PSServer` (esta en "unsupported_plugins")
-> 		- `plugins/SpellChecker` (esta en "unsupported_plugins")
-> 		- `plugins/UnFormat` (esta en "unsupported_plugins")
-
-Descarga la ultima version de Xinha desde su [pagina oficial](https://trac.xinha.org/trac/DownloadXinha.html), yo usare la version 1.5.6 Full Distribution
-
-> Muevete a la carpeta `~/iou`
-```
-cd /opt/iou/html
-```
-
-> Descarga xinha-1.5.6
-```
-wget https://s3-us-west-1.amazonaws.com/xinha/releases/xinha-1.5.6.zip
-```
-
-> Descomprime el archivo zip
-```
-unzip xinha-1.5.6.zip
-```
-
-> Elimina el zip
-```
-rm -f xinha-1.5.6.zip
-```
-
-> Limpia el log de access para empezar a arreglar todo
-```
-echo "" > /opt/iou/data/Logs/access.txt
-```
-
-> Actualiza los Plugins sin soporte
-```
-rsync -Phvar SpellChecker ../plugins/
-```
-
-> Arregla Table Operations
-```
-ln -s /opt/iou/html/xinha/plugins/TableOperations/TableOperations.js /opt/iou/html/xinha/plugins/TableOperations/table-operations.js
-```
-
-> Arregla Spell Checker
-```
-ln -s /opt/iou/html/xinha/plugins/SpellChecker/SpellChecker.js /opt/iou/html/xinha/plugins/SpellChecker/spell-checker.js
-```
-
-> Arregla Super Clean
-```
-ln -s /opt/iou/html/xinha/plugins/SuperClean/SuperClean.js /opt/iou/html/xinha/plugins/SuperClean/super-clean.js
-```
-
-> Arregla Linker
-```
-ln -s /opt/iou/html/xinha/plugins/Linker/Linker.js /opt/iou/html/xinha/plugins/Linker/linker.js
-```
-
-> Arregla Character Maps
-```
-ln /opt/iou/html/xinha/plugins/CharacterMap/CharacterMap.js -s /opt/iou/html/xinha/plugins/CharacterMap/character-map.js
-```
-
-> Arregla Plugins sin soporte
-```
-ln /opt/iou/html/xinha/plugins/SpellChecker/SpellChecker.js -s /opt/iou/html/xinha/unsupported_plugins/SpellChecker/SpellChecker.js
-```
-
 > [!TIP] Fuentes de Keygen
 > - [Github - Sohrabian/IOU-Licence-EVE-NG-Python](https://raw.githubusercontent.com/Sohrabian/IOU-Licence-EVE-NG-Python/refs/heads/master/ioukeygen.py)
 > - [Github - obscur/gns3-server - CiscoIOUKeygen.py](https://github.com/obscur95/gns3-server/blob/master/IOU/CiscoIOUKeygen.py)
 
-> Crea, edita y ejecuta el archivo `keygen.py`, dentro de `/opt/iou/scripts/`
+> Modifica el archivo `keygen.py`, dentro de `/opt/iou/scripts/` con lo siguiente:
 ```
 #! /usr/bin/python
 print("Cisco IOU License Generator v2 - Kal 2011, python port of 2006 C version")
@@ -803,6 +1166,11 @@ print(" echo '127.0.0.127 xml.cisco.com' >> /etc/hosts")
 print("************************************************************************")
 ```
 
+> Ejecuta el archivo con
+```
+python /opt/iou/scripts/keygen.py
+```
+
 > Crea el archivo de licencia `iourc` en `/opt/iou/bin/`
 ```
 [license]
@@ -824,19 +1192,9 @@ ln -s /opt/iou/bin/iourc /root/iourc
 ln -s /opt/iou/bin/iourc /root/.iourc
 ```
 
-> Crea el archivo `NETMAP` vacio en `/opt/iou/bin`
-```
-touch /opt/iou/bin/NETMAP
-```
-
 ## Instalacion de Imagenes IOU
-> [!CAUTION] Sobre la imagen de prueba
-> La imagen solo debe ser 1, y es para comprobar si es que esta funcionando correctamente, luego se debe borrar, las imagenes se suben por la interfaz web para quedar configuradas
-
-> Envia una imagen de prueba a IOU WEB
-```
-rsync -druLPO {ios}.bin root@{ip-server}:/opt/iou/bin/
-```
+> [!CAUTION] Sobre la subida de imagenes
+> Las imagenes no se envian directamente por rsync o parecidos, sino que se suben mediante la interfaz web "Manage IOSes", debes arreglar el php.ini
 
 > Modifica el archivo `/etc/php.ini` y busca las siguientes variables y configuralas correctamente
 ```
@@ -847,6 +1205,7 @@ max_file_uploads = 20
 
 > Modifica el archivo `/opt/iou/html/.htacess`
 ```
+php_value date.timezone America/Santiago
 php_value post_max_size 512M
 php_value upload_max_filesize 512M
 ```
@@ -883,11 +1242,11 @@ Debes subir estos 4 archivos, las cuales seran nuestras imagenes funcionales
 	- Filename: `i86bi_linux_l2-adventerprisek9-ms.SSA.high_iron_20190423.bin`
 	- Alias: `L2 15.2`
 	- Pick a file: `i86bi_linux_l2-adventerprisek9-ms.SSA.high_iron_20190423.bin`
-- L3 XE Router
+- L3 XE Router (Puedes subirlos, pero no funcionara en labs)
 	- Filename: `x86_64_crb_linux-adventerprisek9-ms.bin`
 	- Alias: `L3 XE 17.12.1`
 	- Pick a file: `x86_64_crb_linux-adventerprisek9-ms.bin`
-- L2 XE Switch
+- L2 XE Switch (Puedes subirlos, pero no funcionara en labs)
 	- Filename: `x86_64_crb_linux_l2-adventerprisek9-ms.bin`
 	- Alias: `L2 XE 17.12.1`
 	- Pick a file: `x86_64_crb_linux_l2-adventerprisek9-ms.bin`
@@ -936,10 +1295,11 @@ ln -s /opt/iou/bin/i86bi_linux_l2-adventerprisek9-ms.SSA.high_iron_20190423.bin 
 
 Arregla los permisos
 ```
-chown apache:apache -Rh *
+chown apache:apache -Rh /opt/iou/bin/*
 ```
 
-Ahora si vamos otra vez a revisar los IOSes, vemos que ya no esta el simbolo de advertencia, cuando un laboratorio busque esa imagen, sera usada la mas nueva, permitiendo tener una uniformidad de ejecucion moderna, sin necesidad de cambiar ninguna configuracion de los laboratorios ya hechos
+> [!NOTE] Estado IOSes Symlink
+> Ahora si vamos otra vez a revisar los IOSes, vemos que ya no esta el simbolo de advertencia, cuando un laboratorio busque esa imagen, sera usada la mas nueva, permitiendo tener una uniformidad de ejecucion moderna, sin necesidad de cambiar ninguna configuracion de los laboratorios ya hechos
 
 ## Configuraciones Varias
 
@@ -952,39 +1312,54 @@ select-timeout 0;
 initial-interval 1;
 ```
 
-> Modifica `/etc/rc.local`
+> Modifica `/etc/rc.d/rc.local`, y pegalo abajo del comando `touch` que aparece
 ```
 dhclient -cf /etc/dhcp/dhclient-eth0.conf eth0 &
 
 export TERM=xterm
+export PATH=/usr/local/make-4.2.1/bin:/usr/local/binutils-2.35.1/bin:/opt/iou/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 echo "Welcome to IOU Web Interface" > /etc/issue
 echo "Use http://" >> /etc/issue
+echo "user: duoc" >> /etc/issue
+echo "pass: cisco" >> /etc/issue
 
-sleep 0.5 && ip=$(ip -4 addr show scope global | grep -oP 'inet \K[\d.]+' | head -n1) && sed -i "s|http://.*|http://$ip|" /etc/issue
+sleep 1 && ip=$(ip -4 addr show scope global | grep -oP 'inet \K[\d.]+' | head -n1) && sed -i "s|http://.*|http://$ip|" /etc/issue
+```
+
+> Verifica que `/etc/rc.local` pueda ejecutarse correctamente
+```
+chmod 755 /etc/rc.d/rc.local
 ```
 
 > Modifica `/etc/environment`
 ```
 TERM=xterm
+PATH="/usr/local/make-4.2.1/bin:/usr/local/binutils-2.35.1/bin:/opt/iou/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 ```
 
-**GRUB**
-
-> Modifica el archivo `/etc/default/grub` para que se vean estos parametros asi
+> Modicia `~/.bashrc` y agrega
 ```
-GRUB_TIMEOUT=1
-GRUB_DISABLE_SUBMENU=false
+export TERM=xterm
+export PATH=/usr/local/make-4.2.1/bin:/usr/local/binutils-2.35.1/bin:/opt/iou/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 ```
 
-> Actualiza la configuracion de grub
+**Usar cmake3 como cmake normal**
+> [Fuente - Github Gist - zrsmithson - RHEL_Install_git_cmake](https://gist.github.com/zrsmithson/8a1b7923a8f37dcb2e6b12b7e408fd50)
+
+> Configura el viejo cmake con una prioridad baja
 ```
-grub2-mkconfig -o /boot/grub2/grub.cfg
+sudo alternatives --install /usr/local/bin/cmake cmake /usr/bin/cmake 10 --slave /usr/local/bin/ctest ctest /usr/bin/ctest --slave /usr/local/bin/cpack cpack /usr/bin/cpack --slave /usr/local/bin/ccmake ccmake /usr/bin/ccmake --family cmake
 ```
 
-> Actualiza la configuracion EFI de grub
+> Configura el nuevo cmake3 como cmake pero con una prioridad mas alta
 ```
-grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
+sudo alternatives --install /usr/local/bin/cmake cmake /usr/bin/cmake3 20 --slave /usr/local/bin/ctest ctest /usr/bin/ctest3 --slave /usr/local/bin/cpack cpack /usr/bin/cpack3 --slave /usr/local/bin/ccmake ccmake /usr/bin/ccmake3 --family cmake
+```
+
+> Comprueba con `cmake --version`
+```
+cmake3 version 3.17.3
 ```
 
 # Optimizar
@@ -1013,6 +1388,11 @@ mkdir /media/Vbox
 mount VBoxGuestAdditions_7.1.10.iso /media/Vbox
 ```
 
+> Activa scl
+```
+source scl_source enable devtoolset-11
+```
+
 > Necesitas activar las herramientas de compilacion
 ```
 scl enable devtoolset-11 bash
@@ -1024,9 +1404,14 @@ gcc (GCC) 11.2.1 20220127 (Red Hat 11.2.1-9)
 Copyright (C) 2021 Free Software Foundation, Inc.
 ```
 
-> Ejecuta el ./run
+> Ejecuta el ./run (Si funciona, compilara los drivers por un rato, posiblemente dira que no pudo cargarlos, pero ya estan en el sistema)
 ```
 /media/Vbox/VBoxLinuxAdditions.run
+```
+
+> Sal del modo scl
+```
+exit
 ```
 
 > Saldra el siguiente mensaje en `dmesg`, por ahora ignoralo
@@ -1042,9 +1427,14 @@ lsmod | grep vboxguest
 
 > Carga los modulos del sistema
 ```
-modprobe vboxguest
-modprobe vboxsf
-modprobe vboxvideo
+modprobe -a vboxguest
+modprobe -a vboxsf
+modprobe -a vboxvideo
+```
+
+> Desmonta el disco
+```
+umount /media/Vbox
 ```
 
 **QEMU/KVM**
@@ -1070,7 +1460,6 @@ virtio_ring            53248  6 virtio_rng,virtio_console,virtio_balloon,virtio_
 sudo systemctl enable qemu-guest-agent
 ```
 
-
 **VMware**
 
 > Habilita el servicio VM tools
@@ -1083,6 +1472,10 @@ systemctl enable vmtoolsd.service
 > - [Github Torvalds/linux](https://github.com/torvalds/linux)
 > 	- [Documentation/networking/ip-sysctl.rst](https://github.com/torvalds/linux/blob/master/Documentation/networking/ip-sysctl.rst)
 ## Configurar Dracut
+> [!TIP] Lecturas Recomendadas
+> - [Dracut NG - Dracut](https://dracut-ng.github.io/dracut.html)
+> - [Man Pages - Dracut 8](https://www.man7.org/linux/man-pages/man8/dracut.8.html)
+> - [Arch Wiki - Dracut](https://wiki.archlinux.org/title/Dracut)
 
 Creamos el archivo `/etc/dracut.conf.d/compression.conf`
 ```
@@ -1090,7 +1483,22 @@ compress="zstd"
 compresslevel="6"
 ```
 
-Compila dracut
+> Revisar los modulos disponibles
+```
+dracut --list-modules
+```
+
+> Agregar algun modulo (No lo utilizo aun)
+```
+dracut --add module
+```
+
+> Omitir modulos (No lo utilizo aun)
+```
+dracut --omit module
+```
+
+> Compila dracut
 ```
 dracut -f -v
 ```
@@ -1104,6 +1512,12 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
 grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
 ```
+
+> Modifica las entradas UEFI para el GRUB BIOS para que las reconosca
+```
+sudo sed -i 's/linuxefi/linux/g; s/initrdefi/initrd/g' /boot/grub2/grub.cfg
+```
+
 
 **Utilizando Tuned**
 > [!TIP] Lecturas Recomendadas
@@ -1259,8 +1673,6 @@ sysctl -a 2>/dev/null | grep -E "variable|otra-variable"
 > Modifica el archivo de configuracion `/etc/sysctl.conf`, siempre lee antes de aplicar
 ```
 # Estan en la nueva version de tuned "throughput-performance"
-cpu.energy_performance_preference=performance
-cpu.platform_profile=performance
 net.ipv4.ip_forward=1
 ```
 
@@ -1374,18 +1786,48 @@ systemctl disable rsyslog.service
 systemctl disable firewalld
 ```
 
+> Deshabilita DKMS
+```
+systemctl disable dkms
+```
+
+> Deshabilita Postfix
+```
+systemctl disable postfix
+```
+
 ## Limpieza
 
 Ve a la interfaz web de IOU WEB y elimina los laboratorios y archivos de la pestaña "Laboratories", luego en Manage selecciona "Optimize database", luego ve a "Downloads" y selecciona "Clear session and delete sniffer/import/export/logs files" y luego en "Yes, delete all", esto reiniciara el VM, cuenta hasta 8 y reinicia la pagina
+
+> Revisa cuanto espacio estas utilizando
+```
+df -h | awk 'NR==1 || $1 ~ /^\/dev\//'
+```
+
+> Revisa archivos grandes con
+```
+ncdu /
+```
+
+> Detener httpd
+```
+systemctl stop httpd
+```
 
 > Elimina Base de datos viejas
 ```
 rm -f /opt/iou/data/database.sdb-*
 ```
 
-> Detener httpd
+> Limpia Logs de IOU WEB
 ```
-systemctl stop httpd
+echo "" > /opt/iou/data/Logs/access.txt
+```
+
+> Limpia Logs de error
+```
+echo "" > /opt/iou/data/Logs/error.txt
 ```
 
 > Vacia el historial de Bash
@@ -1428,24 +1870,9 @@ find /var/log -type f -exec truncate -s 0 {} \;
 truncate -s 0 /etc/machine-id
 ```
 
-> Recrea los modulos del kernel
-```
-dracut -f -v
-```
-
-> Actualiza la configuracion de grub
-```
-grub2-mkconfig -o /boot/grub2/grub.cfg
-```
-
-> Actualiza la configuracion EFI de grub
-```
-grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
-```
-
 > Elimina llaves SSH para ser regeneradas en cada sistema
 ```
-rm -f /etc/ssh/ssh_host_*
+rm -f /etc/ssh/ssh_host_* /root/.ssh /home/*/.ssh
 ```
 
 > Elimina IP de dhclient para que busque una nueva al siguiente boot
@@ -1455,7 +1882,7 @@ rm -f /var/lib/dhclient/dhclient.leases
 
 > Limpia Journalctl
 ```
-journalctl --vacuum-time=1s
+journalctl --rotate && journalctl --vacuum-size=1s
 ```
 
 > Crear un archivo vacio con todos los archivos vacios (Limpiar el espacio libre)
@@ -1478,12 +1905,12 @@ unset HISTFILE
 echo "" > ~/.bash_history
 ```
 
-> Borra el historial otra vez
+> Limpiar bloques libres (No lo he probado)
 ```
-history -wc
+fstrim -av
 ```
 
-> Apaga la maquina para exportar el producto hecho
+> Borra el historial, sincroniza los discos a la fuerza y apaga la maquina para exportar el producto hecho
 ```
 history -wc && sync; sync; sync && poweroff
 ```
@@ -1500,17 +1927,22 @@ cd /var/lib/libvirt/images
 
 > Convierte el disco QCOW2 en QCOW2 pero comprimido (en 4 minutos, pasa de 21GB, con 4.3GB utilizados a tan solo pesar 1.9GB)
 ```
-qemu-img convert -f qcow2 -O qcow2 -c rhel7.9.qcow2 iou-web-icarus-chikita.qcow2
+qemu-img convert -f qcow2 -O qcow2 -c IOU-WEB-Icarus.qcow2 IOU-WEB-Icarus-chikita.qcow2
 ```
 
 > Valida la integridad de la maquina comprimida
 ```
-qemu-img check iou-web-icarus-chikita.qcow2
+qemu-img check IOU-WEB-Icarus-chikita.qcow2
+```
+
+> Prueba una copia para ver si funciona como deberia, tanto en UEFI, como BIOS, levantando un laboratorio y ve que funcione todo bn
+```
+cp IOU-WEB-Icarus-chikita.qcow2 IOU-WEB-TEST.qcow2
 ```
 
 > Sobreescribir Imagen (Peso 1.6GB)
 ```
-mv iou-web-icarus-chikita.qcow2 iou-web-icarus.qcow2
+mv IOU-WEB-Icarus-chikita.qcow2 IOU-WEB-Icarus.qcow2
 ```
 
 > Tener un backup .7z (Se demora 5 minutos)
@@ -1524,7 +1956,12 @@ mv iou-web-icarus-chikita.qcow2 iou-web-icarus.qcow2
 
 > Convertir a VDI, no soporta compresion, por lo que sera mas pesado (4.2Gb)
 ```
-qemu-img convert -f qcow2 iou-web-icarus.qcow2 -O vdi iou-web-icarus.vdi
+qemu-img convert -f qcow2 IOU-WEB-Icarus.qcow2 -O vdi IOU-WEB-Icarus.vdi
+```
+
+> Comprimir VDI con Virtualbox Set
+```
+VBoxManage modifymedium --compact IOU-WEB-Icarus.vdi
 ```
 
 **Configura Virtualbox**

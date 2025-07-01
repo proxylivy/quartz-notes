@@ -11,6 +11,7 @@ El objetivo de este Write-Up es contruir una version menos mala de eNSP. Este es
 - Contraseña: 12345
 
 **Tamaños Finales**
+
 - Exportacion en .OVA
 	- OVA Original: 11.3GB
 	- OVA 2.0 Modificado: 13.9GB
@@ -21,6 +22,7 @@ El objetivo de este Write-Up es contruir una version menos mala de eNSP. Este es
 	- VDI Modificado v2: 28.0GB ???
 
 **Mejoras**
+
 - Windows Activado Permanentemente gracias a Massgrave y TSForge
 - Version de Professional a Ultimate con soporte ESU
 - Actualizaciones y Parches a 2020
@@ -72,7 +74,8 @@ Utilizando Massgrave con el metodo 2 (Tradicional), en el cual debes descargar d
 
 Deberas descargar el archivo, descomprimirlo, ejecutar el script como administrador, luego apretar `[3]` para seleccionar "TSforge" y luego `[1]` para seleccionar solamente Windows
 
-**Actualiza el sistema**
+**Actualiza el sistema** (WIP)
+
 > [!CAUTION] Demora
 > Ni idea que lo provoca pero se demora un buen rato en empezar a buscar, y no avisa cuando termina, asi que miralo como es que va
 
@@ -87,25 +90,24 @@ Ve al mismo menu de Windows Update, te dira que hay una actualizacion pendiente,
 Las actualizaciones son??
 (TO-DO) Anotar las actualizaciones pendientes exactas
 
-KB4019990
-KB4040980
-KB971033
-KB2603229
-KB3021917
-KB3068708
-KB3080149
-KB3133977
-KB3172605
-KB3179573
-KB3184143
+- KB4019990
+- KB4040980
+- KB971033
+- KB2603229
+- KB3021917
+- KB3068708
+- KB3080149
+- KB3133977
+- KB3172605
+- KB3179573
+- KB3184143
 
-KB4474419
-KB4054518
+- KB4474419
+- KB4054518
 
-KB2533552
-KB4490628
-KB4503575
-
+- KB2533552
+- KB4490628
+- KB4503575
 
 Luego se instalan otras actualizaciones
 Importantes
@@ -160,12 +162,14 @@ La version eNSP 1.2.00.510 instala las siguientes versiones
 ## Aplicaciones
 
 **WinCDEmu**
+
 > [!TIP] Lecturas Recomendadas
 > - [Github - sysprogs/WinCDEmu](https://github.com/sysprogs/WinCDEmu)
 
 Es una herramienta ligera para montar discos, nos ayudara para hacer la instalacion de Virtualbox Guest y los drivers de Virtio
 
 **7zip**
+
 > [!TIP] Lecturas Recomendadas
 > - [7-ZIP - Official Page](https://www.7-zip.org/)
 
@@ -187,6 +191,7 @@ Para configurar 7zip
 3. Le das en "Aplicar" y luego en "Aceptar" y esta listo
 
 **Virtualbox**
+
 > [!TIP] Lecturas Recomendadas
 > - [Download Virtualbox - Old Builds 5.2.x](https://www.virtualbox.org/wiki/Download_Old_Builds_5_2)
 
@@ -201,6 +206,7 @@ El limite de eNSP, esta en la rama 5.2.x de virtualbox, siendo la ultima con sop
 
 
 **Wireshark**
+
 > [!TIP] Lecturas Recomendadas
 > - [Wireshark - Develpment/LifeCycle](https://wiki.wireshark.org/Development/LifeCycle)
 
@@ -216,6 +222,7 @@ Al instalar Wireshark 4.2.2, instala Npcap 1.78, lo que desinstala la vieja vers
 - Npcap | [x64](https://npcap.com/), la cual se puede instalar con una API compatible con WinPcap
 
 **VLC**
+
 > [!TIP] Lecturas recomendadas
 > - [Videlan - VLC](https://www.videolan.org/vlc/)
 
@@ -230,6 +237,7 @@ Le das click en Descargar VLC (Yo de mañoso me aseguro de descargar Windows 64 
 7. Cuando termine de instalar, le das en "Terminar" y verificas la instalacion
 
 **K-Lite Codecs**
+
 > [!TIP] Lecturas recomendadas
 > - [K-Lite Codecs Pack Download](https://www.codecguide.com/download_kl.htm)
 
@@ -246,6 +254,7 @@ El clasico que siempre funciona, todavia soporta Win 7, yo seleccione la version
 9. Le das en "Next"
 
 **Irfanview**
+
 > [!TIP] Lecturas Recomendadas
 > - [IrfanView - Official Page](https://www.irfanview.com/)
 
@@ -261,6 +270,7 @@ Ver imagenes a la velocidad del rayo
 ## Para-Virtualizacion
 
 **Virtualbox Guest Additions**
+
 > [!TIP] Lecturas Recomendadas
 > - [Virtualbox - Download Center](https://download.virtualbox.org/virtualbox/)
 > - [Whirpool Archive - Virtualbox: Guest Additions hangs/freezes install](https://forums.whirlpool.net.au/archive/35pnn7yj)
@@ -278,6 +288,7 @@ Ver imagenes a la velocidad del rayo
 3. Reinicia la maquina para aplicar los cambios
 
 **Qemu/KVM Virtio Drivers**
+
 > [!TIP] Lecturas Recomendadas
 > - [Github virtio-win/virtio-win - Issue #40 - Windows 7 no more working](https://github.com/virtio-win/virtio-win-pkg-scripts/issues/40)
 >	- [Issue #40 - AdityaKKhullar Comment](https://github.com/virtio-win/virtio-win-pkg-scripts/issues/40#issuecomment-1704103962)
@@ -319,6 +330,7 @@ Ahora le das el segundo click, "Start", ahora la imagen deberia empezar a cargar
 # Configuracion
 
 **Extender Disco de 31 a 40GB**
+
 Debes tener la maquina apagada, vas al menu de Herramientas y seleccionas "Medio", luego seleccionas el disco .vdi. en este caso "`Windows7-ENSP-Creativo-disk001.vdi`" y extiendes de 31.0GB a 40.0GB y le das en "Aplicar"
 
 Enciendes la maquina y ve al menu de inicio y abre el "Panel de Control"
@@ -327,12 +339,14 @@ Enciendes la maquina y ve al menu de inicio y abre el "Panel de Control"
 3. Haces click en "Siguiente", "Siguiente" y "Siguiente" y ahora el espacio libre debe sumarse al disco, dando como resultado `39.90GB NTFS`
 
 **Cambia el modo de energia**
+
 Ve al menu de inicio y abre el "Panel de Control"
 1. Ve a "Hardware de Sonido"
 2. Ve a "Opciones de Energia"
 3. Abre los "Planes Adicionales" y Elije "Alto Rendimiento"
 
 **Configurar Fuentes**
+
 > [!TIP] Lecturas Recomendadas
 > - [NerdFonts - Official Page](https://www.nerdfonts.com/)
 > - [Github - ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
@@ -349,6 +363,7 @@ Ve a las propiedades tanto de "Virtualbox" como "eNSP"
 2. Desde la ventana de "Compatibilidad", ve a "Cambiar la configuracion para todos los usuarios", y en "Nivel de privilegio" selecciona "Ejecutar este programa como administrador" y dale en "Aceptar"
 
 **Desactiva Windows Defender**
+
 Ve a la barra de busqueda, busca y ejecuta "Windows Defender" y ve a "Opciones"
 1. En "Examen Automatico" desactiva "Examinar Equipo Automaticamente"
 2. Ve a "Proteccion en tiempo real" y desactiva "Usar proteccion en tiempo real"
@@ -358,12 +373,15 @@ Ve a la barra de busqueda, busca y ejecuta "Windows Defender" y ve a "Opciones"
 Dale en "Guardar" y ahora tu equipo estara inseguro :D
 
 **Desactiva mensajes de Alerta**
+
 Ve a la barra de busqueda, busca y ejecuta "Centro de Actividades" y le das en "Descartar" a todos los mensajes
 
 **Activa Auto-Login**
+
 Ve a la barra de busqueda, busca y ejecuta "netplwiz" y desactivas "Los usuarios deben escribir su nombre y contraseña para usar el equipo", das en "Aceptar", ingresas la contraseña (`12345`) 2 veces
 
 **Desactiva Animaciones, ni proteccion, ni debug**
+
 1. Abre el menu de inicio, dale click derecho a "Equipo" y abre las propiedades, ahora ve a "Configuracion avanzada del sistema"
 2. En la pestaña de "Opciones Avanzadas", apreta la Configuracion de la seccion de "Rendimiento"
 3. En "Efectos Visuales", dale en "Personalizar", y solo deja activo "Mostrar vistas en miniaturas en lugar de iconos" y "Suavisar bordes para la fuentes de pantalla", "Usar estilos visuales en ventanas y botones" y dale en "Aceptar"
@@ -373,6 +391,7 @@ Ve a la barra de busqueda, busca y ejecuta "netplwiz" y desactivas "Los usuarios
 Le das en "Aceptar" y ya tienes un sistema mas responsivo
 
 **Configurar Firefox**
+
 > [!TIP] Lecturas Recomendadas
 > - [End Of Life Dates - Firefox](https://endoflife.date/firefox)
 > - [Mozilla What train is it now - Firefox ESR Release](https://whattrainisitnow.com/release/?version=esr)
@@ -436,6 +455,7 @@ Selecciona las tres lineas horizontales de la parte derecha, y ve a "Ajustes"
 		- Selecciona tema "Oscuro", si tiene errores, puedes probar alguno como "[Camarada - Black](https://addons.mozilla.org/es-CL/firefox/addon/2black/)" o "[Catppuccin Mocha - Lavender](https://addons.mozilla.org/es-CL/firefox/addon/catppuccin-mocha-lavender-git/)"
 
 **Personaliza tema CSS de Firefox**
+
 > [!TIP] Lecturas Recomendadas
 >  - [Youssuff Quips - Useful Customizations for Firefox](https://www.quippd.com/firefox/wiki/useful-customizations/)
 >  - [Github - yokoffin/Betterfox - Fastfox.js blob](https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js)
@@ -452,6 +472,7 @@ C:\Users\RTH010V\AppData\Roaming\Mozilla\Firefox\Profiles
 2. Y mueves los archivos "`userChrome`" y "`userContent`" dentro de la carpeta creada de `chrome`
 
 **Modifica Flags**
+
 > [!TIP] Lecturas Recomendadas
 > - [Reddit - r/firefox - What are Your Must Have Changes in about:config? - 001Guy001 Comment](https://old.reddit.com/r/firefox/comments/17hlkhp/what_are_your_must_have_changes_in_aboutconfig/k6ogtuv/)
 
@@ -554,12 +575,14 @@ C:\Users\RTH010V\AppData\Roaming\Mozilla\Firefox\Profiles
 # Limpieza
 
 **Borra archivos temporales y puntos de restauracion**
+
 Ve a la barra de busqueda, busca y ejecuta "`cleanmgr`", se demora un rato en iniciar
 1. Desde la pestaña "Liberador de espacio en disco", selecciona todo y dale en "Aceptar"
 2. Selecciona "Eliminar archivos" y esperas a que termine
 3. Opcionalmente puedes volver a ejecutar "`cleanmgr`", ir a "Opciones avanzadas" y hacer click en "Limpiar puntos de restauracion"
 
 **Desactiva Caracteristicas del sistema**
+
 Ve al menu de inicio y abre el "Panel de Control"
 1. Ve a "Programas"
 2. Selecciona "Activar o Desactivar las caracteristicas del sistema"
@@ -570,11 +593,13 @@ Ve al menu de inicio y abre el "Panel de Control"
 5. Le das en "Aceptar" y te preguntara por un reinicio, le dices "Reiniciar mas Tarde"
 
 **Desactiva la desfragmentacion**
+
 Ve a la barra de busqueda, busca y ejecuta "Desfragmentador de disco"
 1. Desactiva la desfragmentacion programada
 2. Desfragmenta el disco por una ultima vez
 
 **Inicio mas Rapido**
+
 Ve a la barra de busqueda, busca y ejecuta "`msconfig`"
 1. Ve a "Arranque"
 	- Pon el tiempo de espera en 0 segundos
@@ -594,16 +619,19 @@ Ve a la barra de busqueda, busca y ejecuta "`msconfig`"
 Ahora te preguntara si quieres, reiniciar la maquina, y le dices que si
 
 **Desactiva Servicios del Sistema**
+
 Ve a la barra de busqueda, busca y ejecuta "Servicios"
 
 (WIP) Me dio flojera hacerlo realmente, pero deberia de tener que optimizar los servicios innecesarios
 
 **Limpia sectores vacios**
+
 Ve a la barra de busqueda, busca y ejecuta "CMD" como administrador
 - Escribe y ejecuta `cipher /w:C:\`
 
 # Hardening
 **WeakDH**
+
 > [!TIP] Lecturas Recomendadas
 > - [Weak Diffie Hellman Vulnerabily](https://weakdh.org)
 > - [Microsoft - Conjunto de cifrado TLS/SSL](https://learn.microsoft.com/es-mx/windows/win32/secauthn/cipher-suites-in-schannel?redirectedfrom=MSDN)
@@ -631,6 +659,7 @@ nmap -sS -sV -O -p- --script vuln {ip}
 ```
 
 **Analisis Completo de NMAP**
+
 ```
 Nmap scan report for {IP}
 Host is up (0.00040s latency).
@@ -698,6 +727,7 @@ Nmap done: 1 IP address (1 host up) scanned in 2730.55 seconds
 # Extra
 
 **Changelog eNSP 1.3.00.100**
+
 ```
 eNSP 1.3.00.100 updates
 Fixed Bugs:

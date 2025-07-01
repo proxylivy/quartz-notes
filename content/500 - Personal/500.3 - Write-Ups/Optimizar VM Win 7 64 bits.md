@@ -1,9 +1,7 @@
 # Info
 ## Datos
-La intencion es instalar una maquina virtual de Windows 7 Ultimate 64 bits, la cual siempre tiene implementacion muy malas, cuando solo debe ser un cliente rapido listo para hacer pruebas. Es opcional hacerlo ligero, la idea es que funcione siempre de la mejor manera
-
 Notas:
-- La instalacion en 64 bits pesa 16GB y el .ova 8GB
+- La instalacion limpia en 64 bits pesa 16GB y el .ova 8GB
 
 Sistema:
 - Basado gran parte en el trabajo de [FastOS 7 v4 Pro F.E (Final Edition)](https://www.projectfastos.top/2025/03/fastos-7.html) by [Tester Machine](https://www.youtube.com/c/TesterMachine). La cual esta basada en Windows 7 Professional Version 6.1 SP1 (Compilacion: 7601), se recomienda apoyar usando el acordator [Cuty](https://cuty.io/VOPMYM5tpVuC), pero dejare el Link directo a [Mediafire - FastOS7V4FEx64B10](https://www.mediafire.com/file/09pnm2rh17vr9hz/FastOS7V4FEx64B10.iso/file)
@@ -128,7 +126,7 @@ Enciende Windows, y te hable el instalador
 - Empezara la instalacion, demora aproximadamente ~5 minutos en un SSD NVMe, luego se reinicia automaticamente
 - (Esto me paso por porfiao) Si te sale una ventana donde windows no pudo iniciar correctamente, posiblemente es porque lo instalaste con EFI activado, desactivalo y vuelve a probar
 
-## Configuracion Inicial Windows 7
+**Configuracion Inicial Windows 7**
 
 - Creacion del usuario administrador
 	- Nombre de usuario: alumno
@@ -141,7 +139,7 @@ Enciende Windows, y te hable el instalador
 - Luego se reinciara y hara unos ajustes extras
 
 ---
-## Post Instalacion por AST
+**Post Instalacion por AST**
 - Selecciona el disco que estes usando en el host, en mi caso "NVMe-M.2"
 - Opciones por mensajes
 	- Desactivar Windows Update: no
@@ -157,7 +155,7 @@ Enciende Windows, y te hable el instalador
 - Se conectara a Ethernet, te pedira una red, le das en "Red Domestica", luego das en "Siguiente" y finalmente en "Finalizar"
 
 ---
-## Detalles en Virtualbox
+**Detalles en Virtualbox**
 NOTA: Parece que debes instalar extpack para el uso remoto
 
 Apagas la maquina, abres las configuraciones de la maquina
@@ -169,17 +167,7 @@ Apagas la maquina, abres las configuraciones de la maquina
 		- virtio-win.iso
 	- Luego das en "Aceptar"
 
----
-
-La instalacion base de Windows 7 limpio pesa 15GB, KIEEE
-
-Necesitamos un buen navegador para ser instalado
-
-Vaya
-Tendriamos que probar con:
-NOTA: Si necesitas un navegador, podrias probar alguno del repositorio de "[adeii/supermium-portable](https://github.com/adeii/supermium-portable/releases)", probe "[Firefox Portable 132 x64](https://github.com/adeii/supermium-portable/releases)" y funciono perfectamente
-
-## Activa la Paravirtualizacion en Windows
+## Paravirtualizacion
 > [!TIP] Lecturas Recomendadas
 > - [WinCDEmu Download](https://wincdemu.sysprogs.org/download/)
 > - [WinCDEmu Wiki - Mount an ISO](https://wincdemu.sysprogs.org/tutorials/mount/)
@@ -210,11 +198,15 @@ Abres la carpeta "virtio-win"
 Abres la carpeta "Qemu-Agent"
 - Instalas "qemu-ga-x86_64"
 
-## Configurar Navegador
+# Configuracion
 
-Abres "[FlashPeak SlimBrowser](https://www.slimbrowser.net/)" el cual es un fork de Firefox compatible con windows 7, posiblemente, porque su ultima actualizacion es del 31 de Agosto de 2023 (Firefox 115.0)
+**Navegador**
 
-- Saldra un Popup para bloquear anuncios, le das que si
+Tienes 2 opciones para probar
+1. Aun puedes instalar Firefox ESR 115.25.0 (24 de Junio de 2025)
+2. [Github adeii/supermium-portable](https://github.com/adeii/supermium-portable/releases)", probe "[Firefox Portable 132 x64](https://github.com/adeii/supermium-portable/releases)"
+
+- Instala [Ublock Origin](https://ublockorigin.com/)
 - Eliminas todos los marcadores y dejas la barra de marcadores solo disponible para nuevas pestañas
 - Vas a los ajustes del navegador
 	- General
@@ -234,16 +226,18 @@ Abres "[FlashPeak SlimBrowser](https://www.slimbrowser.net/)" el cual es un fork
 		- En "Login and Password" desactiva la opcion "Ask to save logins and passwords for website"
 		- En "History", Slimbroser will: "Never remember history" y reinicia el navegador desde el popup (Intenta otra vez activar esta opcion porque cambia)
 
-## Mejoras para Windows
+**Cambiar de Professional a Ultimate**
 Partamos por activar Windows, se utilizara [Massgrave](https://massgrave.dev/#method-2---traditional-windows-vista-and-later) de manera tradicional, para windows 7, se utiliza el metodo [TSForge](https://massgrave.dev/tsforge). El metodo Tradicional, debes descargar directamente desde [Github (Autodescarga)](https://github.com/massgravel/Microsoft-Activation-Scripts/archive/refs/heads/master.zip), extraes el .zip, luego abres las carpetas hasta llegar a "All-In-One-Version" y ejecutas "MAS_AIO.cmd" con permisos de administrador
 
 - Ahora lo primero que haremos sera cambiar la version de Professional a Ultimate, por lo que cuando cargue el script, seleccionamos "`[7] Change Windows Edition`"
 	- Luego nos detectara la version, y seleccionamos "`[1] Ultimate`" y presionamos "Enter", 
 	- Nos avisa que cuando termine de hacer el cambio se reiniciara automaticamente, presionamos "`[1] Continue`" y el proceso empezara, se demora ~3.5 minutos y luego se actualiza, reiniciandose 2 veces
 
+**Activar Windows**
 - Ejecutamos otra vez "MAS_AIO.cmd" en modo administrador
 	- Seleccionamos "`[3] TSforge`", luego "`[1] Activate - Windows`", hara unas validaciones, y luego saldra un mensaje "`[Ultimate] is permanently activated with ZeroCID`", apretamos cualquier tecla y cerramos la ventana
 
+**Actualizar Sistema**
 Con el sistema activado, aprovechamos de actualizarlo para no tener problemas de compatibilidad con las herramientas que aun existen
 - NOTA: Por alguna razon se demora 1 hora, asi que hace otras cosas por mientras, luego que termine de buscar, instala las actualizaciones importantes solo de Windows 7
 - Abre "Panel de Control", "Sistema" y luego "Windows Update", selecciona "Buscar Actualizaciones". Las actualizacion son:
@@ -267,8 +261,7 @@ Con el sistema activado, aprovechamos de actualizarlo para no tener problemas de
 
 Instala los siguientes programas
 - BCUninstaller | [Github Klocman/Bulk-Crap-Uninstaller](https://github.com/Klocman/Bulk-Crap-Uninstaller)
-- Wireshark | [x86](https://www.wireshark.org/download.html#spelunking) (3.2.18) | [x64](https://www.wireshark.org/download.html) (4.0.17) |
-- Filezilla Client | x86 (3.50) | [Official Site](https://filezilla-project.org/)
+- Wireshark | [x64](https://www.wireshark.org/download.html) (4.2.2)
 - VLC | [Download](https://www.videolan.org/vlc/download-windows.html)
 - Powershell | [x86](https://github.com/PowerShell/PowerShell/releases/tag/v7.2.24) 7.2.x (7.2.24) |
 	- C++ 2015-2019 Redistributable | [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe) | [x86](https://aka.ms/vs/16/release/vc_redist.x86.exe)
@@ -303,9 +296,6 @@ Los servicios que dejaria encendidos
 - Manual
 	- Spooler
 	- 
-
-
-
 
 > Windows Update
 ```

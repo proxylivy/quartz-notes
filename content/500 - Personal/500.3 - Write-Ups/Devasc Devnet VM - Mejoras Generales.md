@@ -409,6 +409,33 @@ sudo timedatectl set-timezone America/Santiago
 sudo timedatectl set-ntp true
 ```
 
+**Actualiza Ansible Correctamente**
+> Remueve la version instalada
+```
+sudo apt remove ansible
+```
+
+> Actualiza los repositorios
+```
+sudo apt update
+```
+
+> Instala el siguiente paquete
+```
+sudo apt install software-properties-common
+```
+
+> Instala y actualiza el repositorio
+```
+sudo apt-add-repository --yes --update ppa:ansible/ansible
+```
+
+> Instala Ansible correctamente
+```
+sudo apt install ansible
+```
+
+
 # Optimizacion del sistema
 ## Systemctl
 > Desabilitar Apport - Crash Report

@@ -1796,6 +1796,11 @@ systemctl disable dkms
 systemctl disable postfix
 ```
 
+> Deshabilita NetworkManager-wait-online
+```
+systemctl disable NetworkManager-wait-online.service
+```
+
 ## Limpieza
 
 Ve a la interfaz web de IOU WEB y elimina los laboratorios y archivos de la pestaña "Laboratories", luego en Manage selecciona "Optimize database", luego ve a "Downloads" y selecciona "Clear session and delete sniffer/import/export/logs files" y luego en "Yes, delete all", esto reiniciara el VM, cuenta hasta 8 y reinicia la pagina

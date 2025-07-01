@@ -78,13 +78,13 @@ gantt
     Dynamips (Community) :dyn, 2005-08-01, 2890d
 
     section Dynagen
-    Dynagen            :dgn, 2006-02-20, 363d
+    Dynagen :dgn, 2006-02-20, 363d
 
     section Dynagui
-    Dynagui            :dgui, 2006-07-22, 509d
+    Dynagui :dgui, 2006-07-22, 509d
 
     section gDynagen
-    gDynagen           :gdgn, 2006-11-19, 494d
+    gDynagen :gdgn, 2006-11-19, 494d
 
     section Dynamips (GNS3 Fork)
     Dynamips GNS3 Fork :fork, 2013-07-30, 3452d
@@ -208,36 +208,36 @@ Actualizado a 13 de Junio de 2025
 gantt
 	title Evolucion de Simuladores de red
     dateFormat  YYYY-MM-DD
-    todayMarker off
+    todayMarker on
 
 	section Emuladores Cisco-Like
-	Dynamips            :a5, 2006-08-01, 2025-06-13
-    Packet Tracer       :a6, 2003-06-01, 2025-06-13
-	WebIOL              :a1, 2011-01-01, 2025-06-13
-    IOU WEB             :a2, 2012-01-23, 2015-05-28
+	Dynamips :a5, 2006-08-01, 2025-06-13
+    Packet Tracer :a6, 2003-06-01, 2025-06-13
+	WebIOL :a1, 2011-01-01, 2025-06-13
+    IOU WEB :a2, 2012-01-23, 2015-05-28
 
 	section Comercial
-    CML-P               :a8, 2014-01-01, 2025-06-13
+    CML-P :a8, 2014-01-01, 2025-06-13
 
     section Emuladores Multi-Vendor
-    GNS3                :a7, 2007-01-01, 2025-06-13
-	UNetLab             :a3, 2014-10-01, 2016-06-01
-    EVE-NG              :a4, 2016-06-01, 2025-06-13
+    GNS3 :a7, 2007-01-01, 2025-06-13
+	UNetLab :a3, 2014-10-01, 2016-06-01
+    EVE-NG :a4, 2016-06-01, 2025-06-13
 
     section Emuladores Modernos
-    ContainerLab        :b1, 2020-04-01, 2025-06-13
-    Kathara             :b2, 2018-01-01, 2025-06-13
-    Cloonix             :b3, 2008-01-01, 2025-06-13
+    ContainerLab :b1, 2020-04-01, 2025-06-13
+    Kathara :b2, 2018-01-01, 2025-06-13
+    Cloonix :b3, 2008-01-01, 2025-06-13
 
 	section Emuladores Academicos
-	Mininet             :b6, 2010-01-01, 2025-06-13
-    Netkit-JH           :b9, 2011-01-01, 2025-06-13
+	Mininet :b6, 2010-01-01, 2025-06-13
+    Netkit-JH :b9, 2011-01-01, 2025-06-13
 
 	section Simuladores de Red
-    Shadow              :b8, 2012-01-01, 2025-06-13
-    NS-3                :b7, 2006-06-01, 2025-06-13
-    CORE                :b4, 2005-01-01, 2025-06-13
-    IMUNES              :b5, 2003-01-01, 2025-06-13
+    Shadow :b8, 2012-01-01, 2025-06-13
+    NS-3 :b7, 2006-06-01, 2025-06-13
+    CORE :b4, 2005-01-01, 2025-06-13
+    IMUNES :b5, 2003-01-01, 2025-06-13
 ```
 
 ## Finalmente EVE-NG

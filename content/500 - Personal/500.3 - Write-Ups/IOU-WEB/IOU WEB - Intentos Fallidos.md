@@ -1,4 +1,28 @@
 # Intentos
+## Ideas
+- Hacer una version mas ligera
+- Compilar el kernel 6.12.33 con solo lo necesario | [Maybe Help](https://some-natalie.dev/blog/fedora-acs-override/)
+	- make localmodconfig
+- Adios Modulos del kernel
+- Borrar Librerias de kernel que no necesitamos
+- NO LVM, solo ext4
+- Exportar las configuraciones de TUNED a sysctl para asi borrar tanto la app como el daemon
+- Optimizar el SSD con `tune2fs -o discard,noatime,nobarrier /dev/sda1`
+
+- Borrar librerias muertas
+	- `sudo package-cleanup --leaves | xargs yum remove -y`
+
+- Eliminar Documentacion Local
+	- `sudo rm -rf /usr/share/{doc,man,info} /usr/src/*`
+	- `sudo find /usr/share/locale -mindepth 1 -maxdepth 1 ! -name 'en_US' -exec rm -rf {} +`
+
+- Revisa mas en profundidad servicios de systemd
+	- `sudo systemctl list-unit-files --state=enabled`
+
+- Exportar Correctamente al peor entorno de emulacion (Windows + Virtualbox)
+	- 6.1 (USBv1)
+	- 7.1.10 (USBv2 + UEFI + <8vCPU + no-libvirt-interface)
+
 ## Compilacion para IOU WEB 64 bits
 Adaptar un sistema es muy complicado cuando es versionado, por lo que el alcance de [[500 - Personal/500.3 - Write-Ups/IOU-WEB/IOU WEB - 64 Bits CentOS 7|IOU WEB - 64 Bits CentOS 7]] esta completo, por lo que a pesar de decir 64 bits, solo es compatible con imagenes de 32 bits, pero permite utilizar muchisimo mejor la aceleracion por hardware de distintos sistemas, por lo que es una version muy agradable para continuar usando como reemplazo rapido a IOU WEB
 

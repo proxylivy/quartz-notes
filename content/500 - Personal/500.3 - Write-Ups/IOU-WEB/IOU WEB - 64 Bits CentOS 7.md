@@ -1223,7 +1223,7 @@ IOS tiene 3 campos para rellenar
 - Pick a file: Se selecciona desde el computador, el archivo que utilizaremos, este lleva el mismo nombre que el "Filename"
 
 Debido a que IOU WEB tiene mucho tiempo funcionando, se quedo estancado en 3 imagenes que se usan en la gran mayoria de laboratorios que hay en DuocUC, estas son:
-- Router y PC: L3 15.4.1T A (`/opt/iou/bin/i86bi_linux-adventerprisek9-ms.154-1.T_A)
+- Router y PC: L3 15.4.1T A (`/opt/iou/bin/i86bi_linux-adventerprisek9-ms.154-1.T_A`)
 - Switch: L2 15.2D (`/opt/iou/bin/i86bi_LinuxL2-AdvEnterpriseK9-M_152_May_2018`)
 
 La idea de renovar las imagenes, es reemplazarlas, con el menor esfuerzo posible, estas son las nuevas candidatas:

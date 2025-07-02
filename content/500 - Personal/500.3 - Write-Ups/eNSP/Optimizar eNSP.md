@@ -4,6 +4,7 @@
 > - [Proxmox Docs - Windows 7 Guest Best Practices](https://pve.proxmox.com/wiki/Windows_7_guest_best_practices)
 > - [Huawei Forums - Network Simulation Tools 2022 Challenge](https://forum.huawei.com/enterprise/intl/en/collection/667213828401807360?mod=collection&action=view&ctid=699&themeId=667213828401807360)
 > 	- [Youtube - Rundown of basic eNSP tools](https://youtu.be/NyIdfdIOyEM?si=8nwUta3FknINy8KV)
+> - [Oracle Virtualbox - Docs Index](https://docs.oracle.com/en/virtualization/virtualbox/index.html)
 
 El objetivo de este Write-Up es contruir una version menos mala de eNSP. Este esta siendo ejecutado sobre Windows 7 Professional 64 bits, mi idea es hacer que funcione lo mejor posible, pero tu sabes, Windows es una muy mala plataforma...
 
@@ -14,19 +15,19 @@ El objetivo de este Write-Up es contruir una version menos mala de eNSP. Este es
 
 - Exportacion en .OVA
 	- OVA Original: 11.3GB
-	- OVA 2.0 Modificado: 13.9GB
-	- OVA 2.0 Modificado v2: ???
+	- OVA 2.0 Modificado v1: 13.9GB
+	- OVA 2.0 Modificado v2: 20.9GB
 - VDI
 	- VDI Original: 25.4GB
 	- VDI Modificado v1: 25.0GB
-	- VDI Modificado v2: 28.0GB ???
+	- VDI Modificado v2: 32.0GB
 
 **Mejoras**
 
 - Windows Activado Permanentemente gracias a Massgrave y TSForge
 - Version de Professional a Ultimate con soporte ESU
 - Actualizaciones y Parches a 2020
-- Instalado Virtualbox Guest Additions
+- Instalado Virtualbox Guest Additions `7.1.10`
 - Instalado Drivers Virtio `0.1.173-4` (Excepto Spice Agent)
 - eNSP actualizado a `1.3.00.100` (`V100R003C00SPC100`)
 - Imagenes extras importadas, como Firewall USG6000V (vfw_usg.vdi)
@@ -110,9 +111,11 @@ Las actualizaciones son??
 - KB4503575
 
 Luego se instalan otras actualizaciones
+
 Importantes
 - KB4516065
 - KB
+
 Opcionales
 - KB
 
@@ -724,6 +727,17 @@ OS and Service detection performed. Please report any incorrect results at https
 Nmap done: 1 IP address (1 host up) scanned in 2730.55 seconds
 ```
 
+# Exporta la maquina
+
+Ahora apaga la maquina
+
+> Compacta el disco vdi
+```
+VBoxManage modifymedium Windows7-ENSP-Creativo-disk001.vdi --compact
+```
+
+> Exporta desde el menu de Virtualbox como OVA 2.0 y quita las MAC
+
 # Extra
 
 **Changelog eNSP 1.3.00.100**
@@ -747,6 +761,29 @@ Fixed Bugs:
 3.- Repair SVRP devices can only open 16 problems.
 4.- Repair SVRP device connection can only connect up to 20 questions.
 5.- Change the interface placement of NE, CX, and CE devices, classify NE and CX as routers, and return CE to switches.
+```
+
+## Expermiental
+- https://stackoverflow.com/questions/28309819/shrink-a-vmdk-virtualbox-disk-image
+- https://www.experts-exchange.com/articles/12938/HOW-TO-Shrink-a-VMware-Virtual-Machine-Disk-VMDK-in-15-minutes.html
+- https://dev.to/otomato_io/how-to-reduce-the-vmdk-disk-image-size-in-virtualbox-38e0
+
+Necesito que el disco este lo mas comprimido posible, para que el resultado en OVA sea lo mas pequeño posible y convenza a Duoc de utilizarlo, a pesar de pesar 32GB :P
+
+> Reconstruye el disco de vdi, a vmdk, luego de vmdk a vdi, y luego compactalo
+```
+VBoxManage clonehd disk.vdi disk-temp.vmdk --format VMDK
+VBoxManage clonehd disk-temp.vmdk disk-clean.vdi --format VDI
+VBoxManage modifymedium disk-clean.vdi --compact
+```
+
+> Tambien puedes solo exportar el disco a vmdk
+```
+VBoxManage clonehd disk.vdi disk-temp.vmdk --format VMDK
+```
+> Luego Comprimir con las herramientas de vmware
+```
+/usr/bin/vmware-vdiskmanager -k ~/VirtualBox\ VMs/<virtual disk.vmdk>
 ```
 
 ## Troubleshooting

@@ -1,2 +1,0 @@
-Si queremos hacer una salida al cerro el Carbon por ejemplo
-Hay que considerar que se accede por el [Parquemet Bosque Santiago](https://maps.app.goo.gl/PuAg5N8FEUtpTZCFA), debido a que esta cerrado el acceso por la piramide, para llegar, hay que estar entre la Universidad Mayor y el salto, abren los Martes a Domingos de 10am a 15:30pm, pero dejan acceder al cerro desde las 9am, se puede ver mas informacion en [Wikiexplora](http://www.wikiexplora.com/Cerro_Carb%C3%B3n)

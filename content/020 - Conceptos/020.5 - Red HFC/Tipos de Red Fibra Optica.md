@@ -6,9 +6,3 @@
 		- Cables de Google
 	- Enlaces entre Oficinas Centrales con PSTN
 	- Anillos de distribucion HUBs y Nodales en redes HFC
-- Red de Acceso
-	- Redes FTTx: la "x" es el lugar mas cercano donde llega el enlace de fibra optica, desde ese punto la conexion es con cables coaxiales
-		- FTTN (Fiber To The Node): Hasta un nodo central de vecindario,
-		- FTTC (Fiber To The Curb): Hasta la Acera
-		- FTTB (Fiber To The Building): Hasta el piso administrativo del edificio
-		- FTTH (Fiber To The Home): Directamente al Hogar

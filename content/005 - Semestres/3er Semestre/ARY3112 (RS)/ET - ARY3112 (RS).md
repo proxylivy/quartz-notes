@@ -699,8 +699,8 @@ exit
 CREAR PORTCHANNEL
 interface range fa0/a-x
 channel-group X mode AAA (ACTIVE,PASSIVE,DESIRABLE, AUTO, ON)
-exit
 no shut
+exit
 !
 CONFIGURAR PORTCHANNEL
 interface Port-channelX

@@ -72,3 +72,4 @@ rsync -druLPO --no-times --delete --exclude ".*" /home/docker/services/syncthing
 ```
 npx quartz sync
 ```
+

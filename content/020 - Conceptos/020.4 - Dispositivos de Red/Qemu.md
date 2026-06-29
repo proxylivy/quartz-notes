@@ -16,7 +16,7 @@ tar -xvf VM.ova
 
 2. Convierte el archivo desde vmdk a QCOW2 y comprime la imagen
 ```
-qemu-img convert -c -f vmdk -O qcow2 vm-disk.vmdk vm-disk.qcow2
+qemu-img convert -p -c -f vmdk -O qcow2 vm-disk.vmdk vm-disk.qcow2
 ```
 
 3. Puedes comprimirlo aun mas con

@@ -61,6 +61,7 @@ Hay una gran variedad de imagenes, cambian sus funcionalidades segun el nombre q
 | A10                 | ✗            | ✗                 | ✗        | ✓ vThunder       | ✗           | ✗       |
 | Palo Alto           | ✗            | ✗                 | ✓ PAN-OS | ✗                | ✗           | ✓       |
 | Aruba               | ✗            | ✓ CX              | ✗        | ✗                | ✗           | ✗       |
+
 \*: Solo uso basico
 
 **Detalle Imagenes Utilizadas**
@@ -1356,7 +1357,7 @@ Para que los laboratorios funcionen, debes tener siempre las mismas imagenes se 
 
 # Extra
 
-Ahora es momento de utilizar tu version de EVE-NG, si no tienes ideas, puedes leer [[800 - Extras/Write-Ups/EVE-NG/EVE-NG Labs|EVE-NG Labs]]
+Ahora es momento de utilizar tu version de EVE-NG, si no tienes ideas, puedes leer [[800 - Extras/Write-Ups/EVE-NG/EVE-NG - Labs|EVE-NG - Labs]]
 
 ## Porque no PNETLab?
 > [!TIP] Fuente

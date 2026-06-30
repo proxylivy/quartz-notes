@@ -1,5 +1,5 @@
 # Info
-Okey, ahora que ya tienes tu [[800 - Extras/Write-Ups/EVE-NG/EVE-NG|EVE-NG]] funcionando, debes utilizarlo
+Okey, ahora que ya tienes tu [[800 - Extras/Write-Ups/EVE-NG/EVE-NG - Install|EVE-NG - Install]] funcionando, debes utilizarlo
 
 Algunas ideas que te dejo
 

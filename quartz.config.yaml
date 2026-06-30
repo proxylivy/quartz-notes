@@ -265,7 +265,7 @@ plugins:
       subdir: plugin
     enabled: true
     options:
-      theme: nordic
+      theme: default
   - source: github:quartz-community/obsidian-plugin-excalidraw
     enabled: true
     options:

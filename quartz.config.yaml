@@ -1,17 +1,18 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: Quartz 5
+  pageTitle: Proxylivy Notes
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
   analytics:
-    provider: plausible
-  locale: en-US
+    provider: null
+  locale: es-ES
   baseUrl: notes.proxylivy.work
   ignorePatterns:
     - private
     - templates
     - .obsidian
+    - 999 - Archivado
   theme:
     fontOrigin: googleFonts
     cdnCaching: true
@@ -264,7 +265,7 @@ plugins:
       subdir: plugin
     enabled: true
     options:
-      theme: default
+      theme: nordic
   - source: github:quartz-community/obsidian-plugin-excalidraw
     enabled: true
     options:

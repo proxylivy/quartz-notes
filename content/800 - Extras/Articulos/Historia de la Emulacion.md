@@ -221,10 +221,7 @@ Dainok, necesitaba no solo ejecutar imagenes IOL, sino tambien emuladores basado
 - Ruslan Foutorianski
 - Dragoş Vasiloi
 
-Este proyecto amplio el soporte a multiples vendors. A inicios de 2015, Dainok anuncio que se alejaba del proyecto por falta de tiempo, dejando la evolucion a manos de la comunidad. Aunque hubieron luego planes para crear UnetLab v2, no llego a buen puerto y la rama quedo discontinuada en algun punto de 2016.
-
-
-
+Este proyecto amplio el soporte a multiples vendors. A inicios de 2015, Dainok anuncio que se alejaba del proyecto por falta de tiempo, dejando la evolucion a manos de la comunidad. Aunque hubieron luego planes para crear UnetLab², no llego a buen puerto y la rama quedo discontinuada en algun punto de 2016.
 
 ### EVE-NG
 Emulated Virtual Environment Next Generation

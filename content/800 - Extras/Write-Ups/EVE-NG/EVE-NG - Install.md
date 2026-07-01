@@ -1,6 +1,9 @@
 # Info
+## Introduccion
 
 EVE-NG (**E**mulated **V**irtual **E**nvironment - **N**ext **G**eneration) es una plataforma de emulacion de redes que permite virtualizar dispositivos como Router, Switches, Firewall, etc. utilizando imagenes reales de sus sistemas operativos.
+
+Si te interesa, tengo un articulo que habla mas en profundidad sobre la [[800 - Extras/Articulos/Historia de la Emulacion|Historia de la Emulacion]]
 
 ## Licencias y Limites
 
@@ -27,11 +30,25 @@ Nos centraremos en la version "`Community`", los limites son
 - Solo puedes tener 63 nodos activos
 
 > [!WARNING] Notas sobre licencia y Docker
-> La edicion Community **no soporta Docker**. Para utilizar utilizar contenedores integrados (Paquete `eve-ng-dind`), se necesita tener la version PRO o Learning Center
 > Mas al respecto: [Youtube - EVE-NG - EVE Pro embedded Docker Setup and Usage](https://www.eve-ng.net/index.php/documentation/howtos-video/eve-embedded-dockers-setup-and-usage/)
+> La edicion Community **no soporta Docker** directamente. Para utilizar utilizar contenedores integrados (Paquete `eve-ng-dind`), se necesita tener la version PRO o Learning Center.
+> Puedes ver un Workarround en [[#Uso de Docker]]
 
-> [!WARNING] Workarround sobre Docker
-> Una alternativa seria utilizar una maquina `alpine` con docker instalado para que se conecte a las otras maquinas, de esta forma docker no se instala directamente en EVE-NG Community
+## Requisitos del servidor
+> [!IMPORTANT] Documentacion Recomendada
+> - [Requisitos del sistema](https://www.eve-ng.net/index.php/documentation/installation/system-requirement/)
+> - [Calcular el Uso](https://www.eve-ng.net/index.php/download/#CALC)
+> - [Cookbook](https://www.eve-ng.net/index.php/documentation/community-cookbook/)
+> 	- Hoja 10: 2.1.4 Dedicated Server BM system requirements
+
+Requisitos:
+- OS: Ubuntu Focal Fossa 22.04.X LTS (Bare-Metal) or VMware ESXi 6.7 minimum (Hipervisor tipo 1)
+- CPU: Intel Xeon con Soporte Intel VT-X/EPT(Extended Page Tables) or AMD-V/RVI | Recommended: 2x Intel E5-2650v4
+- Storage: M.2 PCIe > SSD Sata > HDD Sata (2TB or more)
+- RAM: 128GB or more
+- Motherboard: Support virtualize IOMMU options (Optional)
+
+En el host donde manejas el WEBUI recuerda configurar las [[#Consolas Nativas]]
 
 ## Soporte de Imagenes
 > [!TIP] Lecturas recomendadas
@@ -45,22 +62,22 @@ Nos centraremos en la version "`Community`", los limites son
 
 Hay una gran variedad de imagenes, cambian sus funcionalidades segun el nombre que tengan, aqui tengo un pequeño Matrix, que muestra sus funciones
 
-| Vendor              | Router<br>L3 | Switch<br>L2 / L3 | Firewall | Load<br>Balancer | SD-WAN      | IDS/IPS |
-| ------------------- | ------------ | ----------------- | -------- | ---------------- | ----------- | ------- |
-| Cisco               | ✓ IOS        | ✓ IOS L2          | ✓ ASAv   | ✗                | ✓ Viptela   | ✓ FMC   |
-| Fortinet            | ✓ FGT        | ✗                 | ✓ FGT    | ✓ ADC            | ✓ FGT       | ✓ FNDR  |
-| Juniper             | ✓ vMX        | ✓ vQFX            | ✓ vSRX   | ✗                | ✓ 128T      | ✗       |
-| MikroTik            | ✓ CHR        | ✗                 | ✗        | ✗                | ✗           | ✗       |
-| Arista              | ✓ vEOS       | ✓ vEOS            | ✗        | ✗                | ✗           | ✗       |
-| Extreme<br>Networks | ✓ VOSS       | ✓ EXOS            | ✗        | ✗                | ✗           | ✗       |
-| Hillstone<br>SG6k   | ✓            | ✗                 | ✓ VW     | ✓ vADC           | ✓ CloudEdge | ✗       |
-| VyOS                | ✓            | ✓                 | ✓\*      | ✓\*              | ✗           | ✗       |
-| Huawei              | ✓ AR1k       | ✓ CE12800         | ✓ USG6kv | ✗                | ✓ USG6kv    | ✓ WAF5k |
-| Citrix              | ✗            | ✗                 | ✗        | ✓ NetScaler      | ✓ SD-WAN    | ✗       |
-| F5                  | ✗            | ✗                 | ✗        | ✓ Big-IP         | ✗           | ✗       |
-| A10                 | ✗            | ✗                 | ✗        | ✓ vThunder       | ✗           | ✗       |
-| Palo Alto           | ✗            | ✗                 | ✓ PAN-OS | ✗                | ✗           | ✓       |
-| Aruba               | ✗            | ✓ CX              | ✗        | ✗                | ✗           | ✗       |
+| Vendor              | Router<br>L3 | Switch<br>L2 / L3 | Firewall    | Load<br>Balancer | SD-WAN    | IDS/IPS |
+| ------------------- | ------------ | ----------------- | ----------- | ---------------- | --------- | ------- |
+| Cisco               | ✓ IOS        | ✓ IOS L2          | ✓ ASAv      | ✗                | ✓ Viptela | ✓ NGIPS |
+| Fortinet            | ✓ FGT        | ✗                 | ✓ FGT       | ✓ FAD            | ✓ FGT     | ✓ FNDR  |
+| Huawei              | ✓ AR1k       | ✓ CE12800         | ✓ USG6kv    | ✗                | ✓ USG6kv  | ✓ WAF5k |
+| Juniper             | ✓ EVO        | ✓ EX              | ✓ vSRX 3.0  | ✗                | ✗         | ✗       |
+| Arista              | ✓ vEOS       | ✓ vEOS            | ✓ NGFW      | ✗                | ✗         | ✗       |
+| Extreme<br>Networks | ✓ VOSS       | ✓ EXOS            | ✗           | ✗                | ✗         | ✗       |
+| Hillstone           | ✗            | ✗                 | ✓ CloudEdge | ✓ vADC           | ✗         | ✓ vIPS  |
+| VyOS                | ✓            | ✓                 | ✓\*         | ✓\*              | ✗         | ✗       |
+| Citrix              | ✗            | ✗                 | ✗           | ✓ NetScaler      | ✓ SD-WAN  | ✗       |
+| MikroTik            | ✓ CHR        | ✗                 | ✗           | ✗                | ✗         | ✗       |
+| Aruba               | ✗            | ✓ CX              | ✗           | ✗                | ✗         | ✗       |
+| Palo Alto           | ✗            | ✗                 | ✓ PAN-OS    | ✗                | ✗         | ✓       |
+| F5                  | ✗            | ✗                 | ✗           | ✓ Big-IP         | ✗         | ✗       |
+| A10                 | ✗            | ✗                 | ✗           | ✓ vThunder       | ✗         | ✗       |
 
 \*: Solo uso basico
 
@@ -71,13 +88,12 @@ Cisco IOL image list:
 	- L2/L3 Switch: i86bi_linux_l2-adventerprisek9-ms.SSA.high_iron_20190423.bin (15.2 - 2019-04-23)
 	- L2/L3 Switch: i86bi_LinuxL2-AdvEnterpriseK9-M_152_May_2018.bin (15.2 - 2018-05-10)
 	- L3 Router and PC: i86bi_LinuxL3-AdvEnterpriseK9-M2_157_3_May_2018.bin (15.7 - 2018-05-10)
-	- L3 XE Router 64 bits: x86_64_crb_linux-adventerprisek9-ms.bin (17.12.1)
-	- L2/L3 XE Switch 64 bits: x86_64_crb_linux_l2-adventerprisek9-ms.bin (17.12.1)
+	- L3 XE Router 64 bits: x86_64_crb_linux-adventerprisek9-ms.bin (17.16.1)
+	- L2/L3 XE Switch 64 bits: x86_64_crb_linux_l2-adventerprisek9-ms.bin (17.16.1)
 
 QEMU image list:
-- HPE ArubaCX-10.14
+- Aruba AOS-CX 10.18 - [Free with Registration in HPE](https://networkingsupport.hpe.com/globalsearch#q=AOS-CX%20OVA&tab=Software&sortCriteria=date%20descending)
 - Cisco
-	- ASA-9.1.5
 	- ASAv-9.22.1.1-PLR-Licenced
 	- c9800cl-17.17.01
 	- CSR1000vng-universalk9.17.03.05-serial
@@ -88,7 +104,7 @@ QEMU image list:
 	- viosl2-adventerprisek9-m.ssa.high_iron_20200929 (Slow)
 - Extreme Networks
 	- ExtremeVOSS 9.4.0.0 - [Free](https://github.com/extremenetworks/Virtual_VOSS)
-	- ExtremeEXOS 33.6.1.14 - [Free](https://github.com/extremenetworks/Virtual_EXOS)
+	- ExtremeXOS 33.6.1.14 - [Free](https://github.com/extremenetworks/Virtual_EXOS)
 - F5 BigIP 17.5.0-0.0.15
 - Fortinet
 	- FAC (FortiAuthentication) 6.6.2
@@ -110,29 +126,13 @@ QEMU image list:
 	- Arch Linux - [Open Source](https://archlinux.org/)
 - Microtik RouterOS 7.18.2 - [Free](https://mikrotik.com/download)
 - IP Fusion OcNOS 7.0.0 - [Free Demos with registration](https://www.ipinfusion.com/free-software-demos/) (Psst: Pon informacion falsa)
-- OpenWRT 24.10.1 - [Open Source](https://openwrt.org/)
+- OpenWRT 25.12.4 - [Open Source](https://openwrt.org/)
 - OPNsense 25.1 - [Open Source](https://opnsense.org/)
 - Palo Alto 11.2.5
 - PfSense-pfs 2.7.2 - [Open Source](https://atxfiles.netgate.com/mirror/downloads/)
-- vJunosEVOefi 24.4R1.8
+- vJunosEVO 24.4R1.8
 - Vyos 1.5 Rolling Release - [Open Source](https://vyos.net/) - [Changelog](https://github.com/vyos/vyos-nightly-build/releases)
 - Virtual PC (VPCS) - [Open Source](https://github.com/GNS3/vpcs)
-
-## Requisitos del servidor
-> [!IMPORTANT] Documentacion Recomendada
-> - [Requisitos del sistema](https://www.eve-ng.net/index.php/documentation/installation/system-requirement/)
-> - [Calcular el Uso](https://www.eve-ng.net/index.php/download/#CALC)
-> - [Cookbook](https://www.eve-ng.net/index.php/documentation/community-cookbook/)
-> 	- Hoja 10: 2.1.4 Dedicated Server BM system requirements
-
-Requisitos:
-- OS: Ubuntu Focal Fossa 22.04.X LTS (Bare-Metal) or VMware ESXi 6.7 minimum (Hipervisor tipo 1)
-- CPU: Intel Xeon con Soporte Intel VT-X/EPT(Extended Page Tables) or AMD-V/RVI | Recommended: 2x Intel E5-2650v4
-- Storage: M.2 PCIe > SSD Sata > HDD Sata (2TB or more)
-- RAM: 128GB or more
-- Motherboard: Support virtualize IOMMU options (Optional)
-
-En el host donde manejas el WEBUI recuerda configurar las [[#Consolas Nativas]]
 
 # Fase 1: Instalacion de EVE-NG
 > [!IMPORTANT] Importante
@@ -159,12 +159,13 @@ Requerimientos
 2. Elegir "`Bare Metal Option`" y luego "`install EVE NG Community 6.2.0-4`"
 3. Selecciona el idioma `Español`
 4. Selecciona el teclado Layout y Variant `Spanish (Latin America)`
-5. Apreta "`Continuar`" este paso formateara los discos seleccionados
-6. Luego de instalar, la phase 2 iniciara automaticamente, NO INICIES SESION, el servidor se reiniciara automaticamente y saldra un menu diciendo, alli podras continuar
+5. Apreta "`Continuar`" este paso formateara todos los discos que encuentre automaticamente, y se reiniciara automaticamente
+6. Luego instalara otras cosas se demora aproximadamente 900 segundos (15 minutos) y se reiniciara. No debes iniciar sesion
 
+> Al iniciar, te saldra este prompt de inicio, y sera tapado por otras cosas, simplemente inicia con las credenciales
 ```
 Eve-NG (default root password is 'eve')
-Use http://{ip}
+Use http:///
 
 eve-ng login:
 ```
@@ -190,16 +191,19 @@ pass: eve
 - Proxy Server: Direct Connection
 ```
 
-> Paso 3: Prueba de internet y Actualizar Paquetes Servidor
+> En este paso se reinicia automaticamente el VM, deberia aparecer la IP en el baneer para iniciar sesion
+
+> [!INFO] Sobre Gestionar VM
+> Teniendo la IP, ya puedes conectarte por ssh, su gestion es mucho mas comoda
+> ```
+> ssh root@{ip-eve-ng}
+> ``` 
+
+> Paso 3: Prueba de internet y Actualizar Paquetes Servidor. Si necesitas reiniciar servicios, reinicialos todos
 ```
 ping -c 2 google.cl
-apt-get update && apt-get upgrade
+apt update && apt upgrade
 apt autoremove
-```
-
-> Paso 3.1: Reestablecer servicios
-```
-# Selecciona todos #
 ```
 
 > Paso 4: Hacer la vida mas sencilla a mi (Opcional)
@@ -226,44 +230,43 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
 fisher install IlanCosman/tide@v6
 ```
 
-> Paso 4.4: Configurar `.config/weston.ini` para la GUI (Opcional)
-```
-[keyboard]
-keymap_layout=latam
-```
-
 # Fase 2: Instalar Imagenes
 
-Recuerda tener descargadas tus imagenes para pasarlas al servidor, puedes encontrarlas en 
+Recuerda tener descargadas tus imagenes para pasarlas al servidor, puedes encontrar mas informacion en [[#Soporte de Imagenes]]
+
+Existen 3 metodos para ejecutar imagenes: Dynamips, IOL y Qemu. Dynamips no lo veremos en este Write-Up (reemplaza su funcionamiento IOL). Por lo que es util saber la diferencia:
+- IOL (IOS on Linux) son binarios que corren directamente en el kernel de linux, sin necesidad de emular hardware completo. Esto es lo que los hace liviandos en RAM y CPU
+- QEMU: Emulacion completa de Hardware mediante imagenes de disco (qcow2), lo que permite correr sistemas operativos reales tal y como vienen del fabricante, por lo que gasta mas RAM y CPU
+
+La mayoria de las imagenes que se usan en EVE-NG usan el metodo de QEMU, por eso es tan flexible, con la excepcion de Cisco IOL, por eso es el primero que explicare.
 
 ## Cisco IOL
 > [!IMPORTANT] Documentacion Recomendada
 > - [EVE-NG Docs - Howto add Cisco IOL](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-cisco-iol-ios-on-linux/)
-> - [BlackBox Blog (Ru) - Eve-NG Arreglar imagenes IOL](https://it-blackbox.blogspot.com/2018/06/eve-ng-cisco-iouiol.html): Arreglar la licencia
+> - [BlackBox Blog (Ru) - Eve-NG Arreglar imagenes IOL](https://it-blackbox.blogspot.com/2018/06/eve-ng-cisco-iouiol.html)
 > - [Github - ishare2-org/ishare2-cli](https://github.com/ishare2-org/ishare2-cli) | [Generate new iourc license](https://github.com/ishare2-org/ishare2-cli?tab=readme-ov-file#generate-a-new-iourc-license-for-bin-images)
 > - Github CiscoIOUKeygen
 > 	- [Github obscur95/CiscoIOUKeygen.py](https://raw.githubusercontent.com/obscur95/gns3-server/refs/heads/master/IOU/CiscoIOUKeygen.py)
 > 	- [Github Gist twrandolphchen/CiscoIOUKeygen.py](https://gist.githubusercontent.com/twrandolphchen/ed3588e1128488868c243a432b4bcfb4/raw/de0391a2da1bf1da0e5ad6aee2702c6221ce7dd7/CiscoIOUKeygen.py)
-> - [Cisco CML-Free Docs](https://developer.cisco.com/docs/modeling-labs/cml-free/#installing-cml-free)
 
 > [!DANGER] Mira la version de las imagenes
 > - Evitar usar la version `L3 15.5.2T` debido a que se congela en standby
 
-Estas imagenes siguen un metodo Legacy Especial y esta basado en el trabajo de IOU WEB, que luego paso a ser UNL y termino en EVE-NG, esas carpetas son:
-- `/opt/unetlab/addons/iol/bin/`: Imagenes actualizadas con extension "`.bin`", junto al archivo "`iourc`" que actua como licencia
-- `/opt/unetlab/addons/iol/lib/`: Librerias para que las imagenes dentro de bin funcionen correctamente, existe "`libcrypto.so.4`", la libreria de OpenSSL compatible
+Cisco IOL sigue un metodo propio heredado de los tiempos de WEBIOL (~2010), que luego copio IOU WEB, y despues se transformo en UNL y termino siendo EVE-NG. Su estructura ya viene integrada, solo hay que colocar los archivos en su lugar.
+
+Las carpetas relevantes son:
+- `/opt/unetlab/addons/iol/bin/`: Imagenes con extension "`.bin`", junto a un archivo "`iourc`" que actua como licencia
+- `/opt/unetlab/addons/iol/lib/`: La libreria "`libcrypto.so.4`" (Openssl) necesaria para que los binarios de "`bin/`" funcionen
 
 **Tabla IOL Imagen Recomendada**
 
-| Type            | EVE Image Name                                                   | Version                                                                                                                                       | NVRAM | RAM  |
-| --------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ---- |
-| L2/L3 Switch    | i86bi_linux_l2-adventerprisek9-ms.<br>SSA.high_iron_20190423.bin | Cisco IOS Software, Linux Software <br>(I86BI_LINUXL2-ADVENTERPRISEK9-M),<br>Version 15.2(CML_NIGHTLY_20190423)                               | 1024  | 1024 |
-| L2/L3 Switch    | i86bi_LinuxL2-AdvEnterpriseK9-M<br>_152_May_2018.bin             | Cisco IOS Software, Linux Software (I86BI_LINUXL2-<br>ADVENTERPRISEK9-M), Version 15.2(CML_NIG <br>HTLY_20180510)FLO_DSGS7                    | 1024  | 1024 |
-| L3 Router       | i86bi_LinuxL3-AdvEnterpriseK9-<br>M2_157_3_May_2018.bin          | Cisco IOS Software, Linux Software (I86BI_LINUX-<br>ADVENTERPRISEK9-M), Version 15.7(3)M2,<br>Compiled Wed 28-Mar-18 11:18 by prod_rel_team   | 1024  | 1024 |
-| L3 Router       | L3-ADVENTERPRISEK9<br>-M-15.4-2T.bin                             | Cisco IOS Software, Linux Software (I86BI_LINUX-<br>ADVENTERPRISEK9-M), Version 15.4(2)T4, <br>Compiled Thu 08-Oct-15 21:21 by prod_rel_team  | 1024  | 1024 |
-| L3 XE Router    | x86_64_crb_linux-adventerprisek9<br>-ms.bin                      | IOL XE Router Cisco IOS Software [Dublin], Linux <br>Software (X86_64BI_LINUX-ADVENTERPRISEK9-M), <br>Version 17.12.1, RELEASE SOFTWARE (fc5) | 1024  | 1024 |
-| L2/L3 XE Switch | x86_64_crb_linux_l2-adventerprisek9<br>-ms.bin                   | IOL XE Switch Cisco IOS Software [Dublin], Linux<br>Software (X86_64BI_LINUX_L2-ADVENTERPRISEK9-M), Version 17.12.1, RELEASE SOFTWARE (fc5)   | 1024  | 1024 |
+| Type         | EVE Image Name                                                   | Version                                                                                                                                     | NVRAM | RAM  |
+| ------------ | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ---- |
+| L2/L3 Switch | i86bi_linux_l2-adventerprisek9-ms.<br>SSA.high_iron_20190423.bin | Cisco IOS Software, Linux Software <br>(I86BI_LINUXL2-ADVENTERPRISEK9-M),<br>Version 15.2(CML_NIGHTLY_20190423)                             | 1024  | 1024 |
+| L3 Router    | i86bi_LinuxL3-AdvEnterpriseK9-<br>M2_157_3_May_2018.bin          | Cisco IOS Software, Linux Software (I86BI_LINUX-<br>ADVENTERPRISEK9-M), Version 15.7(3)M2,<br>Compiled Wed 28-Mar-18 11:18 by prod_rel_team | 1024  | 1024 |
+
 **IOURC**
+
 > [!NOTE] Sobre IOURC
 > Este archivo varia segun los archivos `/etc/hostname` y `/etc/hosts` que esten configurados para el servidor, exactamente en `Hostname` y `Host_id`
 
@@ -276,10 +279,11 @@ python2 script.py
 > El output del script copialo dentro de `/opt/unetlab/addons/iol/bin/iourc`
 ```
 [license]
-eve-ng = 972f30267ef51616;
+eve-ng = 972xxxxxxxxx1616;
 ```
 
 **BIN**
+
 > Crear Carpeta
 ```
 mkdir /opt/unetlab/addons/iol/bin /opt/unetlab/addons/iol/lib
@@ -300,7 +304,8 @@ rsync -Phvr *.bin root@{ip-server}:/opt/unetlab/addons/iol/bin/
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
-**Probar las imagenes**
+**Probar las imagenes (Opcional)**
+
 > Mover a la carpeta con los `.bin`
 ```
 cd /opt/unetlab/addons/iol/bin
@@ -316,42 +321,86 @@ touch NETMAP
 LD_LIBRARY_PATH=/opt/unetlab/addons/iol/lib/ /opt/unetlab/addons/iol/bin/{iosname.bin} 1
 ```
 
-**Parchear .bin**
-> [!NOTE] Sobre los parches
-> La verdad no deberia ser invalido, en caso de algun error, asegurate de seguir cada paso al pie de la letra, algo asi se ve el mensaje de error por licencia
+## Cisco IOS XE
 
-```
-IOS On Unix - Cisco Systems confidential, internal use only
-IOU License Error: invalid license
-License for key 7f0343 required on host "eve-ng".
-Obtain a license for this key and host from the following location:
-http://wwwin-enged.cisco.com/ios/iou/license/index.html
-Place in your iourc file as follows (see also the web page
-for further details on iourc file format and location)
-```
+> [!TIP] Lecturas Recomendadas
+> - [Cisco CML-Free Docs](https://developer.cisco.com/docs/modeling-labs/cml-free/#installing-cml-free)
+> - [Cisco Meraki - CML Free Register](https://mkto.cisco.com/cml-opt-in.html)
+> - [Cisco Software](https://software.cisco.com/download/home/)
+> 	- [CML Free](https://software.cisco.com/download/home/286193282/type/286326381/release/CML-Free)
+
+Bueno, Cisco tiene una rama mas moderna de los IOS, llamada IOS XE, las cuales se distribuyen en CML, y no estan permitidas para su uso en EVE-NG, rompes la licencia al hacerlo, solo digo
+
+Y es que Cisco cambio su forma de distribuir las imagenes, ahora las empaqueta en distintos YAML y apunta a blobs comprimidos identificados por su hash256... Lo cual no es nuevo, siempre han sido metodos confusos de hacer funcionar las cosas
+
+Las ultima version que extraje fue la 17.18.02a del 12/May/2026, y la tabla de recomendaciones es la siguiente
+
+| Type            | EVE Image Name                                 | Version                                                                                                                                       | NVRAM | RAM  |
+| --------------- | ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ---- |
+| L3 XE Router    | x86_64_crb_linux-adventerprisek9<br>-ms.bin    | IOL XE Router Cisco IOS Software [Dublin], Linux <br>Software (X86_64BI_LINUX-ADVENTERPRISEK9-M), <br>Version 17.12.1, RELEASE SOFTWARE (fc5) | 1024  | 1024 |
+| L2/L3 XE Switch | x86_64_crb_linux_l2-adventerprisek9<br>-ms.bin | IOL XE Switch Cisco IOS Software [Dublin], Linux<br>Software (X86_64BI_LINUX_L2-ADVENTERPRISEK9-M), Version 17.12.1, RELEASE SOFTWARE (fc5)   | 1024  | 1024 |
+
+Estas imagenes las puedes conseguir gratuitamente mediante los siguientes pasos
+1. Crea una cuenta en Cisco Meraki para acceder a la tienda de descargas
+2. Descarga el "reference platform" mas reciente, en mi caso "`refplat-20260409-free-iso.zip`" (12-May-2026). (Probablemente cuando lo leas haya uno mas nuevo, descarga obviamente el mas nuevo)
+3. Descomprime el `.zip` y luego el `.iso` resultante
+4. Entra a `virl-base-images` y busca la carpeta `iol-xe-17-18-02`
+5. Descomprime el `.tar.gz` que encuentres
+6. Abre la carpeta `blobs` y luego `sha256` y busca el archivo comprimido mas pesado del listado, en mi caso `ac697212b57ca1706f4a5618a2b11e42746eb8d6e11f797d2878999ca108c955`. Debes descomprimirlo y te extraerla la imagen con la extension `.iol`
+7. Debes cambiar la extension de `.iol` a `.bin`
+8. Y lo mueves a la carpeta magica de eve-ng, que no recuerdo cual es, oopsie
+9. Repite lo mismo con la carpeta `ioll2-xe-17-18-02`
 
 ## Aruba CX Switch
 > [!IMPORTANT] Documentacion Recomendada
 > - [HPE Support](https://networkingsupport.hpe.com/home): Iniciar sesion con cuenta HPE Certificada
-> 	- [Aruba Community - Download Image](https://community.arubanetworks.com/discussion/arubaos-cx-10040001-is-here)
+> 	- [Global Search - AOS-CX OVA](https://networkingsupport.hpe.com/globalsearch#q=AOS-CX%20OVA&tab=Software)
+> - [HPE Aruba Networks - Techdocs - Changelog](https://arubanetworking.hpe.com/techdocs/AOS-CX/Consolidated_RNs/Portal_Home/Content/cx-home.htm)
 > - [EVE-NG Docs - HowTo add Aruba CX Switch](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-aruba-cx-switch/)
-> - [My Ethernet Mind Blog - Adding Aruba AOS-CX to EVE-NG](https://things-on-e.blogspot.com/2019/11/adding-aruba-aos-cx-to-eve-ng.html)
+> - [Via Internet Archive - My Ethernet Mind Blog - Adding Aruba AOS-CX to EVE-NG](https://web.archive.org/web/20240226171832/https://www.madari.co.il/2019/11/adding-aruba-aos-cx-to-eve-ng.html)
 
 > [!NOTE] Sobre Imagen
 > - Carpeta HPE Aruba CX Switch: `arubacx-{version}`
 > 	- Disco QEMU: `virtioa`
 > - Access
 > 	- user: `admin`
-> 	- pass: no password
+> 	- pass: N/A
 
-> Crea la carpeta
+Como nota, utilizar Aruba CX Switch en EVE-NG rompe con su autorizacion de licencia adicional, solo digo...
+
+Puedes descargar esta imagen gratuitamente desde HPE, solo debes crear una cuenta con dominio academico o corporativo, no permite iniciar desde un correo general como gmail, yahoo, outlook, icloud, etc.
+
+Una vez con tu cuenta creada busca el termino "`AOS-CX OVA`" desde el buscador global de HPE Support. Veras varias ramas activas disponibles, al momento de escribir, estas son:
+- 10.18.001
+- 10.17.1020
+- ...
+- 10.13.1180 (LTS)
+
+Te recomiendo ver el Changelog desde Aruba, para ver cuales son los ultimos cambios de los branchs
+
+> Descomprime el .zip que contiene el OVA
+```
+7z x AOS-CX_Switch_Simulator_10_18_0001_ova.zip
+```
+
+> Luego descomprime el OVA
+```
+7z x AOS-CX_10_18_0001.ova
+```
+
+> Convierte el archivo vmdk a qcow2
+```
+qemu-img convert -f vmdk -O qcow2 arubaoscx-disk-image-genericx86-p4-20260521162224.vmdk virtioa.qcow
+```
+
+> Crea la carpeta en el servidor
 ```
 mkdir /opt/unetlab/addons/qemu/arubacx-{version}
 ```
 
-> Mueve el disco
+> Copia la imagen al servidor
 ```
-mv virtioa.qcow2 /opt/unetlab/addons/qemu/arubacx-{version}/
+rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/arubacx-{version}/
 ```
 
 > Arregla los permisos
@@ -360,31 +409,21 @@ mv virtioa.qcow2 /opt/unetlab/addons/qemu/arubacx-{version}/
 ```
 
 ## Cisco
-### ASA y ASAv
+### ASAv
 
 > [!IMPORTANT] Documentacion Recomendada
-> - [Github - hegdepavankumar/cisco-asa-firewall-training](https://github.com/hegdepavankumar/cisco-asa-firewall-training)
 > - [EVE-NG Docs - HowTo add Cisco ASAv](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-cisco-asav/)
 
 > [!NOTE] Nombre Imagen
-> - Carpeta ASA: `asa-{version}`
-> 	- Disco QEMU: `hda`
 > - Carpeta ASAv: `asav-{version}`
 > 	- Disco QEMU: `virtioa`
 
-> Crear las carpetas para ASA
-```
-mkdir /opt/unetlab/addons/qemu/asa-{version}
-```
+El metodo para conseguir las imagenes es igual que con los [[#Cisco IOS XE]], el nombre dentro de la carpeta `virl-base-images` son
+- ASAv: `asav-9-24-1`
 
 > Crear las carpetas para ASAv
 ```
 mkdir /opt/unetlab/addons/qemu/asav-{version}
-```
-
-> Envia las imagenes a la carpeta ASA
-```
-rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/asa-{version}/
 ```
 
 > Envia las imagenes a la carpeta ASA
@@ -397,6 +436,45 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/asav-{versio
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
+### Cisco vIOS (EX-VIRL)
+
+> [!IMPORTANT] Documentacion Recomendada
+> [EVE-NG Docs - HowTo add Cisco ViOS from virl](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-cisco-vios-from-virl/)
+
+> [!NOTE] Sobre Imagen
+> - Carpeta L3: `vios-{version}`
+> 	- Disco QEMU: `virtioa`
+> - Carpeta L2: `viosl2-{version}`
+> 	- Disco QEMU: `virtioa`
+
+El metodo para conseguir las imagenes es igual que con los [[#Cisco IOS XE]], el nombre dentro de la carpeta `virl-base-images` son
+- L3: `iosv-159-3-m12`
+- L2: `iosvl2-2020`
+
+> Crea carpeta L3
+```
+mkdir /opt/unetlab/addons/qemu/vios-{version}
+```
+
+> Crea Carpeta L2
+```
+mkdir /opt/unetlab/addons/qemu/viosl2-{version}
+```
+
+> Envia las imagenes a la carpeta correspondiente
+```
+rsync -Phvr vios-{version}.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vios-{version}/
+```
+
+> Cambia el nombre
+```
+mv vios-{version}.qcow2 virtioa.qcow2
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
 
 ### C9800CL
 > [!IMPORTANT] Documentacion Recomendada
@@ -422,7 +500,6 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/asa-{version
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
-
 ### CSR1000v y CSR1000vng
 
 > [!IMPORTANT] Documentacion Recomendada
@@ -445,7 +522,7 @@ mkdir /opt/unetlab/addons/qemu/csr1000v-{version}
 
 > Crea la carpeta para CSR1000vng
 ```
-mkdir /opt/unetlab/addons/qemu/csr1000v-{version}
+mkdir /opt/unetlab/addons/qemu/csr1000vng-{version}
 ```
 
 > Mueve la imagen para CSR1000v
@@ -455,47 +532,7 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/csr1000v-{ve
 
 > Mueve la imagen para CSR1000vng
 ```
-rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/csr1000v-{version}/
-```
-
-> Arregla los permisos
-```
-/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
-```
-
-
-### Cisco vIOS (EX-VIRL)
-> [!WARNING] PELIGRO
-> Estas imagenes funcionan mas lento, ni idea porque
-
-> [!IMPORTANT] Documentacion Recomendada
-> [EVE-NG Docs - HowTo add Cisco ViOS from virl](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-cisco-vios-from-virl/)
-
-> [!NOTE] Sobre Imagen
-> - Carpeta L3: `vios-{version}`
-> 	- Disco QEMU: `virtioa`
-> - Carpeta L2: `viosl2-{version}`
-> 	- Disco QEMU: `virtioa`
-
-
-> Crea carpeta L3
-```
-mkdir /opt/unetlab/addons/qemu/vios-{version}
-```
-
-> Crea Carpeta L2
-```
-mkdir /opt/unetlab/addons/qemu/viosl2-{version}
-```
-
-> Envia las imagenes a la carpeta correspondiente
-```
-rsync -Phvr vios-{version}.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vios-{version}/
-```
-
-> Cambia el nombre
-```
-mv vios-{version}.qcow2 virtioa.qcow2
+rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/csr1000vng-{version}/
 ```
 
 > Arregla los permisos
@@ -554,51 +591,6 @@ cd /opt/unetlab/addons/qemu/vtmgmt-{version}
 > Aregla los permisos
 ```
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
-```
-
-## OcNOS
-
-> [!TIP] Lecturas Recomendadas
-> [VM Demo Gratuitas con Registro](https://www.ipinfusion.com/free-software-demos/ocnos-eve/) - PSST: Puedes poner info falsa, no verifica nada
-> [IPinfusion SP Docs 7.x](https://documentation.ipinfusion.com/ocnos-sp-release-notes-7.0/Content/Home.htm)
-> [Youtube - Zero to Hero Course](https://www.youtube.com/playlist?list=PLMeBQ51gYDADN31R_Wga3VnOTvePIGR_4)
-
-Creada por IPinfusion, la version mas nueva que vi es OcNOS-SP-PLUS-x86-7.0.0-262
-
-Antes era ZebOS VTY :P
-
-> YAML
-```
-##############################################################################
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-# DISCLAIMED. IN NO EVENT SHALL IP Infusion BE LIABLE FOR ANY
-# DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-# (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-# LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-# ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-# SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
----
-type: qemu
-description: OcNOS Virtual Machine
-name: ocnos
-cpulimit: 1
-icon: Ocnos.png
-cpu: 2
-ram: 4096
-ethernet: 6
-eth_name:
-- eth0
-eth_format: eth{1}
-console: vnc
-shutdown: 1
-qemu_arch: x86_64
-qemu_version: 2.12.0
-qemu_nic: virtio-net-pci
-qemu_options: -machine type=pc,accel=kvm -vga std -serial mon:stdio -usbdevice tablet -boot order=cd
-...
 ```
 
 ## Extreme Networks
@@ -699,13 +691,14 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/bigip-{versi
 
 ## Fortinet
 
-TODO: Revisa estos links
-- Fortinet OS | [Eve-NG Docs](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-fortinet-images/) | [Fortinet Docs](https://docs.fortinet.com/) | [Fortinet Training](https://training.fortinet.com/) | [Fortinet Community](https://community.fortinet.com/) | [Fortinet Video](https://video.fortinet.com/)
-
 > [!IMPORTANT] Documentacion Recomendada
-> - EVE-NG Docs - [Howto add Fortinet Images](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-fortinet-images/)
+> - [EVE-NG Docs - Fortinet](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-fortinet-images/)
+> - [Fortinet Docs](https://docs.fortinet.com/)
+> - [Fortinet Training](https://training.fortinet.com/)
+> - [Fortinet Video](https://video.fortinet.com/)
+> - [Fortinet Community](https://community.fortinet.com/)
+> 	- [How to run a real-time Wireshark inside FortiGate](https://community.fortinet.com/t5/FortiGate/Technical-Tip-How-to-run-a-real-time-Wireshark-capture-on/ta-p/213805)
 > - [Github - hegdepavankumar/Fortigate-Firewall-Complete-Guide](https://github.com/hegdepavankumar/Fortigate-Firewall-Complete-Guide) | [Web Version](https://hegdepavankumar.github.io/Fortigate-Firewall-Complete-Guide/)
-> - [Fortinet Community - How to run a real-time Wireshark inside FortiGate](https://community.fortinet.com/t5/FortiGate/Technical-Tip-How-to-run-a-real-time-Wireshark-capture-on/ta-p/213805)
 > - [Reddit - Tricks and tips for new and old players](https://old.reddit.com/r/fortinet/comments/lnxv0h/fgtfazfmg_tricks_and_tips_for_new_and_old_players/)
 
 > [!TIP] Significado Nombres
@@ -762,34 +755,98 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/fortinet-FND
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
-## Hillstone SG6000
-> [!WARNING] Modelos Soportados
-> Segun leo, solo existe configuracion para un firewall, se documenta sobre CloudEdge
+## Hillstone
+> [!WARNING] Sobre uso de lab
+> Es un vendor Chino, y segun tengo entendido, te deja utilizarlo por 30 dias y luego se autodestruye, asi que puede ser un poco incomodo para laboratorios que duren mas de 30 segundos. Pero tendria que probarlo
 
 > [!IMPORTANT] Documentacion Recomendada
-> - [EVE-NG Docs - HowTo add Hillstone Firewall](https://www.eve-ng.net/index.php/documentation/howtos/hillstone-firewall/)
+> - [Passport Hillstone - Registrar Cuenta](https://passport.hillstonenet.com/Account/Register)
+> - [Hillstone Images - Login](https://images.hillstonenet.com/index/user/login.html)
+> - [Docs Tecnicos](https://docs.hillstonenet.com/web/) | [Chino (Mas completos)](https://docs.hillstonenet.com.cn/web/)
 
-> [!NOTE] Sesion defecto
+Debes crearte una cuenta y verificarla desde el correo, y luego iniciar sesion en el portar de imagenes, alli ya puedes descargar las ultimas versiones de cada imagen
+
+Tambien EVE-NG solo tiene consideracion por un tipo de imagen, asi que supongo que se utilizara el selector, deberia de funcionar de igual forma
+
+### CloudEdge
+
+> [!IMPORTANT] Documentacion Recomendada
+> - [EVE-NG Docs - Hillstone](https://www.eve-ng.net/index.php/documentation/howtos/hillstone-firewall/)
+> - [Hillstone - CloudEdge Firewall Showcase](https://www.hillstonenet.com/products/cloud-protection/cloud-security-cloudedge/)
+> - [Hillstone Images - CloudEdge NGFW](https://images.hillstonenet.com/index/index/content?cid=59)
+> - [Hillstone Docs (CN) - NGFW A/B Series](https://docs.hillstonenet.com.cn/web/doc-list/30) | [En (A Series)](https://docs.hillstonenet.com/web/doc-list/13) | [En (E Series)](https://docs.hillstonenet.com/web/doc-list/14)
+
+> [!NOTE] Nombre Imagen
+> - Carpeta Hillstone CloudEdge: `hillstone-sg6000-{version}`
+> 	- Disco QEMU: `hda`
 > - Login
 > 	- User: `hillstone`
 > 	- Pass: `hillstone`
 
-**CloudEdge, vADC, VW**
-> [!NOTE] Nombre Imagen
-> - Carpeta Hillstone CloudEdge: `hillstone-sg6000-{version}`
-> 	- Disco QEMU: `virtioa`
+La ultima version que encontre fue
+- `SG6000-CloudEdge-5.5R12P2.44-v6.qcow2 - Tamaño: 268,2 MB - Última actualización: 30/06/2026 17:53:24`
 
-> Crea Carpeta
+> Crear carpeta para CloudEdge
 ```
-mkdir /opt/unetlab/addons/qemu/hillstone-sg6000-{version}
+mkdir /opt/unetlab/addons/qemu/hillstone-sg6000-CloudEdge-{version}
 ```
 
-> Mover el archivo
+> Mueve el archivo
 ```
-rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/hillstone-sg6000-{version}/
+rsync -Phvr SG6000-CloudEdge-5.5R12P2.44-v6.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/hillstone-sg6000-CloudEdge-{version}/hda.qcow2
 ```
 
-> Arreglar permisos
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+### vADC
+> [!IMPORTANT] Documentacion Recomendada
+> - [EVE-NG Docs - Hillstone](https://www.eve-ng.net/index.php/documentation/howtos/hillstone-firewall/)
+> - [Hillstone - vADC Showcase](https://www.hillstonenet.com/products/application-protection/application-delivery-controller/)
+> - [Hillstone Images - vADC AX Series](https://images.hillstonenet.com/index/index/content?cid=81)
+> - [Hillstone Docs (CN) - vADC](https://docs.hillstonenet.com.cn/web/doc-list/28) | [En](https://docs.hillstonenet.com/web/doc-list/9)
+
+Yo encontre
+- `SG6000-vADC-5.5R12-5.0-v6.qcow2 - Tamaño: 309,9 MB - Última actualización: 28/05/2026 22:26:44`
+
+> Crear carpeta para vADC
+```
+mkdir /opt/unetlab/addons/qemu/hillstone-sg6000-vADC-{version}
+```
+
+> Mueve el archivo
+```
+rsync -Phvr SG6000-vADC-5.5R12-5.0-v6 root@{ip-server}:/opt/unetlab/addons/qemu/hillstone-sg6000-vADC-{version}/hda.qcow2
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+### vIPS
+> [!IMPORTANT] Documentacion Recomendada
+> - [EVE-NG Docs - Hillstone](https://www.eve-ng.net/index.php/documentation/howtos/hillstone-firewall/)
+> - [Hillstone - NIPS/DIPS Showcase](https://www.hillstonenet.com/products/network-edge-protection/network-intrusion-prevention-system/)
+> - [Hillstone Image - NIPS/DIPS A.K.A vIPS](https://images.hillstonenet.com/index/index/content?cid=60)
+> - [Hillstone Docs (CN) - NIPS](https://docs.hillstonenet.com.cn/web/doc-list/33) | [En](https://docs.hillstonenet.com/web/doc-list/16)
+
+Yo encontre
+- `SG6000-vIPS-5.5R12-6.2-v6.qcow2 - Size: 288.6 MB - Última actualización: 2026-03-25 14:29:11`
+
+> Crear carpeta para vIPS
+```
+mkdir /opt/unetlab/addons/qemu/hillstone-sg6000-vIPS-{version}
+```
+
+> Mueve el archivo
+```
+rsync -Phvr SG6000-vIPS-5.5R12-6.2-v6 root@{ip-server}:/opt/unetlab/addons/qemu/hillstone-sg6000-vIPS-{version}/hda.qcow2
+```
+
+> Arregla los permisos
 ```
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
@@ -980,6 +1037,18 @@ Seleccionas "Internet" y deberia estar
 
 Luego que se instale, apagas la maquina, haces la magia del pod, y haces commit a la imagen
 
+### Uso de Contenedores
+
+EVE-NG Community no permite crear nodos Docker Nativos, pero eso no significa que Docker (o incluso Kubernetes) no funcionen. La solucion que veo es tratar al contenedor como lo que es: Software que corre sobre Linux, y Linux si es un nodo normal de EVE-NG.
+
+La idea es construir una imagen base reutilizable:
+1. Crea un nodo con la distribucion Linux de tu eleccion y conectalo temporalmente a `Cloud0` (o la red management bridge que desees) para que tenga salida directa a internet.
+2. Realiza la instalacion normal de la distro
+3. Instala los paquetes necesarios, como Docker, containerd, kubeadm o lo que desees
+4. Una vez lista, apaga el nodo y haz commit de la imagen, ahora esa es tu plantilla base
+
+Una vez que tengas tu nodo clonado y listo para la topologia, si necesitas imagenes adicionales de contenedores, desconectalo de la red del lab, conectalo temporalmente de vuelta a `Cloud0`, haz pull de lo que necesites, apaga el nodo y reconectalo a la topologia. De esta forma el lab no necesita conectividad permanente a internet y puedes explorar el comportamiento de los contenedores sin tener que tener una via a internet directa
+
 ## MS Windows
 (WIP)
 ### MS Win Host (Win XP, 7, 8.1, 10, 11)
@@ -1048,18 +1117,14 @@ Okey, es posible instalarlo y hacerlo funcionar, pero las capacidades Wireless n
 
 
 ## OPNsense
-(WIP)
 > [!IMPORTANT] Documentacion Recomendada
 > - [EVE-NG Docs - HowTo add OPNsense](https://www.eve-ng.net/index.php/documentation/howtos/opnsense-firewall/)
 > - [Pagina Oficial](https://opnsense.org/)
 
 > [!NOTE] Nombre Imagen
-> - Carpeta OPNsense: `???-{version}`
-> 	- Disco QEMU: `???`
-> - Default Login CLI
-> 	- User: `root`
-> 	- Pass: `opnsense`
-> - Default Login Web
+> - Carpeta OPNsense: `opnsense-{version}`
+> 	- Disco QEMU: `virtioa`
+> - Default Login CLI y Web
 > 	- User: `root`
 > 	- Pass: `opnsense`
 
@@ -1072,18 +1137,41 @@ Se debe pasar la cdrom.iso, crear un disco de 15G, e instalar OPNsense
 
 Luego que se termine de instalar, detienes la maquina, eliminas el cdrom y haces commit a la imagen
 
-
 ## Palo Alto
-(WIP)
 > [!IMPORTANT] Documentacion Recomendada
-> - [Eve-NG Docs](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-palo-alto/)
+> - [Eve-NG Docs - Palo Alto](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-palo-alto/)
+> - [Endoflife - PAN-OS](https://endoflife.date/panos)
 
 > [!NOTE] Nombre Imagen
-> - Carpeta Palo Alto: `???-{version}`
-> 	- Disco QEMU: `???`
+> - Carpeta Palo Alto: `paloalto-{version}`
+> 	- Disco QEMU: `virtioa`
+> - Login
+> 	- User: `admin`
+> 	- Pass: `admin`
 
+Encontre la version 11.2.5
+
+Si eres mas exotico esta la version [Sysin - PAN-OS 12.1.7 KVM](https://sysin.org/blog/pan-os-12/) for 5USD in Alipay...
+
+> Crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/paloalto-{version}
+```
+
+> Envia el Qcow2 al servidor
+```
+rsync -Phvr PA-VM-KVM-{version}.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/PA-VM-KVM-{version}/virtioa.qcow2
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
 
 ## PFsense
+
+Prefiere [[#OPNsense]]
+
 > [!WARNING] Pobre NetGate
 > Fuentes
 > - [Netgate Blog - Release PFsense CE 2.8.0](https://www.netgate.com/blog/netgate-releases-pfsense-community-edition-version-2.8.0)
@@ -1176,24 +1264,156 @@ rm -f cdrom.iso
 ```
 
 ## Juniper
-La verdad es que tampoco he probados estos
 
-- Juniper Apstra AOS Server | [Eve-NG Docs](https://www.eve-ng.net/index.php/documentation/howtos/juniper-apstra-aos-server/) | [Support Downloads](https://support.juniper.net/support/downloads/?p=afc)
-- Juniper Vjunos EX Switch | [Eve-NG Docs](https://www.eve-ng.net/index.php/documentation/howtos/vjunos-ex-switch/) | [Support Downloads](https://support.juniper.net/support/downloads/?p=vjunos)
-- Juniper Vrouter | [Eve-NG Docs](https://www.eve-ng.net/index.php/documentation/howtos/vjunos-router/) | [Support Downloads](https://support.juniper.net/support/downloads/?p=vjunos-router)
-- Juniper vSRX 3.0 | [Eve-NG Docs](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-juniper-vsrx-ng-15-x-and-later/) | [Support Downloads](https://support.juniper.net/support/downloads/?p=vsrx3)
+> [!TIP] Documentacion Recomendada
+> - [Juniper Learning Portal - Open Learning](https://learningportal.juniper.net/juniper/user_activity_info.aspx?id=JUNIPER-OPEN-LEARNING)
 
-### vJunosEVO
-(WIP)
+Hay unos reemplazos que aclaran el panorama, los viejos son considerados EOL
+- vMX -> vJunos Router or Evolved
+- vQFX -> vJunos EX Switch
+- vSRX -> vSRX 3.0
 
-- Juniper Vjunos EVO Router | [Eve-NG Docs](https://www.eve-ng.net/index.php/documentation/howtos/juniper-vjunos-evo-router/) | [Support Downloads](https://support.juniper.net/support/downloads/?p=vjunos-evolved)
+No considero el uso de Apstra AOS ni SDWAN 128T
 
+### vJunos Router
 > [!IMPORTANT] Documentacion Recomendada
-> - 
+> - [EVE-NG Docs - vJunos-Router](https://www.eve-ng.net/index.php/documentation/howtos/vjunos-router/)
+> - [Juniper Support - Download vJunos-Router](https://support.juniper.net/support/downloads/?p=vjunos-router): Seleccionar el OS "vJunos-Router"
+> - [Juniper Docs](https://www.juniper.net/documentation/)
+> 	- [vJunos-Router Docs](https://www.juniper.net/documentation/product/us/en/vjunos-router/)
+> 	- [vJunos-Router HW requirements](https://www.juniper.net/documentation/us/en/software/vjunos-router/vjunos-router-kvm/topics/vjunos-router-kvm-hw-requirements.html)
 
 > [!NOTE] Nombre Imagen
-> - Carpeta vJunosEVO: `???-{version}`
-> 	- Disco QEMU: `???`
+> - Carpeta vJunos-Router: `vjunosrouter-{version}`
+> 	- Disco QEMU: `virtioa`
+> - Login
+> 	- User: `root`
+> 	- Pass: N/A
+
+Este es un Router Clasico de proposito general para laboratorios donde trabajes con BGP, OSPF, MPLS basico, con un comportamiento basado en vMX
+
+Descarga la ultima version disponible, en mi caso `26.2R1`
+
+> En el servidor crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/vjunosrouter-{version}
+```
+
+> Envia la imagen Qcow2 descargada
+```
+rsync -Phvr vjunosrouter-{version}.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vjunosrouter-{version}/virtioa.qcow2
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+### vJunos Evolved
+> [!IMPORTANT] Documentacion Recomendada
+> - [Eve-NG Docs - vJunos Evolved Router](https://www.eve-ng.net/index.php/documentation/howtos/juniper-vjunos-evo-router/)
+> - [Juniper Support - Download vJunos Evolved](https://support.juniper.net/support/downloads/?p=vjunos-evolved)
+> - [Juniper Docs](https://www.juniper.net/documentation/)
+> 	- [vJunos Evolved Docs](https://www.juniper.net/documentation/product/us/en/vjunosevolved/)
+> 	- [vJunos Evolved HW Requeriments](https://www.juniper.net/documentation/us/en/software/vJunosEvolved/vjunos-evolved-kvm/topics/vjunos-evolved-hw-sw-requirements.html)
+> - [Juniper Community - Shalini Mukherjee - Deploying and Using vJunos in a Bare Metal EVE-NG server](https://community.juniper.net/blogs/shalini-mukherjee/2023/05/11/deploying-vjunos-in-a-bare-metal-eve-ng-server)
+
+> [!NOTE] Nombre Imagen
+> - Carpeta vJunos Evolved: `vjunosevo-{version}`
+> 	- Disco QEMU: `virtioa`
+> - Login
+> 	- User: `root`
+> 	- Pass: N/A
+
+Orientado a laboratorios modernos con eVPN o VXLAN mas cercano a Junos OS
+
+vJunos-Evolved se construye tomando como referencia el PTX10001-36MR
+
+> Crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/vjunosevo-{version}
+```
+
+> Envia el Qcow2 al servidor
+```
+rsync -Phvr vjunosevo-{version}.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vjunosevo-{version}/virtioa.qcow2
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+NOTA: Debes leer la documentacion de EVE-NG, debes crear 4 enlaces con nombres especificos para que pueda reconocer las interfaces correctamente
+```
+For **EVE Community** you need to add **two new bridge networks** per node named ‘RPIO’ and ‘PFE’, as seen below, and connect it to the node via dual links. These PFE and RPIO bridges are required for vJunosEvolved to map virtual eth interfaces correctly.
+```
+
+### vJunos EX Switch
+> [!IMPORTANT] Documentacion Recomendada
+> - [Eve-NG Docs - vJunos EX Switch](https://www.eve-ng.net/index.php/documentation/howtos/vjunos-ex-switch/)
+> - [Juniper Support - Download vJunos EX Switch](https://support.juniper.net/support/downloads/?p=vjunos)
+> - [Juniper Docs](https://www.juniper.net/documentation/)
+> 	- [vJunos-Switch Docs](https://www.juniper.net/documentation/product/us/en/vjunos-switch/)
+> 	- [vJunos-Switch Architecture](https://www.juniper.net/documentation/us/en/software/vJunos/vjunos-switch-deployment-guide-for-kvm/vJunos-switch-kvm/topics/vJunos-switch-architecture-concept.html)
+
+> [!NOTE] Nombre Imagen
+> - Carpeta vJunos EX Switch: `vjunosswitch-{version}`
+> 	- Disco QEMU: `virtioa`
+> - Login
+> 	- User: `root`
+> 	- Pass: N/A
+
+> Crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/vjunosswitch-{version}
+```
+
+> Envia el Qcow2 al servidor
+```
+rsync -Phvr vjunosswitch-{version}.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vjunosswitch-{version}/virtioa.qcow2
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+> NOTA: Este switch se apaga desde CLI antes de apagarlo desde la WEBUI
+```
+request system power-off
+```
+
+### vSRX 3.0
+> [!IMPORTANT] Documentacion Recomendada
+> - [Eve-NG Docs - vSRX 3.0 or Later](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-juniper-vsrx-ng-15-x-and-later/)
+> - [Juniper Support - Download vSRX 3.0](https://support.juniper.net/support/downloads/?p=vsrx3)
+> - [Juniper Docs](https://www.juniper.net/documentation/)
+> 	- [vSRX Docs](https://www.juniper.net/documentation/product/us/en/vsrx/)
+> 	- [SW Licenses for vSRX vFirewall](https://www.juniper.net/documentation/us/en/software/license/juniper-licensing-user-guide/topics/concept/licenses-for-vsrx.html)
+> 	- [Requeriments for vSRX vFirewall on KVM](https://www.juniper.net/documentation/us/en/software/vsrx/vsrx-consolidated-deployment-guide/vsrx-kvm/topics/concept/security-vsrx-system-requirement-with-kvm.html)
+
+> [!NOTE] Nombre Imagen
+> - Carpeta Juniper vSRX: `vsrxng-{version}`
+> 	- Disco QEMU: `virtioa`
+
+vSRX 3.0 es la version virtualizada de los Firewall SRX de Juniper, por lo que tiene la misma CLI y Junos OS que el HW fisico. Trabaja con zonas de seguridad (trust, untrust, dmz) y politicas entre zonas. SIn licencia puedes usar todo lo Standard, que es Stateful Firewall, NAT, VPN, IPsec/SSL y routing. las funciones avanzadas como IPS, antivirus y filtrado web necesitan una licencia para utilizarse, de igual forma, un laboratorio no necesita ser tan fancy.
+
+> Crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/vsrxng-{version}
+```
+
+> Envia el Qcow2 al servidor
+```
+rsync -Phvr junos-vsrx3-{version}.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vsrxng-{version}/virtioa.qcow2
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
 
 ## VyOS
 > [!IMPORTANT] Documentacion Recomendada
@@ -1306,6 +1526,53 @@ rm cdrom.iso
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
+## OcNOS
+
+> [!TIP] Lecturas Recomendadas
+> [VM Demo Gratuitas con Registro](https://www.ipinfusion.com/free-software-demos/ocnos-eve/) - PSST: Puedes poner info falsa, no verifica nada
+> [IPinfusion SP Docs 7.x](https://documentation.ipinfusion.com/ocnos-sp-release-notes-7.0/Content/Home.htm)
+> [Youtube - Zero to Hero Course](https://www.youtube.com/playlist?list=PLMeBQ51gYDADN31R_Wga3VnOTvePIGR_4)
+
+Creada por IPinfusion, la version mas nueva que vi es OcNOS-SP-PLUS-x86-7.0.0-262
+
+Antes era ZebOS VTY :P
+
+No esta soportado por EVE-NG, por lo que debes agregarlo a mano
+
+> YAML
+```
+##############################################################################
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL IP Infusion BE LIABLE FOR ANY
+# DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+# (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+# LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+# ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+# SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+---
+type: qemu
+description: OcNOS Virtual Machine
+name: ocnos
+cpulimit: 1
+icon: Ocnos.png
+cpu: 2
+ram: 4096
+ethernet: 6
+eth_name:
+- eth0
+eth_format: eth{1}
+console: vnc
+shutdown: 1
+qemu_arch: x86_64
+qemu_version: 2.12.0
+qemu_nic: virtio-net-pci
+qemu_options: -machine type=pc,accel=kvm -vga std -serial mon:stdio -usbdevice tablet -boot order=cd
+...
+```
+
 ## Comprimir imagenes
 
 Si funciona la version comprimida, puedes borrar el original
@@ -1347,13 +1614,69 @@ En caso de fallar por ejemplo Putty al iniciar, deberas modificar un archivo .re
 ## Actualiza Templates
 
 > [!TIP] Lecturas Recomendadas
+> - [EVE-NG Docs - Update Template](https://www.eve-ng.net/index.php/documentation/howtos/template-icons-and-config-scripts-update-from-git/)
 > - [Gitlab - eve-ng-dev](https://gitlab.com/eve-ng-dev)
 
-WIP la verdad
+> Ve a la carpeta de templates
+```
+cd /opt/unetlab/html/
+```
+
+> Evita cagasos
+```
+mv templates templates.bak
+```
+
+> Clona el repositorio desde Gitlab
+```
+git clone https://gitlab.com/eve-ng-dev/templates.git
+```
+
+> Ve a los Config Script
+```
+cd /opt/unetlab/
+```
+
+> Evita Cagasos
+```
+mv config_scripts config_script.bak
+```
+
+> Clona el repositorio desde Github
+```
+git clone https://gitlab.com/eve-ng-dev/config_scripts.git
+```
+
+> Ve a la carpeta principal
+```
+cd
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
 
 ## Importar y Exportar
 
 Para que los laboratorios funcionen, debes tener siempre las mismas imagenes se utilizaron al exportar
+
+## Ideas de Laboratorio
+
+**HA en K8s**
+
+Un cluster de Kubernetes (K8s) en alta disponibilidad requiere minimo tres nodos para el control plane, de forma que si uno cae, el cluster sigue operando sin intervencion manual. EVE-NG simula tener esos 3 dispositivos interconectados
+
+Asi que creas 3 VMs Linux como nodos del cluster mas un nodo controlador, todos conectados entre si dentro de la topologia.
+
+Algo interesante es que al hacerlo en EVE-NG sobre QEMU es que puedes usar interfaces "`virtio-net`" y si tu NIC lo permite, utilizar offloading real, por lo que podrias explorar las funcionalidades de Cilium con XDP y eBPF.
+
+**Labs de Internet**
+> [!TIP] Lecturas Recomendadas
+> - [Github - hegdepavankumar/cisco-asa-firewall-training](https://github.com/hegdepavankumar/cisco-asa-firewall-training)
+
+Siempre hay ideas dando vueltas, cursos para certificaciones, etc.
+
 
 # Extra
 

@@ -10,9 +10,11 @@ Algunas ideas que te dejo
 
 > [!TIP] Lecturas recomendadas
 > - [Github - hegdepavankumar/eve-ng-labs](https://github.com/hegdepavankumar/eve-ng-labs)
+> - [Github - hegdepavankumar/cisco-asa-firewall-training](https://github.com/hegdepavankumar/cisco-asa-firewall-training)
 > - [Eve-NG Lab](https://www.eve-ng.net/index.php/lab-library/)
 > - [NetworkTut - TSHOOT 300-135 TT Eve-NG](https://www.networktut.com/practice-tshoot-tickets-with-packet-tracer)
 > - [Cisco CCIE Practice](https://learningnetwork.cisco.com/s/article/ccie-enterprise-infrastructure-practice-labs)
+
 
 > [!WARNING] Sobre Compatibilidad
 > Los laboratorios de EVE-NG PRO no son usualmente compatibles con EVE-NG Community
@@ -31,6 +33,23 @@ Tabla dispositivos CCIE
 | sw11, sw21, sw22, sw23                 | Catalyst C9324T | IOS-XE 17.9.x                   |
 | All other switches                     | vIOS-L2         | IOS 15.2, build 20200924:215240 |
 | vManage, vSmart, vBond                 | Viptela         | Viptela 20.9.x                  |
+
+
+## Ideas de Laboratorio
+
+**HA en K8s**
+
+Un cluster de Kubernetes (K8s) en alta disponibilidad requiere minimo tres nodos para el control plane, de forma que si uno cae, el cluster sigue operando sin intervencion manual. EVE-NG simula tener esos 3 dispositivos interconectados
+
+Asi que creas 3 VMs Linux como nodos del cluster mas un nodo controlador, todos conectados entre si dentro de la topologia.
+
+Algo interesante es que al hacerlo en EVE-NG sobre QEMU es que puedes usar interfaces "`virtio-net`" y si tu NIC lo permite, utilizar offloading real, por lo que podrias explorar las funcionalidades de Cilium con XDP y eBPF.
+
+**Labs de Internet**
+
+Siempre hay ideas dando vueltas, cursos para certificaciones, etc.
+
+
 
 
 **Routing y Switching Avanzado**

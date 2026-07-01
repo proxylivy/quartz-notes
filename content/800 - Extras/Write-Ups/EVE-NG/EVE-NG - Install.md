@@ -1,7 +1,7 @@
 # Info
 ## Introduccion
 
-EVE-NG (**E**mulated **V**irtual **E**nvironment - **N**ext **G**eneration) es una plataforma de emulacion de redes que permite virtualizar dispositivos como Router, Switches, Firewall, etc. utilizando imagenes reales de sus sistemas operativos.
+EVE-NG (**E**mulated **V**irtual **E**nvironment - **N**ext **G**eneration) es una plataforma de emulacion de redes que permite virtualizar dispositivos como Router, Switches, Firewall, Load Balancer, IDS/IPS, etc. utilizando imagenes reales de sus sistemas operativos.
 
 Si te interesa, tengo un articulo que habla mas en profundidad sobre la [[800 - Extras/Articulos/Historia de la Emulacion|Historia de la Emulacion]]
 
@@ -27,26 +27,54 @@ Su modelo de licenciamiento se basa en 3 tiers descritos en la siguiente tabla
 Nos centraremos en la version "`Community`", los limites son
 - No soporta Nodos directos de Docker
 - Solo lo puede usar una persona a la vez
-- Solo puedes tener 63 nodos activos
+- Solo puedes tener 63 nodos activos en un laboratorio
 
 > [!WARNING] Notas sobre licencia y Docker
 > Mas al respecto: [Youtube - EVE-NG - EVE Pro embedded Docker Setup and Usage](https://www.eve-ng.net/index.php/documentation/howtos-video/eve-embedded-dockers-setup-and-usage/)
 > La edicion Community **no soporta Docker** directamente. Para utilizar utilizar contenedores integrados (Paquete `eve-ng-dind`), se necesita tener la version PRO o Learning Center.
-> Puedes ver un Workarround en [[#Uso de Docker]]
+> Puedes ver un Workarround en [[#Uso de Contenedores]]
 
 ## Requisitos del servidor
 > [!IMPORTANT] Documentacion Recomendada
 > - [Requisitos del sistema](https://www.eve-ng.net/index.php/documentation/installation/system-requirement/)
-> - [Calcular el Uso](https://www.eve-ng.net/index.php/download/#CALC)
+> 	- [Supported](https://www.eve-ng.net/index.php/supported-hardware-and-software-systems/)
+> 	- [Not Supported](https://www.eve-ng.net/index.php/not-supported-systems-or-hw/)
 > - [Cookbook](https://www.eve-ng.net/index.php/documentation/community-cookbook/)
 > 	- Hoja 10: 2.1.4 Dedicated Server BM system requirements
 
-Requisitos:
-- OS: Ubuntu Focal Fossa 22.04.X LTS (Bare-Metal) or VMware ESXi 6.7 minimum (Hipervisor tipo 1)
-- CPU: Intel Xeon con Soporte Intel VT-X/EPT(Extended Page Tables) or AMD-V/RVI | Recommended: 2x Intel E5-2650v4
-- Storage: M.2 PCIe > SSD Sata > HDD Sata (2TB or more)
-- RAM: 128GB or more
-- Motherboard: Support virtualize IOMMU options (Optional)
+> [!TIP] Sobre Hipervisores
+> - ESXi
+> 	- [Youtube - VirtualizationHowTo - VMware ESXi do first](https://www.youtube.com/watch?v=-1BMiYZfz38)
+> 	- [Youtube - NetworkChuck - VMware ESXi Setup and Install](https://www.youtube.com/watch?v=apC1bOLbzbY&t=822s)
+> 	- [Github - hegdepavankumar/VMware Workstation Pro 17 Licence Keys](https://github.com/hegdepavankumar/VMware-Workstation-Pro-17-Licence-Keys)
+> 	- [Github - hegdepavankumar/VMware-ESXI-Licese-Keys](https://github.com/hegdepavankumar/VMware-ESXi-License-Keys)
+> - Proxmox
+> 	- [Guia - Adam From The Future - Running EVE NG under Proxmox](https://adamfromthefuture.wordpress.com/2018/08/30/running-eve-ng-under-proxmox/)
+> 	- [Guia - Yzguy - EVE-NG in LXC on Proxmox](https://yzguy.dev/posts/eve-ng-in-lxc-on-proxmox/)
+> 	- [Youtube - Gerard O'Brien - EVE-NG on Proxmox](https://www.youtube.com/watch?v=BmuZHjkNCt0)
+
+**HW**
+- CPU: Debe soportar Intel VT-X/EPT (**E**xtended **P**age **T**ables) o AMD-V/RVI
+	- Recomendado: 2xE5-2650v4 
+- RAM: Entre mas RAM, mas maquinas, puede funcionar perfectamente con 16GB 
+	- Recomendado: 64GB o mas
+- Storage: De mejor a Peor M.2 PCIe > SSD Sata > HDD Sata. Algunas imagenes realmente llegan a ser muy pesadas
+	- Recomendado: 2TB o mas
+- Motherboard: El soporte IOMMU es opcional pero ayuda a mejorar la paravirtualizacion
+
+**SW**
+
+Existen 3 metodos para instalar que estan soportados
+- Bare-Metal: Utilizas el 100% del Servidor para EVE-NG, es el que menos problemas da, pero es muy poco flexible
+- Hipervisor Tipo 1: Es un OS base el cual su funcion es ejecutar otros OS encima
+	- VMware ESXi: ya no es gratuito, su licencia llega a los 1000USD anuales, la version minima es 6.7
+	- Proxmox: FOSS (Free and Open Source Software). 
+- Hipervisor Tipo 2: Es una aplicacion que se ejecuta sobre un OS base como Windows o Linux
+	- QEMU/KVM: Gratuito, Nativo del Kernel Linux
+	- VMware Player: Gratuito
+	- VMware Workstation: Pago
+
+Para la version EVE-NG Community, viene sobre Ubuntu Server Focal Fossa 22.04 LTS
 
 En el host donde manejas el WEBUI recuerda configurar las [[#Consolas Nativas]]
 
@@ -57,7 +85,7 @@ En el host donde manejas el WEBUI recuerda configurar las [[#Consolas Nativas]]
 > - [EVE-NG Docs - HowTos](https://www.eve-ng.net/index.php/documentation/howtos/)
 > - Las imagenes estan dando vueltas por internet, te recomiendo buscar, te doy unas pistas
 > 	- [Github ishare2-org](https://github.com/ishare2-org)
-> 		- [Labhub](https://labhub.eu.org/es/), o [Drive Labhub](https://drive.labhub.eu.org/0:/), o [Legacy Labhub](https://legacy.labhub.eu.org/0:/), o [Alist Labhub](https://alist.labhub.eu.org/), o [Beta Labhub (Down?)](https://beta.labhub.eu.org/)
+> 		- [Labhub](https://labhub.eu.org/es/), o [Drive Labhub](https://drive.labhub.eu.org/0:/), o [Legacy Labhub](https://legacy.labhub.eu.org/0:/), o [Alist Labhub](https://alist.labhub.eu.org/)
 > 	- [Github - hegdepavankumar/Cisco-Images-for-GNS3-and-EVE-NG](https://github.com/hegdepavankumar/Cisco-Images-for-GNS3-and-EVE-NG)
 
 Hay una gran variedad de imagenes, cambian sus funcionalidades segun el nombre que tengan, aqui tengo un pequeño Matrix, que muestra sus funciones
@@ -66,9 +94,8 @@ Hay una gran variedad de imagenes, cambian sus funcionalidades segun el nombre q
 | ------------------- | ------------ | ----------------- | ----------- | ---------------- | --------- | ------- |
 | Cisco               | ✓ IOS        | ✓ IOS L2          | ✓ ASAv      | ✗                | ✓ Viptela | ✓ NGIPS |
 | Fortinet            | ✓ FGT        | ✗                 | ✓ FGT       | ✓ FAD            | ✓ FGT     | ✓ FNDR  |
-| Huawei              | ✓ AR1k       | ✓ CE12800         | ✓ USG6kv    | ✗                | ✓ USG6kv  | ✓ WAF5k |
+| Huawei              | ✓ AR1000v    | ✓ CE12800         | ✓ USG6kv    | ✗                | ✗         | ✗       |
 | Juniper             | ✓ EVO        | ✓ EX              | ✓ vSRX 3.0  | ✗                | ✗         | ✗       |
-| Arista              | ✓ vEOS       | ✓ vEOS            | ✓ NGFW      | ✗                | ✗         | ✗       |
 | Extreme<br>Networks | ✓ VOSS       | ✓ EXOS            | ✗           | ✗                | ✗         | ✗       |
 | Hillstone           | ✗            | ✗                 | ✓ CloudEdge | ✓ vADC           | ✗         | ✓ vIPS  |
 | VyOS                | ✓            | ✓                 | ✓\*         | ✓\*              | ✗         | ✗       |
@@ -83,55 +110,64 @@ Hay una gran variedad de imagenes, cambian sus funcionalidades segun el nombre q
 
 **Detalle Imagenes Utilizadas**
 
-Cisco IOL image list:
-- Cisco IOL
+Cisco IOS image list:
+- Cisco IOS
 	- L2/L3 Switch: i86bi_linux_l2-adventerprisek9-ms.SSA.high_iron_20190423.bin (15.2 - 2019-04-23)
 	- L2/L3 Switch: i86bi_LinuxL2-AdvEnterpriseK9-M_152_May_2018.bin (15.2 - 2018-05-10)
 	- L3 Router and PC: i86bi_LinuxL3-AdvEnterpriseK9-M2_157_3_May_2018.bin (15.7 - 2018-05-10)
-	- L3 XE Router 64 bits: x86_64_crb_linux-adventerprisek9-ms.bin (17.16.1)
-	- L2/L3 XE Switch 64 bits: x86_64_crb_linux_l2-adventerprisek9-ms.bin (17.16.1)
+- Cisco IOS XE - [Free with Registration](https://developer.cisco.com/docs/modeling-labs/cml-free/)
+	- L3 XE Router (64 bits): x86_64_crb_linux-adventerprisek9-ms.bin (17.18.1)
+	- L2/L3 XE Switch (64 bits): x86_64_crb_linux_l2-adventerprisek9-ms.bin (17.18.1)
 
 QEMU image list:
 - Aruba AOS-CX 10.18 - [Free with Registration in HPE](https://networkingsupport.hpe.com/globalsearch#q=AOS-CX%20OVA&tab=Software&sortCriteria=date%20descending)
 - Cisco
-	- ASAv-9.22.1.1-PLR-Licenced
-	- c9800cl-17.17.01
+	- ASAv-9.22.1.1-PLR-Licenced - [Free with Registration](https://developer.cisco.com/docs/modeling-labs/cml-free/)
 	- CSR1000vng-universalk9.17.03.05-serial
 	- CSR1000v-universalk9.17.03.08a-serial
-- Cisco vIOS Router
-	- vios-adventerprisek9-m.SPA.159-3.M6 (Slow)
-- Cisco vIOS Switch
-	- viosl2-adventerprisek9-m.ssa.high_iron_20200929 (Slow)
+- Cisco vIOS - [Free with Registration](https://developer.cisco.com/docs/modeling-labs/cml-free/)
+	- Router: vios-adventerprisek9-m.SPA.159-3.M6
+	- Switch: viosl2-adventerprisek9-m.ssa.high_iron_20200929
 - Extreme Networks
 	- ExtremeVOSS 9.4.0.0 - [Free](https://github.com/extremenetworks/Virtual_VOSS)
 	- ExtremeXOS 33.6.1.14 - [Free](https://github.com/extremenetworks/Virtual_EXOS)
-- F5 BigIP 17.5.0-0.0.15
+- F5 BigIP 21.1.0-0.0.38 - [Free with Registration](https://my.f5.com/manage/s/downloads)
+- Freebsd 15.2 - [Open Source](https://www.freebsd.org/)
 - Fortinet
 	- FAC (FortiAuthentication) 6.6.2
 	- FGT (Fortigate) 7.6.2.F-build3462
 	- FNDR (Forti Network Detection and Response) v7.4-build0520
-- Freebsd 14.2 [Open Source](https://www.freebsd.org/)
-- Hillstone SG6000
-	- CloudEdge 5.5R11P3.4-v6
-	- vADC 5.5R10-4.2.3-v6
-	- VW 5.5R8-3.6.2-v6
+- Hillstone SG6000 - [Free with Registration](https://images.hillstonenet.com/index/user/login.html)
+	- CloudEdge-5.5R12P2.44-v6
+	- vADC-5.5R12-5.0-v6
+	- vIPS-5.5R12-6.2-v6
 - Huawei
+	- AR1000 5.170-V300R022C00SPC100
 	- NE40e
 	- CE12800
-	- AR1000 5.170-V300R022C00SPC100
 	- USG6000kv 5.1.7-2018
-	- WAF5000k VV200R001C00
 - Linux
-	- Alpine 3.19.1 - [Open Source](https://www.alpinelinux.org/)
+	- Alpine Linux 3.24.1 - [Open Source](https://www.alpinelinux.org/)
 	- Arch Linux - [Open Source](https://archlinux.org/)
+	- Rocky Linux 8.10 - [Open Source](https://rockylinux.org/)
+	- Ubuntu Server 26.04 LTS - [Open Source](https://ubuntu.com/download/server)
+	- Kali Linux 2026.02 - [Open Source](https://www.kali.org/get-kali/)
+	- Issabel 5 - [Open Source](https://www.issabel.org/)
+- MS Windows
+	- Host (XP, 7, 10, 11)
+	- Server (2008-2025)
 - Microtik RouterOS 7.18.2 - [Free](https://mikrotik.com/download)
-- IP Fusion OcNOS 7.0.0 - [Free Demos with registration](https://www.ipinfusion.com/free-software-demos/) (Psst: Pon informacion falsa)
 - OpenWRT 25.12.4 - [Open Source](https://openwrt.org/)
 - OPNsense 25.1 - [Open Source](https://opnsense.org/)
 - Palo Alto 11.2.5
 - PfSense-pfs 2.7.2 - [Open Source](https://atxfiles.netgate.com/mirror/downloads/)
-- vJunosEVO 24.4R1.8
+- Juniper - [Free With Registration](https://support.juniper.net/support/downloads/)
+	- vJunos Router 26.2R1
+	- vJunos Evolved 26.2R1-EVO
+	- vJunos EX Switch 26.2R1
+	- vSRX 3.0 26.2R1
 - Vyos 1.5 Rolling Release - [Open Source](https://vyos.net/) - [Changelog](https://github.com/vyos/vyos-nightly-build/releases)
+- IP Fusion OcNOS 7.0.0 - [Free Demos with registration](https://www.ipinfusion.com/free-software-demos/) (Psst: Pon informacion falsa)
 - Virtual PC (VPCS) - [Open Source](https://github.com/GNS3/vpcs)
 
 # Fase 1: Instalacion de EVE-NG
@@ -412,7 +448,11 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/arubacx-{ver
 ### ASAv
 
 > [!IMPORTANT] Documentacion Recomendada
-> - [EVE-NG Docs - HowTo add Cisco ASAv](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-cisco-asav/)
+> - [EVE-NG Docs - Cisco ASAv](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-cisco-asav/)
+> - [Cisco CML-Free Docs](https://developer.cisco.com/docs/modeling-labs/cml-free/#installing-cml-free)
+> - [Cisco Meraki - CML Free Register](https://mkto.cisco.com/cml-opt-in.html)
+> - [Cisco Software](https://software.cisco.com/download/home/)
+> 	- [CML Free](https://software.cisco.com/download/home/286193282/type/286326381/release/CML-Free)
 
 > [!NOTE] Nombre Imagen
 > - Carpeta ASAv: `asav-{version}`
@@ -439,7 +479,11 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/asav-{versio
 ### Cisco vIOS (EX-VIRL)
 
 > [!IMPORTANT] Documentacion Recomendada
-> [EVE-NG Docs - HowTo add Cisco ViOS from virl](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-cisco-vios-from-virl/)
+> - [EVE-NG Docs - Cisco vIOS](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-cisco-vios-from-virl/)
+> - [Cisco CML-Free Docs](https://developer.cisco.com/docs/modeling-labs/cml-free/#installing-cml-free)
+> - [Cisco Meraki - CML Free Register](https://mkto.cisco.com/cml-opt-in.html)
+> - [Cisco Software](https://software.cisco.com/download/home/)
+> 	- [CML Free](https://software.cisco.com/download/home/286193282/type/286326381/release/CML-Free)
 
 > [!NOTE] Sobre Imagen
 > - Carpeta L3: `vios-{version}`
@@ -469,30 +513,6 @@ rsync -Phvr vios-{version}.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vios-
 > Cambia el nombre
 ```
 mv vios-{version}.qcow2 virtioa.qcow2
-```
-
-> Arregla los permisos
-```
-/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
-```
-
-### C9800CL
-> [!IMPORTANT] Documentacion Recomendada
-> - [EVE-NG Docs - HowTo add Cisco Wireless C9800CL](https://www.eve-ng.net/index.php/documentation/howtos/cisco-wireless-c9800-cl/)
-> - [JD-Networks Blog - C9800CL on EVE-NG](https://jd-networks.co.uk/blog/2019/09/30/cisco-9800-cl-on-eve-ng/)
-
-> [!NOTE] Nombre Imagen
-> - Carpeta Cisco Wireless C9800CL: `c9800cl-{version}`
-> 	- Disco QEMU: `virtioa`
-
-> Crea la carpeta
-```
-mkdir /opt/unetlab/addons/qemu/c9800cl-{version}
-```
-
-> Envia las imagenes a la carpeta
-```
-rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/asa-{version}/
 ```
 
 > Arregla los permisos
@@ -662,9 +682,10 @@ rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/extremexos-{vers
 ## F5 BigIP
 > [!IMPORTANT] Documentacion Recomendada
 > - [EVE-NG Docs - HowTo add F5 BigIP](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-f5-bigip/)
+> - [F5 - Registro Cuenta](https://account.f5.com/myf5/signin/register)
+> 	- [Descarga Imagenes](https://my.f5.com/manage/s/downloads)
 
 > [!NOTE] Nombre Imagen
-> Durante la instalacion, debes elegir VNC
 > - Carpeta Big IP: `bigip-{version}`
 > 	- Disco QEMU: `virtioa`
 > - CLI Login
@@ -674,9 +695,21 @@ rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/extremexos-{vers
 > 	- User: `admin`
 > 	- Pass: `admin`
 
+Registra e inicia sesion en una cuenta, luego ve al menu de Descarga y selecciona lo siguiente, siempre revisa versiones mas actuales
+- Group: BIG-IP
+- Product Line: BIG-IP v21.X
+- Producto Version: 21.1.0-LTS
+
+Yo descargue: `BIGIP-21.1.0-0.0.38.ALL.qcow2`
+
 > Crea la carpeta
 ```
 mkdir /opt/unetlab/addons/qemu/bigip-{version}
+```
+
+> Renombra el archivo
+```
+mv BIGIP-{version}.ALL.qcow2 virtioa.qcow2
 ```
 
 > Mueve la imagen
@@ -685,6 +718,53 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/bigip-{versi
 ```
 
 > Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+NOTA: Siguiendo este metodo tambien puedes conseguir BIG-IQ, que es un gestor de instancias, lo veo innecesario hacer una doble explicacion
+
+## Freebsd
+
+> [!IMPORTANT] Documentacion Recomendada
+> - [FreeBSD](https://www.freebsd.org/)
+> 	- [Releases](https://www.freebsd.org/releases/)
+> 	- [Newbies](https://www.freebsd.org/projects/newbies/)
+> 	- [Download FreeBSD](https://www.freebsd.org/where/)
+
+> [!NOTE] Nombre Imagen
+> - Carpeta Freebsd: `freebsd-{version}`
+> 	- Disco QEMU: `virtioa`
+
+EVE-NG no tiene documentacion oficial, pero esta en el template, asi que me imagino que deberia funcionar
+
+Debes descargar el instalador DVD1 para una instalacion offline, en mi caso `FreeBSD-15.1-RELEASE-amd64-dvd1.iso`
+
+> Renombra el archivo
+```
+mv FreeBSD-{version}-RELEASE-amd64-dvd1.iso cdrom.iso
+```
+
+> Envia la imagen al servidor
+```
+rsync -Phvr cdrom.iso root@{ip-server}:/opt/unetlab/addons/qemu/freebsd-{version}/
+```
+
+> Ve a la carpeta de Freebsd
+```
+cd /opt/unetlab/addons/qemu/freebsd-{version}
+```
+
+> Crea un disco de 10GB
+```
+/opt/qemu/bin/qemu-img create -f qcow2 virtioa.qcow2 10G
+```
+
+Crea un nodo e inicia la instalacion, cuando termines apaga la maquina
+
+Ahora deberas hacer [[#Commit al Qcow2]] y Elimina el disco
+
+> Nunca olvides arreglar los permisos para eve-ng
 ```
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
@@ -856,23 +936,185 @@ rsync -Phvr SG6000-vIPS-5.5R12-6.2-v6 root@{ip-server}:/opt/unetlab/addons/qemu/
 > - [Networking Hints Blog - Huawei NE40 and CE12800 on EVE-NG](https://networking-hints.blogspot.com/2021/01/huawei-ne40-12800-on-eve-ng.html)
 > - [Youtube - Deploy Huawei NE40E and CE12800 on EVE-NG](https://youtu.be/8XgdSGLODD4?si=TOyf1mVb7pr5LhUj)
 > - [KevinJin - Huawei in Eve-NG](https://www.kevinjin.com/posts/eve-ng/eve-ng/)
+> - [Youtube - Matheus Leal - Como importar Imagenes Huawei AR1K, NE40, CE12800 (Br)](https://youtu.be/fRoNEfALo90?si=PnDSDl8Yh01qXFSd)
+> 	- [Google Drive - EVE-NG](https://drive.google.com/drive/folders/1nlDACO-gKSIpSRcOuOcsncfOOcup7Q3E)
 
-### AR1000
+### AR1000v
 > [!IMPORTANT] Documentacion Recomendada
-> - [EVE-NG Docs - HowTo add Huawei AR1000v](https://www.eve-ng.net/index.php/documentation/howtos/huawei-ar1000v/)
+> - [EVE-NG Docs - Huawei AR1000v](https://www.eve-ng.net/index.php/documentation/howtos/huawei-ar1000v/)
 
 > [!NOTE] Nombre Imagen
 > - Carpeta Huawei AR1000: `huaweiar1k-{version}`
 > 	- Disco QEMU: `hda`
 
+Yo encontre: `huaweiar1k-5.170-V300R022C00SPC100-Auto-update-esn - 622.55M`
+
+Un Router de borde empresarial, equivalente a un AR fisico, VPN, routing, SD-WAN basico
+
 > Crea la carpeta
 ```
-mkdir /opt/unetlab/addons/qemu/huaweiar1k-5.170
+mkdir /opt/unetlab/addons/qemu/huaweiar1k-{version}
 ```
 
 > Mueve el archivo
 ```
 rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/huaweiar1k-{version}/
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+### NE40E
+> [!IMPORTANT] Documentacion Recomendada
+> - [Huawei Forums - NE40e image](https://forum.huawei.com/enterprise/intl/en/thread/ne40e-image-for-ensp-v100r003c00spc100/667245683289243648?blogId=667245683289243648)
+
+> [!NOTE] Nombre Imagen
+> - Carpeta Huawei NE40e: `huaweine40-{version}`
+> 	- Disco QEMU: `hda`
+
+Yo encontre: `? - 524.00M`
+
+Un router con aires mas de ISP, para MPLS, BGP y ese tipo de cosas
+
+> Crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/huaweine40-{version}
+```
+
+> Mueve el archivo
+```
+rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/huaweine40-{version}/
+```
+
+> YAML
+```
+---
+type: qemu
+description: Huawei NE40E
+name: NE40E
+cpulimit: 1
+icon: Router.png
+cpu: 2
+ram: 2048
+ethernet: 12
+console: telnet
+qemu_arch: x86_64
+qemu_options: -cpu host -machine type=pc-1.0,accel=kvm -serial mon:stdio -nographic -nodefconfig -nodefaults -rtc base=utc 
+eth_name:
+- eth0
+- eth1
+- 1/0/0
+- 1/0/1
+- 1/0/2
+- 1/0/3
+- 1/0/4
+- 1/0/5
+- 1/0/6
+- 1/0/7
+- 1/0/8
+- 1/0/9
+...
+```
+
+> Envia el template `huaweice12800.yaml` a Intel
+```
+rsync -Phvr ce.png root@{ip-server}:/opt/unetlab/html/templates/intel/
+```
+
+> Envia el template `huaweice12800.yaml` a AMD
+```
+rsync -Phvr ce.png root@{ip-server}:/opt/unetlab/html/templates/amd/
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+### CE12800
+> [!IMPORTANT] Documentacion Recomendada
+> - [Huawei Forums - Run CE12800 in EVE-NG](https://forum.huawei.com/enterprise/intl/en/thread/run-ce12800-ne40e-in-eve-ng/667237045992570881?blogId=667237045992570881)
+
+> [!NOTE] Nombre Imagen
+> - Carpeta Huawei CE12800: `huaweice12800-{version}`
+> 	- Disco QEMU: `hda`
+
+No esta el template en EVE-NG, asi que debes importarlo
+
+> Crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/huaweice12800-{version}
+```
+
+> Mueve el archivo
+```
+rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/huaweice12800-{version}/
+```
+
+> Envia el icono de `ce.png`
+```
+rsync -Phvr ce.png root@{ip-server}:/opt/unetlab/html/images/icons/
+``` 
+
+> Este es el YAML para que funcione
+```
+# Copyright (c) 2016, Andrea Dainese
+# Copyright (c) 2018, Alain Degreffe
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above copyright
+#       notice, this list of conditions and the following disclaimer in the
+#       documentation and/or other materials provided with the distribution.
+#     * Neither the name of the UNetLab Ltd nor  the name of EVE-NG Ltd nor the
+#       names of its contributors may be used to endorse or promote products
+#       derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> BE LIABLE FOR ANY
+# DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+# (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+# LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+# ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+# SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+---
+type: qemu
+description: Huawei CloudEngine 12800
+name: CE12800-CE
+cpulimit: 1
+icon: ce.png
+cpu: 2
+ram: 2048
+ethernet: 12
+eth_name:
+- MEth0/0/0
+- NULL0
+eth_format: GE1/0/{0}
+console: telnet
+shutdown: 1
+qemu_arch: x86_64
+qemu_version: 2.12.0
+qemu_nic: virtio-net-pci
+qemu_options:  -machine type=q35,accel=kvm -serial mon:stdio -nographic -nodefaults -rtc base=utc -cpu host 
+...
+```
+
+> Envia el template `huaweice12800.yaml` a Intel
+```
+rsync -Phvr huaweice12800 root@{ip-server}:/opt/unetlab/html/templates/intel/
+```
+
+> Envia el template `huaweice12800.yaml` a AMD
+```
+rsync -Phvr huaweice12800.yaml root@{ip-server}:/opt/unetlab/html/templates/amd/
 ```
 
 > Arregla los permisos
@@ -891,6 +1133,8 @@ rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/huaweiar1k-{vers
 > 	- User: `admin`
 > 	- Pass: `Admin@123`
 
+Yo encontre: `huaweiusg6kv-5.1.7-2018 - 728.52M`
+
 > Crea la carpeta
 ```
 mkdir /opt/unetlab/addons/qemu/huaweiusg6kv-{version}
@@ -906,23 +1150,86 @@ rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/huaweiusg6kv-{ve
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
-### NE40E
-(WIP)
-> [!IMPORTANT] Documentacion Recomendada
-> - [Huawei Forums - NE40e image](https://forum.huawei.com/enterprise/intl/en/thread/ne40e-image-for-ensp-v100r003c00spc100/667245683289243648?blogId=667245683289243648)
+### WAF5K
 
 > [!NOTE] Nombre Imagen
-> - Carpeta Huawei NE40e: `???-{version}`
-> 	- Disco QEMU: `???`
+> - Carpeta Huawei USG6000v: `huaweiwaf5k-{version}`
+> 	- Disco QEMU: `hda`
 
-### CE12800
-(WIP)
-> [!IMPORTANT] Documentacion Recomendada
-> - [Huawei Forums - Run CE12800 in EVE-NG](https://forum.huawei.com/enterprise/intl/en/thread/run-ce12800-ne40e-in-eve-ng/667237045992570881?blogId=667237045992570881)
+**W**eb **A**pplication **F**irewall, complemento del USG6000v
 
-> [!NOTE] Nombre Imagen
-> - Carpeta Huawei CE12800: `???-{version}`
-> 	- Disco QEMU: `???`
+Yo encontre: `huaweiwaf5k-VV200R001C00 - 754.18M`
+
+No esta en EVE-NG por lo que hay que agregar
+
+> Crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/huaweiwaf5k-{version}
+```
+
+> Mueve el archivo
+```
+rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/huaweiwaf5k-{version}/
+```
+
+> YAML `huaweiwaf5k.yaml`
+```
+# Copyright (c) 2016, Andrea Dainese
+# Copyright (c) 2018, Alain Degreffe
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above copyright
+#       notice, this list of conditions and the following disclaimer in the
+#       documentation and/or other materials provided with the distribution.
+#     * Neither the name of the UNetLab Ltd nor  the name of EVE-NG Ltd nor the
+#       names of its contributors may be used to endorse or promote products
+#       derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> BE LIABLE FOR ANY
+# DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+# (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+# LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+# ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+# SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+---
+type: qemu
+description: Huawei WAF5000
+name: HWAF5000
+cpulimit: 1
+icon: Firewall.png
+cpu: 2
+ram: 2048
+ethernet: 2
+console: vnc
+qemu_arch: x86_64
+qemu_version: 4.1.0
+qemu_nic: virtio-net-pci
+qemu_options: -machine type=pc,accel=kvm -vga std -usbdevice tablet -boot order=dc
+...
+```
+
+> Envia el template `huaweiwaf5k.yaml` a Intel
+```
+rsync -Phvr huaweiwaf5k.yaml root@{ip-server}:/opt/unetlab/html/templates/intel/
+```
+
+> Envia el template `huaweiwaf5k.yaml` a AMD
+```
+rsync -Phvr huaweiwaf5k.yaml root@{ip-server}:/opt/unetlab/html/templates/amd/
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
 
 ## Linux
 > [!IMPORTANT] Documentacion Recomendada
@@ -941,18 +1248,32 @@ rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/huaweiusg6kv-{ve
 
 > [!TIP] Lecturas Recomendadas
 > - [Sitio Oficial](https://www.alpinelinux.org/)
+> 	- [Descarga](https://www.alpinelinux.org/downloads/)
 
 > [!NOTE] Nombre Imagen
 > - Carpeta Alpine: `linux-alpine-{version}`
 > 	- Disco QEMU: `virtioa.qcow2`
-> - Login
-> 	- User: `alpine`
-> 	- Pass: `???`
+
+En el sitio de descarga, ve a la categoria "Virtual" y descarga la version "x86_64", en mi caso: `alpine-virt-{version}-x86_64.iso`
 
 > Crea la carpeta
 ```
 mkdir /opt/unetlab/addons/qemu/linux-alpine-{version}
 ```
+
+> Renombra el ISO
+```
+mv alpine-virt-{version}-x86_64.iso cdrom.iso
+```
+
+> Envia el archivo
+```
+rsync -Phvr cdrom.iso root@{ip-server}:/opt/unetlab/addons/qemu/linux-alpine-{version}/
+```
+
+Crea el nodo, instalalo y apagalo
+
+Recuerda que debes hacer [[#Commit al Qcow2]]
 
 > Arregla los permisos
 ```
@@ -960,7 +1281,7 @@ mkdir /opt/unetlab/addons/qemu/linux-alpine-{version}
 ```
 
 ### Arch Linux
-(WIP)
+
 > [!IMPORTANT] Documentacion Recomendada
 > - [Gitlab - archlinux/arch-boxes](https://gitlab.archlinux.org/archlinux/arch-boxes)
 > 	- [Fastly Mirro - Latest Image](https://fastly.mirror.pkgbuild.com/images/latest/)
@@ -975,7 +1296,7 @@ mkdir /opt/unetlab/addons/qemu/linux-alpine-{version}
 
 > Crea la carpeta
 ```
-mkdir /opt/unetlab/addons/qemu/linux-archlinux-20260615
+mkdir /opt/unetlab/addons/qemu/linux-archlinux-{version}
 ```
 
 > Descarga la ultima imagen Base
@@ -988,54 +1309,170 @@ wget https://fastly.mirror.pkgbuild.com/images/latest/Arch-Linux-x86_64-basic.qc
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
-
-### Freebsd
-(WIP)
+### Rocky Linux
 > [!IMPORTANT] Documentacion Recomendada
-> - 
+> - [Pagina Oficial](https://rockylinux.org/)
+> 	- [Descarga](https://rockylinux.org/download)
 
 > [!NOTE] Nombre Imagen
-> - Carpeta Freebsd: `asa-{version}`
-> 	- Disco QEMU: `hda`
+> - Carpeta Arch Linux: `Linux-RockyLinux-{version}`
+> 	- Disco QEMU: `virtioa`
 
-****
+Tienes 3 ramas para elegir
+- 8.10
+- 9.8
+- 10.2
+
+Descarga el DVD ISO desde la pagina oficial
+
+> Crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/linux-rockylinux-{version}
+```
+
+> Renombra el ISO
+```
+mv Rocky-{version}-x86_64-dvd.iso cdrom.iso
+```
+
+> Envia el archivo
+```
+rsync -Phvr cdrom.iso root@{ip-server}:/opt/unetlab/addons/qemu/linux-rockylinux-{version}/
+```
+
+Crea un nodo, conectalo a "Cloud0" y haz la instalacion y apagas la maquina
+
+Recuerda que debes hacer [[#Commit al Qcow2]]
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+### Ubuntu Server
+> [!IMPORTANT] Documentacion Recomendada
+> - [Pagina Oficial](https://ubuntu.com/)
+> 	- [Descarga Ubuntu Server](https://ubuntu.com/download/server)
+
+> [!NOTE] Nombre Imagen
+> - Carpeta Arch Linux: `Linux-Ubuntu-{version}`
+> 	- Disco QEMU: `virtioa`
+
+Descarga Ubuntu Server 26.04 LTS
+
+> Crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/linux-ubuntuserver-{version}
+```
+
+> Renombra el ISO
+```
+mv ubuntu-{version}-live-server-amd64.iso cdrom.iso
+```
+
+> Envia el archivo
+```
+rsync -Phvr cdrom.iso root@{ip-server}:/opt/unetlab/addons/qemu/linux-ubuntuserver-{version}/
+```
+
+Crea un nodo y haz la instalacion y apagas la maquina
+
+Recuerda que debes hacer [[#Commit al Qcow2]]
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+### Kali Linux
+> [!IMPORTANT] Documentacion Recomendada
+> [Kali Linux - Download VM](https://www.kali.org/get-kali/#kali-virtual-machines)
+
+> [!NOTE] Nombre Imagen
+> - Carpeta Arch Linux: `Linux-KaliLinux-{version}`
+> 	- Disco QEMU: `virtioa`
+> - Login
+> 	- User: `kali`
+> 	- Pass: `kali`
+
+Debes descargar la version de Qemu, yo recomiendo siempre tomar la Weekly, ya que se actualiza cada semana
+
+Busca un [Mirror](https://cdimage.kali.org/README?mirrorlist), yo por ejemplo utilizo [elmirror](https://elmirror.cl/kali-images/kali-weekly/)
+
+> Descarga la imagen directamente en el servidor
+```
+wget https://elmirror.cl/kali-images/kali-weekly/kali-linux-{version}-qemu-amd64.7z
+```
+
+> Descomprime la imagen
+```
+7z x kali-linux-{version}-qemu-amd64.7z
+```
+
+> VE COMO SE LLAMA PO
+```
+
+```
+
+> Crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/linux-kalilinux-{version}
+```
+
+> Mueve la imagen
+```
+mv .qcow2 /opt/unetlab/addons/qemu/linux-kalilinux-{version}/virtioa.qcow2
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
 
 ### Issabel
 > [!TIP] Lecturas Recomendadas
+> - [Oficial Page](https://www.issabel.org/)
 > - [SourceForge - issabelofficial/IssabelPBX Files](https://sourceforge.net/projects/issabelpbx/files/)
 
-Esta es una imagen creada desde 0 pero eve-ng
+Issabel 5 es un PBX basado en Asterisk con un WebUI encima, puedes descargarlo desde SourceFordge
 
-Primero descargas la ISO desde la pagina oficial de Sourgeforce
+> Renombra el ISO
+```
+mv issabel5-USB-DVD-x86_64-20240430.iso cdrom.iso
+```
 
-Cambias el nombre de "`issabel5-USB-DVD-x86_64-20240430.iso`" a "`cdrom.iso`"
+> Crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/linux-issabel-{version}
+```
 
-Luego creas la carpeta en eve-ng en la ruta "`/opt/unetlab/addons/qemu/`" llamada "`linux-issabel-20240430`"
+> Copia el iso
+```
+rsync -Phvr cdrom.iso root@{ip-server}:/opt/unetlab/addons/qemu/linux-issabel-{version}/
+```
 
-Envias el archivo "`cdrom.iso`" a la carpeta antes creada
-
-Crea un disco de 10GB
+> Crea un disco de 10GB
 ```
 /opt/qemu/bin/qemu-img create -f qcow2 virtioa.qcow2 10G
 ```
 
-Conecta el nodo a la interfaz en la nube "Cloud0 Management" para que pueda conectarse a internet
+Debes de crear un nodo "Linux" y seleccionar "Issabel", ademas creas un nodo de red "Cloud0" y lo conectas al nodo para que pueda conectarse a internet
 
-Crea el nuevo nodo creado, y configura su instalacion
+Inicia el Nodo y sigue las instrucciones a continuacion
+1. Apreta "Test this media and install" y espera un buen rato hasta que aparesca el instalador grafico
+2. Luego selecciona el idioma y le das en siguiente
+3. Seleccionas "Teclado" y le das en "Hecho"
+4. Seleccionas "Contraseña de Root" y creas la contraseña "eve"
+5. Creas el usuario "eve" con contraseña "eve"
+6. Seleccionas "Internet" y ya puedes continuar con la instalacion
+7. Una vez que finalice y este listo, debes apagar la maquina
 
-Apreta "Test this media and install" y espera un buen rato hasta que aparesca el instalador grafico
+Ahora deberas hacer [[#Commit al Qcow2]] y Elimina el disco
 
-Luego selecciona el idioma y le das en siguiente
-
-Seleccionas "Teclado" y le das en "Hecho"
-
-Seleccionas "Contraseña de Root" y creas la contraseña "eve"
-
-Creas el usuario "eve" con contraseña "eve"
-
-Seleccionas "Internet" y deberia estar 
-
-Luego que se instale, apagas la maquina, haces la magia del pod, y haces commit a la imagen
+> Nunca olvides arreglar los permisos para eve-ng
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
 
 ### Uso de Contenedores
 
@@ -1050,24 +1487,123 @@ La idea es construir una imagen base reutilizable:
 Una vez que tengas tu nodo clonado y listo para la topologia, si necesitas imagenes adicionales de contenedores, desconectalo de la red del lab, conectalo temporalmente de vuelta a `Cloud0`, haz pull de lo que necesites, apaga el nodo y reconectalo a la topologia. De esta forma el lab no necesita conectividad permanente a internet y puedes explorar el comportamiento de los contenedores sin tener que tener una via a internet directa
 
 ## MS Windows
-(WIP)
-### MS Win Host (Win XP, 7, 8.1, 10, 11)
+
+### Win Host (XP, 7, 10, 11)
 > [!IMPORTANT] Documentacion Recomendada
-> - [EVE-NG Docs - HowTo add MS Windows Host](https://www.eve-ng.net/index.php/documentation/howtos/howto-create-own-windows-host-on-the-eve/)
+> - [EVE-NG Docs - MS Windows Host](https://www.eve-ng.net/index.php/documentation/howtos/howto-create-own-windows-host-on-the-eve/)
+> - [Youtube - EVE-NG - How to Add Windows Host](https://youtu.be/Q96f0QeCpVg?si=oZu87NaEDKrDNvda)
+> - [Massgrave - Download Windows](https://massgrave.dev/genuine-installation-media)
 
 > [!NOTE] Nombre Imagen
-> - Carpeta MS Windows Host: `???-{version}`
-> 	- Disco QEMU: `???`
+> - Carpeta MS Windows Host: `win-{version}`
+> 	- Disco QEMU: `virtioa`
 
+Los discos Qcow2 para un Host de windows son de 40GB para <= Win 7 y de 60GB para Windows 10
 
-### MS Win Server (2008-2025)
+Recomiendo descargar las isos desde Massgrave, son las mas limpias y windows no te entregara una iso actualizada de XP o Win 7 por ejemplo.
+
+> Renombra el archivo
+```
+mv es-es_windows_10_consumer_editions_version_22h2_updated_oct_2025_x64_dvd_38efd00d.iso cdrom.iso
+```
+
+> Crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/win-{version}
+```
+
+> Copia el Archivo
+```
+rsync -Phvr cdrom.iso root@{ip-server}:/opt/unetlab/addons/qemu/win-{version}/
+```
+
+> Ve a la carpeta
+```
+cd /opt/unetlab/addons/qemu/win-{version}
+```
+
+> Crea un disco de 60GB
+```
+/opt/qemu/bin/qemu-img create -f qcow2 virtioa.qcow2 60G
+```
+
+Crea un nuevo nodo de Windows Host, y crea un nodo de red "Cloud0" para que pueda conectarse a internet e inicia el nodo
+
+> [!CAUTION] Drivers Disco
+> Cuando la instalacion te pida seleccionar un disco, posible no aparesca nada, deber ir a "Cargar Driver", buscar y elegir la ruta `FDD B/storage/2003R2/AMD64 or x86`, seleccionas y buscara el driver "`HDD RedHat Virtio SCSI HDD`" y ahora podra reconocer el disco
+
+Continua con la instalacion normalmente
+
+> [!TIP] Acceso RDP
+> Si quieres acceder mediante RDP para EVE-NG, debes configurar un usuario y contraseña, permitir el acceso RDP a la maquina y asegurarte de poder conectarse de forma remota para acceso publico
+
+Finaliza la instalacion y apaga el VM cuando este listo
+
+Ahora deberas hacer [[#Commit al Qcow2]] y Elimina el disco
+
+> Nunca olvides arreglar los permisos para eve-ng
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+### Win Server (2008-2025)
 > [!IMPORTANT] Documentacion Recomendada
-> - [EVE-NG Docs - HowTo add MS Windows Server](https://www.eve-ng.net/index.php/documentation/howtos/howto-create-own-windows-server-on-the-eve/)
+> - [EVE-NG Docs - MS Windows Server](https://www.eve-ng.net/index.php/documentation/howtos/howto-create-own-windows-server-on-the-eve/)
+> - [Endoflife - Windows Server](https://endoflife.date/windows-server)
+> - [Massgrave - Download Windows Server](https://massgrave.dev/windows-server-links)
 
 > [!NOTE] Nombre Imagen
-> - Carpeta MS Windows Server: `???-{version}`
-> 	- Disco QEMU: `???`
+> - Carpeta MS Windows Server: `winserver-{version}`
+> 	- Disco QEMU >=2016: `virtioa`
+> 	- Disco QEMU <=2012: `hda`
 
+Los discos Qcow2 para Windows server son de minimo 60GB de espacio
+
+La version minima que recomiendo es Windows Server 2022, para atras dependes de soporte de seguridad extendido, aunque siguen exactamente el mismo metodo
+
+> Renombra la iso
+```
+mv es-es_windows_server_2022_updated_june_2026_x64_dvd_dda28eeb.iso cdrom.iso
+```
+
+> Crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/winserver-{version}
+```
+
+> Copia el Archivo
+```
+rsync -Phvr cdrom.iso root@{ip-server}:/opt/unetlab/addons/qemu/winserver-{version}/
+```
+
+> Ve a la carpeta
+```
+cd /opt/unetlab/addons/qemu/winserver-{version}
+```
+
+> Crea un disco de 60GB
+```
+/opt/qemu/bin/qemu-img create -f qcow2 virtioa.qcow2 60G
+```
+
+Crea un nuevo nodo de Windows Server, y crea un nodo de red "Cloud0" para que pueda conectarse a internet e inicia el nodo
+
+> [!CAUTION] Drivers Disco
+> Cuando la instalacion te pida seleccionar un disco, posible no aparesca nada, deber ir a "Cargar Driver", buscar y elegir la ruta `FDD B/storage/2003R2/AMD64 or x86`, seleccionas y buscara el driver "`HDD RedHat Virtio SCSI HDD`" y ahora podra reconocer el disco
+
+Continua con la instalacion normalmente
+
+> [!TIP] Acceso RDP
+> Si quieres acceder mediante RDP para EVE-NG, debes configurar un usuario y contraseña, permitir el acceso RDP a la maquina y asegurarte de poder conectarse de forma remota para acceso publico
+
+Finaliza la instalacion y apaga el VM cuando este listo
+
+Ahora deberas hacer [[#Commit al Qcow2]] y Elimina el disco
+
+> Nunca olvides arreglar los permisos para eve-ng
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
 
 ## Mikrotik RouterOS
 > [!IMPORTANT] Documentacion Recomendada
@@ -1102,24 +1638,11 @@ mv chr-{version}.img /opt/unetlab/addons/qemu/mikrotik-{version}/hda.qcow2
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
-## OpenWRT
-
-Okey, es posible instalarlo y hacerlo funcionar, pero las capacidades Wireless no son soportadas en EVE-NG, asi que luego de hacerlo funcionar, estas solo practicamente
-
-> [!IMPORTANT] Documentacion Recomendada
-> - [Github Gist - rodrigojusto/Eve-NG - OpenWRT x86](https://gist.github.com/rodrigojusto/684308f6d65ac86a3c845912cee86789)
-> - [OpenWRT Download 25.12.4](https://downloads.openwrt.org/releases/25.12.4/targets/x86/64/)
-> - [OpenWRT Docs - Run in QEMU x86-64](https://openwrt.org/docs/guide-user/virtualization/qemu#openwrt_in_qemu_x86-64)
-
-> [!NOTE] Nombre Imagen
-> - Carpeta OpenWRT: `???-{version}`
-> 	- Disco QEMU: `???`
-
-
 ## OPNsense
 > [!IMPORTANT] Documentacion Recomendada
-> - [EVE-NG Docs - HowTo add OPNsense](https://www.eve-ng.net/index.php/documentation/howtos/opnsense-firewall/)
+> - [EVE-NG Docs - OPNsense](https://www.eve-ng.net/index.php/documentation/howtos/opnsense-firewall/)
 > - [Pagina Oficial](https://opnsense.org/)
+> 	- [Full Mirror Listing](https://opnsense.org/download/#full-mirror-listing)
 
 > [!NOTE] Nombre Imagen
 > - Carpeta OPNsense: `opnsense-{version}`
@@ -1128,14 +1651,58 @@ Okey, es posible instalarlo y hacerlo funcionar, pero las capacidades Wireless n
 > 	- User: `root`
 > 	- Pass: `opnsense`
 
-Al configurar el nodo, dale 4GB de ram
+OPNsense nacio en 2015 como un fork de pfSense para ofrecer un desarrollo mas abierto, transparente y comunitario, ademas de adoptar tecnologias y versiones reciente de FreeBSD con mayor rapidez.
 
-VNET0 es LAN
-VNET1 es WAN
+Debes descargar la imagen correspondiente de algun mirror
+- Arquitectura: amd64
+- Tipo de Imagen: dvd
 
-Se debe pasar la cdrom.iso, crear un disco de 15G, e instalar OPNsense
+En mi caso descargue: `OPNsense-26.1.6-dvd-amd64.iso.bz2`
 
-Luego que se termine de instalar, detienes la maquina, eliminas el cdrom y haces commit a la imagen
+> Descomprime el archivo
+```
+7z x OPNsense-26.1.6-dvd-amd64.iso.bz2
+```
+
+> Crea la carpeta en el servidor
+```
+mkdir /opt/unetlab/addons/qemu/opnsense-{version}
+```
+
+> Copia el ISO a la carpeta
+```
+rsync -Phvr OPNsense-{version}-dvd-amd64.iso root@{ip-server}:/opt/unetlab/addons/qemu/opnsense-{version}/cdrom.iso
+```
+
+> Ve a la carpeta de OPNsense
+```
+cd /opt/unetlab/addons/qemu/opnsense-{version}
+```
+
+> Crea un disco de 15GB
+```
+/opt/qemu/bin/qemu-img create -f qcow2 virtioa.qcow2 15G
+```
+
+Desde el menu de laboratorio, crea un nodo, y busca OPNsense, y dale a las opciones
+- ve a RAM y configura 4GB
+
+Crea dos nubes, una bridge y otro Cloud0
+
+Conecta bridge a VNET0 (LAN) y Cloud0 a VNET1 (WAN). De esta forma se configurara correctamente
+
+Le das a iniciar a la imagen
+
+TO-DO: FALTA AGREGAR LOS PASOS DE INSTALACION Y OPCIONES
+
+Una vez que termine la instalacion y hayas actualizado los paquetes, apagas la maquina y debes hacer commit a la imagen
+
+Ahora deberas hacer [[#Commit al Qcow2]] y Elimina el disco
+
+> Nunca olvides arreglar los permisos para eve-ng
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
 
 ## Palo Alto
 > [!IMPORTANT] Documentacion Recomendada
@@ -1151,7 +1718,7 @@ Luego que se termine de instalar, detienes la maquina, eliminas el cdrom y haces
 
 Encontre la version 11.2.5
 
-Si eres mas exotico esta la version [Sysin - PAN-OS 12.1.7 KVM](https://sysin.org/blog/pan-os-12/) for 5USD in Alipay...
+Si eres mas exotico esta la version [Sysin - PAN-OS 12.1.7 KVM](https://sysin.org/blog/pan-os-12/) for 5USD en Alipay...
 
 > Crea la carpeta
 ```
@@ -1168,19 +1735,19 @@ rsync -Phvr PA-VM-KVM-{version}.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
-## PFsense
+## pfSense
 
 Prefiere [[#OPNsense]]
 
-> [!WARNING] Pobre NetGate
-> Fuentes
+> [!NOTE] Rant sobre NetGate
 > - [Netgate Blog - Release PFsense CE 2.8.0](https://www.netgate.com/blog/netgate-releases-pfsense-community-edition-version-2.8.0)
 > - [Netgate Forums - PFsense 2.8.0 full iso img](https://forum.netgate.com/topic/197601/pfsense-2-8-0-full-iso-img)
-> Un pequeño Ranteo, posiblemente a netgate no le guste que usen su software, pero cada vez se vuelve un poco mas horrible de utilizar, lanzaron la version 8.2.0 el 28 de Mayo de 2025, la cual solo permite instalacion Online, por lo que debes tener una cuenta, asociar tu tarjeta de debido/credito, poner informacion personal, aceptar el EULA, y alli recien puedes descargar una version Community Gratuita, me parecio extraño, se podia saltar en la version 2.7.2.
-> Ahora la version 2.8.0 solo permite "Netgate Installer - AMD64 ISO IPMI/VM"
+> 
+> A partir de pfSense CE 2.8.0, obtener la Community Edition, requiere crear una cuenta, asociar un metodo de pago, proporcionar informacion personal y aceptar un EULA antes de descargar un instalador ONLINE. En versiones anteriores (< 2.7.2) la descarga era directa y offline.
+> Personalmente, considero que este cambio hace que OPNsense sea una alternativa mucho mas comoda para la mayoria de usuarios
 
 > [!IMPORTANT] Documentacion Recomendada
-> - [EVE-NG Docs - HowTo add PFsense](https://www.eve-ng.net/index.php/3380-2/)
+> - [EVE-NG Docs - pfSense](https://www.eve-ng.net/index.php/3380-2/)
 > - [PFsense Direct Download Directory for 2.7.2](https://atxfiles.netgate.com/mirror/downloads/)
 
 > [!NOTE] Nombre Imagen
@@ -1189,6 +1756,8 @@ Prefiere [[#OPNsense]]
 > - Login
 > 	- User: `admin`
 > 	- Pass: `pfsense`
+
+Una vez mas, recomiendo utilizar la version 2.7.2, descargando la ISO `pfSense-CE-2.7.2-RELEASE-amd64.iso.gz` desde el directorio
 
 > Crea la carpeta
 ```
@@ -1200,7 +1769,7 @@ mkdir /opt/unetlab/addons/qemu/pfsense-{version}
 rsync -Phvr cdrom.iso root@{ip-server}:/opt/unetlab/addons/qemu/pfsense-{version}/
 ```
 
-> cd a la carpeta
+> Ve a la carpeta
 ```
 cd /opt/unetlab/addons/qemu/pfsense-{version}
 ```
@@ -1223,42 +1792,9 @@ OK
 YES
 ```
 
-> Apretas la barra lateral izquierda, eliges "Lab Details" y copias el Lab-UUID del laboratorio
-```
-ejemplo: ID: 85bd7141-e2a7-43e6-8307-bfa7b301a12b
-```
+Ahora deberas hacer [[#Commit al Qcow2]] y Elimina el disco
 
-> Debes reconocer tu POD ID, esta en la pestaña de usuarios, 0 es el default
-```
-ejemplo: POD-ID: 0
-```
-
-> El nodo se puede obtener haciendo click derecho en el nodo, el numero que salga al lado del nombre, ese es el NODE-ID
-```
-ejemplo: NODE-ID: 1
-```
-
-> Te mueves a la carpeta reuniendo los valores en el orden `/opt/unetlab/tmp/{POD-ID}/{Lab-UUID}/{NODE-ID}`
-```
-ejemplo: cd /opt/unetlab/tmp/0/85bd7141-e2a7-43e6-8307-bfa7b301a12b/1/
-```
-
-> Haces commit a la imagen
-```
-/opt/qemu/bin/qemu-img commit virtioa.qcow2
-```
-
-> Te vas otra vez a la carpeta de pfsense
-```
-cd /opt/unetlab/addons/qemu/pfsense-{version}
-```
-
-> Eliminas el archivo cdrom.iso
-```
-rm -f cdrom.iso
-```
-
-> Arreglas los permisos
+> Nunca olvides arreglar los permisos para eve-ng
 ```
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
@@ -1500,28 +2036,9 @@ Which file would you like as boot config? (Default: 1)
 poweroff
 ```
 
-Parte 2: Commit la imagen para el uso futuro
-9. Ve a la terminal de EVE-NG y mueve a la carpeta de UUID y POD
-- `user-POD`:  En la interfaz web, en la administracion de usuarios, aparece `{user-POD}`
-- `UUID`: En la interfaz web, en la seccion izquierda elige "`Lab Details`"
-- `node-POD-ID`: Se encuentra apretando el click derecho en el nodo del laboratorio
-```
-cd /opt/unetlab/tmp/{user-POD}/{UUID}/{node-POD-ID}
-```
-Ejemplo:
-```
-cd /opt/unetlab/tmp/0/3491e0a7-25f8-46e1-b697-ccb4fc4088a2/1/
-```
-10. Hace commit a la imagen
-```
-qemu-img commit virtioa.qcow2
-```
-11. Elimina la imagen `cdrom.iso` de la carpeta raiz
-```
-cd /opt/unetlab/addons/qemu/vyos-{version}
-rm cdrom.iso
-```
-12. Arregla los permisos
+Ahora deberas hacer [[#Commit al Qcow2]] y Elimina el disco
+
+> Nunca olvides arreglar los permisos para eve-ng
 ```
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
@@ -1573,12 +2090,58 @@ qemu_options: -machine type=pc,accel=kvm -vga std -serial mon:stdio -usbdevice t
 ...
 ```
 
+## Commit al Qcow2
+
+Antes de empezar a hacer commit, SIEMPRE LA MAQUINA DEBE ESTAR APAGADA.
+
+El commit es un paso critico, si no lo haces, todo lo que hagas en esa imagen desaparecera, por lo que EVE-NG trabaja con una imagen temporal como difurcacion de la imagen temporal, el commit configura esa imagen temporal como la nueva base a utilizar
+
+Necesitas 3 valores
+
+- UUID: Es un identificador unico del laboratorio, este valor lo encuentras en la barra lateral izquierda, en "Lab Details"
+	- Ejemplo: `ID: 85bd7141-e2a7-43e6-8307-bfa7b301a12b`
+- POD ID: Identificador de tu usuario en EVE-NG. Lo encuentras en la pestaña de usuarios, aunque si solo usas un usuario, este sera el `0` por defecto
+	- Ejemplo: `0`
+- NODE ID: Identificador del nodo dentro del lab. Hack click derecho sobre un nodo en el lab y busca el nombre que sale entre parentesis junto al nombre
+	- Ejemplo: `OPNsense (1)`
+
+Con esos tres valores, armas la ruta temporal donde EVE-NG copio la imagen para levantar el nodo, ruta ejemplo: `/opt/unetlab/tmp/{POD-ID}/{LAB-UUID}/{NODE-ID}`
+```
+cd /opt/unetlab/tmp/0/85bd7141-e2a7-43e6-8307-bfa7b301a12b/1/
+```
+
+Dentro de esa carpeta vas a encontrar el disco de la imagen. Siempre la extension sera `.qcow2`, pero el nombre puede ser `virtioa`, `hda`, `sataa`, etc.
+
+> Haces commit a la imagen
+```
+/opt/qemu/bin/qemu-img commit virtioa.qcow2
+```
+
+> Vuelve a la carpeta que estas configurando dentro de qemu
+```
+cd /opt/unetlab/addons/qemu/{carpeta-imagen}
+```
+
+Debes de eliminar el archivo iso, o cuando inicies otra vez el nodo, empezara la instalacion, si quieres guardar el iso, bastan con cambiar el nombre a cualquiera que no sea cdrom.iso, de esa forma, EVE-NG lo ignorara
+
+> Eliminas el archivo cdrom.iso
+```
+rm -f cdrom.iso
+```
+
+> Arreglas los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+Y de esa forma ya esta disponible la imagen para su uso, si quieres que utilize aun menos espacio, la siguiente seccion comprime los discos
+
 ## Comprimir imagenes
 
 Si funciona la version comprimida, puedes borrar el original
 1. Ir a la carpeta
 ```
-cd /opt/unetlab/addons/qemu/{image}
+cd /opt/unetlab/addons/qemu/{carpeta-imagen}
 ```
 
 2. Comprime `virt-sparsify`
@@ -1611,7 +2174,7 @@ Para Windows, debes descargar la el pack oficial desde EVE-NG, este verifica las
 
 En caso de fallar por ejemplo Putty al iniciar, deberas modificar un archivo .reg y apuntar las rutas correctamente
 
-## Actualiza Templates
+## Actualizar Templates
 
 > [!TIP] Lecturas Recomendadas
 > - [EVE-NG Docs - Update Template](https://www.eve-ng.net/index.php/documentation/howtos/template-icons-and-config-scripts-update-from-git/)
@@ -1660,23 +2223,6 @@ cd
 ## Importar y Exportar
 
 Para que los laboratorios funcionen, debes tener siempre las mismas imagenes se utilizaron al exportar
-
-## Ideas de Laboratorio
-
-**HA en K8s**
-
-Un cluster de Kubernetes (K8s) en alta disponibilidad requiere minimo tres nodos para el control plane, de forma que si uno cae, el cluster sigue operando sin intervencion manual. EVE-NG simula tener esos 3 dispositivos interconectados
-
-Asi que creas 3 VMs Linux como nodos del cluster mas un nodo controlador, todos conectados entre si dentro de la topologia.
-
-Algo interesante es que al hacerlo en EVE-NG sobre QEMU es que puedes usar interfaces "`virtio-net`" y si tu NIC lo permite, utilizar offloading real, por lo que podrias explorar las funcionalidades de Cilium con XDP y eBPF.
-
-**Labs de Internet**
-> [!TIP] Lecturas Recomendadas
-> - [Github - hegdepavankumar/cisco-asa-firewall-training](https://github.com/hegdepavankumar/cisco-asa-firewall-training)
-
-Siempre hay ideas dando vueltas, cursos para certificaciones, etc.
-
 
 # Extra
 
@@ -1740,20 +2286,16 @@ Esto es solo para que veas que EVE-NG NO es Open Source, ni tiene una licencia a
 
 # Deprecated
 
-NOTA: Deberia reconsiderar este punto, debido a que Proxmox ahora esta siendo soportado :O
+## OpenWRT
 
-**Virtualizador Tipo 1 (Ignorado por ahora)**
-Permite usar otras maquinas
+Oficialmente EVE-NG no soporta funciones Wireless, pero igual hay que recopilar informacion en caso de que si sea soportado
 
-**Instalacion Soportada de VMware ESXi (Ignorado por ahora)**
-Valor: $1.000.000 Al año
-- [Youtube - VirtualizationHowTo - VMware ESXi do first](https://www.youtube.com/watch?v=-1BMiYZfz38)
-- [Youtube - NetworkChuck - VMware ESXi Setup and Install](https://www.youtube.com/watch?v=apC1bOLbzbY&t=822s)
-- [Github - hegdepavankumar/VMware Workstation Pro 17 Licence Keys](https://github.com/hegdepavankumar/VMware-Workstation-Pro-17-Licence-Keys)
-- [Github - hegdepavankumar/VMware-ESXI-Licese-Keys](https://github.com/hegdepavankumar/VMware-ESXi-License-Keys)
+> [!IMPORTANT] Documentacion Recomendada
+> - [Github Gist - rodrigojusto/Eve-NG - OpenWRT x86](https://gist.github.com/rodrigojusto/684308f6d65ac86a3c845912cee86789)
+> - [OpenWRT Download 25.12.4](https://downloads.openwrt.org/releases/25.12.4/targets/x86/64/)
+> - [OpenWRT Docs - Run in QEMU x86-64](https://openwrt.org/docs/guide-user/virtualization/qemu#openwrt_in_qemu_x86-64)
 
-**Alternativa Soportada para EVE-NG-PRO: Proxmox**
-Valor: Gratis
-- [Guia - Adam From The Future - Running EVE NG under Proxmox](https://adamfromthefuture.wordpress.com/2018/08/30/running-eve-ng-under-proxmox/)
-- [Guia - Yzguy - EVE-NG in LXC on Proxmox](https://yzguy.dev/posts/eve-ng-in-lxc-on-proxmox/)
-- [Youtube - Gerard O'Brien - EVE-NG on Proxmox](https://www.youtube.com/watch?v=BmuZHjkNCt0)
+> [!NOTE] Nombre Imagen
+> - Carpeta OpenWRT: `openwrt-{version}`
+> 	- Disco QEMU: `hda`
+

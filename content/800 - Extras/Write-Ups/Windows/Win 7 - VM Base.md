@@ -1,13 +1,15 @@
 # Info
-## Datos
-
-Okey, llego la hora de reescribir esto desde 0...
 
 > [!TIP] Lecturas Recomendadas
-> - [[300 - Conocimiento/Write-Ups/Win7/Win7 - Optimizar ISO|Win7 - Optimizar ISO]]: Modificacion del ISO que utilizare para esta instalacion
+> - [Proxmox Docs - Windows 7 Guest Best Practices](https://pve.proxmox.com/wiki/Windows_7_guest_best_practices)
+> - [Superuser Forum - How to select paravirtualization interface in Virtualbox](https://superuser.com/questions/945910/how-to-select-paravirtualization-interface-in-virtualbox)
+> 	- [Virtualbox Docs - Manual #10.5. Paravirtualization Providers](https://www.virtualbox.org/manual/ch10.html#gimproviders)
+> - [SuperUser Forum - What are difference between VBoxVGA, VMSVGA and VBoxSVGA](https://superuser.com/questions/1403123/what-are-differences-between-vboxvga-vmsvga-and-vboxsvga-in-virtualbox)
+> - [Github virtio-win/virtio-win - Issue #40 - Widnows 7 no more working](https://github.com/virtio-win/virtio-win-pkg-scripts/issues/40)
+> 	- [This reply](https://github.com/virtio-win/virtio-win-pkg-scripts/issues/40#issuecomment-1704103962)
+> - [Windows 7 DotNet support](https://learn.microsoft.com/en-us/dotnet/core/install/windows#windows-7--81--server-2012) | [Powershell DotNet Framework vs DotNet Core](https://learn.microsoft.com/en-us/powershell/scripting/whats-new/differences-from-windows-powershell?view=powershell-7.5#net-framework-vs-net-core)
 
-**Tamaños**
-TO-DO
+Win 7 es EOL, ya se le acabo el ESU, asi que no se si seguira siendo utilizable para un VM y que no sea un peligro publico
 
 # Preparacion
 ## Disco VHD Base
@@ -48,79 +50,34 @@ Abre el menu inicio y selecciona "`Crear y formatear particiones de disco duro`"
 9. Ahora click en "Finalizar"
 
 ## Descargar Materiales
-> [!TIP] Descargar eNSP
-> - [Huawei Forums - Download eNSP simulator installation Software](https://forum.huawei.com/enterprise/intl/en/thread/download-ensp-simulator-installation-software-here/667238396713648128?from=latestPostsReplies&blogId=667238396713648128)
-> - [Huawei Forums - Resource Downloading for eNSP](https://forum.huawei.com/enterprise/intl/en/thread/resources-downloading-for-ensp/667245683301826561?blogId=667245683301826561)
-> - [Dark Bird Tech - Google Drive](https://drive.google.com/drive/folders/1T4v1idJec_3p9F3FhwuTA6JyuUpj05un) | [Onedrive Mirror](https://duoccl0-my.sharepoint.com/:f:/g/personal/ga_zunigam_duocuc_cl/EuCvefQ9MB1Br3OH4Iqon6UBkFA8pfqbXkYACdvtlEiDBA?e=XAptqZ)
 
-> [!NOTES] Sobre Imagenes Extras de Huawei
-> - [Huawei Forums - Resource Downloading for eNSP](https://forum.huawei.com/enterprise/intl/en/thread/resources-downloading-for-ensp/667245683301826561?blogId=667245683301826561)
-> - [Huawei Forums - Download eNSP USG6000v Image](https://forum.huawei.com/enterprise/intl/en/thread/download-ensp-usg6000v-image/667245289389572096?blogId=667245289389572096)
-> - [Huawei Forums - Download eNSP NE40E Image](https://forum.huawei.com/enterprise/intl/en/thread/ne40e-image-for-ensp-v100r003c00spc100/667245683289243648?blogId=667245683289243648)
-> - [Youtube - Dark Bird Tech](https://www.youtube.com/@darkbirdtech)
-> 	- [Youtube - Adding the missing devices in Huawei eNSP v1.3](https://youtu.be/WH7xrq8Mqx8?si=nJfUunV92hITMcIZ)
-
-Desde el sistema Guest con internet, debes descargar
+El disco VHD se utiliza como un Pendrive, debido a que el Windows 7 normal no tiene acceso a internet
 
 - Drivers
-	- Virtualbox 5.2.44 | [Oracle - Virtualbox Old build 5.2](https://www.virtualbox.org/wiki/Download_Old_Builds_5_2)
-	- Virtualbox Extension Pack vbox-extpack 5.2.44 | [PUEL License](https://www.virtualbox.org/wiki/VirtualBox_PUEL)
-	- VBoxGuestAdditions.iso | [Oracle - Download Center](https://download.virtualbox.org/virtualbox/) (Ultima version)
 	- VCRedist Repack | [Major Geeks - Visual C Redistribute Runtimes AIO Repack](https://www.majorgeeks.com/files/details/visual_c_redistributable_runtimes_aio_repack.html)
-- eNSP
-	- eNSP 1.3.00.510
-	- WinPcap 4.1.3 | [WinPcap](https://www.winpcap.org/install/)
-	- Wireshark 2.6.6 (Maybe 2.6.20) | [Go Spelunking](https://www.wireshark.org/download.html#spelunking) | [Main Mirror - win64/all-versions](https://1.na.dl.wireshark.org/win64/all-versions/)
 - Fuentes
 	- Nerd Font | [Official Page](https://www.nerdfonts.com/) | [Github - ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
-- Imagenes Extras
-	- [Dark Bird Tech - Google Drive - eNSP Optional Extra Devices](https://drive.google.com/drive/folders/1xhb71AzTOcy_IvVnjFi0rEme6iGZJ7uy) | [Onedrive - Mirror](https://duoccl0-my.sharepoint.com/:f:/g/personal/ga_zunigam_duocuc_cl/EjgfGZjaSOxGvwhi6Z0C7scBNLstbk1iFPxq23X1N5B0IA?e=XPUmZI)
 - Herramientas
 	- Massgrave | [Official Page](https://massgrave.dev/) | [Github - massgravel/Microsoft-Activation-Scripts](https://github.com/massgravel/Microsoft-Activation-Scripts)
 	- 7zip | [7-zip](https://www.7-zip.org/)
-	- Firefox ESR 115.29.0 | [Mozilla Release FTP - Firefox 115.29.0esr win64](https://releases.mozilla.org/pub/firefox/releases/115.29.0esr/win64/)
+	- Firefox ESR 115.29.0 | [Mozilla Release FTP - Firefox 115.37.0esr win64](https://releases.mozilla.org/pub/firefox/releases/115.37.0esr/win64/)
 	- WinCDEmu | [Github - sysprogs/WinCDEmu - Releases](https://github.com/sysprogs/WinCDEmu/releases)
-- Labs
-	- (TO-DO)
 - Updates
 	- UpdatePack7R2 | [Blog Simplix Info - UpdatePack7r2 (Russian)](https://blog.simplix.info/updatepack7r2/) | [Blog Simplix Info - Update7 (Russian)](https://blog.simplix.info/update7/) | [MajorGeeks - Full exe Mirror](https://www.majorgeeks.com/files/details/simplix_updatepack.html)
 
 **Ordenar Materiales**
 
-Recomiendo el siguiente esquema que fue utilizado en la guia, no es obligatorio ordenarlo, pero te solucionara la vida :D
+Recomiendo el siguiente esquema que fue utilizado en la guia, no es obligatorio ordenarlo, pero te sera mas facil utilizarlo
 ```
-/vhd-eNSP (D:\)/
+/vhd-Base (D:\)/
 ├── Drivers/
-│   ├── Oracle_VM_VirtualBox_Extension_Pack-5.2.44
-│   ├── VBoxGuestAdditions_7.1.10
-│   ├── virtio-win-0.1.173-4
 │   └── VisualCppRedist_AIO_x86_x64
-├── ENSP/
-│   ├── eNSP_Setup V100R003C00SPC100 1.3.00.100.exe
-│   ├── VirtualBox-5.2.44-139111-Win.exe
-│   ├── WinPcap_4.1.3.exe
-│   └── Wireshark-win64-2.6.6.exe
 ├── Fonts/
 │   └── HackNerdFont.ttf
-├── Images-Extras/
-│   ├── CE/
-│   │   └── CE.img
-│   ├── CX/
-│   │   └── CX.img
-│   ├── NE40E/
-│   │   └── NE40E.img
-│   ├── NE5000E/
-│   │   └── NE5000E.img
-│   ├── NE9000/
-│   │   └── NE9000.img
-│   └── vfw_usg/
-│       └── vfw_usg.vdi
-├── Labs/
-│   └── (TO-DO)
 ├── Tools/
 │   ├── Microsoft-Activation-Scripts-master/
 │   ├── 7z2409-x64.exe
-│   ├── Firefox Setup 115.25.0esr
+│   ├── Firefox Setup 115.37.0esr
 │   └── WinCDEmu-4.1.exe
 └──  Updates
     └── UpdatePack7R2-25.6.10
@@ -128,31 +85,16 @@ Recomiendo el siguiente esquema que fue utilizado en la guia, no es obligatorio 
 
 Ahora deberas apagar el VM y entrar a sus configuraciones
 
-Vas a "Almacenamiento", eliminas el iso de instalacion y añades una conexion a un Disco Duro, te saldra un menu, añades el disco VHD creado antes "`eNSP.vhd`", le das en "Aceptar" e inicias el VM
-
-
-
-
-
-Gracias a:
-- [Proxmox Docs - Windows 7 Guest Best Practices](https://pve.proxmox.com/wiki/Windows_7_guest_best_practices)
-- [Superuser Forum - How to select paravirtualization interface in Virtualbox](https://superuser.com/questions/945910/how-to-select-paravirtualization-interface-in-virtualbox)
-	- [Virtualbox Docs - Manual #10.5. Paravirtualization Providers](https://www.virtualbox.org/manual/ch10.html#gimproviders)
-- [SuperUser Forum - What are difference between VBoxVGA, VMSVGA and VBoxSVGA](https://superuser.com/questions/1403123/what-are-differences-between-vboxvga-vmsvga-and-vboxsvga-in-virtualbox)
-- [Github virtio-win/virtio-win - Issue #40 - Widnows 7 no more working](https://github.com/virtio-win/virtio-win-pkg-scripts/issues/40)
-	- [This reply](https://github.com/virtio-win/virtio-win-pkg-scripts/issues/40#issuecomment-1704103962)
-- [Windows 7 DotNet support](https://learn.microsoft.com/en-us/dotnet/core/install/windows#windows-7--81--server-2012) | [Powershell DotNet Framework vs DotNet Core](https://learn.microsoft.com/en-us/powershell/scripting/whats-new/differences-from-windows-powershell?view=powershell-7.5#net-framework-vs-net-core)
+Vas a "Almacenamiento", eliminas el iso de instalacion y añades una conexion a un Disco Duro, te saldra un menu, añades el disco VHD creado antes "`Base.vhd`", le das en "Aceptar" e inicias el VM
 
 # Creacion del VM
 **Desde QEMU/KVM**
 
-Yo hare la instalacion desde QEMU/KVM, ya que funciona mejor a mi parecer
-
 Configuracion de QEMU (virt-viewer)
 
 Vista General
-- Nombre: Win7-eNSP
-- Titulo: Win7 eNSP
+- Nombre: Win7-Base
+- Titulo: Win7 Base
 - Chipset: Q35
 - Firmware: BIOS
 CPU (Depende Obviamente de tu cantidad de CPU, en mi caso, tengo 1 CPU, con 2 Nucleo, 4 Hilos)
@@ -169,11 +111,6 @@ Memoria (Depende cuanta memoria tengas)
 Le das en instalar nomas
 
 **Desde Virtualbox**
-Si utilizas Virtualbox, tambien puedes crearla usando los siguientes datos
-
-# Instalacion
-
-**Desde Virtualbox (Host)**
 
 Abre Virtualbox, desde la pagina principal, presiona "Nueva", y creas los siguientes datos
 - Nombre y sistema operativo
@@ -251,14 +188,9 @@ Ahora le das en "Iniciar" al VM
 10. Te pedira confirmar la hora deberia estar correcta
 11. Seleccionas la ubicacion del equipo en "Red de Trabajo", y saldra el escritorio y lo apagas
 
-
-
-
-
 # Instalacion
 **Materiales Previos**
 - Windows 7: Puede ser [Original desde Massgrave](https://massgrave.dev/windows_7_links) o Modificada, recomiendo la de Tester Machine [FastOS7v4](https://www.projectfastos.top/2025/03/fastos-7.html) | [Link Mediafire Directo](https://www.mediafire.com/file/09pnm2rh17vr9hz/FastOS7V4FEx64B10.iso/file)
-- VBoxGuestAdditions.iso | [Descarga](https://download.virtualbox.org/virtualbox/)
 
 Das en "Aceptar" y estamos listos para instalar
 

@@ -7,35 +7,34 @@ Este Write-up sigue un metodo de instalacion dividido en 3 partes
 3. Instalacion y exportacion
 
 **Tamaño VM**
-> [!NOTE] Significados
-> - `All`: Todas las imagenes extras de Huawei instaladas
-> - `F`: Solo instalacion del firewall
-
 > [!NOTE] Sobre la exportacion
 > - [DMTF - OVF FAQ](https://www.dmtf.org/about/faq/ovf_faq)
 > - OVF 1.0 vs 2.0 no tienen modificaciones en tamaño final pero OVA 2.0 esta optimizado para sistemas en la nube, mi eleccion sobre las exportaciones de OVA estan basadas en la version 2.0
 
+> [!NOTE] Significados
+> - `All`: Todas las imagenes extras de Huawei instaladas
+> - `FW`: Solo instalacion del firewall
+
 Comparacion del tamaño en Windows por cada Instalacion Base (Sin hacer nada)
 - Windows 7 SuperLite: 10.3GB
 - Windows 7 Ultimate Clean: 20.3GB
-- Windows 7 Ultimate Clean pero modificado: TO-DO
 
 Tamaños Finales usando SuperLite
 - Exportacion en .OVA
 	- OVA All: 7.7GB
-	- OVA F: 3.2GB
+	- OVA FW: 3.2GB
 - Disco VDI
 	- VDI All: 5.45GB
-	- VDI F: 2.63GB
+	- VDI FW: 2.63GB
 - Discos Internos en Windows
 	- `C:\` All: 26.7GB
-	- `C:\` F: 15.3GB
+	- `C:\` FW: 15.3GB
 
 # Preparacion
 ## Disco VHD
 
 > [!NOTE] Uso de VM
-> - Recomiendo utilizar una maquina windows 10 (o un windows 7 que sea seguro) que tenga acceso a internet y un buen navegador
+> - Recomiendo utilizar una maquina Win 10 (o 7 sin optimizar) que tenga acceso a internet y un buen navegador
 
 **Crear Disco VHD**
 
@@ -73,10 +72,6 @@ Abre el menu inicio y selecciona "`Crear y formatear particiones de disco duro`"
 9. Ahora click en "Finalizar"
 
 ## Descargar Materiales
-
-> [!CAUTION] ¿Porque algunos nombres tienen versiones exactas y otros no?
-> - Nombres con Version: Esa es la ultima version compatible con el entorno, deberias buscar exactamente esa
-> - Nombres sin Version: Deberias probar la ultima version publicada
 
 > [!TIP] Descargar eNSP
 > - [Huawei Forums - Download eNSP simulator installation Software](https://forum.huawei.com/enterprise/intl/en/thread/download-ensp-simulator-installation-software-here/667238396713648128?from=latestPostsReplies&blogId=667238396713648128)
@@ -215,8 +210,6 @@ El contenido del Optativo de Huawei es el siguiente
 ```
 
 # Instalacion
-
-Primero debes tener una imagen de Windows 7, mis pasos sobre esto estan en [[300 - Conocimiento/Write-Ups/Win7/Win7 - Optimizar ISO|Win7 - Optimizar ISO]]
 
 ## Virtualizador
 
@@ -774,30 +767,6 @@ At some point I do want to create some Huawei training content there to add to m
 
 Kind regards,  
 DBT
-```
-
-## Haiku
-Yo cayendo en la locura...
-
-> Japones Romanizado
-```
-"Kōdo no tsubasa
-kā panikku no taiyō
-log wa kiezu ni."
-```
-
-> Ingles
-```
-"Code wings ablaze
-the sun, a kernel panic
-logs outlive the crash."
-```
-
-> Español
-```
-"Alas de código
-el sol es un kernel panic
-pero el log persiste."
 ```
 
 ## Estado Actual

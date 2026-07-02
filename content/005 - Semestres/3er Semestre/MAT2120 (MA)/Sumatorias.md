@@ -15,12 +15,12 @@ $A_{i}$: Sucesion a sumar
 ## 2.2- Sumatoria Aritmetica
 $\sum\limits^{n}_{i=1}a_{i}=\dfrac{n}{2}*(2*a_{1}+(n-1)*d)$
 
-![[002 - Ordenar/3er Semestre/MAT2120 (MA)/Actividades/1.1- Sucesiones#2.1- Aritmetica]]
+002 - Ordenar/3er Semestre/MAT2120 (MA)/Actividades/1.1- Sucesiones#2.1- Aritmetica
 
 ## 2.3- Sumatoria Geometrica
 $\sum\limits^{m}_{i=1}b_{i}=\dfrac{b_{1}*(r^{m}-1)}{(r-1)}$
 
-![[002 - Ordenar/3er Semestre/MAT2120 (MA)/Actividades/1.1- Sucesiones#2.2- Geometrica]]
+002 - Ordenar/3er Semestre/MAT2120 (MA)/Actividades/1.1- Sucesiones#2.2- Geometrica]]
 
 ---
 # 3.- Ejercicios:

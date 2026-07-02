@@ -1,4 +1,4 @@
-# Info
+# Fase 1: Preparacion de EVE-NG
 ## Introduccion
 
 EVE-NG (**E**mulated **V**irtual **E**nvironment - **N**ext **G**eneration) es una plataforma de emulacion de redes que permite virtualizar dispositivos como Router, Switches, Firewall, Load Balancer, IDS/IPS, etc. utilizando imagenes reales de sus sistemas operativos.
@@ -170,7 +170,7 @@ QEMU image list:
 - IP Fusion OcNOS 7.0.0 - [Free Demos with registration](https://www.ipinfusion.com/free-software-demos/) (Psst: Pon informacion falsa)
 - Virtual PC (VPCS) - [Open Source](https://github.com/GNS3/vpcs)
 
-# Fase 1: Instalacion de EVE-NG
+## Instalacion de EVE-NG
 > [!IMPORTANT] Importante
 > - Al instalar [EVE-NG Community](https://www.eve-ng.net/index.php/community/) Usa automaticamente la version de Ubuntu 22.04.4 LTS (Jammy Jellyfish), no se debe actualizar la version o dejara de funcionar
 > 	- Disponibilidad hasta Apr 2027 - ESM 2032 | [Ubuntu - Release Page](https://www.releases.ubuntu.com/22.04/)
@@ -266,6 +266,15 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
 fisher install IlanCosman/tide@v6
 ```
 
+> Instala LSD
+```
+wget https://github.com/lsd-rs/lsd/releases/download/v1.2.0/lsd_1.2.0_amd64.deb
+
+sudo apt install ./lsd_1.2.0_amd64.deb
+
+rm lsd_1.2.0_amd64.deb
+```
+
 # Fase 2: Instalar Imagenes
 
 Recuerda tener descargadas tus imagenes para pasarlas al servidor, puedes encontrar mas informacion en [[#Soporte de Imagenes]]
@@ -282,8 +291,10 @@ La mayoria de las imagenes que se usan en EVE-NG usan el metodo de QEMU, por eso
 > - [BlackBox Blog (Ru) - Eve-NG Arreglar imagenes IOL](https://it-blackbox.blogspot.com/2018/06/eve-ng-cisco-iouiol.html)
 > - [Github - ishare2-org/ishare2-cli](https://github.com/ishare2-org/ishare2-cli) | [Generate new iourc license](https://github.com/ishare2-org/ishare2-cli?tab=readme-ov-file#generate-a-new-iourc-license-for-bin-images)
 > - Github CiscoIOUKeygen
-> 	- [Github obscur95/CiscoIOUKeygen.py](https://raw.githubusercontent.com/obscur95/gns3-server/refs/heads/master/IOU/CiscoIOUKeygen.py)
-> 	- [Github Gist twrandolphchen/CiscoIOUKeygen.py](https://gist.githubusercontent.com/twrandolphchen/ed3588e1128488868c243a432b4bcfb4/raw/de0391a2da1bf1da0e5ad6aee2702c6221ce7dd7/CiscoIOUKeygen.py)
+> 	- [sbanszky - CiscoIOL](https://github.com/sbanszky/CiscoIOL/blob/main/CiscoIOUKeygen.py)
+> 	- [lxcau - CiscoIOUKeygen.py](https://github.com/lxcau/script/blob/master/CiscoIOUKeygen.py)
+> 	- [guishade - ciscoIOUkeygen.py](https://github.com/guishade/ciscoIOUkey/blob/main/ciscoIOUkeygen.py)
+> 	- [robin113x - keygen](https://github.com/robin113x/keygen/blob/main/CiscoIOUKeygen.py)
 
 > [!DANGER] Mira la version de las imagenes
 > - Evitar usar la version `L3 15.5.2T` debido a que se congela en standby
@@ -306,10 +317,14 @@ Las carpetas relevantes son:
 > [!NOTE] Sobre IOURC
 > Este archivo varia segun los archivos `/etc/hostname` y `/etc/hosts` que esten configurados para el servidor, exactamente en `Hostname` y `Host_id`
 
-> Usar `script.py` para conocer la licencia iourc
+> Crea un archivo `NETMAP` y `iourc`
 ```
-cd /opt/unetlab/addons/iol/bin/
-python2 script.py
+touch /opt/unetlab/addons/iol/bin/NETMAP /opt/unetlab/addons/iol/bin/iourc
+```
+
+> Debes buscar el Keygen y copiarlo en un archivo `script.py` y ejecutalo usando Python
+```
+python3 script.py
 ```
 
 > El output del script copialo dentro de `/opt/unetlab/addons/iol/bin/iourc`
@@ -320,16 +335,6 @@ eve-ng = 972xxxxxxxxx1616;
 
 **BIN**
 
-> Crear Carpeta
-```
-mkdir /opt/unetlab/addons/iol/bin /opt/unetlab/addons/iol/lib
-```
-
-> Haz que las imagenes sean ejecutables
-```
-chmod 755 bin/*.bin
-```
-
 > Copia las imagenes desde tu pc al servidor
 ```
 rsync -Phvr *.bin root@{ip-server}:/opt/unetlab/addons/iol/bin/
@@ -338,23 +343,6 @@ rsync -Phvr *.bin root@{ip-server}:/opt/unetlab/addons/iol/bin/
 > Arregla los permisos
 ```
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
-```
-
-**Probar las imagenes (Opcional)**
-
-> Mover a la carpeta con los `.bin`
-```
-cd /opt/unetlab/addons/iol/bin
-```
-
-> Crea un `NETMAP`
-```
-touch NETMAP
-```
-
-> Ejecuta la imagen donde `{iosname.bin}` sea la imagen a probar
-```
-LD_LIBRARY_PATH=/opt/unetlab/addons/iol/lib/ /opt/unetlab/addons/iol/bin/{iosname.bin} 1
 ```
 
 ## Cisco IOS XE
@@ -367,7 +355,7 @@ LD_LIBRARY_PATH=/opt/unetlab/addons/iol/lib/ /opt/unetlab/addons/iol/bin/{iosnam
 
 Bueno, Cisco tiene una rama mas moderna de los IOS, llamada IOS XE, las cuales se distribuyen en CML, y no estan permitidas para su uso en EVE-NG, rompes la licencia al hacerlo, solo digo
 
-Y es que Cisco cambio su forma de distribuir las imagenes, ahora las empaqueta en distintos YAML y apunta a blobs comprimidos identificados por su hash256... Lo cual no es nuevo, siempre han sido metodos confusos de hacer funcionar las cosas
+Y es que Cisco cambio su forma de distribuir las imagenes, ahora las empaqueta en distintos YML y apunta a blobs comprimidos identificados por su hash256... Lo cual no es nuevo, siempre han sido metodos confusos de hacer funcionar las cosas
 
 Las ultima version que extraje fue la 17.18.02a del 12/May/2026, y la tabla de recomendaciones es la siguiente
 
@@ -386,6 +374,16 @@ Estas imagenes las puedes conseguir gratuitamente mediante los siguientes pasos
 7. Debes cambiar la extension de `.iol` a `.bin`
 8. Y lo mueves a la carpeta magica de eve-ng, que no recuerdo cual es, oopsie
 9. Repite lo mismo con la carpeta `ioll2-xe-17-18-02`
+
+> Envia esos binarios a la carpeta
+```
+rsync -Phvr *.bin root@{ip-server}:/opt/unetlab/addons/iol/bin/
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
 
 ## Aruba CX Switch
 > [!IMPORTANT] Documentacion Recomendada
@@ -414,6 +412,11 @@ Una vez con tu cuenta creada busca el termino "`AOS-CX OVA`" desde el buscador g
 
 Te recomiendo ver el Changelog desde Aruba, para ver cuales son los ultimos cambios de los branchs
 
+> Crea la carpeta en el servidor
+```
+mkdir /opt/unetlab/addons/qemu/arubacx-{version}
+```
+
 > Descomprime el .zip que contiene el OVA
 ```
 7z x AOS-CX_Switch_Simulator_10_18_0001_ova.zip
@@ -429,11 +432,6 @@ Te recomiendo ver el Changelog desde Aruba, para ver cuales son los ultimos camb
 qemu-img convert -f vmdk -O qcow2 arubaoscx-disk-image-genericx86-p4-20260521162224.vmdk virtioa.qcow
 ```
 
-> Crea la carpeta en el servidor
-```
-mkdir /opt/unetlab/addons/qemu/arubacx-{version}
-```
-
 > Copia la imagen al servidor
 ```
 rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/arubacx-{version}/
@@ -444,9 +442,12 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/arubacx-{ver
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
+> [!TIP] Tiempo Inico
+> Se demora unos 2 minutos en iniciar, se mantiene en negro todo ese tiempo y luego te pedira iniciar sesion
+
 ## Cisco
 ### ASAv
-
+**Metodo: CML**
 > [!IMPORTANT] Documentacion Recomendada
 > - [EVE-NG Docs - Cisco ASAv](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-cisco-asav/)
 > - [Cisco CML-Free Docs](https://developer.cisco.com/docs/modeling-labs/cml-free/#installing-cml-free)
@@ -458,8 +459,7 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/arubacx-{ver
 > - Carpeta ASAv: `asav-{version}`
 > 	- Disco QEMU: `virtioa`
 
-El metodo para conseguir las imagenes es igual que con los [[#Cisco IOS XE]], el nombre dentro de la carpeta `virl-base-images` son
-- ASAv: `asav-9-24-1`
+Puedes conseguir esta imagen actualizada con el metodo de [[#Cisco IOS XE]], por ejemplo `9.24.1`, pero estan sin licencia.
 
 > Crear las carpetas para ASAv
 ```
@@ -475,6 +475,92 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/asav-{versio
 ```
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
+
+> [!TIP] Nota Inicio
+> La primera vez se instala y se reinicia, luego inicia normalmente.
+
+**Metodo: PLR**
+
+Las imagenes "**P**ermanent **L**icense **R**eservation (PLR)" traen la licencia integrada y expanden las funcionalidades del ASAv. El truco es que deben configurarse de forma especifica, de lo contrario el sistema detecta que es una imagen clonada y eliminara la licencia automaticamente
+
+> Caracteristicas Licencia ASAv Universal v10
+```
+License mode: Smart Licensing
+License reservation: Enabled
+ASAv Platform License State: Licensed
+Active entitlement: ASAv-UNIVERSAL-V10, enforce mode: Authorized
+Firewall throughput limited to 1 Gbps
+
+Licensed features for this platform:
+Maximum VLANs                     : 50
+Inside Hosts                      : Unlimited
+Failover                          : Active/Standby
+Encryption-DES                    : Enabled
+Encryption-3DES-AES               : Enabled
+Security Contexts                 : 0
+Carrier                           : Enabled
+AnyConnect Premium Peers          : 250
+AnyConnect Essentials             : Disabled
+Other VPN Peers                   : 250
+Total VPN Peers                   : 250
+AnyConnect for Mobile             : Enabled
+AnyConnect for Cisco VPN Phone    : Enabled
+Advanced Endpoint Assessment      : Enabled
+Shared License                    : Disabled
+Total TLS Proxy Sessions          : 500
+Botnet Traffic Filter             : Enabled
+Cluster                           : Enabled
+```
+
+Cada Imagen PLR viene con un UUID en su archivo YAML. Sin el, la imagen no funciona, debe estar en la misma carpeta donde descargaste la imagen, copialo y tengo en mente
+
+> Ejemplo de YML PLR
+```
+---
+type: qemu
+name: ASAv-PLR
+config_script: config_asav.py
+description: Cisco ASAv PLR Licensed
+cpulimit: 1
+icon: ASA.png
+cpu: 1
+ram: 2048
+ethernet: 8
+console: telnet
+qemu_arch: x86_64
+uuid: 91f99252-4bf8-406d-afc2-183ccee337c1
+qemu_options: -machine type=pc-1.0,accel=kvm -serial mon:stdio -nographic -nodefconfig
+  -nodefaults -display none -vga std -rtc base=utc
+...
+```
+
+> Copiar el YML para Template de Intel
+```
+rsync -Phvr asav-plr.yml root@{ip-server}:/opt/unetlab/html/templates/intel/
+```
+
+> Copiar el YML para template de AMD
+```
+rsync -Phvr asav-plr.yml root@{ip-server}:/opt/unetlab/html/templates/amd/
+```
+
+> Crear la carpeta para ASAv-PLR
+```
+mkdir /opt/unetlab/addons/qemu/asav-plr-{version}
+```
+
+> Envia la imagen al servidor, en ASAv-PLR
+```
+rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/asav-plr{version}/
+```
+
+> Arregla permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+> [!WARNING] UUID
+> Cuando crees un nodo, debes copiar el UUID de tu YML en las configuraciones de cada Nodo. De otra manera no funcionara correctamente la imagen
 
 ### Cisco vIOS (EX-VIRL)
 
@@ -976,6 +1062,8 @@ rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/huaweiar1k-{vers
 
 Yo encontre: `? - 524.00M`
 
+Su template no esta en EVE-NG, no confundir con NE40, son distintos
+
 Un router con aires mas de ISP, para MPLS, BGP y ese tipo de cosas
 
 > Crea la carpeta
@@ -988,7 +1076,7 @@ mkdir /opt/unetlab/addons/qemu/huaweine40-{version}
 rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/huaweine40-{version}/
 ```
 
-> YAML
+> Ejemplo YML `huaweine40e`
 ```
 ---
 type: qemu
@@ -1018,14 +1106,14 @@ eth_name:
 ...
 ```
 
-> Envia el template `huaweice12800.yaml` a Intel
+> Envia el template `huaweine40e.yml` a Intel
 ```
-rsync -Phvr ce.png root@{ip-server}:/opt/unetlab/html/templates/intel/
+rsync -Phvr huaweine40e.yml root@{ip-server}:/opt/unetlab/html/templates/intel/
 ```
 
-> Envia el template `huaweice12800.yaml` a AMD
+> Envia el template `huaweine40e.yml` a AMD
 ```
-rsync -Phvr ce.png root@{ip-server}:/opt/unetlab/html/templates/amd/
+rsync -Phvr huaweine40e.yml root@{ip-server}:/opt/unetlab/html/templates/amd/
 ```
 
 > Arregla los permisos
@@ -1058,7 +1146,7 @@ rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/huaweice12800-{v
 rsync -Phvr ce.png root@{ip-server}:/opt/unetlab/html/images/icons/
 ``` 
 
-> Este es el YAML para que funcione
+> Este es el YML para que funcione
 ```
 # Copyright (c) 2016, Andrea Dainese
 # Copyright (c) 2018, Alain Degreffe
@@ -1107,14 +1195,14 @@ qemu_options:  -machine type=q35,accel=kvm -serial mon:stdio -nographic -nodefau
 ...
 ```
 
-> Envia el template `huaweice12800.yaml` a Intel
+> Envia el template `huaweice12800.yml` a Intel
 ```
-rsync -Phvr huaweice12800 root@{ip-server}:/opt/unetlab/html/templates/intel/
+rsync -Phvr huaweice12800.yml root@{ip-server}:/opt/unetlab/html/templates/intel/
 ```
 
-> Envia el template `huaweice12800.yaml` a AMD
+> Envia el template `huaweice12800.yml` a AMD
 ```
-rsync -Phvr huaweice12800.yaml root@{ip-server}:/opt/unetlab/html/templates/amd/
+rsync -Phvr huaweice12800.yml root@{ip-server}:/opt/unetlab/html/templates/amd/
 ```
 
 > Arregla los permisos
@@ -1216,14 +1304,14 @@ qemu_options: -machine type=pc,accel=kvm -vga std -usbdevice tablet -boot order=
 ...
 ```
 
-> Envia el template `huaweiwaf5k.yaml` a Intel
+> Envia el template `huaweiwaf5k.yml` a Intel
 ```
-rsync -Phvr huaweiwaf5k.yaml root@{ip-server}:/opt/unetlab/html/templates/intel/
+rsync -Phvr huaweiwaf5k.yml root@{ip-server}:/opt/unetlab/html/templates/intel/
 ```
 
-> Envia el template `huaweiwaf5k.yaml` a AMD
+> Envia el template `huaweiwaf5k.yml` a AMD
 ```
-rsync -Phvr huaweiwaf5k.yaml root@{ip-server}:/opt/unetlab/html/templates/amd/
+rsync -Phvr huaweiwaf5k.yml root@{ip-server}:/opt/unetlab/html/templates/amd/
 ```
 
 > Arregla los permisos
@@ -1236,13 +1324,6 @@ rsync -Phvr huaweiwaf5k.yaml root@{ip-server}:/opt/unetlab/html/templates/amd/
 > - [EVE-NG Docs - HowTo create own Linux Host Image](https://www.eve-ng.net/index.php/documentation/howtos/howto-create-own-linux-host-image/)
 > - [Youtube - The Network Berg - EVE-NG Importing a Linux host](https://youtu.be/ZLvdJa3MXTU?si=ud_AM3k1wUfK0UuC)
 > - [EVE-NG Docs - Mega - Download Linux Images](https://mega.nz/folder/30p3TKob#42_S__9wwPVO0zHIfC4xow)
-
-> [!TIP] Credenciales Generales
-> - root/root
-> - root/eve
-> - user/Test123
-> - root/Test123
-> - root/toor (Kali 2019.3 with RDP)
 
 ### Alpine
 

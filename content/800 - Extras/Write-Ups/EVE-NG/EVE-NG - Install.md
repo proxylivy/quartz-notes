@@ -122,11 +122,11 @@ Cisco IOS image list:
 QEMU image list:
 - Aruba AOS-CX 10.18 - [Free with Registration in HPE](https://networkingsupport.hpe.com/globalsearch#q=AOS-CX%20OVA&tab=Software&sortCriteria=date%20descending)
 - Cisco
-	- ASAv-9.22.1.1-PLR-Licenced - [Free with Registration](https://developer.cisco.com/docs/modeling-labs/cml-free/)
-	- CSR1000vng-universalk9.17.03.05-serial
-	- CSR1000v-universalk9.17.03.08a-serial
+	- ASAv 9.24.1 - [Free with Registration](https://developer.cisco.com/docs/modeling-labs/cml-free/)
+	- ASAv-9.22.1.1-PLR-Licenced
+	- csr1000vng-universalk9.17.03.08a-serial
 - Cisco vIOS - [Free with Registration](https://developer.cisco.com/docs/modeling-labs/cml-free/)
-	- Router: vios-adventerprisek9-m.SPA.159-3.M6
+	- Router: vios-adventerprisek9-m.SPA.159-3.M12
 	- Switch: viosl2-adventerprisek9-m.ssa.high_iron_20200929
 - Extreme Networks
 	- ExtremeVOSS 9.4.0.0 - [Free](https://github.com/extremenetworks/Virtual_VOSS)
@@ -285,106 +285,6 @@ Existen 3 metodos para ejecutar imagenes: Dynamips, IOL y Qemu. Dynamips no lo v
 
 La mayoria de las imagenes que se usan en EVE-NG usan el metodo de QEMU, por eso es tan flexible, con la excepcion de Cisco IOL, por eso es el primero que explicare.
 
-## Cisco IOL
-> [!IMPORTANT] Documentacion Recomendada
-> - [EVE-NG Docs - Howto add Cisco IOL](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-cisco-iol-ios-on-linux/)
-> - [BlackBox Blog (Ru) - Eve-NG Arreglar imagenes IOL](https://it-blackbox.blogspot.com/2018/06/eve-ng-cisco-iouiol.html)
-> - [Github - ishare2-org/ishare2-cli](https://github.com/ishare2-org/ishare2-cli) | [Generate new iourc license](https://github.com/ishare2-org/ishare2-cli?tab=readme-ov-file#generate-a-new-iourc-license-for-bin-images)
-> - Github CiscoIOUKeygen
-> 	- [sbanszky - CiscoIOL](https://github.com/sbanszky/CiscoIOL/blob/main/CiscoIOUKeygen.py)
-> 	- [lxcau - CiscoIOUKeygen.py](https://github.com/lxcau/script/blob/master/CiscoIOUKeygen.py)
-> 	- [guishade - ciscoIOUkeygen.py](https://github.com/guishade/ciscoIOUkey/blob/main/ciscoIOUkeygen.py)
-> 	- [robin113x - keygen](https://github.com/robin113x/keygen/blob/main/CiscoIOUKeygen.py)
-
-> [!DANGER] Mira la version de las imagenes
-> - Evitar usar la version `L3 15.5.2T` debido a que se congela en standby
-
-Cisco IOL sigue un metodo propio heredado de los tiempos de WEBIOL (~2010), que luego copio IOU WEB, y despues se transformo en UNL y termino siendo EVE-NG. Su estructura ya viene integrada, solo hay que colocar los archivos en su lugar.
-
-Las carpetas relevantes son:
-- `/opt/unetlab/addons/iol/bin/`: Imagenes con extension "`.bin`", junto a un archivo "`iourc`" que actua como licencia
-- `/opt/unetlab/addons/iol/lib/`: La libreria "`libcrypto.so.4`" (Openssl) necesaria para que los binarios de "`bin/`" funcionen
-
-**Tabla IOL Imagen Recomendada**
-
-| Type         | EVE Image Name                                                   | Version                                                                                                                                     | NVRAM | RAM  |
-| ------------ | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ---- |
-| L2/L3 Switch | i86bi_linux_l2-adventerprisek9-ms.<br>SSA.high_iron_20190423.bin | Cisco IOS Software, Linux Software <br>(I86BI_LINUXL2-ADVENTERPRISEK9-M),<br>Version 15.2(CML_NIGHTLY_20190423)                             | 1024  | 1024 |
-| L3 Router    | i86bi_LinuxL3-AdvEnterpriseK9-<br>M2_157_3_May_2018.bin          | Cisco IOS Software, Linux Software (I86BI_LINUX-<br>ADVENTERPRISEK9-M), Version 15.7(3)M2,<br>Compiled Wed 28-Mar-18 11:18 by prod_rel_team | 1024  | 1024 |
-
-**IOURC**
-
-> [!NOTE] Sobre IOURC
-> Este archivo varia segun los archivos `/etc/hostname` y `/etc/hosts` que esten configurados para el servidor, exactamente en `Hostname` y `Host_id`
-
-> Crea un archivo `NETMAP` y `iourc`
-```
-touch /opt/unetlab/addons/iol/bin/NETMAP /opt/unetlab/addons/iol/bin/iourc
-```
-
-> Debes buscar el Keygen y copiarlo en un archivo `script.py` y ejecutalo usando Python
-```
-python3 script.py
-```
-
-> El output del script copialo dentro de `/opt/unetlab/addons/iol/bin/iourc`
-```
-[license]
-eve-ng = 972xxxxxxxxx1616;
-```
-
-**BIN**
-
-> Copia las imagenes desde tu pc al servidor
-```
-rsync -Phvr *.bin root@{ip-server}:/opt/unetlab/addons/iol/bin/
-```
-
-> Arregla los permisos
-```
-/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
-```
-
-## Cisco IOS XE
-
-> [!TIP] Lecturas Recomendadas
-> - [Cisco CML-Free Docs](https://developer.cisco.com/docs/modeling-labs/cml-free/#installing-cml-free)
-> - [Cisco Meraki - CML Free Register](https://mkto.cisco.com/cml-opt-in.html)
-> - [Cisco Software](https://software.cisco.com/download/home/)
-> 	- [CML Free](https://software.cisco.com/download/home/286193282/type/286326381/release/CML-Free)
-
-Bueno, Cisco tiene una rama mas moderna de los IOS, llamada IOS XE, las cuales se distribuyen en CML, y no estan permitidas para su uso en EVE-NG, rompes la licencia al hacerlo, solo digo
-
-Y es que Cisco cambio su forma de distribuir las imagenes, ahora las empaqueta en distintos YML y apunta a blobs comprimidos identificados por su hash256... Lo cual no es nuevo, siempre han sido metodos confusos de hacer funcionar las cosas
-
-Las ultima version que extraje fue la 17.18.02a del 12/May/2026, y la tabla de recomendaciones es la siguiente
-
-| Type            | EVE Image Name                                 | Version                                                                                                                                       | NVRAM | RAM  |
-| --------------- | ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ---- |
-| L3 XE Router    | x86_64_crb_linux-adventerprisek9<br>-ms.bin    | IOL XE Router Cisco IOS Software [Dublin], Linux <br>Software (X86_64BI_LINUX-ADVENTERPRISEK9-M), <br>Version 17.12.1, RELEASE SOFTWARE (fc5) | 1024  | 1024 |
-| L2/L3 XE Switch | x86_64_crb_linux_l2-adventerprisek9<br>-ms.bin | IOL XE Switch Cisco IOS Software [Dublin], Linux<br>Software (X86_64BI_LINUX_L2-ADVENTERPRISEK9-M), Version 17.12.1, RELEASE SOFTWARE (fc5)   | 1024  | 1024 |
-
-Estas imagenes las puedes conseguir gratuitamente mediante los siguientes pasos
-1. Crea una cuenta en Cisco Meraki para acceder a la tienda de descargas
-2. Descarga el "reference platform" mas reciente, en mi caso "`refplat-20260409-free-iso.zip`" (12-May-2026). (Probablemente cuando lo leas haya uno mas nuevo, descarga obviamente el mas nuevo)
-3. Descomprime el `.zip` y luego el `.iso` resultante
-4. Entra a `virl-base-images` y busca la carpeta `iol-xe-17-18-02`
-5. Descomprime el `.tar.gz` que encuentres
-6. Abre la carpeta `blobs` y luego `sha256` y busca el archivo comprimido mas pesado del listado, en mi caso `ac697212b57ca1706f4a5618a2b11e42746eb8d6e11f797d2878999ca108c955`. Debes descomprimirlo y te extraerla la imagen con la extension `.iol`
-7. Debes cambiar la extension de `.iol` a `.bin`
-8. Y lo mueves a la carpeta magica de eve-ng, que no recuerdo cual es, oopsie
-9. Repite lo mismo con la carpeta `ioll2-xe-17-18-02`
-
-> Envia esos binarios a la carpeta
-```
-rsync -Phvr *.bin root@{ip-server}:/opt/unetlab/addons/iol/bin/
-```
-
-> Arregla los permisos
-```
-/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
-```
-
 ## Aruba CX Switch
 > [!IMPORTANT] Documentacion Recomendada
 > - [HPE Support](https://networkingsupport.hpe.com/home): Iniciar sesion con cuenta HPE Certificada
@@ -446,8 +346,164 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/arubacx-{ver
 > Se demora unos 2 minutos en iniciar, se mantiene en negro todo ese tiempo y luego te pedira iniciar sesion
 
 ## Cisco
+
+**Descargas y Licencias**
+
+Descargar imagenes directamente desde Cisco puede ser confuso. Existe un portal publico de descargas, aunque las imagenes requieren un "*Service Contract*" asociado a tu cuenta de Cisco. Tener una cuenta gratuita o de educacion no garantiza el acceso a las descargas.
+
+Si intentas descargar una imagen sin los permisos necesarios, el portal te dira
+> you must have a valid service contract associated to your Cisco.com profile.
+
+Y para obtener acceso debes cumplir con uno de los requerimientos
+- Tu tipo de cuenta tiene un acuerdo de compra directa con Cisco
+- Eres socio o distribuidor de Cisco
+
+**CML-P**
+
+> [!IMPORTANT] Documentacion Recomendada
+> - [Cisco - CML Index Showcase](https://www.cisco.com/site/us/en/learn/training-certifications/training/modeling-labs/index.html)
+> - [Cisco U - Comprar Licencia CML-P](https://u.cisco.com/labs/cisco-modeling-labs-personal-1)
+> - [Cisco Dev Docs](https://developer.cisco.com/docs/)
+> 	- [CML](https://developer.cisco.com/docs/modeling-labs/)
+> 		- [FAQ](https://developer.cisco.com/docs/modeling-labs/faq/)
+> 		- [VM Images for CML Labs](https://developer.cisco.com/docs/modeling-labs/vm-images-for-cml-labs/)
+
+Existe una alternativa para conseguir imagenes de Cisco de buena manera, y se llama "CML-P" (Cisco Modeling Labs Personal), tiene un costo de 200USD/año e incluye un conjunto de imagenes para laboratorio, entre ellas
+- ASAv
+- CAT8000v
+- CAT9000v
+- CSR1000v
+- FMCv
+- FTDv
+- IOL XE L3
+- IOL XE L2
+- IOSv L3
+- IOSv L2
+- IOS XRv 9000
+- NX OS 9000
+- Catalyst SD-WAN
+- Catalyst 9800-CL
+- Algunas distros de Linux
+
+Aunque estas imagenes incluidas con CML estan licenciadas exlusivamente para utilizarse en CML, son tecnicamente compatibles con EVE-NG y otros emuladores. Aunque debes estar claro que rompes la licencia al hacerlo.
+
+**CML-Free**
+
+> [!IMPORTANT] Documentacion Recomendada
+> - [Cisco CML-Free Docs](https://developer.cisco.com/docs/modeling-labs/cml-free/#installing-cml-free)
+> - [Cisco Meraki - CML Free Register](https://mkto.cisco.com/cml-opt-in.html)
+> - [Cisco Software Download](https://software.cisco.com/download/home/)
+> 	- [CML Free](https://software.cisco.com/download/home/286193282/type/286326381/release/CML-Free)
+
+Si no deseas adquirir una licencia de CML-P, Cisco ofrece un plan gratuito mas limitado llamado "CML-Free" y contiene un set de imagenes igual interesante:
+- ASAv (Sin licencia)
+- IOS XE L3 (IOL)
+- IOS XE L2 (IOL-L2)
+- IOSv L3
+- IOSv L2
+
+Para obtener estas imagenes, debes registrarte en *Cisco CML-Free* (Puedes a travez del formulario de Meraki). Una vez verificado, podras descargar el archivo `refplat-{version}-free-iso.zip` desde el portal *Cisco Software Download*.
+
+Extrae el contenido del archivo ZIP y luego la imagen ISO. Dentro encontraras el directorio `virl-base-images`, que contiene las imagenes qcow2 o binarios que necesitamos
+
+A partir de este punto, las siguientes secciones asumen que ya tienes acceso al contenido de esta carpeta para poder instalar cada imagen de EVE-NG
+
+### Cisco IOS
+> [!IMPORTANT] Documentacion Recomendada
+> - [EVE-NG Docs - Howto add Cisco IOL](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-cisco-iol-ios-on-linux/)
+> - [BlackBox Blog (Ru) - Eve-NG Arreglar imagenes IOL](https://it-blackbox.blogspot.com/2018/06/eve-ng-cisco-iouiol.html)
+> - [Github - ishare2-org/ishare2-cli](https://github.com/ishare2-org/ishare2-cli) | [Generate new iourc license](https://github.com/ishare2-org/ishare2-cli?tab=readme-ov-file#generate-a-new-iourc-license-for-bin-images)
+> - Github CiscoIOUKeygen
+> 	- [sbanszky - CiscoIOL](https://github.com/sbanszky/CiscoIOL/blob/main/CiscoIOUKeygen.py)
+> 	- [lxcau - CiscoIOUKeygen.py](https://github.com/lxcau/script/blob/master/CiscoIOUKeygen.py)
+> 	- [guishade - ciscoIOUkeygen.py](https://github.com/guishade/ciscoIOUkey/blob/main/ciscoIOUkeygen.py)
+> 	- [robin113x - keygen](https://github.com/robin113x/keygen/blob/main/CiscoIOUKeygen.py)
+
+Cisco IOS (**I**nternetwork **O**perative **S**ystem) o IOL (**I**OS **O**n **L**inux) utilizan un formato distinto al de las maquinas virtuales tradicionales. En lugar de ejecutarse como una imagen de QEMU, IOL consiste en binarios compilados especificamente para Linux, una arquitectura heredada de los primeros laboratorios internos de Cisco (WebIOL) y fue posteriormente adoptada pro herramientas como IOU WEB, UNL y finalmente EVE-NG.
+
+Las carpetas relevantes son:
+- `/opt/unetlab/addons/iol/bin/`: Imagenes con extension "`.bin`", junto a un archivo "`iourc`" que actua como licencia
+- `/opt/unetlab/addons/iol/lib/`: La libreria "`libcrypto.so.4`" (Openssl) necesaria para que los binarios de "`bin/`" funcionen
+
+> [!DANGER] Evita esta version
+> - Evitar usar la version `L3 15.5.2T` del router debido a que se congela en standby
+
+**Tabla IOL Imagen Recomendada**
+
+| Type         | EVE Image Name                                                   | Version                                                                                                                                     | NVRAM | RAM  |
+| ------------ | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ---- |
+| L2/L3 Switch | i86bi_linux_l2-adventerprisek9-ms.<br>SSA.high_iron_20190423.bin | Cisco IOS Software, Linux Software <br>(I86BI_LINUXL2-ADVENTERPRISEK9-M),<br>Version 15.2(CML_NIGHTLY_20190423)                             | 1024  | 1024 |
+| L3 Router    | i86bi_LinuxL3-AdvEnterpriseK9-<br>M2_157_3_May_2018.bin          | Cisco IOS Software, Linux Software (I86BI_LINUX-<br>ADVENTERPRISEK9-M), Version 15.7(3)M2,<br>Compiled Wed 28-Mar-18 11:18 by prod_rel_team | 1024  | 1024 |
+
+**IOURC**
+
+> [!NOTE] Sobre IOURC
+> Este archivo varia segun los archivos `/etc/hostname` y `/etc/hosts` que esten configurados para el servidor, exactamente en `Hostname` y `Host_id`
+
+> Crea un archivo `NETMAP` y `iourc`
+```
+touch /opt/unetlab/addons/iol/bin/NETMAP /opt/unetlab/addons/iol/bin/iourc
+```
+
+> Debes buscar el Keygen y copiarlo en un archivo `script.py` y ejecutalo usando Python
+```
+python3 script.py
+```
+
+> El output del script copialo dentro de `/opt/unetlab/addons/iol/bin/iourc`
+```
+[license]
+eve-ng = 972xxxxxxxxx1616;
+```
+
+**BIN**
+
+> Copia las imagenes desde tu pc al servidor
+```
+rsync -Phvr *.bin root@{ip-server}:/opt/unetlab/addons/iol/bin/
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+### Cisco IOS XE
+
+> [!TIP] Lecturas Recomendadas
+> - [Cisco CML-Free Docs](https://developer.cisco.com/docs/modeling-labs/cml-free/#installing-cml-free)
+> - [Cisco Meraki - CML Free Register](https://mkto.cisco.com/cml-opt-in.html)
+> - [Cisco Software](https://software.cisco.com/download/home/)
+> 	- [CML Free](https://software.cisco.com/download/home/286193282/type/286326381/release/CML-Free)
+
+Cisco IOS XE es la evolucion de IOS, diseñado con una arquitectura modular basada en Linux. Se puede obtener a travez de CML-Free y su metodo de instalacion se basa en binarios, de forma similar a [[#Cisco IOS]], aunque el proceso es un poco mas complejo debido a como Cisco empaqueta estos binarios
+
+La version que utilize es: `17.18.02a (12/May/2026)`
+
+Las versiones no tienen descripciones, siempre tienen el mismo nombre
+- IOS XE Router L3: `x86_64_crb_linux-adventerprisek9-ms.bin`
+- IOS XE Switch L2/L3: `x86_64_crb_linux_l2-adventerprisek9-ms.bin`
+
+Para extraer las imagenes desde CML-Free:
+1. Entra a `virl-base-images` y busca la carpeta `iol-xe-17-18-02`
+2. Descomprime el `.tar.gz` que encuentres
+3. Abre la carpeta `blobs` y luego `sha256` y busca el archivo comprimido mas pesado del listado, en mi caso `ac697212b57ca1706f4a5618a2b11e42746eb8d6e11f797d2878999ca108c955`. Debes descomprimirlo y te extraerla la imagen con la extension `.iol`
+4. Debes cambiar la extension de `.iol` a `.bin`
+5. Y lo mueves a la carpeta de binarios IOL de EVE-NG
+6. Repite lo mismo con la carpeta `ioll2-xe-17-18-02`
+
+> Envia ambos binarios a la carpeta de IOL
+```
+rsync -Phvr *.bin root@{ip-server}:/opt/unetlab/addons/iol/bin/
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
 ### ASAv
-**Metodo: CML**
+**Metodo: CML-Free**
 > [!IMPORTANT] Documentacion Recomendada
 > - [EVE-NG Docs - Cisco ASAv](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-cisco-asav/)
 > - [Cisco CML-Free Docs](https://developer.cisco.com/docs/modeling-labs/cml-free/#installing-cml-free)
@@ -512,7 +568,7 @@ Botnet Traffic Filter             : Enabled
 Cluster                           : Enabled
 ```
 
-Cada Imagen PLR viene con un UUID en su archivo YAML. Sin el, la imagen no funciona, debe estar en la misma carpeta donde descargaste la imagen, copialo y tengo en mente
+Cada Imagen PLR viene con un UUID en su archivo YML. Sin el, la imagen no funciona, debe estar en la misma carpeta donde descargaste la imagen, copialo y tengo en mente
 
 > Ejemplo de YML PLR
 ```
@@ -562,7 +618,10 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/asav-plr{ver
 > [!WARNING] UUID
 > Cuando crees un nodo, debes copiar el UUID de tu YML en las configuraciones de cada Nodo. De otra manera no funcionara correctamente la imagen
 
-### Cisco vIOS (EX-VIRL)
+### Cisco vIOS
+
+> [!WARNING] Sobre Rendimiento
+> Estas imagenes son notablemente lentas en EVE-NG, especialmente vIOSl2, l3 es mas utilizable. Recomiendo utilizar directamente imagenes [[#Cisco IOS XE]] que son mas rapidas y modernas, si quieres el comportamiento de IOS 15.x, pues tienes el clasico [[#Cisco IOL]]
 
 > [!IMPORTANT] Documentacion Recomendada
 > - [EVE-NG Docs - Cisco vIOS](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-cisco-vios-from-virl/)
@@ -579,7 +638,7 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/asav-plr{ver
 
 El metodo para conseguir las imagenes es igual que con los [[#Cisco IOS XE]], el nombre dentro de la carpeta `virl-base-images` son
 - L3: `iosv-159-3-m12`
-- L2: `iosvl2-2020`
+- L2: `iosvl2-20200929`
 
 > Crea carpeta L3
 ```
@@ -591,14 +650,14 @@ mkdir /opt/unetlab/addons/qemu/vios-{version}
 mkdir /opt/unetlab/addons/qemu/viosl2-{version}
 ```
 
-> Envia las imagenes a la carpeta correspondiente
-```
-rsync -Phvr vios-{version}.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vios-{version}/
-```
-
-> Cambia el nombre
+> Renombra las imagenes (Tanto de L2 como L3)
 ```
 mv vios-{version}.qcow2 virtioa.qcow2
+```
+
+> Envia las imagenes a la carpeta correspondiente
+```
+rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vios-{version}/
 ```
 
 > Arregla los permisos
@@ -606,34 +665,32 @@ mv vios-{version}.qcow2 virtioa.qcow2
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
-### CSR1000v y CSR1000vng
+### CSR1000vng
 
 > [!IMPORTANT] Documentacion Recomendada
 > - [EVE-NG Docs - HowTo add CSR1000vng](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-cisco-csrv1000-16-x-denali-everest-fuji/)
-> - [EVE-NG Docs - HowTo add CSR1000vng-sdwan](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-cisco-csrv1000-sd-wan/)
+> - [Cisco CSR1000v Data Sheet](https://www.cisco.com/c/en/us/products/collateral/routers/cloud-services-router-1000v-series/data_sheet-c78-733443.html)
+> - [Cisco Software Download - CSR1000v](https://software.cisco.com/download/home/284364978/type)
 
 > [!NOTE] Nombre Imagen
-> - Carpeta CSR1000v: `csr1000v-{version}`
-> 	- Disco QEMU: `virtioa`
 > - Carpeta CSR1000vng: `csr1000vng-{version}`
 > 	- Disco QEMU: `virtioa`
 > - Login
 > 	- User: `admin`
 > 	- Pass: `admin`
 
-> Crea la carpeta para CSR1000v
-```
-mkdir /opt/unetlab/addons/qemu/csr1000v-{version}
-```
+Cisco **C**loud **S**ervices **R**outer 1000v es un router virtual basado en Cisco IOS XE incorporando funciones de automatizacion mediante APIs, NETCONF, RESTCONF, entre otras.
+
+Su estado es EOL y se usa para laboratorios viejos para aprender automatizacion
 
 > Crea la carpeta para CSR1000vng
 ```
 mkdir /opt/unetlab/addons/qemu/csr1000vng-{version}
 ```
 
-> Mueve la imagen para CSR1000v
+> Renombra el archivo
 ```
-rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/csr1000v-{version}/
+mv a virtioa.qcow2
 ```
 
 > Mueve la imagen para CSR1000vng
@@ -646,45 +703,39 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/csr1000vng-{
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
+> [!TIP] Sobre inicio
+> El primer inicio posiblemente reinstale sus sistema, luego se quedara unos 10 minutos mostrando `%BOOT-5-OPMODE_LOG: R0/0: binos: System booted in AUTONOMOUS mode` y luego se iniciara
+
 ### Cisco Viptela SD-WAN
 
-> [!WARNING] Peso y Requisitos
-> El nodo de vtmgmt es extremadamente pesado, necesita 100GB de espacio extra y 32GB de ram para correr correctamente
-
 > [!IMPORTANT] Documentacion Recomendada
-> - [EVE-NG Docs - HowTo add Cisco SDWAN Viptela image set](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-cisco-viptela-images-set/)
+> - [EVE-NG Docs - Cisco SDWAN Viptela image set](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-cisco-viptela-images-set/)
 > - [Network Academy Blog - Cisco SD-WAN on EVE-NG](https://www.networkacademy.io/ccie-enterprise/sdwan/cisco-sd-wan-on-eve-ng)
 > - [Youtube - Michael O'Briens CCIE Journal - How to create Smart Account and License file for Cisco SD-WAN](https://youtu.be/Caze1TZldCM?si=tqOw6fs_mmWNqM1Y)
 
+#### vManage
+
+> [!WARNING] Sobre Requisitos
+> Solo este nodo (vtmgmt) es extremadamente pesado, necesita 100GB de espacio extra y 32GB de ram para correr correctamente
+
 > [!NOTE] Nombre Imagen
-> - Carpeta Cisco Viptela SD-WAN vtbond: `vtbond-{version}`
-> 	- Disco QEMU: `virtioa`
-> - Carpeta Cisco Viptela SD-WAN vtedge: `vtedge-{version}`
-> 	- Disco QEMU: `virtioa`
-> - Carpeta Cisco Viptela SD-WAN vtsmart: `vtsmart-{version}`
-> 	- Disco QEMU: `virtioa`
 > - Carpeta Cisco Viptela SD-WAN vtmgmt: `vtmgmt-{version}`
 > 	- Disco QEMU: `virtioa`
 > - Login
 > 	- User: `admin`
 > 	- Pass: `admin`
 
-> Crear carpetas (de los 4 en sus respectivos lugares)
+> Crea la carpeta
 ```
-mkdir /opt/unetlab/addons/qemu/vtbond-{version}
-```
-
-> Copia las imagenes (de los 4 en sus respectivos lugares)
-```
-rsync -Phvr vtbond-{version}.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vtbond-{version}
+mkdir /opt/unetlab/addons/qemu/vtmgmt-{version}
 ```
 
-> Corrige el nombre (de los 4 en sus respectivos lugares)
+> Mueve el Qcow2
 ```
-mv vtbond-{version}.qcow2 virtioa.qcow2
+rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vtmgmt-{version}/
 ```
 
-> Ve a la carpeta de Cisco Viptela SD-WAN vtmgmt
+> Ve a esa carpeta
 ```
 cd /opt/unetlab/addons/qemu/vtmgmt-{version}
 ```
@@ -699,11 +750,89 @@ cd /opt/unetlab/addons/qemu/vtmgmt-{version}
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
+#### vSmart
+
+> [!NOTE] Nombre Imagen
+> - Carpeta Cisco Viptela SD-WAN vtsmart: `vtsmart-{version}`
+> 	- Disco QEMU: `virtioa`
+> - Login
+> 	- User: `admin`
+> 	- Pass: `admin`
+
+> Crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/vtsmart-{version}
+```
+
+> Mueve el Qcow2
+```
+rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vtsmart-{version}/
+```
+
+> Aregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+#### vBond
+
+> [!NOTE] Nombre Imagen
+> - Carpeta Cisco Viptela SD-WAN vtbond: `vtbond-{version}`
+> 	- Disco QEMU: `virtioa`
+> - Login
+> 	- User: `admin`
+> 	- Pass: `admin`
+
+> [!INFO] Qcow2
+> vBond y vEdge utilizan la misma imagen: `viptela-edge-{version}-genericx86-64.qcow2`
+
+> Crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/vtbond-{version}
+```
+
+> Mueve el Qcow2
+```
+rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vtbond-{version}/
+```
+
+> Aregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+#### vEdge
+> [!NOTE] Nombre Imagen
+> - Carpeta Cisco Viptela SD-WAN vtedge: `vtedge-{version}`
+> 	- Disco QEMU: `virtioa`
+> - Login
+> 	- User: `admin`
+> 	- Pass: `admin`
+
+> [!INFO] Qcow2
+> vBond y vEdge utilizan la misma imagen: `viptela-edge-{version}-genericx86-64.qcow2`
+
+> Crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/vtedge-{version}
+```
+
+> Mueve el Qcow2
+```
+rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vtmgmt-{version}/
+```
+
+
+> Aregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
 ## Extreme Networks
 
 ### ExtremeVOSS
 > [!IMPORTANT] Documentacion Recomendada
-> - [EVE-NG Docs - HowTo add Extreme VOSS](https://www.eve-ng.net/index.php/documentation/howtos/extreme-voss/)
+> - [EVE-NG Docs - Extreme VOSS](https://www.eve-ng.net/index.php/documentation/howtos/extreme-voss/)
 > - [Github - extremenetworks/Virtual_VOSS](https://github.com/extremenetworks/Virtual_VOSS)
 > - [Extreme Networks Docs](https://supportdocs.extremenetworks.com/support/documentation/)
 > 	- [VOSS](https://supportdocs.extremenetworks.com/support/documentation/vsp-operating-system-software-voss-document-collections/) (Legacy)
@@ -716,11 +845,16 @@ cd /opt/unetlab/addons/qemu/vtmgmt-{version}
 > 	- User: `rwa`
 > 	- Pass: `rwa`
 
-VOSS significa VSP Operating System Software -> Fabric Engine
+VOSS significa VSP Operating System Software, desde la version 9.0.0 que cambio el nombre a Fabric Engine (FE)
 
 > Crea la carpeta
 ```
 mkdir /opt/unetlab/addons/qemu/extremevoss-{version}
+```
+
+> Cambia el nombre del archivo
+```
+mv FEGNS3.{version}.qcow2 hda.qcow2
 ```
 
 > Mueve el archivo
@@ -733,10 +867,13 @@ rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/extremevoss-{ver
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
+> [!TIP] Sobre iniciar
+> Se demora 3 minutos en iniciar desde "Loading RootFs..." y luego otros 3 hasta que cargue el login
+
 ### ExtremeXOS
 
 > [!IMPORTANT] Documentacion Recomendada
-> - [EVE-NG Docs - HowTo add Extreme EXOS](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-extreme-exos/)
+> - [EVE-NG Docs - Extreme EXOS](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-extreme-exos/)
 > - [Github - extremenetworks/Virtual_EXOS](https://github.com/extremenetworks/Virtual_EXOS)
 > - [Extreme Networks Docs - ExtremeXOS](https://supportdocs.extremenetworks.com/support/documentation/extremexos-33-6-1/) (Legacy)
 > - [Extreme Networks Docs - Switch Engine 33.6.1](https://supportdocs.extremenetworks.com/support/documentation/switch-engine-33-6-1/)
@@ -748,14 +885,19 @@ rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/extremevoss-{ver
 > 	- User: `admin`
 > 	- Pass: N/A
 
-Desde la version 31.6, EXOS ahora pasa a ser Switch Engine
+Desde la version 31.6.x, EXOS ahora pasa a ser Switch Engine
 
 > Crea la carpeta
 ```
 mkdir /opt/unetlab/addons/qemu/extremexos-{version}
 ```
 
-> Mueve el archivo
+> Renombra el archivo
+```
+mv EXOS-VM_{version}.qcow2 hda.qcow2
+```
+
+> Envia el archivo al servidor
 ```
 rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/extremexos-{version}/
 ```
@@ -765,11 +907,16 @@ rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/extremexos-{vers
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
-## F5 BigIP
+> [!TIP] Sobre Inicio
+> Se autoselecciona Serial como inicio en el disco primario y se demora 2 minutos en iniciar
+
+## F5 BIG-IP
 > [!IMPORTANT] Documentacion Recomendada
-> - [EVE-NG Docs - HowTo add F5 BigIP](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-f5-bigip/)
+> - [EVE-NG Docs - F5 BigIP](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-f5-bigip/)
 > - [F5 - Registro Cuenta](https://account.f5.com/myf5/signin/register)
 > 	- [Descarga Imagenes](https://my.f5.com/manage/s/downloads)
+> - [F5 Docs](https://docs.cloud.f5.com/docs-v2)
+> - [F5 Article - K7752: Licensing the BIG-IP system](https://my.f5.com/manage/s/article/K7752)
 
 > [!NOTE] Nombre Imagen
 > - Carpeta Big IP: `bigip-{version}`
@@ -779,18 +926,36 @@ rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/extremexos-{vers
 > 	- Pass: `default`
 > - WEB Login
 > 	- User: `admin`
-> 	- Pass: `admin`
+> 	- Pass: `{La contraseña que utilizaste para cambiar a root}`
+
+> [!WARNING] Sobre la Licencia
+> - [F5 Trials - BIG-IP Showcase](https://www.f5.com/trials/big-ip-virtual-edition)
+> - [F5 Manage - Trials](https://my.f5.com/manage/s/trials)
+> 
+> Requiere una licencia para funcionar, aunque existen trials de 30 dias que puedes pedir y se demoran en entregarla de 24 a 48 horas.
+> 
+> Las licencias de evaluacion son individuales de cada instancia y no pueden reutilizarse en otras VMs. Por lo que por cada instancia debes hacer ese proceso.
+> 
+> Para obtener la licencia, accede a Trials y solicita la oferta para BIP-IP, luego de darle click, cargara unos 20 minutos y luego aparecera un mensaje diciendo "Pending Approval, Trial fulfillment on hold, pending approval from F5 Inc.". Y luego deberias esperar de 1 a 2 dias para que te entreguen la licencia.
+> 
+> Se demoraron en aprovar mi solicitud en: ?? (Llevo 10 horas al momento de escribir, hagan este tramite con tiempo)
 
 Registra e inicia sesion en una cuenta, luego ve al menu de Descarga y selecciona lo siguiente, siempre revisa versiones mas actuales
 - Group: BIG-IP
 - Product Line: BIG-IP v21.X
-- Producto Version: 21.1.0-LTS
+- Product Version: 21.1.0-LTS
+- Product Container: 21.1.0_Virtual-Edition
 
 Yo descargue: `BIGIP-21.1.0-0.0.38.ALL.qcow2`
 
 > Crea la carpeta
 ```
 mkdir /opt/unetlab/addons/qemu/bigip-{version}
+```
+
+> Descomprime el archivo
+```
+7z x BIGIP-{version}.ALL.qcow2.zip
 ```
 
 > Renombra el archivo
@@ -808,6 +973,12 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/bigip-{versi
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
+> [!WARNING] Tipo Consola
+> Durante la instalacion (primer inicio) debes configurar como VNC
+
+> [!TIP] Sobre inicio
+> Se demora unos 2 minutos, se autoselecciona desde GRUB hasta que muestra Login
+
 NOTA: Siguiendo este metodo tambien puedes conseguir BIG-IQ, que es un gestor de instancias, lo veo innecesario hacer una doble explicacion
 
 ## Freebsd
@@ -816,15 +987,23 @@ NOTA: Siguiendo este metodo tambien puedes conseguir BIG-IQ, que es un gestor de
 > - [FreeBSD](https://www.freebsd.org/)
 > 	- [Releases](https://www.freebsd.org/releases/)
 > 	- [Newbies](https://www.freebsd.org/projects/newbies/)
-> 	- [Download FreeBSD](https://www.freebsd.org/where/)
+> 	- [Download FreeBSD](https://www.freebsd.org/where/) | [Mirrors](https://docs.freebsd.org/en/books/handbook/mirrors/)
 
 > [!NOTE] Nombre Imagen
 > - Carpeta Freebsd: `freebsd-{version}`
 > 	- Disco QEMU: `virtioa`
+> - Login
+> 	- User: `root`
+> 	- Pass: `root` (Tu la configuras en la instalacion)
 
 EVE-NG no tiene documentacion oficial, pero esta en el template, asi que me imagino que deberia funcionar
 
 Debes descargar el instalador DVD1 para una instalacion offline, en mi caso `FreeBSD-15.1-RELEASE-amd64-dvd1.iso`
+
+> Crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/freebsd-{version}
+```
 
 > Renombra el archivo
 ```
@@ -846,9 +1025,43 @@ cd /opt/unetlab/addons/qemu/freebsd-{version}
 /opt/qemu/bin/qemu-img create -f qcow2 virtioa.qcow2 10G
 ```
 
-Crea un nodo e inicia la instalacion, cuando termines apaga la maquina
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
 
-Ahora deberas hacer [[#Commit al Qcow2]] y Elimina el disco
+Sigue estas instrucciones de instalacion
+- Crea un nodo de FreeBSD, conecta la interfaz `vtnet0` a `Cloud0` para que tenga salida a internet e inicia el nodo, se autoselecciona la instalacion y cargara el sistema
+- En la bienvenida selecciona "Install"
+- Continua con el keymap por defecto dando Enter
+- Deja el hostname en blanco
+- Selecciona "Packages (Tech Preview)"
+- Selecciona "Network"
+- Selecciona "vtnet0" y deberia buscar una IP disponible
+- Selecciona "Auto(UFS)" ya que es mas ligero
+- Selecciona "Entire Disk" para utilizar todo el disco
+- Selecciona "MBR DOS Partition"
+- Selecciona "Finish" y luego "Commit" para crear las particiones e inicializarlas
+- Elige con "espacio" para marcar con "X" los set de paquetes que necesitas, en mi caso, ninguno, asi que apreta "Enter"
+- Descargara, extraera e instalara los paquetes, se demora un par de minutos.
+- Te pedira una contraseña, debes escribir tu contraseña (`root`), Presionar "Tab" y luego escribir la contraseña otra vez (`root`) y dar "Enter"
+- Selecciona tu region/Pais
+- Configura la fecha, si se conecta a internet, la extraera automaticamente, y dale en "Skip"
+- Configura la hora, si se conecta a internet, la extraera automaticametne, y dale en "Skip"
+- Selecciona los servicios que quieres que se inicien, agrega con espacio a "ntpd_sync_on_start" y luego presiona enter
+- Elige opciones de Hardening, como es un laboratorio, no eligire ninguna, y dare Enter
+- Revisara si necesita instalar firmware extra (No deberia encontrar)
+- Te pregunta si quieres añadir un usuario al sistema, como es un lab, le doy en "No"
+- Le das en "Finish" para terminar con la instalacion y te preguntara si quieres hacer mas modificaciones le das en "No"
+- La instalacion esta completa!. Ahora le das en "Shutdown" para apagar la maquina
+
+> [!BUG] Sobre el commit
+> El commit lo hize con la version moderna de `qemu-img` debido a un error con la version antigua, el comando utilizado fue
+> ```
+> /usr/bin/qemu-img commit virtioa.qcow2
+> ```
+
+Ahora deberas hacer [[#Commit al Qcow2]] y elimina el disco `cdrom.iso`
 
 > Nunca olvides arreglar los permisos para eve-ng
 ```
@@ -860,11 +1073,9 @@ Ahora deberas hacer [[#Commit al Qcow2]] y Elimina el disco
 > [!IMPORTANT] Documentacion Recomendada
 > - [EVE-NG Docs - Fortinet](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-fortinet-images/)
 > - [Fortinet Docs](https://docs.fortinet.com/)
-> - [Fortinet Training](https://training.fortinet.com/)
 > - [Fortinet Video](https://video.fortinet.com/)
 > - [Fortinet Community](https://community.fortinet.com/)
 > 	- [How to run a real-time Wireshark inside FortiGate](https://community.fortinet.com/t5/FortiGate/Technical-Tip-How-to-run-a-real-time-Wireshark-capture-on/ta-p/213805)
-> - [Github - hegdepavankumar/Fortigate-Firewall-Complete-Guide](https://github.com/hegdepavankumar/Fortigate-Firewall-Complete-Guide) | [Web Version](https://hegdepavankumar.github.io/Fortigate-Firewall-Complete-Guide/)
 > - [Reddit - Tricks and tips for new and old players](https://old.reddit.com/r/fortinet/comments/lnxv0h/fgtfazfmg_tricks_and_tips_for_new_and_old_players/)
 
 > [!TIP] Significado Nombres
@@ -1430,41 +1641,6 @@ Recuerda que debes hacer [[#Commit al Qcow2]]
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
-### Ubuntu Server
-> [!IMPORTANT] Documentacion Recomendada
-> - [Pagina Oficial](https://ubuntu.com/)
-> 	- [Descarga Ubuntu Server](https://ubuntu.com/download/server)
-
-> [!NOTE] Nombre Imagen
-> - Carpeta Arch Linux: `Linux-Ubuntu-{version}`
-> 	- Disco QEMU: `virtioa`
-
-Descarga Ubuntu Server 26.04 LTS
-
-> Crea la carpeta
-```
-mkdir /opt/unetlab/addons/qemu/linux-ubuntuserver-{version}
-```
-
-> Renombra el ISO
-```
-mv ubuntu-{version}-live-server-amd64.iso cdrom.iso
-```
-
-> Envia el archivo
-```
-rsync -Phvr cdrom.iso root@{ip-server}:/opt/unetlab/addons/qemu/linux-ubuntuserver-{version}/
-```
-
-Crea un nodo y haz la instalacion y apagas la maquina
-
-Recuerda que debes hacer [[#Commit al Qcow2]]
-
-> Arregla los permisos
-```
-/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
-```
-
 ### Kali Linux
 > [!IMPORTANT] Documentacion Recomendada
 > [Kali Linux - Download VM](https://www.kali.org/get-kali/#kali-virtual-machines)
@@ -1504,6 +1680,45 @@ mkdir /opt/unetlab/addons/qemu/linux-kalilinux-{version}
 ```
 mv .qcow2 /opt/unetlab/addons/qemu/linux-kalilinux-{version}/virtioa.qcow2
 ```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+### Debian
+
+Asies señores, instalen la ultima version de debian estable...
+
+### Ubuntu Server
+> [!IMPORTANT] Documentacion Recomendada
+> - [Pagina Oficial](https://ubuntu.com/)
+> 	- [Descarga Ubuntu Server](https://ubuntu.com/download/server)
+
+> [!NOTE] Nombre Imagen
+> - Carpeta Arch Linux: `Linux-Ubuntu-{version}`
+> 	- Disco QEMU: `virtioa`
+
+Descarga Ubuntu Server 26.04 LTS
+
+> Crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/linux-ubuntuserver-{version}
+```
+
+> Renombra el ISO
+```
+mv ubuntu-{version}-live-server-amd64.iso cdrom.iso
+```
+
+> Envia el archivo
+```
+rsync -Phvr cdrom.iso root@{ip-server}:/opt/unetlab/addons/qemu/linux-ubuntuserver-{version}/
+```
+
+Crea un nodo y haz la instalacion y apagas la maquina
+
+Recuerda que debes hacer [[#Commit al Qcow2]]
 
 > Arregla los permisos
 ```
@@ -2237,12 +2452,21 @@ mv cvirtioa.qcow2 virtioa.qcow2
 
 # Fase 3: Configuraciones
 
-## Interfaz bridge
+## Interfaces
 
 > [!TIP] Lecturas recomendadas
 > - [PeteNetLive - EVE-NG Connecting to the internet](https://www.petenetlive.com/KB/Article/0001432)
 
-Desde un laboratorio se crea un `object` tipo `network`, seleccionando la opcion `Management(Cloud)` esta nube permite que un dispositivo acceda a internet a travez de la conexion al router fisico como gateway
+En EVE-NG, se pueden conectar interconectar nodos dentro del lab o hacia el exterior sin necesidad de hardware real. Y estos son
+
+- Bridge: Se comporta como un Switch no gestionado. Todos los dispositivos conectados se comparten, no tiene salida a Internet por si mismo, pero puede ser extendido si se conecta a otros elementos como `Cloud0`
+- Cloud0 (Management): Es la interfaz de gestion de EVE-NG. Esta preconfigurada para permitir la salida hacia la red externa a travez del host.
+
+
+> Revisa el estado de los bridges
+```
+brctl show
+```
 
 ## Consolas Nativas
 

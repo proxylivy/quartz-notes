@@ -6,15 +6,23 @@ Algunas ideas que te dejo
 ## Aprender
 - [Reddit - r/ccie - CCIE RSv5 Further Reading](https://www.reddit.com/r/ccie/comments/6bwc2a/ccie_rsv5_ocg_further_reading_links/)
 
+
+## Training
+- [Extreme Networks](https://www.extremenetworks.com/support/training)
+- [Fortinet Training](https://training.fortinet.com/)
+
 ## Laboratorios
 
 > [!TIP] Lecturas recomendadas
-> - [Github - hegdepavankumar/eve-ng-labs](https://github.com/hegdepavankumar/eve-ng-labs)
-> - [Github - hegdepavankumar/cisco-asa-firewall-training](https://github.com/hegdepavankumar/cisco-asa-firewall-training)
-> - [Eve-NG Lab](https://www.eve-ng.net/index.php/lab-library/)
+> - [Github](https://github.com/)
+> 	- [hegdepavankumar](https://github.com/hegdepavankumar)
+> 		- [eve-ng-labs](https://github.com/hegdepavankumar/eve-ng-labs)
+> 		- [cisco-asa-firewall-training](https://github.com/hegdepavankumar/cisco-asa-firewall-training)
+> 		- [Fortigate-Firewall-Complete-Guide](https://github.com/hegdepavankumar/Fortigate-Firewall-Complete-Guide) | [Web Version](https://hegdepavankumar.github.io/Fortigate-Firewall-Complete-Guide/)
+> 	- [CiscoDevNet/cml-community](https://github.com/CiscoDevNet/cml-community/tree/master/lab-topologies/ccna-prep)
+> - [Eve-NG - Labs Library](https://www.eve-ng.net/index.php/lab-library/)
 > - [NetworkTut - TSHOOT 300-135 TT Eve-NG](https://www.networktut.com/practice-tshoot-tickets-with-packet-tracer)
-> - [Cisco CCIE Practice](https://learningnetwork.cisco.com/s/article/ccie-enterprise-infrastructure-practice-labs)
-
+> - [Cisco Learning Network - Cisco CCIE Practice](https://learningnetwork.cisco.com/s/article/ccie-enterprise-infrastructure-practice-labs)
 
 > [!WARNING] Sobre Compatibilidad
 > Los laboratorios de EVE-NG PRO no son usualmente compatibles con EVE-NG Community

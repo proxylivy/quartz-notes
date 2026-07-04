@@ -9,7 +9,7 @@ Algunas ideas que te dejo
 
 ## Training
 - [Extreme Networks](https://www.extremenetworks.com/support/training)
-- [Fortinet Training](https://training.fortinet.com/)
+- [Fortinet Training](https://training.fortinet.com/) | [Alternativo](https://www.fortinet.com/training-certification)
 
 ## Laboratorios
 

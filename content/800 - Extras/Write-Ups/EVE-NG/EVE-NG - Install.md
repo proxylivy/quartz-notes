@@ -131,9 +131,9 @@ QEMU image list:
 - Extreme Networks
 	- ExtremeVOSS 9.4.0.0 - [Free](https://github.com/extremenetworks/Virtual_VOSS)
 	- ExtremeXOS 33.6.1.14 - [Free](https://github.com/extremenetworks/Virtual_EXOS)
-- F5 BigIP 21.1.0-0.0.38 - [Free with Registration](https://my.f5.com/manage/s/downloads)
+- F5 BigIP 21.1.0-0.0.38 - [EVAL with Registration](https://my.f5.com/manage/s/downloads)
 - Freebsd 15.2 - [Open Source](https://www.freebsd.org/)
-- Fortinet
+- Fortinet - [EVAL with Registration](https://support.fortinet.com/support/#/downloads/vm)
 	- FAC (FortiAuthentication) 6.6.2
 	- FGT (Fortigate) 7.6.2.F-build3462
 	- FNDR (Forti Network Detection and Response) v7.4-build0520
@@ -938,7 +938,7 @@ rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/extremexos-{vers
 > 
 > Para obtener la licencia, accede a Trials y solicita la oferta para BIP-IP, luego de darle click, cargara unos 20 minutos y luego aparecera un mensaje diciendo "Pending Approval, Trial fulfillment on hold, pending approval from F5 Inc.". Y luego deberias esperar de 1 a 2 dias para que te entreguen la licencia.
 > 
-> Se demoraron en aprovar mi solicitud en: ?? (Llevo 10 horas al momento de escribir, hagan este tramite con tiempo)
+> Se demoraron en aprovar mi solicitud en: ?? (Llevo 24 horas al momento de escribir, hagan este tramite con tiempo, no pense que se demoraba tanto)
 
 Registra e inicia sesion en una cuenta, luego ve al menu de Descarga y selecciona lo siguiente, siempre revisa versiones mas actuales
 - Group: BIG-IP
@@ -1073,13 +1073,16 @@ Ahora deberas hacer [[#Commit al Qcow2]] y elimina el disco `cdrom.iso`
 > [!IMPORTANT] Documentacion Recomendada
 > - [EVE-NG Docs - Fortinet](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-fortinet-images/)
 > - [Fortinet Docs](https://docs.fortinet.com/)
+> - [Fortinet Support - Download VM](https://support.fortinet.com/support/#/downloads/vm)
 > - [Fortinet Video](https://video.fortinet.com/)
 > - [Fortinet Community](https://community.fortinet.com/)
 > 	- [How to run a real-time Wireshark inside FortiGate](https://community.fortinet.com/t5/FortiGate/Technical-Tip-How-to-run-a-real-time-Wireshark-capture-on/ta-p/213805)
 > - [Reddit - Tricks and tips for new and old players](https://old.reddit.com/r/fortinet/comments/lnxv0h/fgtfazfmg_tricks_and_tips_for_new_and_old_players/)
+> - [End Of Life - FortiOS](https://endoflife.date/fortios)
 
 > [!TIP] Significado Nombres
-> Fuentes: [Fortinet Customer - Deciphering abbreviations for Fortinet products](https://community.fortinet.com/t5/Customer-Service/Technical-Tip-Deciphering-abbreviations-for-Fortinet-products/ta-p/196062)
+> - Fuentes: [Fortinet Customer - Deciphering abbreviations for Fortinet products](https://community.fortinet.com/t5/Customer-Service/Technical-Tip-Deciphering-abbreviations-for-Fortinet-products/ta-p/196062)
+> - FAD: FortiADC
 > - FAZ: FortiAnalyzer
 > - FAC: FortiAuthenticator
 > - FGT: Fortigate
@@ -1087,19 +1090,52 @@ Ahora deberas hacer [[#Commit al Qcow2]] y elimina el disco `cdrom.iso`
 > - FNDR: FortiNDR (Network Detection and Response)
 > - FWB: FortiWeb
 
+> [!TIP] Nombres
+> EVE-NG no separa las versiones de Fortinet, por lo que todos nacen desde el mismo nombre base
+
+Para acceder a algunos VMs, basta con create una cuenta en Fortinet Support, y servira para servicios como Support, FortiCare, FortiCloud, etc. Las imagenes que estan disponibles son:
+- FortiADC (FAD)
+- FortiAnalyzer (FAZ)
+- FortiGate (FGT)
+- FortiManager (FMG)
+- FortiWeb (FWB)
+- Other (Necesita un contrato activo con Fortinet)
+
+Fortigate te entrega con tu cuenta una licencia trial que esta muy muy limitada, y solo puede estar activa en un dispositivo a la vez
+
+### FGT
+
+> [!TIP] Documentacion Recomendada
+> - [Fortinet Support](https://support.fortinet.com/welcome/#/)
+> 	- [Crear Cuenta](https://support.fortinet.com/cred/#/sign-up)
+> 	- [Download VMs](https://support.fortinet.com/support/#/downloads/vm)
+> - [Fortinet Docs](https://docs.fortinet.com/)
+> 	- [FortiGate Product](https://docs.fortinet.com/product/FortiGate)
+> 	- [ForiGate 8.0.0 - Permanent Trial Mode for FGT VM](https://docs.fortinet.com/document/fortigate/8.0.0/administration-guide/441460/permanent-trial-mode-for-fortigate-vm)
+> - [Youtube - Elias Miranda - Lab Fortigate EVE-NG](https://youtu.be/Sa9AGPaImls?si=0sQWuXglxhbfRNwC)
+
 > [!NOTE] Nombre Imagen
-> - Carpeta FAC, FGT y FNDR: `fortinet-{version}`
+> - Carpeta FGT: `fortinet-FGT-{version}`
 > 	- Disco QEMU: `virtioa`
 > - Login
 > 	- User: `admin`
 > 	- Pass: `N/A`
 > - WebLogin
 > 	- User: `admin`
-> 	- Pass: `N/A`
+> 	- Pass: `{La contraseña que configuraste para el login CLI}`
 
-> Crear carpeta para FAC
+Ve a Fortinet Download VM, elige el producto es FortiGate, y la plataforma es KVM. Yo elegi: `New deployment of FortiGate for KVM FGT_VM64_KVM-v8.0.0.F-build0167-FORTINET.out.kvm.zip (120.91 MB)`
+
+Si deseas una version mas antigua, te recomienda una anterior a 7.2.0, como por ejemplo: `fortinet-FGT-v7.0.3build0237`
+
+> Descomprimimos el ZIP
 ```
-mkdir /opt/unetlab/addons/qemu/fortinet-FAC-{version}
+7z x FGT_VM64_KVM-{version}-FORTINET.out.kvm.zip
+```
+
+> Renombramos el archivo
+```
+mv fortios.qcow2 virtioa.qcow2
 ```
 
 > Crear carpeta para FGT
@@ -1107,24 +1143,9 @@ mkdir /opt/unetlab/addons/qemu/fortinet-FAC-{version}
 mkdir /opt/unetlab/addons/qemu/fortinet-FGT-{version}
 ```
 
-> Crear carpeta para FNDR
-```
-mkdir /opt/unetlab/addons/qemu/fortinet-FNDR-{version}
-```
-
-> Mueve la imagen para FAC
-```
-rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/fortinet-FAC-{version}/
-```
-
 > Mueve la imagen para FGT
 ```
 rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/fortinet-FGT-{version}/
-```
-
-> Mueve la imagen para FNDR
-```
-rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/fortinet-FNDR-{version}/
 ```
 
 > Arregla permisos
@@ -1132,9 +1153,25 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/fortinet-FND
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
+Crea un nodo de FGT, y conectalo a Cloud0 e inicia el nodo, se demora en iniciar 2 minutos
+
+Desde la CLI configura una nueva contraseña (Esta tambien te servira para acceder a la web) y revisa que ip te dio en el port1
+```
+show system interface ?
+```
+
+Ingresa a la ip de port1 y licencia tu VM, con una licencia Trial asociada a tu cuenta
+
+Te saldra un mensaje en la consola y se reiniciara
+```
+show system interface Requesting FortiCare Trial license, proxy:(null)
+```
+
+Supongo que cuando la uses en otra vm, la primera quedara nula cuando la intente verificar, por lo que no es posible quitarla...
+
+Lee la documentacion para el resto, me parecio muy desagradable Fortinet como empresa... Si alguien quiere hacer un PR para agregar mas info, bienvenido sea
+
 ## Hillstone
-> [!WARNING] Sobre uso de lab
-> Es un vendor Chino, y segun tengo entendido, te deja utilizarlo por 30 dias y luego se autodestruye, asi que puede ser un poco incomodo para laboratorios que duren mas de 30 segundos. Pero tendria que probarlo
 
 > [!IMPORTANT] Documentacion Recomendada
 > - [Passport Hillstone - Registrar Cuenta](https://passport.hillstonenet.com/Account/Register)
@@ -1159,6 +1196,9 @@ Tambien EVE-NG solo tiene consideracion por un tipo de imagen, asi que supongo q
 > - Login
 > 	- User: `hillstone`
 > 	- Pass: `hillstone`
+> - Web
+> 	- User: `hillstone`
+> 	- Pass: `{La contraseña que configuraste para el Login}`
 
 La ultima version que encontre fue
 - `SG6000-CloudEdge-5.5R12P2.44-v6.qcow2 - Tamaño: 268,2 MB - Última actualización: 30/06/2026 17:53:24`
@@ -1168,15 +1208,46 @@ La ultima version que encontre fue
 mkdir /opt/unetlab/addons/qemu/hillstone-sg6000-CloudEdge-{version}
 ```
 
+> Renombra el archivo
+```
+mv SG6000-CloudEdge-{version}.qcow2 hda.qcow2
+```
+
 > Mueve el archivo
 ```
-rsync -Phvr SG6000-CloudEdge-5.5R12P2.44-v6.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/hillstone-sg6000-CloudEdge-{version}/hda.qcow2
+rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/hillstone-sg6000-CloudEdge-{version}/
 ```
 
 > Arregla los permisos
 ```
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
+
+Crea un nodo, conectalo a internet, y se demora en iniciar 6 minutos y se queda en "Loading System Software", hay que ser paciente
+
+> [!NOTE]- Aclaracion Licencia
+> Tiene 3 tipos de licenciamiento
+> - Permanente
+> 	- ZTNA
+> - Trial User Automatico disponible por 30 dias (Deberias crear un nuevo nodo y funcionaria)
+> 	- QoS
+> 	- IPSec VPN
+> 	- SSL VPN
+> 	- APP Signature
+> 	- URL DB
+> 	- IP Reputation
+> 	- Botnet Prevention
+> 	- IPS
+> 	- Antivirus
+> 	- Platform
+> - No disponible (Se compran por separado)
+> 	- DomesticDB
+> 	- Bandwidth Control
+> 	- ZTNA Upgrade
+> 	- SR-IOV Throughput
+> 	- IoT Monitor & Control
+> 	- Virtual CPU
+> 	- Threat Intelligente
 
 ### vADC
 > [!IMPORTANT] Documentacion Recomendada

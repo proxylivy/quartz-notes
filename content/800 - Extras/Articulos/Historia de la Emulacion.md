@@ -62,9 +62,10 @@ gantt
 > - https://tutorials.ptnetacad.net/help/default/index.htm
 
 > [!quote]
-> Todos los modelos estan equivocados, pero algunos son utiles
+> All models are wrong, but some are useful.
+> (Todos los modelos son erroneos, pero algunos son utiles)
 > 
-> — George Box
+> — George Box | [Context](https://en.wikipedia.org/wiki/All_models_are_wrong)
 
 AD: La fuente soy yo, le envie un correo a "Dennis Charles Frezzo" y me respondio. Mas informacion en [[#Preguntas al creador de PT]]
 
@@ -229,6 +230,8 @@ Emulated Virtual Environment Next Generation
 EVE-NG es una solucion que unifica diversas tecnologias y proyectos en una plataforma robusta y flexible. Su desarrollo se basa en varios proyectos previos como Cisco WebIOL, IOU-WEB y UnetLab.
 
 En 2016, se crea "EVE-NG LTD", con la cual fue trabajando internamente, El 5 de enero de 2017, Uldis Dzerkalis y un equipo presentaron al publico [EVE-NG](https://www.eve-ng.net/), el cual es un fork del trabajo hecho en UnetLab que continua en desarrollo.
+
+He escrito una guia de instalacion en [[800 - Extras/Write-Ups/EVE-NG/EVE-NG - Install|EVE-NG - Install]] e ideas en [[800 - Extras/Write-Ups/EVE-NG/EVE-NG - Labs|EVE-NG - Labs]]
 
 ### OMNeT++
 

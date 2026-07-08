@@ -76,7 +76,8 @@ Abre el menu inicio y selecciona "`Crear y formatear particiones de disco duro`"
 > [!TIP] Descargar eNSP
 > - [Huawei Forums - Download eNSP simulator installation Software](https://forum.huawei.com/enterprise/intl/en/thread/download-ensp-simulator-installation-software-here/667238396713648128?from=latestPostsReplies&blogId=667238396713648128)
 > - [Huawei Forums - Resource Downloading for eNSP](https://forum.huawei.com/enterprise/intl/en/thread/resources-downloading-for-ensp/667245683301826561?blogId=667245683301826561)
-> - [Dark Bird Tech - Google Drive](https://drive.google.com/drive/folders/1T4v1idJec_3p9F3FhwuTA6JyuUpj05un) | [Onedrive Mirror](https://duoccl0-my.sharepoint.com/:f:/g/personal/ga_zunigam_duocuc_cl/EuCvefQ9MB1Br3OH4Iqon6UBkFA8pfqbXkYACdvtlEiDBA?e=XAptqZ)
+> - [Dark Bird Tech - Google Drive](https://drive.google.com/drive/folders/1T4v1idJec_3p9F3FhwuTA6JyuUpj05un)
+> - [Dark Bird Tech - Google Drive - eNSP optional extra Devices](https://drive.google.com/drive/folders/1xhb71AzTOcy_IvVnjFi0rEme6iGZJ7uy)
 
 > [!NOTES] Sobre Imagenes Extras de Huawei
 > - [Huawei Forums - Resource Downloading for eNSP](https://forum.huawei.com/enterprise/intl/en/thread/resources-downloading-for-ensp/667245683301826561?blogId=667245683301826561)

@@ -3,6 +3,8 @@
 
 EVE-NG (**E**mulated **V**irtual **E**nvironment - **N**ext **G**eneration) es una plataforma de emulacion de redes que permite virtualizar dispositivos como Router, Switches, Firewall, Load Balancer, IDS/IPS, etc. utilizando imagenes reales de sus sistemas operativos.
 
+La version con la cual escribo esta guia es `EVE-NG Community Edition 6.2.0-4`
+
 Si te interesa, tengo un articulo que habla mas en profundidad sobre la [[800 - Extras/Articulos/Historia de la Emulacion|Historia de la Emulacion]]
 
 ## Licencias y Limites
@@ -125,18 +127,10 @@ QEMU image list:
 	- ASAv 9.24.1 - [Free with Registration](https://developer.cisco.com/docs/modeling-labs/cml-free/)
 	- ASAv-9.22.1.1-PLR-Licenced
 	- csr1000vng-universalk9.17.03.08a-serial
-- Cisco vIOS - [Free with Registration](https://developer.cisco.com/docs/modeling-labs/cml-free/)
-	- Router: vios-adventerprisek9-m.SPA.159-3.M12
-	- Switch: viosl2-adventerprisek9-m.ssa.high_iron_20200929
 - Extreme Networks
 	- ExtremeVOSS 9.4.0.0 - [Free](https://github.com/extremenetworks/Virtual_VOSS)
 	- ExtremeXOS 33.6.1.14 - [Free](https://github.com/extremenetworks/Virtual_EXOS)
-- F5 BigIP 21.1.0-0.0.38 - [EVAL with Registration](https://my.f5.com/manage/s/downloads)
 - Freebsd 15.2 - [Open Source](https://www.freebsd.org/)
-- Fortinet - [EVAL with Registration](https://support.fortinet.com/support/#/downloads/vm)
-	- FAC (FortiAuthentication) 6.6.2
-	- FGT (Fortigate) 7.6.2.F-build3462
-	- FNDR (Forti Network Detection and Response) v7.4-build0520
 - Hillstone SG6000 - [Free with Registration](https://images.hillstonenet.com/index/user/login.html)
 	- CloudEdge-5.5R12P2.44-v6
 	- vADC-5.5R12-5.0-v6
@@ -169,6 +163,46 @@ QEMU image list:
 - Vyos 1.5 Rolling Release - [Open Source](https://vyos.net/) - [Changelog](https://github.com/vyos/vyos-nightly-build/releases)
 - IP Fusion OcNOS 7.0.0 - [Free Demos with registration](https://www.ipinfusion.com/free-software-demos/) (Psst: Pon informacion falsa)
 - Virtual PC (VPCS) - [Open Source](https://github.com/GNS3/vpcs)
+
+### No recomiendo
+
+Este podio son vendor que no recomiendo, es como un espacio de rant
+
+**Cisco vIOS**
+- Cisco vIOS - [Free with Registration](https://developer.cisco.com/docs/modeling-labs/cml-free/)
+	- Router: vios-adventerprisek9-m.SPA.159-3.M12
+	- Switch: viosl2-adventerprisek9-m.ssa.high_iron_20200929
+
+Estas imagenes son notablemente lentas en EVE-NG, especialmente vIOSl2, l3 es mas utilizable. Recomiendo utilizar directamente imagenes [[#Cisco IOS XE]] que son mas rapidas y modernas, si quieres el comportamiento de IOS 15.x, pues tienes el clasico [[#Cisco IOL]]
+
+**Dinamips**
+
+Las imagenes dinamips, son IOS pero del 2000, son mañosos y requieren un setup especial para no consumir el 100% de tu CPU, puedes perfectamente utilizar un [[#Cisco IOS]] 
+
+**F5**
+Licencias limitadas y ademas se demoran un monton en entregartelas, desagradable
+- F5 BigIP 21.1.0-0.0.38 - [Download - Ultra limited needs license](https://my.f5.com/manage/s/downloads)
+
+> [!WARNING] Sobre la Licencia
+> - [F5 Trials - BIG-IP Showcase](https://www.f5.com/trials/big-ip-virtual-edition)
+> - [F5 Manage - Trials](https://my.f5.com/manage/s/trials)
+> 
+> Requiere una licencia para funcionar, aunque existen trials de 30 dias que puedes pedir y se demoran en entregarla de 24 a 48 horas.
+> 
+> Las licencias de evaluacion son individuales de cada instancia y no pueden reutilizarse en otras VMs. Por lo que por cada instancia debes hacer ese proceso.
+> 
+> Para obtener la licencia, accede a Trials y solicita la oferta para BIP-IP, luego de darle click, cargara unos 20 minutos y luego aparecera un mensaje diciendo "Pending Approval, Trial fulfillment on hold, pending approval from F5 Inc.". Y luego deberias esperar de 1 a 2 dias para que te entreguen la licencia.
+> 
+> Se demoraron en aprovar mi solicitud en: ?? (Llevo 120 horas al momento de escribir, (Jueves -> Martes) hagan este tramite con tiempo, no pense que se demoraba tanto) y no parece avisarte al correo
+
+
+**Fortinet**
+Es famoso, tiene sus certificados NSE y cosas, ademas de dominar el mercado, pero la arrogancia mata, y han matado poco a poco sus imagenes, no puedes hacer nada sin una licencia limitada a una cuenta, tu vez que quieres hacer con estas imagenes
+
+- Fortinet - [Download - Ultra limited needs license](https://support.fortinet.com/support/#/downloads/vm)
+	- FAC (FortiAuthentication) 6.6.2
+	- FGT (Fortigate) 7.6.2.F-build3462
+	- FNDR (Forti Network Detection and Response) v7.4-build0520
 
 ## Instalacion de EVE-NG
 > [!IMPORTANT] Importante
@@ -620,8 +654,7 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/asav-plr{ver
 
 ### Cisco vIOS
 
-> [!WARNING] Sobre Rendimiento
-> Estas imagenes son notablemente lentas en EVE-NG, especialmente vIOSl2, l3 es mas utilizable. Recomiendo utilizar directamente imagenes [[#Cisco IOS XE]] que son mas rapidas y modernas, si quieres el comportamiento de IOS 15.x, pues tienes el clasico [[#Cisco IOL]]
+Esta imagenes son las que [[#No recomiendo]]
 
 > [!IMPORTANT] Documentacion Recomendada
 > - [EVE-NG Docs - Cisco vIOS](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-cisco-vios-from-virl/)
@@ -911,6 +944,9 @@ rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/extremexos-{vers
 > Se autoselecciona Serial como inicio en el disco primario y se demora 2 minutos en iniciar
 
 ## F5 BIG-IP
+
+Es una de las imagenes que [[#No recomiendo]]
+
 > [!IMPORTANT] Documentacion Recomendada
 > - [EVE-NG Docs - F5 BigIP](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-f5-bigip/)
 > - [F5 - Registro Cuenta](https://account.f5.com/myf5/signin/register)
@@ -927,18 +963,6 @@ rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/extremexos-{vers
 > - WEB Login
 > 	- User: `admin`
 > 	- Pass: `{La contraseña que utilizaste para cambiar a root}`
-
-> [!WARNING] Sobre la Licencia
-> - [F5 Trials - BIG-IP Showcase](https://www.f5.com/trials/big-ip-virtual-edition)
-> - [F5 Manage - Trials](https://my.f5.com/manage/s/trials)
-> 
-> Requiere una licencia para funcionar, aunque existen trials de 30 dias que puedes pedir y se demoran en entregarla de 24 a 48 horas.
-> 
-> Las licencias de evaluacion son individuales de cada instancia y no pueden reutilizarse en otras VMs. Por lo que por cada instancia debes hacer ese proceso.
-> 
-> Para obtener la licencia, accede a Trials y solicita la oferta para BIP-IP, luego de darle click, cargara unos 20 minutos y luego aparecera un mensaje diciendo "Pending Approval, Trial fulfillment on hold, pending approval from F5 Inc.". Y luego deberias esperar de 1 a 2 dias para que te entreguen la licencia.
-> 
-> Se demoraron en aprovar mi solicitud en: ?? (Llevo 24 horas al momento de escribir, hagan este tramite con tiempo, no pense que se demoraba tanto)
 
 Registra e inicia sesion en una cuenta, luego ve al menu de Descarga y selecciona lo siguiente, siempre revisa versiones mas actuales
 - Group: BIG-IP
@@ -979,7 +1003,8 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/bigip-{versi
 > [!TIP] Sobre inicio
 > Se demora unos 2 minutos, se autoselecciona desde GRUB hasta que muestra Login
 
-NOTA: Siguiendo este metodo tambien puedes conseguir BIG-IQ, que es un gestor de instancias, lo veo innecesario hacer una doble explicacion
+> [!NOTE] Sobre Big-IQ
+> Puedes instalar BIG-IQ siguiendo este mismo metodo, no lo veo necesario viendo que es tan complicado el tema de las licencias, una lastima
 
 ## Freebsd
 
@@ -1070,6 +1095,8 @@ Ahora deberas hacer [[#Commit al Qcow2]] y elimina el disco `cdrom.iso`
 
 ## Fortinet
 
+Esta es una imagen que [[#No recomiendo]]
+
 > [!IMPORTANT] Documentacion Recomendada
 > - [EVE-NG Docs - Fortinet](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-fortinet-images/)
 > - [Fortinet Docs](https://docs.fortinet.com/)
@@ -1104,6 +1131,8 @@ Para acceder a algunos VMs, basta con create una cuenta en Fortinet Support, y s
 Fortigate te entrega con tu cuenta una licencia trial que esta muy muy limitada, y solo puede estar activa en un dispositivo a la vez
 
 ### FGT
+
+Esta es una imagen que [[#No recomiendo]]
 
 > [!TIP] Documentacion Recomendada
 > - [Fortinet Support](https://support.fortinet.com/welcome/#/)
@@ -1180,7 +1209,7 @@ Lee la documentacion para el resto, me parecio muy desagradable Fortinet como em
 
 Debes crearte una cuenta y verificarla desde el correo, y luego iniciar sesion en el portar de imagenes, alli ya puedes descargar las ultimas versiones de cada imagen
 
-Tambien EVE-NG solo tiene consideracion por un tipo de imagen, asi que supongo que se utilizara el selector, deberia de funcionar de igual forma
+EVE-NG solo tiene consideracion por la imagen de "FW" (CloudEdge), pero puedes crear versiones de la imagen, con distintas carpetas basadas en el nombre de hillstone al principio
 
 ### CloudEdge
 
@@ -1223,7 +1252,10 @@ rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/hillstone-sg6000
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
-Crea un nodo, conectalo a internet, y se demora en iniciar 6 minutos y se queda en "Loading System Software", hay que ser paciente
+Crea un nodo, luego conectalo a Cloud0 y enciendelo
+
+> [!TIP] Sobre inicio
+> Inicia automaticamente en el sistema, y se queda pegado unos 4 minutos en "Loading System Software", cargara el sistema y te dara una bienvenida al Login
 
 > [!NOTE]- Aclaracion Licencia
 > Tiene 3 tipos de licenciamiento
@@ -1256,6 +1288,17 @@ Crea un nodo, conectalo a internet, y se demora en iniciar 6 minutos y se queda 
 > - [Hillstone Images - vADC AX Series](https://images.hillstonenet.com/index/index/content?cid=81)
 > - [Hillstone Docs (CN) - vADC](https://docs.hillstonenet.com.cn/web/doc-list/28) | [En](https://docs.hillstonenet.com/web/doc-list/9)
 
+> [!NOTE] Nombre Imagen
+> - Carpeta Hillstone CloudEdge: `hillstone-vADC-{version}`
+> 	- Disco QEMU: `hda`
+> - Login
+> 	- User: `hillstone`
+> 	- Pass: `hillstone`
+> - Web
+> 	- User: `hillstone`
+> 	- Pass: `{La contraseña que configuraste para el Login}`
+
+
 Yo encontre
 - `SG6000-vADC-5.5R12-5.0-v6.qcow2 - Tamaño: 309,9 MB - Última actualización: 28/05/2026 22:26:44`
 
@@ -1264,9 +1307,14 @@ Yo encontre
 mkdir /opt/unetlab/addons/qemu/hillstone-sg6000-vADC-{version}
 ```
 
+> Renombra el archivo
+```
+mv SG6000-vADC-{version}-v6.qcow2 hda.qcow2
+```
+
 > Mueve el archivo
 ```
-rsync -Phvr SG6000-vADC-5.5R12-5.0-v6 root@{ip-server}:/opt/unetlab/addons/qemu/hillstone-sg6000-vADC-{version}/hda.qcow2
+rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/hillstone-sg6000-vADC-{version}/
 ```
 
 > Arregla los permisos
@@ -1274,12 +1322,36 @@ rsync -Phvr SG6000-vADC-5.5R12-5.0-v6 root@{ip-server}:/opt/unetlab/addons/qemu/
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
+Crea un nodo, entras las opciones, configura 2vCPU y 4096MB de ram, en caso contrario se quedara reiniciando, luego conectalo a Cloud0 y enciendelo
+
+> [!TIP] Sobre inicio
+> Inicia automaticamente en el sistema, y se queda pegado unos 6 minutos en "Loading System Software", salen diferentes mensajes sobre licencias, puedes omitirlos y te dara la bienvenida al Login
+
+> [!NOTE]- Aclaracion Licencia
+> Este solo tiene licencias TRIAL disponibles por 30 dias, que son
+> - GSLB
+> - VSYS
+> - QoS
+> - vCPU
+> - APP Signature
+> - Platform
+
 ### vIPS
 > [!IMPORTANT] Documentacion Recomendada
 > - [EVE-NG Docs - Hillstone](https://www.eve-ng.net/index.php/documentation/howtos/hillstone-firewall/)
 > - [Hillstone - NIPS/DIPS Showcase](https://www.hillstonenet.com/products/network-edge-protection/network-intrusion-prevention-system/)
 > - [Hillstone Image - NIPS/DIPS A.K.A vIPS](https://images.hillstonenet.com/index/index/content?cid=60)
 > - [Hillstone Docs (CN) - NIPS](https://docs.hillstonenet.com.cn/web/doc-list/33) | [En](https://docs.hillstonenet.com/web/doc-list/16)
+
+> [!NOTE] Nombre Imagen
+> - Carpeta Hillstone CloudEdge: `hillstone-vIPS-{version}`
+> 	- Disco QEMU: `hda`
+> - Login
+> 	- User: `hillstone`
+> 	- Pass: `hillstone`
+> - Web
+> 	- User: `hillstone`
+> 	- Pass: `{La contraseña que configuraste para el Login}`
 
 Yo encontre
 - `SG6000-vIPS-5.5R12-6.2-v6.qcow2 - Size: 288.6 MB - Última actualización: 2026-03-25 14:29:11`
@@ -1289,15 +1361,37 @@ Yo encontre
 mkdir /opt/unetlab/addons/qemu/hillstone-sg6000-vIPS-{version}
 ```
 
+> Renombra el archivo
+```
+mv SG6000-vIPS-{version}-v6.qcow2 hda.qcow2
+```
+
 > Mueve el archivo
 ```
-rsync -Phvr SG6000-vIPS-5.5R12-6.2-v6 root@{ip-server}:/opt/unetlab/addons/qemu/hillstone-sg6000-vIPS-{version}/hda.qcow2
+rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/hillstone-sg6000-vIPS-{version}/
 ```
 
 > Arregla los permisos
 ```
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
+
+Crea un nodo, en las opciones, configura 2vCPU y 4096MB de ram, en caso contrario se querada reiniciando, luego conectalo a Cloud0 y enciendelo
+
+> [!TIP] Sobre inicio
+> Inicia automaticamente en el sistema, y se queda pegado unos 6 minutos en "Loading System Software", empezara a cargar el sistema y luego te dara la bienvenida al login
+
+> [!NOTE]- Aclaracion Licencia
+> Este solo tiene licencias TRIAL disponibles por 30 dias, que son
+> - VSYS
+> - QoS
+> - APP Signature
+> - URL DB
+> - IP Reputation
+> - Botnet Prevention
+> - IPS
+> - AntiVirus
+> - Platform
 
 ## Huawei
 > [!IMPORTANT] Documentacion Recomendada
@@ -1306,25 +1400,33 @@ rsync -Phvr SG6000-vIPS-5.5R12-6.2-v6 root@{ip-server}:/opt/unetlab/addons/qemu/
 > - [KevinJin - Huawei in Eve-NG](https://www.kevinjin.com/posts/eve-ng/eve-ng/)
 > - [Youtube - Matheus Leal - Como importar Imagenes Huawei AR1K, NE40, CE12800 (Br)](https://youtu.be/fRoNEfALo90?si=PnDSDl8Yh01qXFSd)
 > 	- [Google Drive - EVE-NG](https://drive.google.com/drive/folders/1nlDACO-gKSIpSRcOuOcsncfOOcup7Q3E)
+> - [Huawei Docs - DCN Design Guide](https://support.huawei.com/enterprise/en/doc/EDOC1100023542/426cffd9/about-this-document?idPath=24030814%7C21782165%7C21782236%7C252837173)
+> - [Huawei Support - Partner Account](https://support.huawei.com/enterprise/toSiteHelp/homepage_account#PartnerUpgrade)
+
+La forma de acceder a las imagenes de Huawei es comprando HW, registrando el producto o siendo un Huawei Partner.
 
 ### AR1000v
 > [!IMPORTANT] Documentacion Recomendada
 > - [EVE-NG Docs - Huawei AR1000v](https://www.eve-ng.net/index.php/documentation/howtos/huawei-ar1000v/)
+> - [Huawei CLI Docs (ES)](https://support.huawei.cn/enterprise/es/routers/ar1000v-pid-21768212) | [EN](https://support.huawei.cn/enterprise/en/routers/ar1000v-pid-21768212/)
 
 > [!NOTE] Nombre Imagen
 > - Carpeta Huawei AR1000: `huaweiar1k-{version}`
 > 	- Disco QEMU: `hda`
+> - Login
+> 	- User: `super`
+> 	- Pass: `super` (Luego debes modificarla)
 
-Yo encontre: `huaweiar1k-5.170-V300R022C00SPC100-Auto-update-esn - 622.55M`
+Yo encontre: `huaweiar1k-5.170 - 509.75M` (`V300R019C00SPC300`)
 
-Un Router de borde empresarial, equivalente a un AR fisico, VPN, routing, SD-WAN basico
+NetEngine AR1000v es un router NFV (Network Functions Virtualization) de borde empresarial, equivalente a un AR fisico usando su propia plataforma VRP (Versatile Routing Platform), permitiendo hacer VPN, routing, SD-WAN para la nube, entre otros.
 
 > Crea la carpeta
 ```
 mkdir /opt/unetlab/addons/qemu/huaweiar1k-{version}
 ```
 
-> Mueve el archivo
+> Envia la imagen al servidor
 ```
 rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/huaweiar1k-{version}/
 ```
@@ -1334,15 +1436,27 @@ rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/huaweiar1k-{vers
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
+Crea un nodo, en las opciones, cambia de VNC a Telnet, luego conectalo a Cloud0 y enciendelo
+
+> [!TIP] Sobre inicio
+> Inicia Linux, y carga el kernel durante un 1 minuto y luego inicia el sistema, en lo cual se demora unos 8 minutos
+
 ### NE40E
 > [!IMPORTANT] Documentacion Recomendada
 > - [Huawei Forums - NE40e image](https://forum.huawei.com/enterprise/intl/en/thread/ne40e-image-for-ensp-v100r003c00spc100/667245683289243648?blogId=667245683289243648)
+> - [Huawei Docs - NE40E](https://support.huawei.com/enterprise/en/routers/ne40e-pid-15837?category=learn-about-products&subcategory=product-description)
+> 	- [Features](https://support.huawei.com/enterprise/en/doc/EDOC1100278546/29078124/using-the-packet-format-query-tool)
+> 	- [Configuration Guide](https://support.huawei.com/enterprise/en/doc/EDOC1100278545/f3e2de1e/configuration)
+> 	- [Troubleshooting](https://support.huawei.cn/enterprise/en/doc/EDOC1000177634/abe6702f/about-this-document?idPath=24030814%7C9856750%7C22715517%7C9858933%7C15837)
+> - [Huawei - NetEngine 40E Showcase](https://e.huawei.com/en/products/routers/ne40e)
 
 > [!NOTE] Nombre Imagen
-> - Carpeta Huawei NE40e: `huaweine40-{version}`
+> - Carpeta Huawei NE40e: `huaweine40e-{version}`
 > 	- Disco QEMU: `hda`
 
-Yo encontre: `? - 524.00M`
+Yo encontre: `Huawei NE40e - 524.00M` (`V800R011C00SPC607B607`)
+
+NetEngine 40E Universal Service Router es un router SDN (Software Define Network) enfocado en MPLS y nube
 
 Su template no esta en EVE-NG, no confundir con NE40, son distintos
 
@@ -1350,15 +1464,15 @@ Un router con aires mas de ISP, para MPLS, BGP y ese tipo de cosas
 
 > Crea la carpeta
 ```
-mkdir /opt/unetlab/addons/qemu/huaweine40-{version}
+mkdir /opt/unetlab/addons/qemu/huaweine40e-{version}
 ```
 
 > Mueve el archivo
 ```
-rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/huaweine40-{version}/
+rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/huaweine40e-{version}/
 ```
 
-> Ejemplo YML `huaweine40e`
+> Ejemplo YML `huaweine40e.yml`
 ```
 ---
 type: qemu
@@ -1403,24 +1517,33 @@ rsync -Phvr huaweine40e.yml root@{ip-server}:/opt/unetlab/html/templates/amd/
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
+Crea un nodo y enciendelo
+
+> [!TIP] Sobre inicio
+> Inicia Linux, carga el sistema en 1 minutos, luego carga el resto del sistema en 4 minutos
+
 ### CE12800
 > [!IMPORTANT] Documentacion Recomendada
 > - [Huawei Forums - Run CE12800 in EVE-NG](https://forum.huawei.com/enterprise/intl/en/thread/run-ce12800-ne40e-in-eve-ng/667237045992570881?blogId=667237045992570881)
+> - [Huawei Docs - CE12800](https://support.huawei.com/enterprise/en/switches/cloudengine-12800-16800-pid-252837173)
+> 	- [Product Overview](https://support.huawei.com/enterprise/en/doc/EDOC1100068139/5ff55479/product-overview?idPath=24030814%7C21782165%7C21782236%7C252837173)
+> 	- [Configuration Guide - Basic Config](https://support.huawei.com/enterprise/en/doc/EDOC1100518792/426cffd9/about-this-document?idPath=24030814%7C21782165%7C21782236%7C252837173)
+> 	- [Configuration Examples](https://support.huawei.com/enterprise/en/doc/EDOC1000039339/426cffd9/about-this-document?idPath=24030814%7C21782165%7C21782236%7C252837173)
+> 	- [Troubleshooting](https://support.huawei.com/enterprise/en/doc/EDOC1000060766/426cffd9/about-this-document?idPath=24030814%7C21782165%7C21782236%7C252837173)
 
 > [!NOTE] Nombre Imagen
 > - Carpeta Huawei CE12800: `huaweice12800-{version}`
 > 	- Disco QEMU: `hda`
 
-No esta el template en EVE-NG, asi que debes importarlo
+Yo encontre: `Huawei CE12800 - 694.63M` (`V200R005C10SPC607B607`)
+
+Cloud Engine 12800 es un Switch empresarial enfocado a Data Center y VXLAN
+
+No esta el template en EVE-NG, asi que debes importarlo desde un archivo yml
 
 > Crea la carpeta
 ```
 mkdir /opt/unetlab/addons/qemu/huaweice12800-{version}
-```
-
-> Mueve el archivo
-```
-rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/huaweice12800-{version}/
 ```
 
 > Envia el icono de `ce.png`
@@ -1428,7 +1551,7 @@ rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/huaweice12800-{v
 rsync -Phvr ce.png root@{ip-server}:/opt/unetlab/html/images/icons/
 ``` 
 
-> Este es el YML para que funcione
+> Crea el archivo `huaweice12800.yml` con el siguiente contenido
 ```
 # Copyright (c) 2016, Andrea Dainese
 # Copyright (c) 2018, Alain Degreffe
@@ -1487,10 +1610,20 @@ rsync -Phvr huaweice12800.yml root@{ip-server}:/opt/unetlab/html/templates/intel
 rsync -Phvr huaweice12800.yml root@{ip-server}:/opt/unetlab/html/templates/amd/
 ```
 
+> Mueve el archivo
+```
+rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/huaweice12800-{version}/
+```
+
 > Arregla los permisos
 ```
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
+
+Crea un nodo y enciendelo
+
+> [!TIP] Sobre inicio
+> Inicia Linux, carga el sistema en 1 minutos, luego carga el resto del sistema en 4 minutos
 
 ### USG6000v
 > [!IMPORTANT] Documentacion Recomendada
@@ -1503,7 +1636,7 @@ rsync -Phvr huaweice12800.yml root@{ip-server}:/opt/unetlab/html/templates/amd/
 > 	- User: `admin`
 > 	- Pass: `Admin@123`
 
-Yo encontre: `huaweiusg6kv-5.1.7-2018 - 728.52M`
+Yo encontre: `huaweiusg6kv-5.1.7-2018 - 728.52M` (`V500R005C00SPC100`)
 
 > Crea la carpeta
 ```
@@ -1520,11 +1653,19 @@ rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/huaweiusg6kv-{ve
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
+Crea un nodo, en las opciones, cambia de VNC a Telnet, luego conectalo a Cloud0 y enciendelo
+
+> [!TIP] Sobre inicio
+> Carga el kernel de Linux e inicializa el sistema, se demora 3 minutos
+
 ### WAF5K
 
 > [!NOTE] Nombre Imagen
 > - Carpeta Huawei USG6000v: `huaweiwaf5k-{version}`
 > 	- Disco QEMU: `hda`
+> - Login
+> 	- User: `admin`
+> 	- Pass: `Admin@123`
 
 **W**eb **A**pplication **F**irewall, complemento del USG6000v
 
@@ -1537,12 +1678,7 @@ No esta en EVE-NG por lo que hay que agregar
 mkdir /opt/unetlab/addons/qemu/huaweiwaf5k-{version}
 ```
 
-> Mueve el archivo
-```
-rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/huaweiwaf5k-{version}/
-```
-
-> YAML `huaweiwaf5k.yaml`
+> Crea el archivo `huaweiwaf5k.yaml` con el siguiente contenido
 ```
 # Copyright (c) 2016, Andrea Dainese
 # Copyright (c) 2018, Alain Degreffe
@@ -1600,6 +1736,11 @@ rsync -Phvr huaweiwaf5k.yml root@{ip-server}:/opt/unetlab/html/templates/amd/
 ```
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
+
+Crea un nodo y enciendelo. No logre hacer funcionar esta imagen...
+
+> [!TIP] Sobre inicio
+> Inicia Linux, selecciona automaticamente CentOS 7, e inicia en 1 minuto
 
 ## Linux
 > [!IMPORTANT] Documentacion Recomendada
@@ -1974,36 +2115,48 @@ Ahora deberas hacer [[#Commit al Qcow2]] y Elimina el disco
 
 ## Mikrotik RouterOS
 > [!IMPORTANT] Documentacion Recomendada
-> - [EVE-NG Docs - HowTo add Microtik Cloud Router](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-mikrotik-cloud-router/)
-> - [Microtik Download](https://mikrotik.com/download/chr): Ve a CHR (Cloud Hosted Router) -> Disco "`RAW Disk Image`"
+> - [EVE-NG Docs - Microtik Cloud Router](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-mikrotik-cloud-router/)
+> - [Microtik - CHR Download](https://mikrotik.com/download/chr)
 > - [Microtik Manual](https://manual.mikrotik.com/docs/introduction)
 
 > [!NOTE] Nombre Imagen
 > - Carpeta Mikrotik: `mikrotik-{version}`
 > 	- Disco QEMU: `hda`
-> - Login
+> - Login CLI
 > 	- User: `admin`
-> 	- Pass: N/A
+> 	- Pass: N/A (Presiona Enter, Luego debes configurar una)
+> - WebFig (http)
+> 	- User: `admin`
+> 	- Pass: `{La contraseña configurada en el LOGIN}`
+
+Yo descargue: `v7.23.2`
+
+Elige el Canal "Stable" y desde "Install Images" descarga el "`RAW disk`"
 
 > Creas la carpeta
 ```
 mkdir /opt/unetlab/addons/qemu/mikrotik-{version}
 ```
 
-> Enviar el archivo
+> Convierte el disco (Creo que un simple mv igual sirve)
 ```
-rsync -Phvr chr-{version}.img root@{ip-server}:/opt/unetlab/addons/qemu/mikrotik-{version}/
+qemu-img convert -f raw -O qcow2 chr-{version}.img hda.qcow2
 ```
 
-> Mover el archivo
+> Enviar el archivo
 ```
-mv chr-{version}.img /opt/unetlab/addons/qemu/mikrotik-{version}/hda.qcow2
+rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/mikrotik-{version}/
 ```
 
 > Arreglar Permisos
 ```
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
+
+Crea un nodo, conectalo a Cloud0 y enciendelo
+
+> [!TIP] Sobre inicio
+> Inicia el sistema desde el disco, se demora 1 minuto
 
 ## OPNsense
 > [!IMPORTANT] Documentacion Recomendada
@@ -2028,7 +2181,12 @@ En mi caso descargue: `OPNsense-26.1.6-dvd-amd64.iso.bz2`
 
 > Descomprime el archivo
 ```
-7z x OPNsense-26.1.6-dvd-amd64.iso.bz2
+7z x OPNsense-{version}-dvd-amd64.iso.bz2
+```
+
+> Renombra el archivo
+```
+mv OPNsense-{version}-dvd-amd64.iso cdrom.iso
 ```
 
 > Crea la carpeta en el servidor
@@ -2038,7 +2196,7 @@ mkdir /opt/unetlab/addons/qemu/opnsense-{version}
 
 > Copia el ISO a la carpeta
 ```
-rsync -Phvr OPNsense-{version}-dvd-amd64.iso root@{ip-server}:/opt/unetlab/addons/qemu/opnsense-{version}/cdrom.iso
+rsync -Phvr cdrom.iso root@{ip-server}:/opt/unetlab/addons/qemu/opnsense-{version}/
 ```
 
 > Ve a la carpeta de OPNsense
@@ -2051,20 +2209,32 @@ cd /opt/unetlab/addons/qemu/opnsense-{version}
 /opt/qemu/bin/qemu-img create -f qcow2 virtioa.qcow2 15G
 ```
 
-Desde el menu de laboratorio, crea un nodo, y busca OPNsense, y dale a las opciones
-- ve a RAM y configura 4GB
+Crea un nodo, ve a las opciones y configura 2vCPU y 4096MB de ram.
 
-Crea dos nubes, una bridge y otro Cloud0
+Debes conectar VNET1 a Cloud0. VNET1 es la interfaz WAN por defecto
 
-Conecta bridge a VNET0 (LAN) y Cloud0 a VNET1 (WAN). De esta forma se configurara correctamente
+Inicias la imagen, se selecciona automaticamente la instalacion hasta que aparesca el login, y debes seguir los siguientes pasos de instalacion
+1. Inicia con el usuario "`installer`" y la contraseña "`opnsense`"
+2. Continua con el keymap por defecto presionando Enter
+3. Selecciona "Install (UFS)"
+4. Selecciona el disco "vtbd0" y dale a "YES" para formatearlo, este proceso se demora 1 minuto
+5. Ahora empezara la instalacion, la cual se demora 8 minutos
+6. Selecciona "Complete Install" y luego "Reboot Now", apaga la maquina
 
-Le das a iniciar a la imagen
+> Elimina el disco
+```
+rm -drf /opt/unetlab/addons/qemu/opnsense-26.1/cdrom.iso
+```
 
-TO-DO: FALTA AGREGAR LOS PASOS DE INSTALACION Y OPCIONES
+Inicia otra vez el nodo temporal para las ultimas modificaciones
+1. Accede a la WebUI con la IP desde WAN, cuando aparesca el Wizard, presiona "Abort"
+2. Ve a "System" > "Firmware" > "Status" y presiona "Check for updates", te saldra un changelog, lo cierras y vas al fondo de la pestaña y presionas "Update" y luego "OK"
+3. Se demora unos minutos y reiniciara la maquina
 
-Una vez que termine la instalacion y hayas actualizado los paquetes, apagas la maquina y debes hacer commit a la imagen
 
-Ahora deberas hacer [[#Commit al Qcow2]] y Elimina el disco
+
+
+Ahora que ya terminaste con la configuracion basica de OPNsense, apagas el nodo y deberas hacer [[#Commit al Qcow2]]
 
 > Nunca olvides arreglar los permisos para eve-ng
 ```
@@ -2533,11 +2703,14 @@ En EVE-NG, se pueden conectar interconectar nodos dentro del lab o hacia el exte
 - Bridge: Se comporta como un Switch no gestionado. Todos los dispositivos conectados se comparten, no tiene salida a Internet por si mismo, pero puede ser extendido si se conecta a otros elementos como `Cloud0`
 - Cloud0 (Management): Es la interfaz de gestion de EVE-NG. Esta preconfigurada para permitir la salida hacia la red externa a travez del host.
 
-
 > Revisa el estado de los bridges
 ```
 brctl show
 ```
+
+Si ejecutas EVE-NG como una maquina virtual (QEMU/KVM, VMware) puedes agregar interfaces de red virtuales (vNIC) adicionales. Mi recomendacion es mantener Cloud0 como una interfaz de administracion, conectada en modo Bridge, y agregar una o mas vNIC configuradas en modo NAT para utilizarlas en los laboratorios.
+
+Estas interfaces apareceran dentro de EVE-NG como `eth0`, `eth1`, etc. Y estan asociadas automaticamente a `pnet0`, `pnet1`, etc. Y esas se ven dentro de EVE-NG como `cloud0`, `cloud1`, etc. respecticamente. De esta forma obtienes redes independientes de la interfaz de administracion, sin modificar el servidor.
 
 ## Consolas Nativas
 

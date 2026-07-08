@@ -278,7 +278,7 @@ apt autoremove
 
 > Paso 4: Hacer la vida mas sencilla a mi (Opcional)
 ```
-apt install micro btop kitty weston git tree
+apt install micro btop kitty weston git tree imagemagick
 ```
 
 > Paso 4.1: Instalar [Fish Shell](https://fishshell.com/) y [Fastfetch](https://github.com/fastfetch-cli/fastfetch) (Opcional)
@@ -1658,90 +1658,6 @@ Crea un nodo, en las opciones, cambia de VNC a Telnet, luego conectalo a Cloud0 
 > [!TIP] Sobre inicio
 > Carga el kernel de Linux e inicializa el sistema, se demora 3 minutos
 
-### WAF5K
-
-> [!NOTE] Nombre Imagen
-> - Carpeta Huawei USG6000v: `huaweiwaf5k-{version}`
-> 	- Disco QEMU: `hda`
-> - Login
-> 	- User: `admin`
-> 	- Pass: `Admin@123`
-
-**W**eb **A**pplication **F**irewall, complemento del USG6000v
-
-Yo encontre: `huaweiwaf5k-VV200R001C00 - 754.18M`
-
-No esta en EVE-NG por lo que hay que agregar
-
-> Crea la carpeta
-```
-mkdir /opt/unetlab/addons/qemu/huaweiwaf5k-{version}
-```
-
-> Crea el archivo `huaweiwaf5k.yaml` con el siguiente contenido
-```
-# Copyright (c) 2016, Andrea Dainese
-# Copyright (c) 2018, Alain Degreffe
-# All rights reserved.
-#
-# Redistribution and use in source and binary forms, with or without
-# modification, are permitted provided that the following conditions are met:
-#     * Redistributions of source code must retain the above copyright
-#       notice, this list of conditions and the following disclaimer.
-#     * Redistributions in binary form must reproduce the above copyright
-#       notice, this list of conditions and the following disclaimer in the
-#       documentation and/or other materials provided with the distribution.
-#     * Neither the name of the UNetLab Ltd nor  the name of EVE-NG Ltd nor the
-#       names of its contributors may be used to endorse or promote products
-#       derived from this software without specific prior written permission.
-#
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-# DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> BE LIABLE FOR ANY
-# DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-# (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-# LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-# ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-# SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
----
-type: qemu
-description: Huawei WAF5000
-name: HWAF5000
-cpulimit: 1
-icon: Firewall.png
-cpu: 2
-ram: 2048
-ethernet: 2
-console: vnc
-qemu_arch: x86_64
-qemu_version: 4.1.0
-qemu_nic: virtio-net-pci
-qemu_options: -machine type=pc,accel=kvm -vga std -usbdevice tablet -boot order=dc
-...
-```
-
-> Envia el template `huaweiwaf5k.yml` a Intel
-```
-rsync -Phvr huaweiwaf5k.yml root@{ip-server}:/opt/unetlab/html/templates/intel/
-```
-
-> Envia el template `huaweiwaf5k.yml` a AMD
-```
-rsync -Phvr huaweiwaf5k.yml root@{ip-server}:/opt/unetlab/html/templates/amd/
-```
-
-> Arregla los permisos
-```
-/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
-```
-
-Crea un nodo y enciendelo. No logre hacer funcionar esta imagen...
-
-> [!TIP] Sobre inicio
-> Inicia Linux, selecciona automaticamente CentOS 7, e inicia en 1 minuto
-
 ## Linux
 > [!IMPORTANT] Documentacion Recomendada
 > - [EVE-NG Docs - HowTo create own Linux Host Image](https://www.eve-ng.net/index.php/documentation/howtos/howto-create-own-linux-host-image/)
@@ -1900,7 +1816,17 @@ mv .qcow2 /opt/unetlab/addons/qemu/linux-kalilinux-{version}/virtioa.qcow2
 
 ### Debian
 
-Asies señores, instalen la ultima version de debian estable...
+> [!IMPORTANT] Documentacion Recomendada
+> - [Debian Official Site](https://www.debian.org/)
+> 	- [Download Mirror](https://www.debian.org/CD/http-ftp/#mirrors)
+
+> [!NOTE] Nombre Imagen
+> - Carpeta Arch Linux: `Linux-Ubuntu-{version}`
+> 	- Disco QEMU: `virtioa`
+
+Debes descargar la ISO-DVD AMD64
+
+Yo utilize: `13.5.0`
 
 ### Ubuntu Server
 > [!IMPORTANT] Documentacion Recomendada
@@ -2131,7 +2057,7 @@ Ahora deberas hacer [[#Commit al Qcow2]] y Elimina el disco
 
 Yo descargue: `v7.23.2`
 
-Elige el Canal "Stable" y desde "Install Images" descarga el "`RAW disk`"
+Vas al centro de descargas de CHR y eliges el Canal "Stable" y desde "Install Images" descarga el "`RAW disk`"
 
 > Creas la carpeta
 ```
@@ -2229,12 +2155,13 @@ rm -drf /opt/unetlab/addons/qemu/opnsense-26.1/cdrom.iso
 Inicia otra vez el nodo temporal para las ultimas modificaciones
 1. Accede a la WebUI con la IP desde WAN, cuando aparesca el Wizard, presiona "Abort"
 2. Ve a "System" > "Firmware" > "Status" y presiona "Check for updates", te saldra un changelog, lo cierras y vas al fondo de la pestaña y presionas "Update" y luego "OK"
-3. Se demora unos minutos y reiniciara la maquina
+3. Se demora aprox 20 minutos y reiniciara automaticamente el nodo
+4. Cuando encienda, accede otra vez a la WebUI con la IP desde WAN
+5. Ve a "System" > "Firmware" > "Plugins"
+6. Instala el paquete `os-frr` apretando el signo "`+`", esta listo cuando aparesca "`***DONE***`"
+7. Ahora que ya terminaste con la configuracion basica de OPNsense, puedes apagar el nodo
 
-
-
-
-Ahora que ya terminaste con la configuracion basica de OPNsense, apagas el nodo y deberas hacer [[#Commit al Qcow2]]
+Ahora debes realizar el [[#Commit al Qcow2]]
 
 > Nunca olvides arreglar los permisos para eve-ng
 ```
@@ -2249,11 +2176,11 @@ Ahora que ya terminaste con la configuracion basica de OPNsense, apagas el nodo 
 > [!NOTE] Nombre Imagen
 > - Carpeta Palo Alto: `paloalto-{version}`
 > 	- Disco QEMU: `virtioa`
-> - Login
+> - PA-VM CLI Login
 > 	- User: `admin`
 > 	- Pass: `admin`
 
-Encontre la version 11.2.5
+Usare: `11.2.5`
 
 Si eres mas exotico esta la version [Sysin - PAN-OS 12.1.7 KVM](https://sysin.org/blog/pan-os-12/) for 5USD en Alipay...
 
@@ -2262,15 +2189,32 @@ Si eres mas exotico esta la version [Sysin - PAN-OS 12.1.7 KVM](https://sysin.or
 mkdir /opt/unetlab/addons/qemu/paloalto-{version}
 ```
 
+> Renombra el archivo
+```
+mv PA-VM-KVM-{version}.qcow2 virtioa.qcow2
+```
+
 > Envia el Qcow2 al servidor
 ```
-rsync -Phvr PA-VM-KVM-{version}.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/PA-VM-KVM-{version}/virtioa.qcow2
+rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/paloalto-{version}/
+```
+
+> Modifica el template `/opt/unetlab/html/templates/intel/paloalto.yml`. solo te muestro las lineas que debes modificar para las releases 11.x y superiores
+```
+qemu_version: 5.2.0
+```
+
+> Haz lo mismo en `/opt/unetlab/html/templates/amd/paloalto.yml`
+```
+qemu_version: 5.2.0
 ```
 
 > Arregla los permisos
 ```
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
+
+Crea un nodo, conectalo a Cloud0 y enciendelo
 
 ## pfSense
 
@@ -2587,14 +2531,50 @@ Ahora deberas hacer [[#Commit al Qcow2]] y Elimina el disco
 > [IPinfusion SP Docs 7.x](https://documentation.ipinfusion.com/ocnos-sp-release-notes-7.0/Content/Home.htm)
 > [Youtube - Zero to Hero Course](https://www.youtube.com/playlist?list=PLMeBQ51gYDADN31R_Wga3VnOTvePIGR_4)
 
-Creada por IPinfusion, la version mas nueva que vi es OcNOS-SP-PLUS-x86-7.0.0-262
 
-Antes era ZebOS VTY :P
+> [!NOTE] Sobre Imagen
+> - Carpeta VyOS: `ocnos-{version}`
+> 	- Disco QEMU: `virtioa`
+> - CLI Login
+> 	- User: `ocnos`
+> 	- Pass: `ocnos`
+
+OcNOS VM, creada por IP Infusion, se creo para validar configuraciones y probar L2, L3 y MPLS limitado sin costos asociados y tiene una licencia trial de 365 dias.
+
+La historia de OcNOS empieza con GNU Zebra en los años 90s, fue uno de los primeros proyectos open source en implementar protocolos de enrutamiento basados en Linux, de los cuales, salieron dos caudales
+- FOSS: Quagga -> FRRouting
+- Corporativo: ZebOS -> OcNOS
+
+Ademas ZebOS fue licenciado por distintos fabricantes, asi que es influyente y resulta familiar su uso
 
 No esta soportado por EVE-NG, por lo que debes agregarlo a mano
 
-> YAML
+Yo usare: `OcNOS-SP-PLUS-x86-7.0.0-262-GA`
+
+> Crea la carpeta
 ```
+mkdir /opt/unetlab/addons/qemu/ocnos-{version}
+```
+
+> Cambia de tamaño la imagen porque es gigante
+```
+convert ocnos.png -resize 64x43 -strip ocnos.png
+```
+
+> Envia el icono de `ocnos.png`
+```
+rsync -Phvr ocnos.png root@{ip-server}:/opt/unetlab/html/images/icons/
+``` 
+
+> Crea el archivo `OcNOS.yml` con el siguiente contenido
+```
+################################################################################
+#
+#
+# If you know how to make this script beter, please drop me an email:
+# piotr.kedra@ipinfusion.com
+#
+#
 ##############################################################################
 # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
 # ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -2611,7 +2591,7 @@ type: qemu
 description: OcNOS Virtual Machine
 name: ocnos
 cpulimit: 1
-icon: Ocnos.png
+icon: ocnos.png
 cpu: 2
 ram: 4096
 ethernet: 6
@@ -2626,6 +2606,41 @@ qemu_nic: virtio-net-pci
 qemu_options: -machine type=pc,accel=kvm -vga std -serial mon:stdio -usbdevice tablet -boot order=cd
 ...
 ```
+
+> Envia el template `ocnos.yml` a Intel
+```
+rsync -Phvr ocnos.yml root@{ip-server}:/opt/unetlab/html/templates/intel/
+```
+
+> Envia el template `ocnos.yml` a AMD
+```
+rsync -Phvr ocnos.yml root@{ip-server}:/opt/unetlab/html/templates/amd/
+```
+
+> Descomprime la imagen
+```
+7z x OcNOS-SP-PLUS-x86-{version}-GA.qcow2.xz
+```
+
+> Renombra el archivo
+```
+mv OcNOS-SP-PLUS-x86-{version}-GA.qcow2 virtioa.qcow2
+```
+
+> Mueve el archivo
+```
+rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/ocnos-{version}/
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+Crea un nodo, conectalo a Cloud0 y enciendelo
+
+> [!TIP] Sobre inicio
+> Iniciara Linux, y en 1 minuto esta listo
 
 ## Commit al Qcow2
 
@@ -2652,6 +2667,11 @@ Dentro de esa carpeta vas a encontrar el disco de la imagen. Siempre la extensio
 > Haces commit a la imagen
 ```
 /opt/qemu/bin/qemu-img commit virtioa.qcow2
+```
+
+> En caso de que falle con un error `Co-routine re-entered recursively` o `CORE DUMMPED`, prueba con utilizar la version de qemu mas moderna para hacer el commit
+```
+/usr/bin/qemu-img commit virtioa.qcow2
 ```
 
 > Vuelve a la carpeta que estas configurando dentro de qemu
@@ -2773,15 +2793,16 @@ cd
 
 Para que los laboratorios funcionen, debes tener siempre las mismas imagenes se utilizaron al exportar
 
-# Extra
+## Labs
 
 Ahora es momento de utilizar tu version de EVE-NG, si no tienes ideas, puedes leer [[800 - Extras/Write-Ups/EVE-NG/EVE-NG - Labs|EVE-NG - Labs]]
 
+# Extra
 ## Porque no PNETLab?
 > [!TIP] Fuente
 > - [EVE-NG Forums - SCAMMERS PNETLAB](https://eve-ng.net/forum/viewtopic.php?t=16925)
 
-PNETLab es un fork de EVE-NG Community, el cual extendio las funciones de EVE-NG Pro sin contar con una licencia oficial, lo que desencadeno polemicas por posible uso de codigo cerrado.
+PNETLab es un fork de EVE-NG, el cual extendio las funciones de EVE-NG Pro sin contar con una licencia oficial, lo que desencadeno polemicas por posible uso de codigo cerrado.
 
 ## Licencia EVE-NG
 
@@ -2848,3 +2869,144 @@ Oficialmente EVE-NG no soporta funciones Wireless, pero igual hay que recopilar 
 > - Carpeta OpenWRT: `openwrt-{version}`
 > 	- Disco QEMU: `hda`
 
+
+## SONiC
+
+> [!TIP] Documentacion Recomendada
+> - [Sonic Foundation](https://sonicfoundation.dev/)
+> - [Github - sonic-net/SONiC](https://github.com/sonic-net/SONiC)
+> 	- [User Manual](https://github.com/sonic-net/SONiC/blob/master/doc/user-manual/SONiC-User-Manual.md)
+> 	- [Wiki](https://github.com/sonic-net/SONiC/wiki)
+> - [Github - sonic-net/sonic-buildimage](https://github.com/sonic-net/sonic-buildimage)
+> - [Blog - Networkz - vSONIC on EVE-NG](https://networkzblogger.wordpress.com/2021/07/31/vsonic-virtual-switch-on-eve-ng/)
+> - [Sonic - Latest Images](https://sonic-net.github.io/SONiC/sonic_latest_images.html) | [Alternative Unnoficial Automatic Index](https://sonic.software/)
+
+> [!NOTE] Nombre Imagen
+> - Carpeta SONiC: `sonic-{version}`
+> 	- Disco QEMU: `virtioa`
+> - Default Login
+> 	- User: `admin`
+> 	- Pass: `YourPaSsWoRd`
+
+SONiC (**S**oftware for **O**pen **N**etworking *i*n the **C**loud) es un sistema operativo de red de codigo abierto, desarrollado originalmente Microsoft para Azure y actualmente mantenido por la Linux Foundation. Tiene distintos appliance para chips ASIC, para CPU general aka. x86 se utiliza **VS** (Virtual Switch), por lo que debes descargar desde la imagen "`sonic-vs.img.gz`".
+
+Las compilaciones publicas se generan desde la rama "Master" por lo que no tiene releases, recomiendo utilizar la fecha de compilacion como version de carpeta, ejemplo: `sonic-20260707`
+
+Hay un template para Sonic FW pero recomiendo modificarlo
+
+> Descomprime el archivo
+```
+7z x sonic-vs.img.gz
+```
+
+> Renombra la imagen, no la conviertas
+```
+mv sonic-vs.img virtioa.qcow2
+```
+
+> Crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/sonicsw-{version}
+```
+
+> Envia la imagen
+```
+rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/sonicsw-{version}/
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+Crea un nodo, conectalo a Cloud0 y enciendelo, aparecera grub, y al seleccionar la imagen, dice que no encontro nada, al seleccionar cualquier tecla inicia la imagen???? que extraño
+
+> [!TIP] Sobre inicio
+> Inicia la imagen desde grub, y dice que el sistema no encontro los archivos para iniciar y se cuelga
+
+> [!IMPORTANT] Alternativa
+> La imagen `sonicsw-20250412-1.tgz - 1.83G` funciona, pero yo quiero usar una mas nueva
+
+## Huawei WAF5K
+
+> [!NOTE] Nombre Imagen
+> - Carpeta Huawei USG6000v: `huaweiwaf5k-{version}`
+> 	- Disco QEMU: `hda`
+> - Login
+> 	- User: `admin`
+> 	- Pass: `Admin@123`
+
+**W**eb **A**pplication **F**irewall, complemento del USG6000v
+
+Yo encontre: `huaweiwaf5k-VV200R001C00 - 754.18M`
+
+No esta en EVE-NG por lo que hay que agregar
+
+> Crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/huaweiwaf5k-{version}
+```
+
+> Crea el archivo `huaweiwaf5k.yaml` con el siguiente contenido
+```
+# Copyright (c) 2016, Andrea Dainese
+# Copyright (c) 2018, Alain Degreffe
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above copyright
+#       notice, this list of conditions and the following disclaimer in the
+#       documentation and/or other materials provided with the distribution.
+#     * Neither the name of the UNetLab Ltd nor  the name of EVE-NG Ltd nor the
+#       names of its contributors may be used to endorse or promote products
+#       derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> BE LIABLE FOR ANY
+# DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+# (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+# LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+# ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+# SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+---
+type: qemu
+description: Huawei WAF5000
+name: HWAF5000
+cpulimit: 1
+icon: Firewall.png
+cpu: 2
+ram: 2048
+ethernet: 2
+console: vnc
+qemu_arch: x86_64
+qemu_version: 4.1.0
+qemu_nic: virtio-net-pci
+qemu_options: -machine type=pc,accel=kvm -vga std -usbdevice tablet -boot order=dc
+...
+```
+
+> Envia el template `huaweiwaf5k.yml` a Intel
+```
+rsync -Phvr huaweiwaf5k.yml root@{ip-server}:/opt/unetlab/html/templates/intel/
+```
+
+> Envia el template `huaweiwaf5k.yml` a AMD
+```
+rsync -Phvr huaweiwaf5k.yml root@{ip-server}:/opt/unetlab/html/templates/amd/
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+Crea un nodo y enciendelo. No logre hacer funcionar esta imagen...
+
+> [!TIP] Sobre inicio
+> Inicia Linux, selecciona automaticamente CentOS 7, e inicia en 1 minuto

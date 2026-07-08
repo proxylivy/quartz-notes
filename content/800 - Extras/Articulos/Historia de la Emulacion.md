@@ -456,3 +456,12 @@ Let me know if I can provide more information. 
 Good Luck,
 Dr. Frezzo
 ```
+
+
+## TO-DO
+
+Habla de Zebra -> ZebOS -> Quagga -> FRRouting (Talvez partiendo desde este)
+
+Ademas de ZebOS ser el punto de partida para FortiOS y Citrix NetScaler
+
+Aunque no parece ser ese el enfoque de este articulo...

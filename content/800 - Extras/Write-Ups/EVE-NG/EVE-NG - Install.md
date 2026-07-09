@@ -1,7 +1,6 @@
-# Fase 1: Preparacion de EVE-NG
-## Introduccion
+# Introduccion
 
-> [!FAIL] Cambio de modelo
+> [!FAIL] Cambio de modelo de licenciamiento
 > La ultima version de community es la 6.2.0-4, ahora el modelo cambiara a freemium, la misma base PRO, pero las funcionalidades se habilitan con licencia, la verdad, probe 7.x, y lo encontre un desproposito, mi recomendacion, utiliza la version Community hasta que deje de existir
 
 EVE-NG (**E**mulated **V**irtual **E**nvironment - **N**ext **G**eneration) es una plataforma de emulacion de redes que permite virtualizar dispositivos como Router, Switches, Firewall, Load Balancer, IDS/IPS, etc. utilizando imagenes reales de sus sistemas operativos.
@@ -12,7 +11,7 @@ Si te interesa, tengo un articulo que habla mas en profundidad sobre la [[800 - 
 
 ## Licencias y Limites
 
-> [!TIP] Lectura Recomendada
+> [!TIP]- Lectura Recomendada
 > - [EVE-NG Docs - EVE Licencing Model](https://www.eve-ng.net/index.php/documentation/eve-licensing-model/)
 > - [EVE-NG Docs - Features Compare](https://www.eve-ng.net/index.php/features-compare/)
 > - Buy License Links
@@ -21,22 +20,19 @@ Si te interesa, tengo un articulo que habla mas en profundidad sobre la [[800 - 
 > - [EVE-NG Docs - Community](https://www.eve-ng.net/index.php/community/)
 > - [Youtube - EVE-NG - EVE WEB UI features](https://youtu.be/EsmfepaYOL8?si=mjvLD99_o3qFQsWs)
 
-Su modelo de licenciamiento se basa en 3 tiers descritos en la siguiente tabla
+Su antiguo modelo de licenciamiento se basa en 3 tiers descritos en la siguiente tabla
 
-| Edicion         | Costo          | Soporte Docker | Usuarios Concurrentes      | Uso                |
-| --------------- | -------------- | -------------- | -------------------------- | ------------------ |
-| Community       | Gratis         | No             | 1                          | Personal           |
-| Pro             | $205USD/year   | Si             | 1                          | Personal Pro       |
-| Learning Center | $1.000USD/year | Si             | 12 (2 admin + 10 usuarios) | Academico/Empresas |
+| Edicion         | Costo          | Nodos Activos | Soporte Docker | Usuarios Concurrentes      | Uso                |
+| --------------- | -------------- | ------------- | -------------- | -------------------------- | ------------------ |
+| Community       | Gratis         | 63            | No             | 1                          | Personal           |
+| Pro             | $205USD/year   | 1024          | Si             | 1                          | Personal Pro       |
+| Learning Center | $1.000USD/year | 1024          | Si             | 12 (2 admin + 10 usuarios) | Academico/Empresas |
 
-Nos centraremos en la version "`Community`", los limites son
-- No soporta Nodos directos de Docker
-- Solo lo puede usar una persona a la vez
-- Solo puedes tener 63 nodos activos en un laboratorio
-
-> [!WARNING] Notas sobre licencia y Docker
-> Mas al respecto: [Youtube - EVE-NG - EVE Pro embedded Docker Setup and Usage](https://www.eve-ng.net/index.php/documentation/howtos-video/eve-embedded-dockers-setup-and-usage/)
+> [!WARNING]- Sobre uso de Docker
+> [Youtube - EVE-NG - EVE Pro embedded Docker Setup and Usage](https://www.eve-ng.net/index.php/documentation/howtos-video/eve-embedded-dockers-setup-and-usage/)
+> 
 > La edicion Community **no soporta Docker** directamente. Para utilizar utilizar contenedores integrados (Paquete `eve-ng-dind`), se necesita tener la version PRO o Learning Center.
+> 
 > Puedes ver un Workarround en [[#Uso de Contenedores]]
 
 ## Requisitos del servidor
@@ -47,7 +43,7 @@ Nos centraremos en la version "`Community`", los limites son
 > - [Cookbook](https://www.eve-ng.net/index.php/documentation/community-cookbook/)
 > 	- Hoja 10: 2.1.4 Dedicated Server BM system requirements
 
-> [!TIP] Sobre Hipervisores
+> [!TIP]- Lecturas sobre uso Hipervisores
 > - ESXi
 > 	- [Youtube - VirtualizationHowTo - VMware ESXi do first](https://www.youtube.com/watch?v=-1BMiYZfz38)
 > 	- [Youtube - NetworkChuck - VMware ESXi Setup and Install](https://www.youtube.com/watch?v=apC1bOLbzbY&t=822s)
@@ -117,7 +113,7 @@ Hay una gran variedad de imagenes, cambian sus funcionalidades segun el nombre q
 Cisco IOS image list:
 - Cisco IOS
 	- L2/L3 Switch: `i86bi_linux_l2-adventerprisek9-ms.SSA.high_iron_20190423.bin` (15.2 - 2019-04-23)
-	- L3 Router and PC: `i86bi_LinuxL3-AdvEnterpriseK9-M2_157_3_May_2018.bin` (15.7 - 2018-05-10)
+	- L3 Router: `i86bi_LinuxL3-AdvEnterpriseK9-M2_157_3_May_2018.bin` (15.7 - 2018-05-10)
 - Cisco IOS XE - [Free with Registration](https://developer.cisco.com/docs/modeling-labs/cml-free/)
 	- L3 XE Router (64 bits): `x86_64_crb_linux-adventerprisek9-ms.bin` (17.18.1)
 	- L2/L3 XE Switch (64 bits): `x86_64_crb_linux_l2-adventerprisek9-ms.bin` (17.18.1)
@@ -167,6 +163,7 @@ QEMU image list:
 Este podio son vendor que no recomiendo, un espacio de rant
 
 **Cisco vIOS**
+
 - Cisco vIOS - [Free with Registration](https://developer.cisco.com/docs/modeling-labs/cml-free/)
 	- Router: vios-adventerprisek9-m.SPA.159-3.M12
 	- Switch: viosl2-adventerprisek9-m.ssa.high_iron_20200929
@@ -178,6 +175,7 @@ Estas imagenes son notablemente lentas en EVE-NG, especialmente vIOSl2, l3 es ma
 Las imagenes dinamips, son IOS pero del 2000, son mañosos y requieren un setup especial para no consumir el 100% de tu CPU, puedes perfectamente utilizar un [[#Cisco IOS]] 
 
 **F5**
+
 Licencias limitadas y ademas se demoran un monton en entregartelas, desagradable
 - F5 BigIP 21.1.0-0.0.38 - [Download - Ultra limited needs license](https://my.f5.com/manage/s/downloads)
 
@@ -195,6 +193,7 @@ Licencias limitadas y ademas se demoran un monton en entregartelas, desagradable
 
 
 **Fortinet**
+
 Es famoso, tiene sus certificados NSE y cosas, ademas de dominar el mercado, pero la arrogancia mata, y han matado poco a poco sus imagenes, no puedes hacer nada sin una licencia limitada a una cuenta, tu vez que quieres hacer con estas imagenes
 
 - Fortinet - [Download - Ultra limited needs license](https://support.fortinet.com/support/#/downloads/vm)
@@ -308,7 +307,7 @@ sudo apt install ./lsd_1.2.0_amd64.deb
 rm lsd_1.2.0_amd64.deb
 ```
 
-# Fase 2: Instalar Imagenes
+# Instalacion de Imagenes
 
 Recuerda tener descargadas tus imagenes para pasarlas al servidor, puedes encontrar mas informacion en [[#Soporte de Imagenes]]
 
@@ -319,6 +318,7 @@ Existen 3 metodos para ejecutar imagenes: Dynamips, IOL y Qemu. Dynamips no lo v
 La mayoria de las imagenes que se usan en EVE-NG usan el metodo de QEMU, por eso es tan flexible, con la excepcion de Cisco IOL, por eso es el primero que explicare.
 
 ## Aruba CX Switch
+
 > [!IMPORTANT] Documentacion Recomendada
 > - [HPE Support](https://networkingsupport.hpe.com/home): Iniciar sesion con cuenta HPE Certificada
 > 	- [Global Search - AOS-CX OVA](https://networkingsupport.hpe.com/globalsearch#q=AOS-CX%20OVA&tab=Software)
@@ -326,24 +326,23 @@ La mayoria de las imagenes que se usan en EVE-NG usan el metodo de QEMU, por eso
 > - [EVE-NG Docs - HowTo add Aruba CX Switch](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-aruba-cx-switch/)
 > - [Via Internet Archive - My Ethernet Mind Blog - Adding Aruba AOS-CX to EVE-NG](https://web.archive.org/web/20240226171832/https://www.madari.co.il/2019/11/adding-aruba-aos-cx-to-eve-ng.html)
 
-> [!NOTE] Sobre Imagen
-> - Carpeta HPE Aruba CX Switch: `arubacx-{version}`
-> 	- Disco QEMU: `virtioa`
-> - Access
-> 	- user: `admin`
-> 	- pass: N/A
+| Carpeta       | Disco   | User    | Pass | Boot  |
+| ------------- | ------- | ------- | ---- | ----- |
+| arubacx-{ver} | virtioa | `admin` | N/A  | 2 min |
 
-Como nota, utilizar Aruba CX Switch en EVE-NG rompe con su autorizacion de licencia adicional, solo digo...
+HPE Aruba CX, es la linea de switches empresariales orientada a datacenter y campus con soporte de VXLAN, EVPN y automatizacion, nace de la linea ArubaOS.
 
-Puedes descargar esta imagen gratuitamente desde HPE, solo debes crear una cuenta con dominio academico o corporativo, no permite iniciar desde un correo general como gmail, yahoo, outlook, icloud, etc.
+Su licencia dice que no puedes utilizarla con herramientas de 3ros como EVE-NG, solo digo...
 
-Una vez con tu cuenta creada busca el termino "`AOS-CX OVA`" desde el buscador global de HPE Support. Veras varias ramas activas disponibles, al momento de escribir, estas son:
+Puedes descargar esta imagen desde HPE, debes crear una cuenta con dominio academico o corporativo, ya que no permite un correo general (Gmail, Yahoo, Outlook, iCloud, etc.)
+
+Una vez con tu cuenta creada, busca el termino "`AOS-CX OVA`" desde el buscador global de HPE Support. Veras varias ramas activas disponibles, al momento de escribir, estas son:
 - 10.18.001
 - 10.17.1020
 - ...
 - 10.13.1180 (LTS)
 
-Te recomiendo ver el Changelog desde Aruba, para ver cuales son los ultimos cambios de los branchs
+Te recomiendo revisar el Changelog de Aruba para ver cuales son los ultimos cambios y lanzamientos de cada rama.
 
 > Crea la carpeta en el servidor
 ```
@@ -375,8 +374,8 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/arubacx-{ver
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
-> [!TIP] Tiempo Inico
-> Se demora unos 2 minutos en iniciar, se mantiene en negro todo ese tiempo y luego te pedira iniciar sesion
+> [!TIP] Notas Iniciar
+> Da una pantalla en negro por 2 minutos, luego aparecera el login
 
 ## Cisco
 
@@ -452,33 +451,29 @@ A partir de este punto, las siguientes secciones asumen que ya tienes acceso al 
 > 	- [guishade - ciscoIOUkeygen.py](https://github.com/guishade/ciscoIOUkey/blob/main/ciscoIOUkeygen.py)
 > 	- [robin113x - keygen](https://github.com/robin113x/keygen/blob/main/CiscoIOUKeygen.py)
 
+> [!BUG] Evita este Router
+> Evita usar la version `L3 15.5.2T` (Router) debido a que se congela en standby y no podras acceder a la consola
+
 Cisco IOS (**I**nternetwork **O**perative **S**ystem) o IOL (**I**OS **O**n **L**inux) utilizan un formato distinto al de las maquinas virtuales tradicionales. En lugar de ejecutarse como una imagen de QEMU, IOL consiste en binarios compilados especificamente para Linux, una arquitectura heredada de los primeros laboratorios internos de Cisco (WebIOL) y fue posteriormente adoptada pro herramientas como IOU WEB, UNL y finalmente EVE-NG.
 
 Las carpetas relevantes son:
 - `/opt/unetlab/addons/iol/bin/`: Imagenes con extension "`.bin`", junto a un archivo "`iourc`" que actua como licencia
 - `/opt/unetlab/addons/iol/lib/`: La libreria "`libcrypto.so.4`" (Openssl) necesaria para que los binarios de "`bin/`" funcionen
 
-> [!DANGER] Evita esta version
-> - Evitar usar la version `L3 15.5.2T` del router debido a que se congela en standby
-
-**Tabla IOL Imagen Recomendada**
-
-| Type         | EVE Image Name                                                   | Version                                                                                                                                     | NVRAM | RAM  |
-| ------------ | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ---- |
-| L2/L3 Switch | i86bi_linux_l2-adventerprisek9-ms.<br>SSA.high_iron_20190423.bin | Cisco IOS Software, Linux Software <br>(I86BI_LINUXL2-ADVENTERPRISEK9-M),<br>Version 15.2(CML_NIGHTLY_20190423)                             | 1024  | 1024 |
-| L3 Router    | i86bi_LinuxL3-AdvEnterpriseK9-<br>M2_157_3_May_2018.bin          | Cisco IOS Software, Linux Software (I86BI_LINUX-<br>ADVENTERPRISEK9-M), Version 15.7(3)M2,<br>Compiled Wed 28-Mar-18 11:18 by prod_rel_team | 1024  | 1024 |
+Las versiones que recomiendo son
+- IOS Router L3: `i86bi_LinuxL3-AdvEnterpriseK9-M2_157_3_May_2018.bin` - 15.7 (28/MAR/2018)
+- IOS Switch L2/L3: `i86bi_linux_l2-adventerprisek9-ms.SSA.high_iron_20190423.bin` - 15.2 (23/ABR/2019)
 
 **IOURC**
 
-> [!NOTE] Sobre IOURC
-> Este archivo varia segun los archivos `/etc/hostname` y `/etc/hosts` que esten configurados para el servidor, exactamente en `Hostname` y `Host_id`
+IOURC es el archivo de licencia que leen los binarios de IOS para poder ejecutarse, dependen de los valores `hostname` y `Host_id` por lo que es importarte rehacerlo cuando cambias los archivos `/etc/hostname` y `/etc/hosts`.
 
 > Crea un archivo `NETMAP` y `iourc`
 ```
 touch /opt/unetlab/addons/iol/bin/NETMAP /opt/unetlab/addons/iol/bin/iourc
 ```
 
-> Debes buscar el Keygen y copiarlo en un archivo `script.py` y ejecutalo usando Python
+> Te recomiendo buscar el Keygen y copiarlo en un archivo `script.py` y ejecutalo usando Python
 ```
 python3 script.py
 ```
@@ -548,7 +543,7 @@ rsync -Phvr *.bin root@{ip-server}:/opt/unetlab/addons/iol/bin/
 > - Carpeta ASAv: `asav-{version}`
 > 	- Disco QEMU: `virtioa`
 
-Puedes conseguir esta imagen actualizada con el metodo de [[#Cisco IOS XE]], por ejemplo `9.24.1`, pero estan sin licencia.
+Puedes conseguir esta imagen actualizada con el metodo de [[#Cisco IOS XE]] (Mediante CML-Free), pero estan sin licencia.
 
 > Crear las carpetas para ASAv
 ```
@@ -722,7 +717,7 @@ mkdir /opt/unetlab/addons/qemu/csr1000vng-{version}
 
 > Renombra el archivo
 ```
-mv a virtioa.qcow2
+mv csr1000vng-universalk9.{version}-serial virtioa.qcow2
 ```
 
 > Mueve la imagen para CSR1000vng
@@ -851,9 +846,8 @@ mkdir /opt/unetlab/addons/qemu/vtedge-{version}
 
 > Mueve el Qcow2
 ```
-rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vtmgmt-{version}/
+rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vtedge-{version}/
 ```
-
 
 > Aregla los permisos
 ```
@@ -1696,7 +1690,7 @@ Crea un nodo, conectalo a Cloud0, y enciendelo
 > - [Alpine Wiki - Setup Alpine](https://wiki.alpinelinux.org/wiki/Alpine_configuration_management_scripts#setup-alpine)
 
 > [!NOTE] Nombre Imagen
-> - Carpeta Alpine: `linux-alpine-{version}`
+> - Carpeta Alpine Linux: `linux-alpine-{version}`
 > 	- Disco QEMU: `virtioa.qcow2`
 > - Login
 > 	- User: `root`
@@ -1780,7 +1774,7 @@ Ahora debes hacer [[#Commit al Qcow2]]
 > 	- [Descarga](https://rockylinux.org/download)
 
 > [!NOTE] Nombre Imagen
-> - Carpeta Arch Linux: `Linux-RockyLinux-{version}`
+> - Carpeta Rocky Linux: `Linux-RockyLinux-{version}`
 > 	- Disco QEMU: `virtioa`
 
 Tienes 3 ramas para elegir
@@ -1855,7 +1849,7 @@ Luego apagas la maquina y haces [[#Commit al Qcow2]]
 > [Kali Linux - Download VM](https://www.kali.org/get-kali/#kali-virtual-machines)
 
 > [!NOTE] Nombre Imagen
-> - Carpeta Arch Linux: `Linux-kali-{version}`
+> - Carpeta Kali Linux: `Linux-kali-{version}`
 > 	- Disco QEMU: `virtioa`
 > - Login
 > 	- User: `kali`
@@ -1889,7 +1883,7 @@ rm kali-linux-{version}-qemu-amd64.7z
 
 > Renombra el archivo
 ```
-mv kali-linux-{version}-qemu-amd64.qcow2 virtioa.qcow
+mv kali-linux-{version}-qemu-amd64.qcow2 virtioa.qcow2
 ```
 
 > Arregla los permisos
@@ -1907,7 +1901,7 @@ Crea un nodo, conectalo a Cloud0 y enciendelo
 > 	- [Download Mirror](https://www.debian.org/CD/http-ftp/#mirrors)
 
 > [!NOTE] Nombre Imagen
-> - Carpeta Arch Linux: `Linux-Ubuntu-{version}`
+> - Carpeta Debian Linux: `Linux-Ubuntu-{version}`
 > 	- Disco QEMU: `virtioa`
 
 Debes descargar el ISO DVD para AMD64
@@ -1959,7 +1953,7 @@ Luego apagas la maquina y haces [[#Commit al Qcow2]]
 > 	- [Descarga Ubuntu Server](https://ubuntu.com/download/server)
 
 > [!NOTE] Nombre Imagen
-> - Carpeta Arch Linux: `Linux-ubuntu-server-{version}`
+> - Carpeta Ubuntu Server: `Linux-ubuntu-server-{version}`
 > 	- Disco QEMU: `virtioa`
 
 Descarga Ubuntu Server 26.04 LTS
@@ -2009,7 +2003,7 @@ Recuerda que debes hacer [[#Commit al Qcow2]]
 > - [IPFire Docs](https://www.ipfire.org/docs)
 
 > [!NOTE] Nombre Imagen
-> - Carpeta Arch Linux: `Linux-ipfire-{version}`
+> - Carpeta IPFire: `Linux-ipfire-{version}`
 > 	- Disco QEMU: `virtioa`
 
 Yo utilize: `ipfire-2.29-core202-x86_64.iso`
@@ -2213,6 +2207,8 @@ Ahora deberas hacer [[#Commit al Qcow2]]
 ```
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
+
+El rendimiento es bastante malo, me imagino porque no tiene aceleracion 3D, pero bueno, nada que hacerle
 
 ### Win Server (2008-2025)
 > [!IMPORTANT] Documentacion Recomendada
@@ -2785,7 +2781,7 @@ virt-sparsify --compress virtioa.qcow2 cvirtioa.qcow2
 mv cvirtioa.qcow2 virtioa.qcow2
 ```
 
-# Fase 3: Configuraciones
+# Configuraciones
 
 ## Interfaces
 

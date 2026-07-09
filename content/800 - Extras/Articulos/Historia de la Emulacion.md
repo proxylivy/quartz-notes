@@ -225,9 +225,7 @@ Dainok, necesitaba no solo ejecutar imagenes IOL, sino tambien emuladores basado
 Este proyecto amplio el soporte a multiples vendors. A inicios de 2015, Dainok anuncio que se alejaba del proyecto por falta de tiempo, dejando la evolucion a manos de la comunidad. Aunque hubieron luego planes para crear UnetLab², no llego a buen puerto y la rama quedo discontinuada en algun punto de 2016.
 
 ### EVE-NG
-Emulated Virtual Environment Next Generation
-
-EVE-NG es una solucion que unifica diversas tecnologias y proyectos en una plataforma robusta y flexible. Su desarrollo se basa en varios proyectos previos como Cisco WebIOL, IOU-WEB y UnetLab.
+**E**mulated **V**irtual **E**nvironment **N**ext **G**eneration es una solucion que unifica diversas tecnologias y proyectos en una plataforma robusta y flexible. Su desarrollo se basa en varios proyectos previos como Cisco WebIOL, IOU-WEB y UnetLab.
 
 En 2016, se crea "EVE-NG LTD", con la cual fue trabajando internamente, El 5 de enero de 2017, Uldis Dzerkalis y un equipo presentaron al publico [EVE-NG](https://www.eve-ng.net/), el cual es un fork del trabajo hecho en UnetLab que continua en desarrollo.
 
@@ -245,9 +243,7 @@ Otro simulador de red mas, pero este nace desde 0 como una implementacion limpia
 Fuente: https://github.com/fahadysf/nova-ve
 Docs: https://docs.nova-ve.com/
 
-Se debe instalar un VM de [Ubuntu Server 26.04 LTS](https://ubuntu.com/download/server), luego con un sudo script puedes instalar
-
-
+Debes hacer una instalacion limpia en un VM con [Ubuntu Server 26.04 LTS](https://ubuntu.com/download/server), luego ejecutar un script como root para instalar NOVA-VE
 
 ## Comerciales
 

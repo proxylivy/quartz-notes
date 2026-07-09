@@ -1,6 +1,9 @@
 # Fase 1: Preparacion de EVE-NG
 ## Introduccion
 
+> [!FAIL] Cambio de modelo
+> La ultima version de community es la 6.2.0-4, ahora el modelo cambiara a freemium, la misma base PRO, pero las funcionalidades se habilitan con licencia, la verdad, probe 7.x, y lo encontre un desproposito, mi recomendacion, utiliza la version Community hasta que deje de existir
+
 EVE-NG (**E**mulated **V**irtual **E**nvironment - **N**ext **G**eneration) es una plataforma de emulacion de redes que permite virtualizar dispositivos como Router, Switches, Firewall, Load Balancer, IDS/IPS, etc. utilizando imagenes reales de sus sistemas operativos.
 
 La version con la cual escribo esta guia es `EVE-NG Community Edition 6.2.0-4`
@@ -97,7 +100,6 @@ Hay una gran variedad de imagenes, cambian sus funcionalidades segun el nombre q
 | Cisco               | ✓ IOS        | ✓ IOS L2          | ✓ ASAv      | ✗                | ✓ Viptela | ✓ NGIPS |
 | Fortinet            | ✓ FGT        | ✗                 | ✓ FGT       | ✓ FAD            | ✓ FGT     | ✓ FNDR  |
 | Huawei              | ✓ AR1000v    | ✓ CE12800         | ✓ USG6kv    | ✗                | ✗         | ✗       |
-| Juniper             | ✓ EVO        | ✓ EX              | ✓ vSRX 3.0  | ✗                | ✗         | ✗       |
 | Extreme<br>Networks | ✓ VOSS       | ✓ EXOS            | ✗           | ✗                | ✗         | ✗       |
 | Hillstone           | ✗            | ✗                 | ✓ CloudEdge | ✓ vADC           | ✗         | ✓ vIPS  |
 | VyOS                | ✓            | ✓                 | ✓\*         | ✓\*              | ✗         | ✗       |
@@ -114,12 +116,11 @@ Hay una gran variedad de imagenes, cambian sus funcionalidades segun el nombre q
 
 Cisco IOS image list:
 - Cisco IOS
-	- L2/L3 Switch: i86bi_linux_l2-adventerprisek9-ms.SSA.high_iron_20190423.bin (15.2 - 2019-04-23)
-	- L2/L3 Switch: i86bi_LinuxL2-AdvEnterpriseK9-M_152_May_2018.bin (15.2 - 2018-05-10)
-	- L3 Router and PC: i86bi_LinuxL3-AdvEnterpriseK9-M2_157_3_May_2018.bin (15.7 - 2018-05-10)
+	- L2/L3 Switch: `i86bi_linux_l2-adventerprisek9-ms.SSA.high_iron_20190423.bin` (15.2 - 2019-04-23)
+	- L3 Router and PC: `i86bi_LinuxL3-AdvEnterpriseK9-M2_157_3_May_2018.bin` (15.7 - 2018-05-10)
 - Cisco IOS XE - [Free with Registration](https://developer.cisco.com/docs/modeling-labs/cml-free/)
-	- L3 XE Router (64 bits): x86_64_crb_linux-adventerprisek9-ms.bin (17.18.1)
-	- L2/L3 XE Switch (64 bits): x86_64_crb_linux_l2-adventerprisek9-ms.bin (17.18.1)
+	- L3 XE Router (64 bits): `x86_64_crb_linux-adventerprisek9-ms.bin` (17.18.1)
+	- L2/L3 XE Switch (64 bits): `x86_64_crb_linux_l2-adventerprisek9-ms.bin` (17.18.1)
 
 QEMU image list:
 - Aruba AOS-CX 10.18 - [Free with Registration in HPE](https://networkingsupport.hpe.com/globalsearch#q=AOS-CX%20OVA&tab=Software&sortCriteria=date%20descending)
@@ -141,32 +142,29 @@ QEMU image list:
 	- CE12800
 	- USG6000kv 5.1.7-2018
 - Linux
-	- Alpine Linux 3.24.1 - [Open Source](https://www.alpinelinux.org/)
 	- Arch Linux - [Open Source](https://archlinux.org/)
+	- Alpine Linux 3.24.1 - [Open Source](https://www.alpinelinux.org/)
 	- Rocky Linux 8.10 - [Open Source](https://rockylinux.org/)
-	- Ubuntu Server 26.04 LTS - [Open Source](https://ubuntu.com/download/server)
 	- Kali Linux 2026.02 - [Open Source](https://www.kali.org/get-kali/)
+	- Debian 13 - [Open Source](https://www.debian.org/)
+	- Ubuntu Server 26.04 LTS - [Open Source](https://ubuntu.com/download/server)
+	- IPFire 2.29 - Core Update 202 - [Open Source](https://www.ipfire.org/)
 	- Issabel 5 - [Open Source](https://www.issabel.org/)
 - MS Windows
 	- Host (XP, 7, 10, 11)
 	- Server (2008-2025)
-- Microtik RouterOS 7.18.2 - [Free](https://mikrotik.com/download)
+- Microtik RouterOS 7.23.2 - [Free](https://mikrotik.com/download)
 - OpenWRT 25.12.4 - [Open Source](https://openwrt.org/)
 - OPNsense 25.1 - [Open Source](https://opnsense.org/)
 - Palo Alto 11.2.5
 - PfSense-pfs 2.7.2 - [Open Source](https://atxfiles.netgate.com/mirror/downloads/)
-- Juniper - [Free With Registration](https://support.juniper.net/support/downloads/)
-	- vJunos Router 26.2R1
-	- vJunos Evolved 26.2R1-EVO
-	- vJunos EX Switch 26.2R1
-	- vSRX 3.0 26.2R1
 - Vyos 1.5 Rolling Release - [Open Source](https://vyos.net/) - [Changelog](https://github.com/vyos/vyos-nightly-build/releases)
 - IP Fusion OcNOS 7.0.0 - [Free Demos with registration](https://www.ipinfusion.com/free-software-demos/) (Psst: Pon informacion falsa)
 - Virtual PC (VPCS) - [Open Source](https://github.com/GNS3/vpcs)
 
 ### No recomiendo
 
-Este podio son vendor que no recomiendo, es como un espacio de rant
+Este podio son vendor que no recomiendo, un espacio de rant
 
 **Cisco vIOS**
 - Cisco vIOS - [Free with Registration](https://developer.cisco.com/docs/modeling-labs/cml-free/)
@@ -211,6 +209,7 @@ Es famoso, tiene sus certificados NSE y cosas, ademas de dominar el mercado, per
 
 > [!NOTE] Documentacion Recomendada
 > - [Documentacion Eve-NG - First Boot](https://www.eve-ng.net/index.php/documentation/installation/howto-configure-eve-during-first-boot/)
+> - [Jose Juan Sanchez - Instalacion y Configuracion de EVE-NG en VMware](https://josejuansanchez.org/bastionado/eve-ng/index.html)
 > - [Arny Blog - Instalacion EVE-NG (Ru)](https://arny.ru/linux/ustanovka-eve-ng/)
 > - [JD-Networks Blog - Eve NG Install](https://jd-networks.co.uk/blog/2019/05/24/eve-ng-community-edition/)
 > - [Dainok - Installing Eve-NG](https://www.adainese.it/blog/2023/09/21/installing-eve-ng/)
@@ -230,7 +229,7 @@ Requerimientos
 3. Selecciona el idioma `Español`
 4. Selecciona el teclado Layout y Variant `Spanish (Latin America)`
 5. Apreta "`Continuar`" este paso formateara todos los discos que encuentre automaticamente, y se reiniciara automaticamente
-6. Luego instalara otras cosas se demora aproximadamente 900 segundos (15 minutos) y se reiniciara. No debes iniciar sesion
+6. Luego instalara otras cosas se demora aproximadamente 900 segundos (15 minutos) y se reiniciara. No debes iniciar sesion en esta etapa
 
 > Al iniciar, te saldra este prompt de inicio, y sera tapado por otras cosas, simplemente inicia con las credenciales
 ```
@@ -278,7 +277,7 @@ apt autoremove
 
 > Paso 4: Hacer la vida mas sencilla a mi (Opcional)
 ```
-apt install micro btop kitty weston git tree imagemagick
+apt install micro btop kitty weston git tree imagemagick p7zip-full
 ```
 
 > Paso 4.1: Instalar [Fish Shell](https://fishshell.com/) y [Fastfetch](https://github.com/fastfetch-cli/fastfetch) (Opcional)
@@ -1080,12 +1079,6 @@ Sigue estas instrucciones de instalacion
 - Le das en "Finish" para terminar con la instalacion y te preguntara si quieres hacer mas modificaciones le das en "No"
 - La instalacion esta completa!. Ahora le das en "Shutdown" para apagar la maquina
 
-> [!BUG] Sobre el commit
-> El commit lo hize con la version moderna de `qemu-img` debido a un error con la version antigua, el comando utilizado fue
-> ```
-> /usr/bin/qemu-img commit virtioa.qcow2
-> ```
-
 Ahora deberas hacer [[#Commit al Qcow2]] y elimina el disco `cdrom.iso`
 
 > Nunca olvides arreglar los permisos para eve-ng
@@ -1660,45 +1653,9 @@ Crea un nodo, en las opciones, cambia de VNC a Telnet, luego conectalo a Cloud0 
 
 ## Linux
 > [!IMPORTANT] Documentacion Recomendada
-> - [EVE-NG Docs - HowTo create own Linux Host Image](https://www.eve-ng.net/index.php/documentation/howtos/howto-create-own-linux-host-image/)
+> - [EVE-NG Docs - Create own Linux Host Image](https://www.eve-ng.net/index.php/documentation/howtos/howto-create-own-linux-host-image/)
 > - [Youtube - The Network Berg - EVE-NG Importing a Linux host](https://youtu.be/ZLvdJa3MXTU?si=ud_AM3k1wUfK0UuC)
 > - [EVE-NG Docs - Mega - Download Linux Images](https://mega.nz/folder/30p3TKob#42_S__9wwPVO0zHIfC4xow)
-
-### Alpine
-
-> [!TIP] Lecturas Recomendadas
-> - [Sitio Oficial](https://www.alpinelinux.org/)
-> 	- [Descarga](https://www.alpinelinux.org/downloads/)
-
-> [!NOTE] Nombre Imagen
-> - Carpeta Alpine: `linux-alpine-{version}`
-> 	- Disco QEMU: `virtioa.qcow2`
-
-En el sitio de descarga, ve a la categoria "Virtual" y descarga la version "x86_64", en mi caso: `alpine-virt-{version}-x86_64.iso`
-
-> Crea la carpeta
-```
-mkdir /opt/unetlab/addons/qemu/linux-alpine-{version}
-```
-
-> Renombra el ISO
-```
-mv alpine-virt-{version}-x86_64.iso cdrom.iso
-```
-
-> Envia el archivo
-```
-rsync -Phvr cdrom.iso root@{ip-server}:/opt/unetlab/addons/qemu/linux-alpine-{version}/
-```
-
-Crea el nodo, instalalo y apagalo
-
-Recuerda que debes hacer [[#Commit al Qcow2]]
-
-> Arregla los permisos
-```
-/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
-```
 
 ### Arch Linux
 
@@ -1721,8 +1678,96 @@ mkdir /opt/unetlab/addons/qemu/linux-archlinux-{version}
 
 > Descarga la ultima imagen Base
 ```
-wget https://fastly.mirror.pkgbuild.com/images/latest/Arch-Linux-x86_64-basic.qcow2 -O virtioa.qcow2
+wget https://fastly.mirror.pkgbuild.com/images/latest/Arch-Linux-x86_64-basic.qcow2 -O /opt/unetlab/addons/qemu/linux-archlinux-{version}/virtioa.qcow2
 ```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+Crea un nodo, conectalo a Cloud0, y enciendelo
+
+### Alpine Linux
+
+> [!TIP] Lecturas Recomendadas
+> - [Sitio Oficial](https://www.alpinelinux.org/)
+> 	- [Descarga](https://www.alpinelinux.org/downloads/)
+> - [Alpine Wiki - Setup Alpine](https://wiki.alpinelinux.org/wiki/Alpine_configuration_management_scripts#setup-alpine)
+
+> [!NOTE] Nombre Imagen
+> - Carpeta Alpine: `linux-alpine-{version}`
+> 	- Disco QEMU: `virtioa.qcow2`
+> - Login
+> 	- User: `root`
+> 	- Pass: N/A (Entra automaticamente)
+
+En el sitio de descarga, ve a la categoria "Virtual" y descarga la version "x86_64", en mi caso: `alpine-virt-{version}-x86_64.iso`
+
+> Crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/linux-alpine-{version}
+```
+
+> Renombra el ISO
+```
+mv alpine-virt-{version}-x86_64.iso cdrom.iso
+```
+
+> Envia el archivo
+```
+rsync -Phvr cdrom.iso root@{ip-server}:/opt/unetlab/addons/qemu/linux-alpine-{version}/
+```
+
+> Ve a la carpeta
+```
+cd /opt/unetlab/addons/qemu/linux-alpine-{version}
+```
+
+> Crea un disco de 10GB
+```
+/opt/qemu/bin/qemu-img create -f qcow2 virtioa.qcow2 10G
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+Crea el nodo, conectalo a Cloud0 y enciendelo
+
+Ejecuta el comando `setup-alpine` y sigue los siguientes pasos
+- Configura tu keymap: `es`
+- Configura tu layout: `es`
+- Configura tu Hostname: `Enter` (localhost por defecto)
+- Configura tu acceso a internet para eth0 presionando `Enter`
+- Activa DHCP para eth0 presionando `Enter`
+- Presiona `Enter` para auto-configurar IPv6
+- Presiona `n` para no modificar mas redes
+- Configura tu contraseña, en mi caso: `alpine` y luego verificala
+- Configura tu timezone
+- Presiona `Enter` para no configurar ningun proxy
+- Presiona `f` para buscar el mirror mas rapido
+- Escribe `no` para no crear ningun usuario extra
+- Presiona `Enter` para seleccionar OpenSSH
+- Escribe `yes` para permitir el acceso de root con contraseña
+- Presiona `Enter` para no configurar ninguna llave SSH
+- Escribe `vda` para utilizar el disco en la instalacion
+- Escribe `sys` para utilizar ese disco como un disco normal de instalacion
+- Presiona `y` para eliminar el contenido del disco y utilizarlo
+- Termino la instalacion, escribe `poweroff` para apagar la maquina
+
+> Ve a la carpeta de Linux Alpine
+```
+cd /opt/unetlab/addons/qemu/linux-alpine-{version}
+```
+
+> Elimina el disco iso
+```
+rm cdrom.iso
+```
+
+Ahora debes hacer [[#Commit al Qcow2]]
 
 > Arregla los permisos
 ```
@@ -1760,9 +1805,45 @@ mv Rocky-{version}-x86_64-dvd.iso cdrom.iso
 rsync -Phvr cdrom.iso root@{ip-server}:/opt/unetlab/addons/qemu/linux-rockylinux-{version}/
 ```
 
-Crea un nodo, conectalo a "Cloud0" y haz la instalacion y apagas la maquina
+> Ve a la carpeta
+```
+cd /opt/unetlab/addons/qemu/linux-rockylinux-{version}
+```
 
-Recuerda que debes hacer [[#Commit al Qcow2]]
+> Crea un disco de 10GB
+```
+/opt/qemu/bin/qemu-img create -f qcow2 virtioa.qcow2 10G
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+Crea un nodo, conectalo a "Cloud0" y sigue los siguientes pasos
+
+Al arrancar con la ISO de Rocky Linux 8.10, aparece el menu de instalacion grafico. Detallo los pasos a seguir:
+1. Idioma y Localizacion
+	- Idioma: `Español`
+	- Localizacion: `Español (Chile)`
+2. Configuracion del sistema
+	- Selecciona "Destino de la Instalacion"
+		- En "Configuracion del Almacenamiento", selecciona la opcion "Personalizada" y luego presiona "Hecho"
+		- Seleccion "Listo" 2 veces (Ignoramos el mensaje de advertencia sobre la falta de Swap", no se necesita)
+	- Selecciona "KDUMP"
+		- Desactiva la opcion "Habiitar KDUMP" y le das en "Hecho"
+	- Selecciona "Red y Nombre del Equipo"
+		- Enciendes la interfaz de red y le das en "Hecho"
+	- Selecciona "Contraseña de Root"
+		- Configuras `eve` y `eve` y le das 2 veces en "Hecho"
+	- Selecciona "Creacion de usuario"
+		- Configura `eve` en todos los espacios y marca en "Hacer de este usuario un administrador" y le das 2 veces en "Hecho"
+	- Selecciona "Seleccion del Software" y elije "Instalacion Minima" y le das en "Hecho"
+3. Ahora apretas en "Empezar Instalacion" y mientras carga, continua
+	- Apretas 2 veces en Listo y esperas que la instalacion termine (Se demora unos 6 minutos en un SSD)
+4. Cuando termine apreta "Reiniciar", ya que el instalador no lo hace automaticamente
+
+Luego apagas la maquina y haces [[#Commit al Qcow2]]
 
 > Arregla los permisos
 ```
@@ -1774,7 +1855,7 @@ Recuerda que debes hacer [[#Commit al Qcow2]]
 > [Kali Linux - Download VM](https://www.kali.org/get-kali/#kali-virtual-machines)
 
 > [!NOTE] Nombre Imagen
-> - Carpeta Arch Linux: `Linux-KaliLinux-{version}`
+> - Carpeta Arch Linux: `Linux-kali-{version}`
 > 	- Disco QEMU: `virtioa`
 > - Login
 > 	- User: `kali`
@@ -1784,9 +1865,16 @@ Debes descargar la version de Qemu, yo recomiendo siempre tomar la Weekly, ya qu
 
 Busca un [Mirror](https://cdimage.kali.org/README?mirrorlist), yo por ejemplo utilizo [elmirror](https://elmirror.cl/kali-images/kali-weekly/)
 
-> Descarga la imagen directamente en el servidor
+Yo utilizo: `kali-linux-2026-W28-qemu-amd64.7z`
+
+> Crea la carpeta
 ```
-wget https://elmirror.cl/kali-images/kali-weekly/kali-linux-{version}-qemu-amd64.7z
+mkdir /opt/unetlab/addons/qemu/linux-kali-{version}
+```
+
+> Descarga la imagen directamente en el servidor (debes copiar el archivo desde el mirror)
+```
+wget kali-linux-{version}-qemu-amd64.7z
 ```
 
 > Descomprime la imagen
@@ -1794,19 +1882,14 @@ wget https://elmirror.cl/kali-images/kali-weekly/kali-linux-{version}-qemu-amd64
 7z x kali-linux-{version}-qemu-amd64.7z
 ```
 
-> VE COMO SE LLAMA PO
+> Elimina el 7z
+```
+rm kali-linux-{version}-qemu-amd64.7z
 ```
 
+> Renombra el archivo
 ```
-
-> Crea la carpeta
-```
-mkdir /opt/unetlab/addons/qemu/linux-kalilinux-{version}
-```
-
-> Mueve la imagen
-```
-mv .qcow2 /opt/unetlab/addons/qemu/linux-kalilinux-{version}/virtioa.qcow2
+mv kali-linux-{version}-qemu-amd64.qcow2 virtioa.qcow
 ```
 
 > Arregla los permisos
@@ -1814,19 +1897,61 @@ mv .qcow2 /opt/unetlab/addons/qemu/linux-kalilinux-{version}/virtioa.qcow2
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
+Crea un nodo, conectalo a Cloud0 y enciendelo
+
 ### Debian
 
 > [!IMPORTANT] Documentacion Recomendada
 > - [Debian Official Site](https://www.debian.org/)
+> 	- [Debian Release Stable](https://www.debian.org/releases/stable/debian-installer/)
 > 	- [Download Mirror](https://www.debian.org/CD/http-ftp/#mirrors)
 
 > [!NOTE] Nombre Imagen
 > - Carpeta Arch Linux: `Linux-Ubuntu-{version}`
 > 	- Disco QEMU: `virtioa`
 
-Debes descargar la ISO-DVD AMD64
+Debes descargar el ISO DVD para AMD64
 
 Yo utilize: `13.5.0`
+
+> Crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/linux-debian-{version}
+```
+
+> Renombra el ISO
+```
+mv debian-{version}-amd64-DVD-1.iso cdrom.iso
+```
+
+> Envia el archivo
+```
+rsync -Phvr cdrom.iso root@{ip-server}:/opt/unetlab/addons/qemu/linux-debian-{version}/
+```
+
+> Ve a la carpeta
+```
+cd /opt/unetlab/addons/qemu/linux-debian-{version}
+```
+
+> Crea un disco de 10GB
+```
+/opt/qemu/bin/qemu-img create -f qcow2 virtioa.qcow2 10G
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+Crea el nodo, haz la instalacion
+
+Luego apagas la maquina y haces [[#Commit al Qcow2]]
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
 
 ### Ubuntu Server
 > [!IMPORTANT] Documentacion Recomendada
@@ -1834,14 +1959,14 @@ Yo utilize: `13.5.0`
 > 	- [Descarga Ubuntu Server](https://ubuntu.com/download/server)
 
 > [!NOTE] Nombre Imagen
-> - Carpeta Arch Linux: `Linux-Ubuntu-{version}`
+> - Carpeta Arch Linux: `Linux-ubuntu-server-{version}`
 > 	- Disco QEMU: `virtioa`
 
 Descarga Ubuntu Server 26.04 LTS
 
 > Crea la carpeta
 ```
-mkdir /opt/unetlab/addons/qemu/linux-ubuntuserver-{version}
+mkdir /opt/unetlab/addons/qemu/linux-ubuntu-server-{version}
 ```
 
 > Renombra el ISO
@@ -1851,7 +1976,22 @@ mv ubuntu-{version}-live-server-amd64.iso cdrom.iso
 
 > Envia el archivo
 ```
-rsync -Phvr cdrom.iso root@{ip-server}:/opt/unetlab/addons/qemu/linux-ubuntuserver-{version}/
+rsync -Phvr cdrom.iso root@{ip-server}:/opt/unetlab/addons/qemu/linux-ubuntu-server-{version}/
+```
+
+> Ve a la carpeta
+```
+cd /opt/unetlab/addons/qemu/linux-ubuntu-server-{version}
+```
+
+> Crea un disco de 10GB
+```
+/opt/qemu/bin/qemu-img create -f qcow2 virtioa.qcow2 10G
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
 Crea un nodo y haz la instalacion y apagas la maquina
@@ -1863,9 +2003,60 @@ Recuerda que debes hacer [[#Commit al Qcow2]]
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
+### IPFire
+> [!TIP] Lecturas Recomendadas
+> - [Official Page](https://www.ipfire.org/)
+> - [IPFire Docs](https://www.ipfire.org/docs)
+
+> [!NOTE] Nombre Imagen
+> - Carpeta Arch Linux: `Linux-ipfire-{version}`
+> 	- Disco QEMU: `virtioa`
+
+Yo utilize: `ipfire-2.29-core202-x86_64.iso`
+
+> Crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/linux-ipfire-{version}
+```
+
+> Renombra el ISO
+```
+mv ipfire-2.29-core202-x86_64.iso cdrom.iso
+```
+
+> Envia el archivo
+```
+rsync -Phvr cdrom.iso root@{ip-server}:/opt/unetlab/addons/qemu/linux-ipfire-{version}/
+```
+
+> Ve a la carpeta
+```
+cd /opt/unetlab/addons/qemu/linux-ipfire-{version}
+```
+
+> Crea un disco de 10GB
+```
+/opt/qemu/bin/qemu-img create -f qcow2 virtioa.qcow2 10G
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+Crea un nodo y conectalo a Cloud0 e inicialo
+
+Cuando aparesca grub, selecciona la opcion de instalarlo para evitar la espera de 60 segundos, luego sigue estos pasos
+1. Selecciona el idioma Español y comienza la instalacion
+2. Confirma el disco y borra todos sus datos
+3. Selecciona el sistema ext4 para particionar los discos
+4. Te pedira Reiniciar el nodo, debes presionar Reiniciar y luego apagas el nodo
+
+Recuerda que debes hacer [[#Commit al Qcow2]]
+
 ### Issabel
 > [!TIP] Lecturas Recomendadas
-> - [Oficial Page](https://www.issabel.org/)
+> - [Official Page](https://www.issabel.org/)
 > - [SourceForge - issabelofficial/IssabelPBX Files](https://sourceforge.net/projects/issabelpbx/files/)
 
 Issabel 5 es un PBX basado en Asterisk con un WebUI encima, puedes descargarlo desde SourceFordge
@@ -1932,18 +2123,18 @@ Una vez que tengas tu nodo clonado y listo para la topologia, si necesitas image
 > - Carpeta MS Windows Host: `win-{version}`
 > 	- Disco QEMU: `virtioa`
 
-Los discos Qcow2 para un Host de windows son de 40GB para <= Win 7 y de 60GB para Windows 10
+Los discos Qcow2 para un Host de windows son de 40GB para <= Win 7 y de 60GB para Windows 10 y 11
 
 Recomiendo descargar las isos desde Massgrave, son las mas limpias y windows no te entregara una iso actualizada de XP o Win 7 por ejemplo.
-
-> Renombra el archivo
-```
-mv es-es_windows_10_consumer_editions_version_22h2_updated_oct_2025_x64_dvd_38efd00d.iso cdrom.iso
-```
 
 > Crea la carpeta
 ```
 mkdir /opt/unetlab/addons/qemu/win-{version}
+```
+
+> Renombra el archivo
+```
+mv es-mx_windows_10_consumer_editions_version_22h2_updated_oct_2025_x64_dvd_38efd00d.iso cdrom.iso
 ```
 
 > Copia el Archivo
@@ -1961,19 +2152,62 @@ cd /opt/unetlab/addons/qemu/win-{version}
 /opt/qemu/bin/qemu-img create -f qcow2 virtioa.qcow2 60G
 ```
 
-Crea un nuevo nodo de Windows Host, y crea un nodo de red "Cloud0" para que pueda conectarse a internet e inicia el nodo
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
 
-> [!CAUTION] Drivers Disco
-> Cuando la instalacion te pida seleccionar un disco, posible no aparesca nada, deber ir a "Cargar Driver", buscar y elegir la ruta `FDD B/storage/2003R2/AMD64 or x86`, seleccionas y buscara el driver "`HDD RedHat Virtio SCSI HDD`" y ahora podra reconocer el disco
+Yo tuve que cambiar las opciones de qemu, de pc a q35 y alli funciono, no se si sera algo fortuito o necesario
 
-Continua con la instalacion normalmente
+Tambien parece que debes modificar la cantidad de CPU en el qemu, configura la gui como 1vCPU, y agregas el -smp
+```
+-smp cpus=8,sockets=1,cores=8,threads=1
+```
 
-> [!TIP] Acceso RDP
-> Si quieres acceder mediante RDP para EVE-NG, debes configurar un usuario y contraseña, permitir el acceso RDP a la maquina y asegurarte de poder conectarse de forma remota para acceso publico
+Crea un nodo, configuralo con 4vCPU y 8196M de ram, conectalo a Cloud0 e inicia el nodo y sigue las instrucciones
+- Elige tus preferencias de idioma y teclado y dale en "Siguiente"
+- Presiona en "No tengo una clave del producto"
+- Eliges "Windows 10 Pro" y eliges la instalacion avanzada
+
+Ahora no te reconoce el disco virtioa, y es importante que hagas los siguientes pasos correctamente
+- Ve a "Cargar Controlador" y dale en "Aceptar" al mensaje
+- Ahora dale en "Examinar"
+- Ve a "Unidad de disquete `A:`"
+- Abre `Storage` > `2003R2` > `amd64` y dale click en "Aceptar"
+- Elige el controlador "`Red Hat VirtIO SCSI controller, packaged by Canonical, Ltd. blablabla`" y dale en "Siguiente"
+
+Ahora te reconoce el disco, seleccionalo y dale en "Siguiente" y empezara con la instalacion. Debes seleccionar la region y distribucion del teclado y empezara a configurarse
+
+Luego configuras una cuenta para uso personal y le das en "Siguiente", luego le das en "Cuenta sin conexion", luego en "Experiencia Limitada" y crea tu cuenta local, yo le pongo de usuario `eve` y de contraseña `eve` y a las preguntas de seguridad `eve`. 
+
+Dile "Ahora no" a Microsoft Edge y luego desactiva cada una de las opciones de privacidad y el das en "Aceptar". Luego dale en "Omitir" para personalizar la experiencia
+
+Apaga la maquina y elimina el disco
+
+> Ve a la carpeta de Windows
+```
+cd /opt/unetlab/addons/qemu/win-{version}
+```
+
+> Elimina el iso
+```
+rm cdrom.iso
+```
+
+Enciende el nodo otra vez y haz un par de configuraciones
+
+1. Activar RDP (No me funciono)
+	- Vas a Configuraciones > Sistema > Escritorio Remoto y Activas "Escritorio Remoto" y presionas "Confirmar"
+2. Activa Windows (Porfavor)
+	- Abre Powershell en modo Administrador y pide porfavor y listo :P
+3. Instala drivers de Virtio
+	- Descarga [WinCDEmu](https://wincdemu.sysprogs.org/)
+	- Ve a [Fedora Community](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/latest-virtio/) y descarga "Virtio Win GT x64" y "Virtio Win Guest Tools"
+4. Instala Firefox
 
 Finaliza la instalacion y apaga el VM cuando este listo
 
-Ahora deberas hacer [[#Commit al Qcow2]] y Elimina el disco
+Ahora deberas hacer [[#Commit al Qcow2]]
 
 > Nunca olvides arreglar los permisos para eve-ng
 ```
@@ -2083,6 +2317,124 @@ Crea un nodo, conectalo a Cloud0 y enciendelo
 
 > [!TIP] Sobre inicio
 > Inicia el sistema desde el disco, se demora 1 minuto
+
+## OcNOS
+
+> [!TIP] Lecturas Recomendadas
+> [VM Demo Gratuitas con Registro](https://www.ipinfusion.com/free-software-demos/ocnos-eve/) - PSST: Puedes poner info falsa, no verifica nada
+> [IPinfusion SP Docs 7.x](https://documentation.ipinfusion.com/ocnos-sp-release-notes-7.0/Content/Home.htm)
+> [Youtube - Zero to Hero Course](https://www.youtube.com/playlist?list=PLMeBQ51gYDADN31R_Wga3VnOTvePIGR_4)
+
+
+> [!NOTE] Sobre Imagen
+> - Carpeta VyOS: `ocnos-{version}`
+> 	- Disco QEMU: `virtioa`
+> - CLI Login
+> 	- User: `ocnos`
+> 	- Pass: `ocnos`
+
+OcNOS VM, creada por IP Infusion, se creo para validar configuraciones y probar L2, L3 y MPLS limitado sin costos asociados y tiene una licencia trial de 365 dias.
+
+La historia de OcNOS empieza con GNU Zebra en los años 90s, fue uno de los primeros proyectos open source en implementar protocolos de enrutamiento basados en Linux, de los cuales, salieron dos caudales
+- FOSS: Quagga -> FRRouting
+- Corporativo: ZebOS -> OcNOS
+
+Ademas ZebOS fue licenciado por distintos fabricantes, asi que es influyente y resulta familiar su uso
+
+No esta soportado por EVE-NG, por lo que debes agregarlo a mano
+
+Yo usare: `OcNOS-SP-PLUS-x86-7.0.0-262-GA`
+
+> Crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/ocnos-{version}
+```
+
+> Cambia de tamaño la imagen porque es gigante
+```
+convert ocnos.png -resize 64x43 -strip ocnos.png
+```
+
+> Envia el icono de `ocnos.png`
+```
+rsync -Phvr ocnos.png root@{ip-server}:/opt/unetlab/html/images/icons/
+``` 
+
+> Crea el archivo `OcNOS.yml` con el siguiente contenido
+```
+################################################################################
+#
+#
+# If you know how to make this script beter, please drop me an email:
+# piotr.kedra@ipinfusion.com
+#
+#
+##############################################################################
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL IP Infusion BE LIABLE FOR ANY
+# DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+# (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+# LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+# ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+# SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+---
+type: qemu
+description: OcNOS Virtual Machine
+name: ocnos
+cpulimit: 1
+icon: ocnos.png
+cpu: 2
+ram: 4096
+ethernet: 6
+eth_name:
+- eth0
+eth_format: eth{1}
+console: vnc
+shutdown: 1
+qemu_arch: x86_64
+qemu_version: 2.12.0
+qemu_nic: virtio-net-pci
+qemu_options: -machine type=pc,accel=kvm -vga std -serial mon:stdio -usbdevice tablet -boot order=cd
+...
+```
+
+> Envia el template `ocnos.yml` a Intel
+```
+rsync -Phvr ocnos.yml root@{ip-server}:/opt/unetlab/html/templates/intel/
+```
+
+> Envia el template `ocnos.yml` a AMD
+```
+rsync -Phvr ocnos.yml root@{ip-server}:/opt/unetlab/html/templates/amd/
+```
+
+> Descomprime la imagen
+```
+7z x OcNOS-SP-PLUS-x86-{version}-GA.qcow2.xz
+```
+
+> Renombra el archivo
+```
+mv OcNOS-SP-PLUS-x86-{version}-GA.qcow2 virtioa.qcow2
+```
+
+> Mueve el archivo
+```
+rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/ocnos-{version}/
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+Crea un nodo, conectalo a Cloud0 y enciendelo
+
+> [!TIP] Sobre inicio
+> Iniciara Linux, y en 1 minuto esta listo
 
 ## OPNsense
 > [!IMPORTANT] Documentacion Recomendada
@@ -2280,356 +2632,46 @@ Ahora deberas hacer [[#Commit al Qcow2]] y Elimina el disco
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
-## Juniper
-
-> [!TIP] Documentacion Recomendada
-> - [Juniper Learning Portal - Open Learning](https://learningportal.juniper.net/juniper/user_activity_info.aspx?id=JUNIPER-OPEN-LEARNING)
-
-Hay unos reemplazos que aclaran el panorama, los viejos son considerados EOL
-- vMX -> vJunos Router or Evolved
-- vQFX -> vJunos EX Switch
-- vSRX -> vSRX 3.0
-
-No considero el uso de Apstra AOS ni SDWAN 128T
-
-### vJunos Router
-> [!IMPORTANT] Documentacion Recomendada
-> - [EVE-NG Docs - vJunos-Router](https://www.eve-ng.net/index.php/documentation/howtos/vjunos-router/)
-> - [Juniper Support - Download vJunos-Router](https://support.juniper.net/support/downloads/?p=vjunos-router): Seleccionar el OS "vJunos-Router"
-> - [Juniper Docs](https://www.juniper.net/documentation/)
-> 	- [vJunos-Router Docs](https://www.juniper.net/documentation/product/us/en/vjunos-router/)
-> 	- [vJunos-Router HW requirements](https://www.juniper.net/documentation/us/en/software/vjunos-router/vjunos-router-kvm/topics/vjunos-router-kvm-hw-requirements.html)
-
-> [!NOTE] Nombre Imagen
-> - Carpeta vJunos-Router: `vjunosrouter-{version}`
-> 	- Disco QEMU: `virtioa`
-> - Login
-> 	- User: `root`
-> 	- Pass: N/A
-
-Este es un Router Clasico de proposito general para laboratorios donde trabajes con BGP, OSPF, MPLS basico, con un comportamiento basado en vMX
-
-Descarga la ultima version disponible, en mi caso `26.2R1`
-
-> En el servidor crea la carpeta
-```
-mkdir /opt/unetlab/addons/qemu/vjunosrouter-{version}
-```
-
-> Envia la imagen Qcow2 descargada
-```
-rsync -Phvr vjunosrouter-{version}.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vjunosrouter-{version}/virtioa.qcow2
-```
-
-> Arregla los permisos
-```
-/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
-```
-
-### vJunos Evolved
-> [!IMPORTANT] Documentacion Recomendada
-> - [Eve-NG Docs - vJunos Evolved Router](https://www.eve-ng.net/index.php/documentation/howtos/juniper-vjunos-evo-router/)
-> - [Juniper Support - Download vJunos Evolved](https://support.juniper.net/support/downloads/?p=vjunos-evolved)
-> - [Juniper Docs](https://www.juniper.net/documentation/)
-> 	- [vJunos Evolved Docs](https://www.juniper.net/documentation/product/us/en/vjunosevolved/)
-> 	- [vJunos Evolved HW Requeriments](https://www.juniper.net/documentation/us/en/software/vJunosEvolved/vjunos-evolved-kvm/topics/vjunos-evolved-hw-sw-requirements.html)
-> - [Juniper Community - Shalini Mukherjee - Deploying and Using vJunos in a Bare Metal EVE-NG server](https://community.juniper.net/blogs/shalini-mukherjee/2023/05/11/deploying-vjunos-in-a-bare-metal-eve-ng-server)
-
-> [!NOTE] Nombre Imagen
-> - Carpeta vJunos Evolved: `vjunosevo-{version}`
-> 	- Disco QEMU: `virtioa`
-> - Login
-> 	- User: `root`
-> 	- Pass: N/A
-
-Orientado a laboratorios modernos con eVPN o VXLAN mas cercano a Junos OS
-
-vJunos-Evolved se construye tomando como referencia el PTX10001-36MR
-
-> Crea la carpeta
-```
-mkdir /opt/unetlab/addons/qemu/vjunosevo-{version}
-```
-
-> Envia el Qcow2 al servidor
-```
-rsync -Phvr vjunosevo-{version}.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vjunosevo-{version}/virtioa.qcow2
-```
-
-> Arregla los permisos
-```
-/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
-```
-
-NOTA: Debes leer la documentacion de EVE-NG, debes crear 4 enlaces con nombres especificos para que pueda reconocer las interfaces correctamente
-```
-For **EVE Community** you need to add **two new bridge networks** per node named ‘RPIO’ and ‘PFE’, as seen below, and connect it to the node via dual links. These PFE and RPIO bridges are required for vJunosEvolved to map virtual eth interfaces correctly.
-```
-
-### vJunos EX Switch
-> [!IMPORTANT] Documentacion Recomendada
-> - [Eve-NG Docs - vJunos EX Switch](https://www.eve-ng.net/index.php/documentation/howtos/vjunos-ex-switch/)
-> - [Juniper Support - Download vJunos EX Switch](https://support.juniper.net/support/downloads/?p=vjunos)
-> - [Juniper Docs](https://www.juniper.net/documentation/)
-> 	- [vJunos-Switch Docs](https://www.juniper.net/documentation/product/us/en/vjunos-switch/)
-> 	- [vJunos-Switch Architecture](https://www.juniper.net/documentation/us/en/software/vJunos/vjunos-switch-deployment-guide-for-kvm/vJunos-switch-kvm/topics/vJunos-switch-architecture-concept.html)
-
-> [!NOTE] Nombre Imagen
-> - Carpeta vJunos EX Switch: `vjunosswitch-{version}`
-> 	- Disco QEMU: `virtioa`
-> - Login
-> 	- User: `root`
-> 	- Pass: N/A
-
-> Crea la carpeta
-```
-mkdir /opt/unetlab/addons/qemu/vjunosswitch-{version}
-```
-
-> Envia el Qcow2 al servidor
-```
-rsync -Phvr vjunosswitch-{version}.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vjunosswitch-{version}/virtioa.qcow2
-```
-
-> Arregla los permisos
-```
-/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
-```
-
-> NOTA: Este switch se apaga desde CLI antes de apagarlo desde la WEBUI
-```
-request system power-off
-```
-
-### vSRX 3.0
-> [!IMPORTANT] Documentacion Recomendada
-> - [Eve-NG Docs - vSRX 3.0 or Later](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-juniper-vsrx-ng-15-x-and-later/)
-> - [Juniper Support - Download vSRX 3.0](https://support.juniper.net/support/downloads/?p=vsrx3)
-> - [Juniper Docs](https://www.juniper.net/documentation/)
-> 	- [vSRX Docs](https://www.juniper.net/documentation/product/us/en/vsrx/)
-> 	- [SW Licenses for vSRX vFirewall](https://www.juniper.net/documentation/us/en/software/license/juniper-licensing-user-guide/topics/concept/licenses-for-vsrx.html)
-> 	- [Requeriments for vSRX vFirewall on KVM](https://www.juniper.net/documentation/us/en/software/vsrx/vsrx-consolidated-deployment-guide/vsrx-kvm/topics/concept/security-vsrx-system-requirement-with-kvm.html)
-
-> [!NOTE] Nombre Imagen
-> - Carpeta Juniper vSRX: `vsrxng-{version}`
-> 	- Disco QEMU: `virtioa`
-
-vSRX 3.0 es la version virtualizada de los Firewall SRX de Juniper, por lo que tiene la misma CLI y Junos OS que el HW fisico. Trabaja con zonas de seguridad (trust, untrust, dmz) y politicas entre zonas. SIn licencia puedes usar todo lo Standard, que es Stateful Firewall, NAT, VPN, IPsec/SSL y routing. las funciones avanzadas como IPS, antivirus y filtrado web necesitan una licencia para utilizarse, de igual forma, un laboratorio no necesita ser tan fancy.
-
-> Crea la carpeta
-```
-mkdir /opt/unetlab/addons/qemu/vsrxng-{version}
-```
-
-> Envia el Qcow2 al servidor
-```
-rsync -Phvr junos-vsrx3-{version}.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vsrxng-{version}/virtioa.qcow2
-```
-
-> Arregla los permisos
-```
-/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
-```
-
-
 ## VyOS
 > [!IMPORTANT] Documentacion Recomendada
-> - [EVE-NG Docs - HowTo add VyOS](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-vyos-vyatta/)
+> - [EVE-NG Docs - VyOS](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-vyos-vyatta/)
 > - [VyOS - Official Site](https://vyos.net/)
-> - [VyOS Docs - Guia uso Rapido](https://docs.vyos.io/en/latest/quick-start.html)
-> - [VyOS Docs - Ejemplo de Configuracion](https://docs.vyos.io/en/latest/configexamples/index.html)
+> - [VyOS Docs](https://docs.vyos.io/en/rolling/)
+> 	- [QuickStart](https://docs.vyos.io/en/rolling/quick-start.html)
+> 	- [Configuration Examples](https://docs.vyos.io/en/rolling/configexamples/index.html)
 > - [Nathan Paul Blog - Build Eve-NG with VyOS](https://npaul.uk/2021/01/build-the-best-free-network-learning-environment-with-eve-ng/)
 
 > [!NOTE] Sobre Imagen
 > - Carpeta VyOS: `vyos-{version}`
 > 	- Disco QEMU: `virtioa`
 
-Se demora en enciender en 113 segundos, paciencia
+Debes descargar una ISO desde VyOS rolling release (nighly-build),
 
-1. Crear Carpeta
+Yo utilize: `vyos-2026.06.30-0048-rolling-generic-amd64.iso`
+
+> Crear Carpeta
 ```
 mkdir /opt/unetlab/addons/qemu/vyos-{version}
 ```
-2. Mover las imagenes a esa carpeta
+
+> Renombra el iso
 ```
-rsync -Phvr vyos-{version}-amd.iso root@{ip-server}:/opt/unetlab/addons/qemu/vyos-{version}/cdrom.iso
+mv vyos-{version}-rolling-generic-amd64.iso cdrom.iso
 ```
-3. Ir a la carpeta
+
+> Mover las imagenes a esa carpeta
+```
+rsync -Phvr cdrom.iso root@{ip-server}:/opt/unetlab/addons/qemu/vyos-{version}/
+```
+
+> Ve a la carpeta
 ```
 cd /opt/unetlab/addons/qemu/vyos-{version}/
 ```
-4. Crear disco Qcow2
+
+> Crear disco Qcow2
 ```
 /opt/qemu/bin/qemu-img create -f qcow2 virtioa.qcow2 10G
-```
-5. Agrega un nodo a EVE-NG e inicialo, cuando inicie, usa vyos/vyos
-6. Instala vyos en el disco duro
-```
-install image
-```
-7. Las preguntas son
-- `y`
-```
-This command will install VyOS to your permanent storage.
-Would you like to continue? [y/N]
-```
-- **Enter**
-```
-What would you like to name this image? (Default: 1.5-rolling-202407171706)
-```
--  `vyos`
-```
-Please enter a password for the "vyos" user:
-```
-- `vyos`
-```
-Please confirm password for the "vyos" user:
-```
-- `S`
-```
-What console should be used by default? (K: KVM, S: Serial)? (Default: S)
-```
-- **Enter**
-```
-Probing disks
-1 disk(s) found
-The following disks were found:
-Drive: /dev/vda (10.0 GB)
-Which one should be used for installation? (Default: /dev/vda)
-```
-- `y`
-```
-Installation will delete all data on the drive. Continue? [y/N]
-```
-- `y`
-```
-Would you like to use all the free space on the drive? [Y/n]
-```
-- `2`
-```
-The following config files are available for boot:
-    1: /opt/vyatta/etc/config/config.boot
-    2: /opt/vyatta/etc/config.boot.default
-Which file would you like as boot config? (Default: 1)
-```
-8. Apaga el nodo
-```
-poweroff
-```
-
-Ahora deberas hacer [[#Commit al Qcow2]] y Elimina el disco
-
-> Nunca olvides arreglar los permisos para eve-ng
-```
-/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
-```
-
-## OcNOS
-
-> [!TIP] Lecturas Recomendadas
-> [VM Demo Gratuitas con Registro](https://www.ipinfusion.com/free-software-demos/ocnos-eve/) - PSST: Puedes poner info falsa, no verifica nada
-> [IPinfusion SP Docs 7.x](https://documentation.ipinfusion.com/ocnos-sp-release-notes-7.0/Content/Home.htm)
-> [Youtube - Zero to Hero Course](https://www.youtube.com/playlist?list=PLMeBQ51gYDADN31R_Wga3VnOTvePIGR_4)
-
-
-> [!NOTE] Sobre Imagen
-> - Carpeta VyOS: `ocnos-{version}`
-> 	- Disco QEMU: `virtioa`
-> - CLI Login
-> 	- User: `ocnos`
-> 	- Pass: `ocnos`
-
-OcNOS VM, creada por IP Infusion, se creo para validar configuraciones y probar L2, L3 y MPLS limitado sin costos asociados y tiene una licencia trial de 365 dias.
-
-La historia de OcNOS empieza con GNU Zebra en los años 90s, fue uno de los primeros proyectos open source en implementar protocolos de enrutamiento basados en Linux, de los cuales, salieron dos caudales
-- FOSS: Quagga -> FRRouting
-- Corporativo: ZebOS -> OcNOS
-
-Ademas ZebOS fue licenciado por distintos fabricantes, asi que es influyente y resulta familiar su uso
-
-No esta soportado por EVE-NG, por lo que debes agregarlo a mano
-
-Yo usare: `OcNOS-SP-PLUS-x86-7.0.0-262-GA`
-
-> Crea la carpeta
-```
-mkdir /opt/unetlab/addons/qemu/ocnos-{version}
-```
-
-> Cambia de tamaño la imagen porque es gigante
-```
-convert ocnos.png -resize 64x43 -strip ocnos.png
-```
-
-> Envia el icono de `ocnos.png`
-```
-rsync -Phvr ocnos.png root@{ip-server}:/opt/unetlab/html/images/icons/
-``` 
-
-> Crea el archivo `OcNOS.yml` con el siguiente contenido
-```
-################################################################################
-#
-#
-# If you know how to make this script beter, please drop me an email:
-# piotr.kedra@ipinfusion.com
-#
-#
-##############################################################################
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-# DISCLAIMED. IN NO EVENT SHALL IP Infusion BE LIABLE FOR ANY
-# DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-# (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-# LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-# ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-# SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
----
-type: qemu
-description: OcNOS Virtual Machine
-name: ocnos
-cpulimit: 1
-icon: ocnos.png
-cpu: 2
-ram: 4096
-ethernet: 6
-eth_name:
-- eth0
-eth_format: eth{1}
-console: vnc
-shutdown: 1
-qemu_arch: x86_64
-qemu_version: 2.12.0
-qemu_nic: virtio-net-pci
-qemu_options: -machine type=pc,accel=kvm -vga std -serial mon:stdio -usbdevice tablet -boot order=cd
-...
-```
-
-> Envia el template `ocnos.yml` a Intel
-```
-rsync -Phvr ocnos.yml root@{ip-server}:/opt/unetlab/html/templates/intel/
-```
-
-> Envia el template `ocnos.yml` a AMD
-```
-rsync -Phvr ocnos.yml root@{ip-server}:/opt/unetlab/html/templates/amd/
-```
-
-> Descomprime la imagen
-```
-7z x OcNOS-SP-PLUS-x86-{version}-GA.qcow2.xz
-```
-
-> Renombra el archivo
-```
-mv OcNOS-SP-PLUS-x86-{version}-GA.qcow2 virtioa.qcow2
-```
-
-> Mueve el archivo
-```
-rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/ocnos-{version}/
 ```
 
 > Arregla los permisos
@@ -2637,10 +2679,42 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/ocnos-{versi
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
-Crea un nodo, conectalo a Cloud0 y enciendelo
+Agrega un nodo, conectalo a Cloud0 e inicialo
+
+Automaticamente seleccionara la instalacion via KVM console, para su correcta instalacion sigue los siguientes pasos
+- Inicia sesion en la CLI con el usuario `vyos` y la contraseña `vyos`
+- Inicia el proceso de instalacion con `install image`
+- Presiona `y` para continuar
+- Presiona `Enter` para utilizar el nombre por defecto de la imagen
+- Configura una contraseña, yo utilizare `vyos`
+- Confirma la contraseña
+- Presiona `Enter` para utilizar la consola por defecto (`S: Serial`)
+- Presiona `Enter` para utilizar el disco que configuraste
+- Presiona `y` para continuar con la instalacion en el disco
+- Presiona `y` para utilizar todo el contenido del disco
+- Presiona `Enter` para utilizar el archivo de configuracion de boot por defecto (`Default: 1`)
+- Una vez que termine la instalacion, apaga el nodo con `poweroff`
+- Confirma el apagado con `y`
+
+> Ve a la carpeta de VyOS
+```
+cd /opt/unetlab/addons/qemu/vyos-{version}/
+```
+
+> Elimina el disco iso
+```
+rm cdrom.iso
+```
+
+Ahora deberas hacer [[#Commit al Qcow2]]
+
+> Nunca olvides arreglar los permisos para eve-ng
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
 
 > [!TIP] Sobre inicio
-> Iniciara Linux, y en 1 minuto esta listo
+> Se demora 2 minutos en iniciar
 
 ## Commit al Qcow2
 
@@ -3010,3 +3084,199 @@ Crea un nodo y enciendelo. No logre hacer funcionar esta imagen...
 
 > [!TIP] Sobre inicio
 > Inicia Linux, selecciona automaticamente CentOS 7, e inicia en 1 minuto
+
+## Juniper
+En general no me funciono ninguna imagen, en teoria deberian de funcionar
+
+
+> [!TIP] Documentacion Recomendada
+> - [Juniper - Create Account](https://userregistration.juniper.net/): Es mañoso
+> - [Juniper Learning Portal - Open Learning](https://learningportal.juniper.net/juniper/user_activity_info.aspx?id=JUNIPER-OPEN-LEARNING)
+
+Hay unos reemplazos que aclaran el panorama, los viejos son considerados EOL
+- vMX -> vJunos Router o Evolved
+- vQFX -> vJunos EX Switch
+- vSRX -> vSRX 3.0
+
+En este write up, no hare ni la instalacion de Apstra AOS ni SDWAN 128T
+
+Tuve que crearme una cuenta con Chromium, porque no cargaba reCaptcha, elegi "Guest User Access" para el tipo de cuenta
+
+### vJunos Router
+> [!IMPORTANT] Documentacion Recomendada
+> - [EVE-NG Docs - vJunos-Router](https://www.eve-ng.net/index.php/documentation/howtos/vjunos-router/)
+> - [Juniper Support - Download vJunos-Router](https://support.juniper.net/support/downloads/?p=vjunos-router): Debes seleccionar el OS: "vJunos-Router"
+> - [Juniper Docs](https://www.juniper.net/documentation/)
+> 	- [vJunos-Router Docs](https://www.juniper.net/documentation/product/us/en/vjunos-router/)
+> 	- [vJunos-Router HW requirements](https://www.juniper.net/documentation/us/en/software/vjunos-router/vjunos-router-kvm/topics/vjunos-router-kvm-hw-requirements.html)
+
+> [!NOTE] Nombre Imagen
+> - Carpeta vJunos-Router: `vjunosrouter-{version}`
+> 	- Disco QEMU: `virtioa`
+> - Login
+> 	- User: `root`
+> 	- Pass: N/A (Presiona Enter)
+
+Este es un Router Clasico de proposito general para laboratorios donde trabajes con BGP, OSPF, MPLS basico, con un comportamiento basado en vMX
+
+Descarga la ultima version disponible, en mi caso `26.2R1`
+
+> En el servidor crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/vjunosrouter-{version}
+```
+
+> Renombra la imagen
+```
+mv vJunos-router-{version} virtioa.qcow2
+```
+
+> Envia la imagen Qcow2 descargada
+```
+rsync -Phvr virtioa.qcow2.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vjunosrouter-{version}/
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+Crea un nodo, conectalo a Cloud0 y enciendelo
+
+> [!TIP] Sobre inicio
+> En total se demora unos 15 minutos en iniciar el VM. Inicia el sistema en 1 minutos, luego verifica los componentes del sistema durante unos 6 minutos, se queda pegado en `random: HMAC-DRBG: instantiated with 1024 primary SW events...` durante unos 2 minutos y luego continua para quedarse otra vez pegado aunque no me inicia ningun Login...
+> 
+> Estoy en un VM sobre KVM, y dice explicitamente que no es compatible, asi que personalmente no me funciona esta imagen
+
+https://community.juniper.net/discussion/anyone-here-success-play-around-with-vjunos-router
+
+### vJunos Evolved
+> [!IMPORTANT] Documentacion Recomendada
+> - [Eve-NG Docs - vJunos Evolved Router](https://www.eve-ng.net/index.php/documentation/howtos/juniper-vjunos-evo-router/)
+> - [Juniper Support - Download vJunos Evolved](https://support.juniper.net/support/downloads/?p=vjunos-evolved)
+> - [Juniper Docs](https://www.juniper.net/documentation/)
+> 	- [vJunos Evolved Docs](https://www.juniper.net/documentation/product/us/en/vjunosevolved/)
+> 	- [vJunos Evolved HW Requeriments](https://www.juniper.net/documentation/us/en/software/vJunosEvolved/vjunos-evolved-kvm/topics/vjunos-evolved-hw-sw-requirements.html)
+> - [Juniper Community - Shalini Mukherjee - Deploying and Using vJunos in a Bare Metal EVE-NG server](https://community.juniper.net/blogs/shalini-mukherjee/2023/05/11/deploying-vjunos-in-a-bare-metal-eve-ng-server)
+
+> [!NOTE] Nombre Imagen
+> - Carpeta vJunos Evolved: `vjunosevo-{version}`
+> 	- Disco QEMU: `virtioa`
+> - Login
+> 	- User: `root`
+> 	- Pass: N/A
+
+Orientado a laboratorios modernos con eVPN o VXLAN mas cercano a Junos OS
+
+vJunos-Evolved se construye tomando como referencia el PTX10001-36MR
+
+Yo usare: `vJunosEvolved-26.2R1.7-EVO.qcow2`
+
+> Crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/vjunosevo-{version}
+```
+
+> Renombra el archivo
+```
+mv vJunosEvolved-{version}-EVO.qcow2 virtioa.qcow2
+```
+
+> Envia el Qcow2 al servidor
+```
+rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vjunosevo-{version}/
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+Crea un nodo, y conecta la interfaz `re0:mgmt-0` a Cloud0. Luego crea una red bridge y conecta `pfe1`, `rpio2`, `rpio3`, `pfe4` a esta. Enciende el nodo y reza
+
+> [!TIP] Sobre inicio
+> Estoy en un VM sobre KVM, y dice explicitamente que no es compatible, asi que personalmente no me funciona esta imagen
+
+### vJunos EX Switch
+> [!IMPORTANT] Documentacion Recomendada
+> - [Eve-NG Docs - vJunos EX Switch](https://www.eve-ng.net/index.php/documentation/howtos/vjunos-ex-switch/)
+> - [Juniper Support - Download vJunos EX Switch](https://support.juniper.net/support/downloads/?p=vjunos)
+> - [Juniper Docs](https://www.juniper.net/documentation/)
+> 	- [vJunos-Switch Docs](https://www.juniper.net/documentation/product/us/en/vjunos-switch/)
+> 	- [vJunos-Switch Architecture](https://www.juniper.net/documentation/us/en/software/vJunos/vjunos-switch-deployment-guide-for-kvm/vJunos-switch-kvm/topics/vJunos-switch-architecture-concept.html)
+
+> [!NOTE] Nombre Imagen
+> - Carpeta vJunos EX Switch: `vjunosswitch-{version}`
+> 	- Disco QEMU: `virtioa`
+> - Login
+> 	- User: `root`
+> 	- Pass: N/A
+
+Yo usare: `vJunos-switch-26.2R1.7.qcow2`
+
+> Crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/vjunosswitch-{version}
+```
+
+> Renombra el archivo
+```
+mv vJunos-switch-{version}.qcow2 virtioa.qcow2
+```
+
+> Envia el Qcow2 al servidor
+```
+rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vjunosswitch-{version}/
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+> NOTA: Este switch se apaga desde CLI antes de apagarlo desde la WEBUI
+```
+request system power-off
+```
+
+Crea un nodo, Enciendelo y reza
+
+> [!TIP] Sobre inicio
+> En total se demora unos 15 minutos en iniciar el VM. Inicia el sistema en 1 minutos, luego verifica los componentes del sistema durante unos 6 minutos, se queda pegado en `random: HMAC-DRBG: instantiated with 1024 primary SW events...` durante unos 2 minutos y luego continua para quedarse otra vez pegado aunque no me inicia ningun Login...
+> 
+> Estoy en un VM sobre KVM, y dice explicitamente que no es compatible, asi que personalmente no me funciona esta imagen
+
+
+### vSRX 3.0
+> [!IMPORTANT] Documentacion Recomendada
+> - [Eve-NG Docs - vSRX 3.0 or Later](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-juniper-vsrx-ng-15-x-and-later/)
+> - [Juniper Support - Download vSRX 3.0](https://support.juniper.net/support/downloads/?p=vsrx3)
+> - [Juniper Docs](https://www.juniper.net/documentation/)
+> 	- [vSRX Docs](https://www.juniper.net/documentation/product/us/en/vsrx/)
+> 	- [SW Licenses for vSRX vFirewall](https://www.juniper.net/documentation/us/en/software/license/juniper-licensing-user-guide/topics/concept/licenses-for-vsrx.html)
+> 	- [Requeriments for vSRX vFirewall on KVM](https://www.juniper.net/documentation/us/en/software/vsrx/vsrx-consolidated-deployment-guide/vsrx-kvm/topics/concept/security-vsrx-system-requirement-with-kvm.html)
+
+> [!NOTE] Nombre Imagen
+> - Carpeta Juniper vSRX: `vsrxng-{version}`
+> 	- Disco QEMU: `virtioa`
+
+Necesitas tener un contrato activo para poder descargar esta imagen...
+
+vSRX 3.0 es la version virtualizada de los Firewall SRX de Juniper, por lo que tiene la misma CLI y Junos OS que el HW fisico. Trabaja con zonas de seguridad (trust, untrust, dmz) y politicas entre zonas. SIn licencia puedes usar todo lo Standard, que es Stateful Firewall, NAT, VPN, IPsec/SSL y routing. las funciones avanzadas como IPS, antivirus y filtrado web necesitan una licencia para utilizarse, de igual forma, un laboratorio no necesita ser tan fancy.
+
+Yo utilize: ``
+
+> Crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/vsrxng-{version}
+```
+
+> Envia el Qcow2 al servidor
+```
+rsync -Phvr junos-vsrx3-{version}.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vsrxng-{version}/virtioa.qcow2
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```

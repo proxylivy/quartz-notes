@@ -45,7 +45,7 @@ Tabla dispositivos CCIE
 
 ## Ideas de Laboratorio
 
-**HA en K8s**
+### HA en K8s
 
 Un cluster de Kubernetes (K8s) en alta disponibilidad requiere minimo tres nodos para el control plane, de forma que si uno cae, el cluster sigue operando sin intervencion manual. EVE-NG simula tener esos 3 dispositivos interconectados
 
@@ -57,7 +57,12 @@ Algo interesante es que al hacerlo en EVE-NG sobre QEMU es que puedes usar inter
 
 Siempre hay ideas dando vueltas, cursos para certificaciones, etc.
 
+### Docker
 
+eJBCA-CE:
+- https://hub.docker.com/r/keyfactor/ejbca-ce/
+- https://www.ejbca.org/download/
+- https://github.com/Keyfactor/ejbca-ce
 
 
 **Routing y Switching Avanzado**

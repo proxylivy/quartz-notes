@@ -63,6 +63,16 @@ Su antiguo modelo de licenciamiento se basa en 3 tiers descritos en la siguiente
 	- Recomendado: 2TB o mas
 - Motherboard: El soporte IOMMU es opcional pero ayuda a mejorar la paravirtualizacion
 
+> [!TIP] Servidores
+> - [Wikipedia - Proliant @ Product Lines](https://en.wikipedia.org/wiki/ProLiant#Product_lines)
+> - [Wikipedia - List of Dell PowerEdge @ Gen13](https://en.wikipedia.org/wiki/List_of_PowerEdge_servers#Generation_13)
+
+Si quieres un servidor empresarial de segunda mano, te puedo recomendar:
+- HPE: Gen 9 o superior (DL360 G9, DL380 G9, DL580 G9)
+- Dell: Gen 13 o superior (R530, R730, R730xd)
+
+Aunque esas recomendaciones son para servidores dedicados, con varios nodos 24/7, para explorar EVE-NG es mucho mas laxo, puedes usar cualquier computador que soporte virtualizacion. La diferencia es cuantos nodos podras tener al mismo tiempo. Con 4 hilos y 16GB de ram puedes armar topologias pequeñas para estudiar o certificarte. Aunque no podrias tener una topologia de 40 nodos con Firewalls y cosas raras.
+
 **SW**
 
 Existen 3 metodos para instalar que estan soportados
@@ -83,30 +93,30 @@ En el host donde manejas el WEBUI recuerda configurar las [[#Consolas Nativas]]
 > [!TIP] Lecturas recomendadas
 > - [EVE-NG Docs - Supported Images](https://www.eve-ng.net/index.php/documentation/supported-images/)
 > - [EVE-NG Docs - QEMU Image Namings](https://www.eve-ng.net/index.php/documentation/qemu-image-namings/)
-> - [EVE-NG Docs - HowTos](https://www.eve-ng.net/index.php/documentation/howtos/)
+> - [EVE-NG Docs - HowTo](https://www.eve-ng.net/index.php/documentation/howtos/)
 > - Las imagenes estan dando vueltas por internet, te recomiendo buscar, te doy unas pistas
 > 	- [Github ishare2-org](https://github.com/ishare2-org)
-> 		- [Labhub](https://labhub.eu.org/es/), o [Drive Labhub](https://drive.labhub.eu.org/0:/), o [Legacy Labhub](https://legacy.labhub.eu.org/0:/), o [Alist Labhub](https://alist.labhub.eu.org/)
+> 		- [Labhub](https://labhub.eu.org/es/), o [Alist Labhub](https://alist.labhub.eu.org/)
 > 	- [Github - hegdepavankumar/Cisco-Images-for-GNS3-and-EVE-NG](https://github.com/hegdepavankumar/Cisco-Images-for-GNS3-and-EVE-NG)
 
-Hay una gran variedad de imagenes, cambian sus funcionalidades segun el nombre que tengan, aqui tengo un pequeño Matrix, que muestra sus funciones
+La siguiente tabla busca romper un poco la burbuja de utilizar solo Cisco, es una invitacion a explorar mas soluciones multi-vendor
 
-| Vendor              | Router<br>L3 | Switch<br>L2 / L3 | Firewall    | Load<br>Balancer | SD-WAN    | IDS/IPS |
-| ------------------- | ------------ | ----------------- | ----------- | ---------------- | --------- | ------- |
-| Cisco               | ✓ IOS        | ✓ IOS L2          | ✓ ASAv      | ✗                | ✓ Viptela | ✓ NGIPS |
-| Fortinet            | ✓ FGT        | ✗                 | ✓ FGT       | ✓ FAD            | ✓ FGT     | ✓ FNDR  |
-| Huawei              | ✓ AR1000v    | ✓ CE12800         | ✓ USG6kv    | ✗                | ✗         | ✗       |
-| Extreme<br>Networks | ✓ VOSS       | ✓ EXOS            | ✗           | ✗                | ✗         | ✗       |
-| Hillstone           | ✗            | ✗                 | ✓ CloudEdge | ✓ vADC           | ✗         | ✓ vIPS  |
-| VyOS                | ✓            | ✓                 | ✓\*         | ✓\*              | ✗         | ✗       |
-| Citrix              | ✗            | ✗                 | ✗           | ✓ NetScaler      | ✓ SD-WAN  | ✗       |
-| MikroTik            | ✓ CHR        | ✗                 | ✗           | ✗                | ✗         | ✗       |
-| Aruba               | ✗            | ✓ CX              | ✗           | ✗                | ✗         | ✗       |
-| Palo Alto           | ✗            | ✗                 | ✓ PAN-OS    | ✗                | ✗         | ✓       |
-| F5                  | ✗            | ✗                 | ✗           | ✓ Big-IP         | ✗         | ✗       |
-| A10                 | ✗            | ✗                 | ✗           | ✓ vThunder       | ✗         | ✗       |
-
-\*: Solo uso basico
+| Vendor              | Router<br>L3    | Switch<br>L2 / L3 | Firewall                | Load<br>Balancer       | SD-WAN    | IDS/IPS               |
+| ------------------- | --------------- | ----------------- | ----------------------- | ---------------------- | --------- | --------------------- |
+| Cisco               | ✓ IOS           | ✓ IOS L2          | ✓ ASAv                  | ✗                      | ✓ Viptela | ✓ NGIPS               |
+| Fortinet            | ✓ FGT           | ✗                 | ✓ FGT                   | ✓ FAD                  | ✓ FGT     | ✓ FNDR                |
+| Huawei              | ✓ AR1000v       | ✓ CE12800         | ✓ USG6kv                | ✗                      | ✗         | ✗                     |
+| Extreme<br>Networks | ✓ VOSS          | ✓ EXOS            | ✗                       | ✗                      | ✗         | ✗                     |
+| Hillstone           | ✗               | ✗                 | ✓ CloudEdge             | ✓ vADC                 | ✗         | ✓ vIPS                |
+| VyOS                | ✓ VyOS          | ✓ VyOS            | ✓ VyOS                  | ✓ VyOS                 | ✗         | ✗                     |
+| Citrix              | ✗               | ✗                 | ✗                       | ✓ NetScaler            | ✓ SD-WAN  | ✗                     |
+| MikroTik            | ✓ CHR           | ✗                 | ✗                       | ✗                      | ✗         | ✗                     |
+| Aruba               | ✗               | ✓ CX              | ✗                       | ✗                      | ✗         | ✗                     |
+| Palo Alto           | ✗               | ✗                 | ✓ PAN-OS                | ✗                      | ✗         | ✓                     |
+| F5                  | ✗               | ✗                 | ✗                       | ✓ Big-IP               | ✗         | ✗                     |
+| A10                 | ✗               | ✗                 | ✗                       | ✓ vThunder             | ✗         | ✗                     |
+| Open Source         | ✓\* FRR<br>Bird | ✓ SONiC           | ✓ pf/OPNsense<br>IPFire | ✓\* HAproxy<br>Traefik | ✗         | ✓\* Snort<br>Suricata |
+\*: Se instala sobre Linux, no existe como Appliance Independiente
 
 **Detalle Imagenes Utilizadas**
 
@@ -214,10 +224,10 @@ Es famoso, tiene sus certificados NSE y cosas, ademas de dominar el mercado, per
 > - [Dainok - Installing Eve-NG](https://www.adainese.it/blog/2023/09/21/installing-eve-ng/)
 > - [Youtube - David Bombal - EVE-NG Install](https://youtu.be/FDbgTlr-tnw?si=DaXk2pCoLcMtWIpg)
 > - [EVE-NG Cookbook](https://www.eve-ng.net/index.php/documentation/community-cookbook/)
-> 	- Hoja 24: 3.3 BM server install
-> 	- Hoja 46: 3.7 Login to the EVE WEB GUI
-> 	- Hoja 48: 4.2 EVE-NG Community Upgrade
-> 	- Hoja 57: 6 EVE WEB GUI Managent
+> 	- Hoja 24: 3.3 - BM server install
+> 	- Hoja 46: 3.7 - Login to the EVE WEB GUI
+> 	- Hoja 48: 4.2 - EVE-NG Community Upgrade
+> 	- Hoja 57: 6 - EVE WEB GUI Managent
 
 Requerimientos
 - USB de al menos 8GB
@@ -228,7 +238,15 @@ Requerimientos
 3. Selecciona el idioma `Español`
 4. Selecciona el teclado Layout y Variant `Spanish (Latin America)`
 5. Apreta "`Continuar`" este paso formateara todos los discos que encuentre automaticamente, y se reiniciara automaticamente
-6. Luego instalara otras cosas se demora aproximadamente 900 segundos (15 minutos) y se reiniciara. No debes iniciar sesion en esta etapa
+6. Luego instalara otras cosas se demora 15 minutos y se reiniciara. No debes iniciar sesion en esta etapa
+
+> [!NOTE] Inicio Sesion
+> - Login CLI
+> 	- User: `root`
+> 	- Pass: `eve`
+> - WebUI
+> 	- User: `admin`
+> 	- Pass: `eve`
 
 > Al iniciar, te saldra este prompt de inicio, y sera tapado por otras cosas, simplemente inicia con las credenciales
 ```
@@ -238,18 +256,7 @@ Use http:///
 eve-ng login:
 ```
 
-> Default CLI Login Credentials
-```
-user: root
-pass: eve
-```
-> Default WEB Login Credentials
-```
-user: admin
-pass: eve
-```
-
-> Paso 2: Configuracion TUI Basica
+> Configuracion TUI Basica
 ```
 - Nueva Contraseña: eve
 - Hostname: eve-ng
@@ -267,19 +274,19 @@ pass: eve
 > ssh root@{ip-eve-ng}
 > ``` 
 
-> Paso 3: Prueba de internet y Actualizar Paquetes Servidor. Si necesitas reiniciar servicios, reinicialos todos
+> Prueba de internet y Actualizar Paquetes Servidor (Si necesitas reiniciar servicios, reinicialos todos)
 ```
 ping -c 2 google.cl
 apt update && apt upgrade
 apt autoremove
 ```
 
-> Paso 4: Hacer la vida mas sencilla a mi (Opcional)
+> Hacer la vida mas sencilla
 ```
 apt install micro btop kitty weston git tree imagemagick p7zip-full
 ```
 
-> Paso 4.1: Instalar [Fish Shell](https://fishshell.com/) y [Fastfetch](https://github.com/fastfetch-cli/fastfetch) (Opcional)
+> Agrega los reopositoris para instalar [Fish Shell](https://fishshell.com/) y [Fastfetch](https://github.com/fastfetch-cli/fastfetch)
 ```
 sudo apt-add-repository ppa:fish-shell/release-3
 sudo add-apt-repository ppa:zhangsongcui3371/fastfetch
@@ -287,18 +294,19 @@ sudo apt update
 sudo apt install fish fastfetch
 ```
 
-> Paso 4.2: Instalar [Fisher](https://github.com/jorgebucaran/fisher) (Opcional)
+> Instalar [Fisher](https://github.com/jorgebucaran/fisher)
+> 
 > Nota: Solo funciona cuando dentro de `fish`
 ```
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 ```
 
-> Paso 4.3: Instalar [Tide](https://github.com/IlanCosman/tide) (Opcional)
+> Instalar [Tide](https://github.com/IlanCosman/tide)
 ```
 fisher install IlanCosman/tide@v6
 ```
 
-> Instala LSD
+> Instala [LSD](https://github.com/lsd-rs/lsd)
 ```
 wget https://github.com/lsd-rs/lsd/releases/download/v1.2.0/lsd_1.2.0_amd64.deb
 
@@ -311,11 +319,13 @@ rm lsd_1.2.0_amd64.deb
 
 Recuerda tener descargadas tus imagenes para pasarlas al servidor, puedes encontrar mas informacion en [[#Soporte de Imagenes]]
 
-Existen 3 metodos para ejecutar imagenes: Dynamips, IOL y Qemu. Dynamips no lo veremos en este Write-Up (reemplaza su funcionamiento IOL). Por lo que es util saber la diferencia:
-- IOL (IOS on Linux) son binarios que corren directamente en el kernel de linux, sin necesidad de emular hardware completo. Esto es lo que los hace liviandos en RAM y CPU
-- QEMU: Emulacion completa de Hardware mediante imagenes de disco (qcow2), lo que permite correr sistemas operativos reales tal y como vienen del fabricante, por lo que gasta mas RAM y CPU
+En este Write-UP no hablare sobre Dynamips (ej: `c7200.images`), ya que fue el metodo original de emular IOS (Por los años 2000) y hoy en dia, IOL cumple con el mismo proposito de forma mas eficiente
 
-La mayoria de las imagenes que se usan en EVE-NG usan el metodo de QEMU, por eso es tan flexible, con la excepcion de Cisco IOL, por eso es el primero que explicare.
+Por lo que quedan 2 metodos para ejecutar imagenes:
+- IOL (**I**OS **o**n **L**inux): Son binarios que corren directamente en el kernel de Linux, sin necesidad de emular hardware completo. Esto es lo que los hace liviandos en RAM y CPU
+- QEMU: Emulacion completa de Hardware mediante imagenes de disco (qcow2), lo que permite correr sistemas operativos reales tal y como vienen del fabricante, por lo que consume mas RAM y CPU
+
+La mayoria de las imagenes que se usan en EVE-NG usan el metodo de QEMU, a excepcion, de obviamente, IOL
 
 ## Aruba CX Switch
 
@@ -326,9 +336,9 @@ La mayoria de las imagenes que se usan en EVE-NG usan el metodo de QEMU, por eso
 > - [EVE-NG Docs - HowTo add Aruba CX Switch](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-aruba-cx-switch/)
 > - [Via Internet Archive - My Ethernet Mind Blog - Adding Aruba AOS-CX to EVE-NG](https://web.archive.org/web/20240226171832/https://www.madari.co.il/2019/11/adding-aruba-aos-cx-to-eve-ng.html)
 
-| Carpeta       | Disco   | User    | Pass | Boot  |
-| ------------- | ------- | ------- | ---- | ----- |
-| arubacx-{ver} | virtioa | `admin` | N/A  | 2 min |
+| Carpeta             | Disco   | User    | Pass | Boot  |
+| ------------------- | ------- | ------- | ---- | ----- |
+| `arubacx-{version}` | virtioa | `admin` | N/A  | 2 min |
 
 HPE Aruba CX, es la linea de switches empresariales orientada a datacenter y campus con soporte de VXLAN, EVPN y automatizacion, nace de la linea ArubaOS.
 
@@ -539,9 +549,10 @@ rsync -Phvr *.bin root@{ip-server}:/opt/unetlab/addons/iol/bin/
 > - [Cisco Software](https://software.cisco.com/download/home/)
 > 	- [CML Free](https://software.cisco.com/download/home/286193282/type/286326381/release/CML-Free)
 
-> [!NOTE] Nombre Imagen
-> - Carpeta ASAv: `asav-{version}`
-> 	- Disco QEMU: `virtioa`
+| Carpeta          | Disco   | User | Pass | Boot  |
+| ---------------- | ------- | ---- | ---- | ----- |
+| `asav-{version}` | virtioa | N/A  | N/A  | 2 min |
+
 
 Puedes conseguir esta imagen actualizada con el metodo de [[#Cisco IOS XE]] (Mediante CML-Free), pero estan sin licencia.
 
@@ -657,13 +668,12 @@ Esta imagenes son las que [[#No recomiendo]]
 > - [Cisco Software](https://software.cisco.com/download/home/)
 > 	- [CML Free](https://software.cisco.com/download/home/286193282/type/286326381/release/CML-Free)
 
-> [!NOTE] Sobre Imagen
-> - Carpeta L3: `vios-{version}`
-> 	- Disco QEMU: `virtioa`
-> - Carpeta L2: `viosl2-{version}`
-> 	- Disco QEMU: `virtioa`
+| Carpeta            | Disco   | User | Pass | Boot  |
+| ------------------ | ------- | ---- | ---- | ----- |
+| `vios-{version}`   | virtioa | N/A  | N/A  | 2 min |
+| `viosl2-{version}` | virtioa | N/A  | N/A  | 2 min |
 
-El metodo para conseguir las imagenes es igual que con los [[#Cisco IOS XE]], el nombre dentro de la carpeta `virl-base-images` son
+El metodo para conseguir las imagenes es igual que con los [[#Cisco IOS XE]], el nombre dentro de la carpeta `virl-base-images` son:
 - L3: `iosv-159-3-m12`
 - L2: `iosvl2-20200929`
 
@@ -699,12 +709,9 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vios-{versio
 > - [Cisco CSR1000v Data Sheet](https://www.cisco.com/c/en/us/products/collateral/routers/cloud-services-router-1000v-series/data_sheet-c78-733443.html)
 > - [Cisco Software Download - CSR1000v](https://software.cisco.com/download/home/284364978/type)
 
-> [!NOTE] Nombre Imagen
-> - Carpeta CSR1000vng: `csr1000vng-{version}`
-> 	- Disco QEMU: `virtioa`
-> - Login
-> 	- User: `admin`
-> 	- Pass: `admin`
+| Carpeta                | Disco   | User    | Pass    | Boot   |
+| ---------------------- | ------- | ------- | ------- | ------ |
+| `csr1000vng-{version}` | virtioa | `admin` | `admin` | 10 min |
 
 Cisco **C**loud **S**ervices **R**outer 1000v es un router virtual basado en Cisco IOS XE incorporando funciones de automatizacion mediante APIs, NETCONF, RESTCONF, entre otras.
 
@@ -731,7 +738,7 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/csr1000vng-{
 ```
 
 > [!TIP] Sobre inicio
-> El primer inicio posiblemente reinstale sus sistema, luego se quedara unos 10 minutos mostrando `%BOOT-5-OPMODE_LOG: R0/0: binos: System booted in AUTONOMOUS mode` y luego se iniciara
+> El primer inicio posiblemente reinstale sus sistema, al iniciar, puede mostrar un largo rato `%BOOT-5-OPMODE_LOG: R0/0: binos: System booted in AUTONOMOUS mode` y luego se iniciara
 
 ### Cisco Viptela SD-WAN
 
@@ -740,17 +747,16 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/csr1000vng-{
 > - [Network Academy Blog - Cisco SD-WAN on EVE-NG](https://www.networkacademy.io/ccie-enterprise/sdwan/cisco-sd-wan-on-eve-ng)
 > - [Youtube - Michael O'Briens CCIE Journal - How to create Smart Account and License file for Cisco SD-WAN](https://youtu.be/Caze1TZldCM?si=tqOw6fs_mmWNqM1Y)
 
+| Carpeta             | Disco   | User    | Pass    | Boot |
+| ------------------- | ------- | ------- | ------- | ---- |
+| `vtmgmt-{version}`  | virtioa | `admin` | `admin` | IDK  |
+| `vtsmart-{version}` | virtioa | `admin` | `admin` | IDK  |
+| `vtbond-{version}`  | virtioa | `admin` | `admin` | IDK  |
+| `vtedge-{version}`  | virtioa | `admin` | `admin` | IDK  |
 #### vManage
 
 > [!WARNING] Sobre Requisitos
 > Solo este nodo (vtmgmt) es extremadamente pesado, necesita 100GB de espacio extra y 32GB de ram para correr correctamente
-
-> [!NOTE] Nombre Imagen
-> - Carpeta Cisco Viptela SD-WAN vtmgmt: `vtmgmt-{version}`
-> 	- Disco QEMU: `virtioa`
-> - Login
-> 	- User: `admin`
-> 	- Pass: `admin`
 
 > Crea la carpeta
 ```
@@ -779,13 +785,6 @@ cd /opt/unetlab/addons/qemu/vtmgmt-{version}
 
 #### vSmart
 
-> [!NOTE] Nombre Imagen
-> - Carpeta Cisco Viptela SD-WAN vtsmart: `vtsmart-{version}`
-> 	- Disco QEMU: `virtioa`
-> - Login
-> 	- User: `admin`
-> 	- Pass: `admin`
-
 > Crea la carpeta
 ```
 mkdir /opt/unetlab/addons/qemu/vtsmart-{version}
@@ -802,13 +801,6 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vtsmart-{ver
 ```
 
 #### vBond
-
-> [!NOTE] Nombre Imagen
-> - Carpeta Cisco Viptela SD-WAN vtbond: `vtbond-{version}`
-> 	- Disco QEMU: `virtioa`
-> - Login
-> 	- User: `admin`
-> 	- Pass: `admin`
 
 > [!INFO] Qcow2
 > vBond y vEdge utilizan la misma imagen: `viptela-edge-{version}-genericx86-64.qcow2`
@@ -829,12 +821,6 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vtbond-{vers
 ```
 
 #### vEdge
-> [!NOTE] Nombre Imagen
-> - Carpeta Cisco Viptela SD-WAN vtedge: `vtedge-{version}`
-> 	- Disco QEMU: `virtioa`
-> - Login
-> 	- User: `admin`
-> 	- Pass: `admin`
 
 > [!INFO] Qcow2
 > vBond y vEdge utilizan la misma imagen: `viptela-edge-{version}-genericx86-64.qcow2`
@@ -856,6 +842,11 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vtedge-{vers
 
 ## Extreme Networks
 
+| Carpeta                 | Disco | User    | Pass  | Boot  |
+| ----------------------- | ----- | ------- | ----- | ----- |
+| `extremevoss-{version}` | hda   | `rwa`   | `rwa` | 6 min |
+| `extremexos-{version}`  | hda   | `admin` | N/A   | 2 min |
+
 ### ExtremeVOSS
 > [!IMPORTANT] Documentacion Recomendada
 > - [EVE-NG Docs - Extreme VOSS](https://www.eve-ng.net/index.php/documentation/howtos/extreme-voss/)
@@ -863,13 +854,6 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vtedge-{vers
 > - [Extreme Networks Docs](https://supportdocs.extremenetworks.com/support/documentation/)
 > 	- [VOSS](https://supportdocs.extremenetworks.com/support/documentation/vsp-operating-system-software-voss-document-collections/) (Legacy)
 > 	- [Fabric Engine](https://supportdocs.extremenetworks.com/support/documentation/fabric-engine-document-collections/)
-
-> [!NOTE] Nombre Imagen
-> - Carpeta Extreme VOSS: `extremevoss-{version}`
-> 	- Disco QEMU: `hda`
-> - Credenciales
-> 	- User: `rwa`
-> 	- Pass: `rwa`
 
 VOSS significa VSP Operating System Software, desde la version 9.0.0 que cambio el nombre a Fabric Engine (FE)
 
@@ -894,7 +878,7 @@ rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/extremevoss-{ver
 ```
 
 > [!TIP] Sobre iniciar
-> Se demora 3 minutos en iniciar desde "Loading RootFs..." y luego otros 3 hasta que cargue el login
+> Se queda 3 minutos en "Loading RootFS" y luego otros 3 minutos para el login
 
 ### ExtremeXOS
 
@@ -903,13 +887,6 @@ rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/extremevoss-{ver
 > - [Github - extremenetworks/Virtual_EXOS](https://github.com/extremenetworks/Virtual_EXOS)
 > - [Extreme Networks Docs - ExtremeXOS](https://supportdocs.extremenetworks.com/support/documentation/extremexos-33-6-1/) (Legacy)
 > - [Extreme Networks Docs - Switch Engine 33.6.1](https://supportdocs.extremenetworks.com/support/documentation/switch-engine-33-6-1/)
-
-> [!NOTE] Nombre Imagen
-> - Carpeta Extreme EXOS: `extremexos-{version}`
-> 	- Disco QEMU: `hda`
-> - Credenciales
-> 	- User: `admin`
-> 	- Pass: N/A
 
 Desde la version 31.6.x, EXOS ahora pasa a ser Switch Engine
 
@@ -934,11 +911,15 @@ rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/extremexos-{vers
 ```
 
 > [!TIP] Sobre Inicio
-> Se autoselecciona Serial como inicio en el disco primario y se demora 2 minutos en iniciar
+> Se autoselecciona Serial como inicio en el disco primario, se demora 2 minutos en iniciar
 
 ## F5 BIG-IP
 
 Es una de las imagenes que [[#No recomiendo]]
+
+| Carpeta           | Disco   | CLI User | CLI Pass  | WEB User | WEB Pass          | Boot  |
+| ----------------- | ------- | -------- | --------- | -------- | ----------------- | ----- |
+| `bigip-{version}` | virtioa | `root`   | `default` | `admin`  | Nueva Pass de CLI | 3 min |
 
 > [!IMPORTANT] Documentacion Recomendada
 > - [EVE-NG Docs - F5 BigIP](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-f5-bigip/)
@@ -946,16 +927,6 @@ Es una de las imagenes que [[#No recomiendo]]
 > 	- [Descarga Imagenes](https://my.f5.com/manage/s/downloads)
 > - [F5 Docs](https://docs.cloud.f5.com/docs-v2)
 > - [F5 Article - K7752: Licensing the BIG-IP system](https://my.f5.com/manage/s/article/K7752)
-
-> [!NOTE] Nombre Imagen
-> - Carpeta Big IP: `bigip-{version}`
-> 	- Disco QEMU: `virtioa`
-> - CLI Login
-> 	- User: `root`
-> 	- Pass: `default`
-> - WEB Login
-> 	- User: `admin`
-> 	- Pass: `{La contraseña que utilizaste para cambiar a root}`
 
 Registra e inicia sesion en una cuenta, luego ve al menu de Descarga y selecciona lo siguiente, siempre revisa versiones mas actuales
 - Group: BIG-IP
@@ -993,12 +964,6 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/bigip-{versi
 > [!WARNING] Tipo Consola
 > Durante la instalacion (primer inicio) debes configurar como VNC
 
-> [!TIP] Sobre inicio
-> Se demora unos 2 minutos, se autoselecciona desde GRUB hasta que muestra Login
-
-> [!NOTE] Sobre Big-IQ
-> Puedes instalar BIG-IQ siguiendo este mismo metodo, no lo veo necesario viendo que es tan complicado el tema de las licencias, una lastima
-
 ## Freebsd
 
 > [!IMPORTANT] Documentacion Recomendada
@@ -1007,16 +972,11 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/bigip-{versi
 > 	- [Newbies](https://www.freebsd.org/projects/newbies/)
 > 	- [Download FreeBSD](https://www.freebsd.org/where/) | [Mirrors](https://docs.freebsd.org/en/books/handbook/mirrors/)
 
-> [!NOTE] Nombre Imagen
-> - Carpeta Freebsd: `freebsd-{version}`
-> 	- Disco QEMU: `virtioa`
-> - Login
-> 	- User: `root`
-> 	- Pass: `root` (Tu la configuras en la instalacion)
+| Carpeta             | Disco   | User   | Pass          | Boot  |
+| ------------------- | ------- | ------ | ------------- | ----- |
+| `freebsd-{version}` | virtioa | `root` | (Configurada) | 1 min |
 
-EVE-NG no tiene documentacion oficial, pero esta en el template, asi que me imagino que deberia funcionar
-
-Debes descargar el instalador DVD1 para una instalacion offline, en mi caso `FreeBSD-15.1-RELEASE-amd64-dvd1.iso`
+EVE-NG no tiene documentacion oficial, pero tiene un template, debes descargar el instalador DVD1 para una instalacion offline, en mi caso `FreeBSD-15.1-RELEASE-amd64-dvd1.iso`
 
 > Crea la carpeta
 ```
@@ -1121,6 +1081,10 @@ Fortigate te entrega con tu cuenta una licencia trial que esta muy muy limitada,
 
 Esta es una imagen que [[#No recomiendo]]
 
+| Carpeta                  | Disco   | CLI User | CLI Pass | WEB User | WEB Pass          | Boot  |
+| ------------------------ | ------- | -------- | -------- | -------- | ----------------- | ----- |
+| `fortinet-FGT-{version}` | virtioa | `admin`  | N/A      | `admin`  | Nueva Pass de CLI | 1 min |
+
 > [!TIP] Documentacion Recomendada
 > - [Fortinet Support](https://support.fortinet.com/welcome/#/)
 > 	- [Crear Cuenta](https://support.fortinet.com/cred/#/sign-up)
@@ -1129,16 +1093,6 @@ Esta es una imagen que [[#No recomiendo]]
 > 	- [FortiGate Product](https://docs.fortinet.com/product/FortiGate)
 > 	- [ForiGate 8.0.0 - Permanent Trial Mode for FGT VM](https://docs.fortinet.com/document/fortigate/8.0.0/administration-guide/441460/permanent-trial-mode-for-fortigate-vm)
 > - [Youtube - Elias Miranda - Lab Fortigate EVE-NG](https://youtu.be/Sa9AGPaImls?si=0sQWuXglxhbfRNwC)
-
-> [!NOTE] Nombre Imagen
-> - Carpeta FGT: `fortinet-FGT-{version}`
-> 	- Disco QEMU: `virtioa`
-> - Login
-> 	- User: `admin`
-> 	- Pass: `N/A`
-> - WebLogin
-> 	- User: `admin`
-> 	- Pass: `{La contraseña que configuraste para el login CLI}`
 
 Ve a Fortinet Download VM, elige el producto es FortiGate, y la plataforma es KVM. Yo elegi: `New deployment of FortiGate for KVM FGT_VM64_KVM-v8.0.0.F-build0167-FORTINET.out.kvm.zip (120.91 MB)`
 
@@ -1194,6 +1148,12 @@ Lee la documentacion para el resto, me parecio muy desagradable Fortinet como em
 > - [Hillstone Images - Login](https://images.hillstonenet.com/index/user/login.html)
 > - [Docs Tecnicos](https://docs.hillstonenet.com/web/) | [Chino (Mas completos)](https://docs.hillstonenet.com.cn/web/)
 
+| Carpeta                      | Disco | CLI User    | CLI Pass    | WEB User    | WEB Pass          | Boot  |
+| ---------------------------- | ----- | ----------- | ----------- | ----------- | ----------------- | ----- |
+| `hillstone-sg6000-{version}` | hda   | `hillstone` | `hillstone` | `hillstone` | Nueva Pass de CLI | 5 min |
+| `hillstone-vADC-{version}`   | hda   | `hillstone` | `hillstone` | `hillstone` | Nueva Pass de CLI | 7 min |
+| `hillstone-vIPS-{version}`   | hda   | `hillstone` | `hillstone` | `hillstone` | Nueva Pass de CLI | 7 min |
+
 Debes crearte una cuenta y verificarla desde el correo, y luego iniciar sesion en el portar de imagenes, alli ya puedes descargar las ultimas versiones de cada imagen
 
 EVE-NG solo tiene consideracion por la imagen de "FW" (CloudEdge), pero puedes crear versiones de la imagen, con distintas carpetas basadas en el nombre de hillstone al principio
@@ -1205,16 +1165,6 @@ EVE-NG solo tiene consideracion por la imagen de "FW" (CloudEdge), pero puedes c
 > - [Hillstone - CloudEdge Firewall Showcase](https://www.hillstonenet.com/products/cloud-protection/cloud-security-cloudedge/)
 > - [Hillstone Images - CloudEdge NGFW](https://images.hillstonenet.com/index/index/content?cid=59)
 > - [Hillstone Docs (CN) - NGFW A/B Series](https://docs.hillstonenet.com.cn/web/doc-list/30) | [En (A Series)](https://docs.hillstonenet.com/web/doc-list/13) | [En (E Series)](https://docs.hillstonenet.com/web/doc-list/14)
-
-> [!NOTE] Nombre Imagen
-> - Carpeta Hillstone CloudEdge: `hillstone-sg6000-{version}`
-> 	- Disco QEMU: `hda`
-> - Login
-> 	- User: `hillstone`
-> 	- Pass: `hillstone`
-> - Web
-> 	- User: `hillstone`
-> 	- Pass: `{La contraseña que configuraste para el Login}`
 
 La ultima version que encontre fue
 - `SG6000-CloudEdge-5.5R12P2.44-v6.qcow2 - Tamaño: 268,2 MB - Última actualización: 30/06/2026 17:53:24`
@@ -1275,17 +1225,6 @@ Crea un nodo, luego conectalo a Cloud0 y enciendelo
 > - [Hillstone Images - vADC AX Series](https://images.hillstonenet.com/index/index/content?cid=81)
 > - [Hillstone Docs (CN) - vADC](https://docs.hillstonenet.com.cn/web/doc-list/28) | [En](https://docs.hillstonenet.com/web/doc-list/9)
 
-> [!NOTE] Nombre Imagen
-> - Carpeta Hillstone CloudEdge: `hillstone-vADC-{version}`
-> 	- Disco QEMU: `hda`
-> - Login
-> 	- User: `hillstone`
-> 	- Pass: `hillstone`
-> - Web
-> 	- User: `hillstone`
-> 	- Pass: `{La contraseña que configuraste para el Login}`
-
-
 Yo encontre
 - `SG6000-vADC-5.5R12-5.0-v6.qcow2 - Tamaño: 309,9 MB - Última actualización: 28/05/2026 22:26:44`
 
@@ -1329,16 +1268,6 @@ Crea un nodo, entras las opciones, configura 2vCPU y 4096MB de ram, en caso cont
 > - [Hillstone - NIPS/DIPS Showcase](https://www.hillstonenet.com/products/network-edge-protection/network-intrusion-prevention-system/)
 > - [Hillstone Image - NIPS/DIPS A.K.A vIPS](https://images.hillstonenet.com/index/index/content?cid=60)
 > - [Hillstone Docs (CN) - NIPS](https://docs.hillstonenet.com.cn/web/doc-list/33) | [En](https://docs.hillstonenet.com/web/doc-list/16)
-
-> [!NOTE] Nombre Imagen
-> - Carpeta Hillstone CloudEdge: `hillstone-vIPS-{version}`
-> 	- Disco QEMU: `hda`
-> - Login
-> 	- User: `hillstone`
-> 	- Pass: `hillstone`
-> - Web
-> 	- User: `hillstone`
-> 	- Pass: `{La contraseña que configuraste para el Login}`
 
 Yo encontre
 - `SG6000-vIPS-5.5R12-6.2-v6.qcow2 - Size: 288.6 MB - Última actualización: 2026-03-25 14:29:11`
@@ -1392,17 +1321,17 @@ Crea un nodo, en las opciones, configura 2vCPU y 4096MB de ram, en caso contrari
 
 La forma de acceder a las imagenes de Huawei es comprando HW, registrando el producto o siendo un Huawei Partner.
 
+| Carpeta                   | Disco | User    | Pass        | Boot   |
+| ------------------------- | ----- | ------- | ----------- | ------ |
+| `huaweiar1k-{version}`    | hda   | `super` | `super`     | 10 min |
+| `huaweine40e-{version}`   | hda   | N/A     | N/A         | 5 min  |
+| `huaweice12800-{version}` | hda   | N/A     | N/A         | 5 min  |
+| `huaweiusg6kv-{version}`  | hda   | `admin` | `Admin@123` | 4 min  |
+
 ### AR1000v
 > [!IMPORTANT] Documentacion Recomendada
 > - [EVE-NG Docs - Huawei AR1000v](https://www.eve-ng.net/index.php/documentation/howtos/huawei-ar1000v/)
 > - [Huawei CLI Docs (ES)](https://support.huawei.cn/enterprise/es/routers/ar1000v-pid-21768212) | [EN](https://support.huawei.cn/enterprise/en/routers/ar1000v-pid-21768212/)
-
-> [!NOTE] Nombre Imagen
-> - Carpeta Huawei AR1000: `huaweiar1k-{version}`
-> 	- Disco QEMU: `hda`
-> - Login
-> 	- User: `super`
-> 	- Pass: `super` (Luego debes modificarla)
 
 Yo encontre: `huaweiar1k-5.170 - 509.75M` (`V300R019C00SPC300`)
 
@@ -1436,10 +1365,6 @@ Crea un nodo, en las opciones, cambia de VNC a Telnet, luego conectalo a Cloud0 
 > 	- [Configuration Guide](https://support.huawei.com/enterprise/en/doc/EDOC1100278545/f3e2de1e/configuration)
 > 	- [Troubleshooting](https://support.huawei.cn/enterprise/en/doc/EDOC1000177634/abe6702f/about-this-document?idPath=24030814%7C9856750%7C22715517%7C9858933%7C15837)
 > - [Huawei - NetEngine 40E Showcase](https://e.huawei.com/en/products/routers/ne40e)
-
-> [!NOTE] Nombre Imagen
-> - Carpeta Huawei NE40e: `huaweine40e-{version}`
-> 	- Disco QEMU: `hda`
 
 Yo encontre: `Huawei NE40e - 524.00M` (`V800R011C00SPC607B607`)
 
@@ -1517,10 +1442,6 @@ Crea un nodo y enciendelo
 > 	- [Configuration Guide - Basic Config](https://support.huawei.com/enterprise/en/doc/EDOC1100518792/426cffd9/about-this-document?idPath=24030814%7C21782165%7C21782236%7C252837173)
 > 	- [Configuration Examples](https://support.huawei.com/enterprise/en/doc/EDOC1000039339/426cffd9/about-this-document?idPath=24030814%7C21782165%7C21782236%7C252837173)
 > 	- [Troubleshooting](https://support.huawei.com/enterprise/en/doc/EDOC1000060766/426cffd9/about-this-document?idPath=24030814%7C21782165%7C21782236%7C252837173)
-
-> [!NOTE] Nombre Imagen
-> - Carpeta Huawei CE12800: `huaweice12800-{version}`
-> 	- Disco QEMU: `hda`
 
 Yo encontre: `Huawei CE12800 - 694.63M` (`V200R005C10SPC607B607`)
 
@@ -1614,14 +1535,7 @@ Crea un nodo y enciendelo
 
 ### USG6000v
 > [!IMPORTANT] Documentacion Recomendada
-> - [EVE-NG Docs - HowTo add Huawei USG6000v](https://www.eve-ng.net/index.php/documentation/howtos/huawei-usg6000v/)
-
-> [!NOTE] Nombre Imagen
-> - Carpeta Huawei USG6000v: `huaweiusg6kv-{version}`
-> 	- Disco QEMU: `hda`
-> - Login (USG6kv):
-> 	- User: `admin`
-> 	- Pass: `Admin@123`
+> - [EVE-NG Docs - Huawei USG6000v](https://www.eve-ng.net/index.php/documentation/howtos/huawei-usg6000v/)
 
 Yo encontre: `huaweiusg6kv-5.1.7-2018 - 728.52M` (`V500R005C00SPC100`)
 
@@ -1645,11 +1559,24 @@ Crea un nodo, en las opciones, cambia de VNC a Telnet, luego conectalo a Cloud0 
 > [!TIP] Sobre inicio
 > Carga el kernel de Linux e inicializa el sistema, se demora 3 minutos
 
+No logre iniciar sesion debido al `@` que utiliza, Skill Issue
+
 ## Linux
 > [!IMPORTANT] Documentacion Recomendada
 > - [EVE-NG Docs - Create own Linux Host Image](https://www.eve-ng.net/index.php/documentation/howtos/howto-create-own-linux-host-image/)
 > - [Youtube - The Network Berg - EVE-NG Importing a Linux host](https://youtu.be/ZLvdJa3MXTU?si=ud_AM3k1wUfK0UuC)
 > - [EVE-NG Docs - Mega - Download Linux Images](https://mega.nz/folder/30p3TKob#42_S__9wwPVO0zHIfC4xow)
+
+| Carpeta                         | Disco   | User   | Pass   | Boot  |
+| ------------------------------- | ------- | ------ | ------ | ----- |
+| `linux-archlinux-{version}`     | virtioa | `arch` | `arch` | 1 min |
+| `linux-alpine-{version}`        | virtioa | `root` | N/A    | 1 min |
+| `linux-kali-{version}`          | virtioa | `kali` | `kali` | 2 min |
+| `linux-rocky-{version}`         | virtioa | N/A    | N/A    | 1 min |
+| `linux-debian-{version}`        | virtioa | N/A    | N/A    | 1 min |
+| `linux-ubuntu-server-{version}` | virtioa | N/A    | N/A    | 1 min |
+| `linux-ipfire-{version}`        | virtioa | N/A    | N/A    | 1 min |
+| `linux-issabel-{version}`       | virtioa | N/A    | N/A    | 2 min |
 
 ### Arch Linux
 
@@ -1657,13 +1584,6 @@ Crea un nodo, en las opciones, cambia de VNC a Telnet, luego conectalo a Cloud0 
 > - [Gitlab - archlinux/arch-boxes](https://gitlab.archlinux.org/archlinux/arch-boxes)
 > 	- [Fastly Mirro - Latest Image](https://fastly.mirror.pkgbuild.com/images/latest/)
 > 	- [Geo Mirror - Latest Image](https://geo.mirror.pkgbuild.com/images/latest/)
-
-> [!NOTE] Nombre Imagen
-> - Carpeta Arch Linux: `Linux-archlinux-{version}`
-> 	- Disco QEMU: `virtioa`
-> - Login
-> 	- User: `arch`
-> 	- Pass: `arch`
 
 > Crea la carpeta
 ```
@@ -1688,13 +1608,6 @@ Crea un nodo, conectalo a Cloud0, y enciendelo
 > - [Sitio Oficial](https://www.alpinelinux.org/)
 > 	- [Descarga](https://www.alpinelinux.org/downloads/)
 > - [Alpine Wiki - Setup Alpine](https://wiki.alpinelinux.org/wiki/Alpine_configuration_management_scripts#setup-alpine)
-
-> [!NOTE] Nombre Imagen
-> - Carpeta Alpine Linux: `linux-alpine-{version}`
-> 	- Disco QEMU: `virtioa.qcow2`
-> - Login
-> 	- User: `root`
-> 	- Pass: N/A (Entra automaticamente)
 
 En el sitio de descarga, ve a la categoria "Virtual" y descarga la version "x86_64", en mi caso: `alpine-virt-{version}-x86_64.iso`
 
@@ -1768,14 +1681,52 @@ Ahora debes hacer [[#Commit al Qcow2]]
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
+### Kali Linux
+> [!IMPORTANT] Documentacion Recomendada
+> [Kali Linux - Download VM](https://www.kali.org/get-kali/#kali-virtual-machines)
+
+Debes descargar la version de Qemu, yo recomiendo siempre tomar la Weekly, ya que se actualiza cada semana
+
+Busca un [Mirror](https://cdimage.kali.org/README?mirrorlist), yo por ejemplo utilizo [elmirror](https://elmirror.cl/kali-images/kali-weekly/)
+
+Yo utilizo: `kali-linux-2026-W28-qemu-amd64.7z`
+
+> Crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/linux-kali-{version}
+```
+
+> Descarga la imagen directamente en el servidor (debes copiar el archivo desde el mirror)
+```
+wget kali-linux-{version}-qemu-amd64.7z
+```
+
+> Descomprime la imagen
+```
+7z x kali-linux-{version}-qemu-amd64.7z
+```
+
+> Elimina el 7z
+```
+rm kali-linux-{version}-qemu-amd64.7z
+```
+
+> Renombra el archivo
+```
+mv kali-linux-{version}-qemu-amd64.qcow2 virtioa.qcow2
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+Crea un nodo, conectalo a Cloud0 y enciendelo
+
 ### Rocky Linux
 > [!IMPORTANT] Documentacion Recomendada
 > - [Pagina Oficial](https://rockylinux.org/)
 > 	- [Descarga](https://rockylinux.org/download)
-
-> [!NOTE] Nombre Imagen
-> - Carpeta Rocky Linux: `Linux-RockyLinux-{version}`
-> 	- Disco QEMU: `virtioa`
 
 Tienes 3 ramas para elegir
 - 8.10
@@ -1844,65 +1795,12 @@ Luego apagas la maquina y haces [[#Commit al Qcow2]]
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
-### Kali Linux
-> [!IMPORTANT] Documentacion Recomendada
-> [Kali Linux - Download VM](https://www.kali.org/get-kali/#kali-virtual-machines)
-
-> [!NOTE] Nombre Imagen
-> - Carpeta Kali Linux: `Linux-kali-{version}`
-> 	- Disco QEMU: `virtioa`
-> - Login
-> 	- User: `kali`
-> 	- Pass: `kali`
-
-Debes descargar la version de Qemu, yo recomiendo siempre tomar la Weekly, ya que se actualiza cada semana
-
-Busca un [Mirror](https://cdimage.kali.org/README?mirrorlist), yo por ejemplo utilizo [elmirror](https://elmirror.cl/kali-images/kali-weekly/)
-
-Yo utilizo: `kali-linux-2026-W28-qemu-amd64.7z`
-
-> Crea la carpeta
-```
-mkdir /opt/unetlab/addons/qemu/linux-kali-{version}
-```
-
-> Descarga la imagen directamente en el servidor (debes copiar el archivo desde el mirror)
-```
-wget kali-linux-{version}-qemu-amd64.7z
-```
-
-> Descomprime la imagen
-```
-7z x kali-linux-{version}-qemu-amd64.7z
-```
-
-> Elimina el 7z
-```
-rm kali-linux-{version}-qemu-amd64.7z
-```
-
-> Renombra el archivo
-```
-mv kali-linux-{version}-qemu-amd64.qcow2 virtioa.qcow2
-```
-
-> Arregla los permisos
-```
-/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
-```
-
-Crea un nodo, conectalo a Cloud0 y enciendelo
-
 ### Debian
 
 > [!IMPORTANT] Documentacion Recomendada
 > - [Debian Official Site](https://www.debian.org/)
 > 	- [Debian Release Stable](https://www.debian.org/releases/stable/debian-installer/)
 > 	- [Download Mirror](https://www.debian.org/CD/http-ftp/#mirrors)
-
-> [!NOTE] Nombre Imagen
-> - Carpeta Debian Linux: `Linux-Ubuntu-{version}`
-> 	- Disco QEMU: `virtioa`
 
 Debes descargar el ISO DVD para AMD64
 
@@ -1952,10 +1850,6 @@ Luego apagas la maquina y haces [[#Commit al Qcow2]]
 > - [Pagina Oficial](https://ubuntu.com/)
 > 	- [Descarga Ubuntu Server](https://ubuntu.com/download/server)
 
-> [!NOTE] Nombre Imagen
-> - Carpeta Ubuntu Server: `Linux-ubuntu-server-{version}`
-> 	- Disco QEMU: `virtioa`
-
 Descarga Ubuntu Server 26.04 LTS
 
 > Crea la carpeta
@@ -2002,10 +1896,6 @@ Recuerda que debes hacer [[#Commit al Qcow2]]
 > - [Official Page](https://www.ipfire.org/)
 > - [IPFire Docs](https://www.ipfire.org/docs)
 
-> [!NOTE] Nombre Imagen
-> - Carpeta IPFire: `Linux-ipfire-{version}`
-> 	- Disco QEMU: `virtioa`
-
 Yo utilize: `ipfire-2.29-core202-x86_64.iso`
 
 > Crea la carpeta
@@ -2040,7 +1930,7 @@ cd /opt/unetlab/addons/qemu/linux-ipfire-{version}
 
 Crea un nodo y conectalo a Cloud0 e inicialo
 
-Cuando aparesca grub, selecciona la opcion de instalarlo para evitar la espera de 60 segundos, luego sigue estos pasos
+Aparece Grub, selecciona la opcion de instalarlo para evitar la espera de 60 segundos, luego sigue estos pasos
 1. Selecciona el idioma Español y comienza la instalacion
 2. Confirma el disco y borra todos sus datos
 3. Selecciona el sistema ext4 para particionar los discos
@@ -2053,7 +1943,7 @@ Recuerda que debes hacer [[#Commit al Qcow2]]
 > - [Official Page](https://www.issabel.org/)
 > - [SourceForge - issabelofficial/IssabelPBX Files](https://sourceforge.net/projects/issabelpbx/files/)
 
-Issabel 5 es un PBX basado en Asterisk con un WebUI encima, puedes descargarlo desde SourceFordge
+Issabel 5 es un PBX basado en Asterisk con un WebUI encima, puedes descargarlo desde SourceForge
 
 > Renombra el ISO
 ```
@@ -2107,15 +1997,22 @@ Una vez que tengas tu nodo clonado y listo para la topologia, si necesitas image
 
 ## MS Windows
 
+| Carpeta                      | Disco   | User | Pass | Boot  |
+| ---------------------------- | ------- | ---- | ---- | ----- |
+| `win-{version}`              | virtioa | N/A  | N/A  | 3 min |
+| `winserver-{version}` > 2016 | virtioa | N/A  | N/A  | 5 min |
+| `winserver-{version}` < 2012 | hda     | N/A  | N/A  | 5 min |
+
+> [!NOTE] Nombre Imagen
+> - Carpeta MS Windows Server: `winserver-{version}`
+> 	- Disco QEMU >=2016: `virtioa`
+> 	- Disco QEMU <=2012: `hda`
+
 ### Win Host (XP, 7, 10, 11)
 > [!IMPORTANT] Documentacion Recomendada
 > - [EVE-NG Docs - MS Windows Host](https://www.eve-ng.net/index.php/documentation/howtos/howto-create-own-windows-host-on-the-eve/)
 > - [Youtube - EVE-NG - How to Add Windows Host](https://youtu.be/Q96f0QeCpVg?si=oZu87NaEDKrDNvda)
 > - [Massgrave - Download Windows](https://massgrave.dev/genuine-installation-media)
-
-> [!NOTE] Nombre Imagen
-> - Carpeta MS Windows Host: `win-{version}`
-> 	- Disco QEMU: `virtioa`
 
 Los discos Qcow2 para un Host de windows son de 40GB para <= Win 7 y de 60GB para Windows 10 y 11
 
@@ -2216,11 +2113,6 @@ El rendimiento es bastante malo, me imagino porque no tiene aceleracion 3D, pero
 > - [Endoflife - Windows Server](https://endoflife.date/windows-server)
 > - [Massgrave - Download Windows Server](https://massgrave.dev/windows-server-links)
 
-> [!NOTE] Nombre Imagen
-> - Carpeta MS Windows Server: `winserver-{version}`
-> 	- Disco QEMU >=2016: `virtioa`
-> 	- Disco QEMU <=2012: `hda`
-
 Los discos Qcow2 para Windows server son de minimo 60GB de espacio
 
 La version minima que recomiendo es Windows Server 2022, para atras dependes de soporte de seguridad extendido, aunque siguen exactamente el mismo metodo
@@ -2275,15 +2167,9 @@ Ahora deberas hacer [[#Commit al Qcow2]] y Elimina el disco
 > - [Microtik - CHR Download](https://mikrotik.com/download/chr)
 > - [Microtik Manual](https://manual.mikrotik.com/docs/introduction)
 
-> [!NOTE] Nombre Imagen
-> - Carpeta Mikrotik: `mikrotik-{version}`
-> 	- Disco QEMU: `hda`
-> - Login CLI
-> 	- User: `admin`
-> 	- Pass: N/A (Presiona Enter, Luego debes configurar una)
-> - WebFig (http)
-> 	- User: `admin`
-> 	- Pass: `{La contraseña configurada en el LOGIN}`
+| Carpeta              | Disco | CLI User | CLI Pass | WEBFig User | WebFig Pass       | Boot  |
+| -------------------- | ----- | -------- | -------- | ----------- | ----------------- | ----- |
+| `mikrotik-{version}` | hda   | `admin`  | N/A      | `admin`     | Nueva Pass de CLI | 1 min |
 
 Yo descargue: `v7.23.2`
 
@@ -2321,13 +2207,9 @@ Crea un nodo, conectalo a Cloud0 y enciendelo
 > [IPinfusion SP Docs 7.x](https://documentation.ipinfusion.com/ocnos-sp-release-notes-7.0/Content/Home.htm)
 > [Youtube - Zero to Hero Course](https://www.youtube.com/playlist?list=PLMeBQ51gYDADN31R_Wga3VnOTvePIGR_4)
 
-
-> [!NOTE] Sobre Imagen
-> - Carpeta VyOS: `ocnos-{version}`
-> 	- Disco QEMU: `virtioa`
-> - CLI Login
-> 	- User: `ocnos`
-> 	- Pass: `ocnos`
+| Carpeta           | Disco   | User    | Pass    | Boot  |
+| ----------------- | ------- | ------- | ------- | ----- |
+| `ocnos-{version}` | virtioa | `ocnos` | `ocnos` | 1 min |
 
 OcNOS VM, creada por IP Infusion, se creo para validar configuraciones y probar L2, L3 y MPLS limitado sin costos asociados y tiene una licencia trial de 365 dias.
 
@@ -2438,12 +2320,9 @@ Crea un nodo, conectalo a Cloud0 y enciendelo
 > - [Pagina Oficial](https://opnsense.org/)
 > 	- [Full Mirror Listing](https://opnsense.org/download/#full-mirror-listing)
 
-> [!NOTE] Nombre Imagen
-> - Carpeta OPNsense: `opnsense-{version}`
-> 	- Disco QEMU: `virtioa`
-> - Default Login CLI y Web
-> 	- User: `root`
-> 	- Pass: `opnsense`
+| Carpeta              | Disco   | CLI/WEB User | CLI/WEB Pass | Boot  |
+| -------------------- | ------- | ------------ | ------------ | ----- |
+| `opnsense-{version}` | virtioa | `root`       | `opnsense`   | 3 min |
 
 OPNsense nacio en 2015 como un fork de pfSense para ofrecer un desarrollo mas abierto, transparente y comunitario, ademas de adoptar tecnologias y versiones reciente de FreeBSD con mayor rapidez.
 
@@ -2521,14 +2400,11 @@ Ahora debes realizar el [[#Commit al Qcow2]]
 > - [Eve-NG Docs - Palo Alto](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-palo-alto/)
 > - [Endoflife - PAN-OS](https://endoflife.date/panos)
 
-> [!NOTE] Nombre Imagen
-> - Carpeta Palo Alto: `paloalto-{version}`
-> 	- Disco QEMU: `virtioa`
-> - PA-VM CLI Login
-> 	- User: `admin`
-> 	- Pass: `admin`
+| Carpeta              | Disco   | User    | Pass    | Boot  |
+| -------------------- | ------- | ------- | ------- | ----- |
+| `paloalto-{version}` | virtioa | `admin` | `admin` | 5 min |
 
-Usare: `11.2.5`
+Yo usare: `11.2.5`
 
 Si eres mas exotico esta la version [Sysin - PAN-OS 12.1.7 KVM](https://sysin.org/blog/pan-os-12/) for 5USD en Alipay...
 
@@ -2579,12 +2455,9 @@ Prefiere [[#OPNsense]]
 > - [EVE-NG Docs - pfSense](https://www.eve-ng.net/index.php/3380-2/)
 > - [PFsense Direct Download Directory for 2.7.2](https://atxfiles.netgate.com/mirror/downloads/)
 
-> [!NOTE] Nombre Imagen
-> - Carpeta PFsense: `pfsense-{version}`
-> 	- Disco QEMU: `virtioa`
-> - Login
-> 	- User: `admin`
-> 	- Pass: `pfsense`
+| Carpeta             | Disco   | User    | Pass      | Boot  |
+| ------------------- | ------- | ------- | --------- | ----- |
+| `pfsense-{version}` | virtioa | `admin` | `pfsense` | 3 min |
 
 Una vez mas, recomiendo utilizar la version 2.7.2, descargando la ISO `pfSense-CE-2.7.2-RELEASE-amd64.iso.gz` desde el directorio
 
@@ -2637,11 +2510,11 @@ Ahora deberas hacer [[#Commit al Qcow2]] y Elimina el disco
 > 	- [Configuration Examples](https://docs.vyos.io/en/rolling/configexamples/index.html)
 > - [Nathan Paul Blog - Build Eve-NG with VyOS](https://npaul.uk/2021/01/build-the-best-free-network-learning-environment-with-eve-ng/)
 
-> [!NOTE] Sobre Imagen
-> - Carpeta VyOS: `vyos-{version}`
-> 	- Disco QEMU: `virtioa`
+| Carpeta          | Disco   | User   | Pass   | Boot  |
+| ---------------- | ------- | ------ | ------ | ----- |
+| `vyos-{version}` | virtioa | `vyos` | `vyos` | 2 min |
 
-Debes descargar una ISO desde VyOS rolling release (nighly-build),
+Debes descargar una ISO desde VyOS rolling release (nighly-build)
 
 Yo utilize: `vyos-2026.06.30-0048-rolling-generic-amd64.iso`
 
@@ -2708,9 +2581,6 @@ Ahora deberas hacer [[#Commit al Qcow2]]
 ```
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
-
-> [!TIP] Sobre inicio
-> Se demora 2 minutos en iniciar
 
 ## Commit al Qcow2
 

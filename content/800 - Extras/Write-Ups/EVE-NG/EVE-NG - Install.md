@@ -85,8 +85,6 @@ Existen 3 metodos para instalar que estan soportados
 	- VMware Player: Gratuito
 	- VMware Workstation: Pago
 
-Para la version EVE-NG Community, viene sobre Ubuntu Server Focal Fossa 22.04 LTS
-
 En el host donde manejas el WEBUI recuerda configurar las [[#Consolas Nativas]]
 
 ## Soporte de Imagenes
@@ -101,22 +99,23 @@ En el host donde manejas el WEBUI recuerda configurar las [[#Consolas Nativas]]
 
 La siguiente tabla busca romper un poco la burbuja de utilizar solo Cisco, es una invitacion a explorar mas soluciones multi-vendor
 
-| Vendor              | Router<br>L3    | Switch<br>L2 / L3 | Firewall                | Load<br>Balancer       | SD-WAN    | IDS/IPS               |
-| ------------------- | --------------- | ----------------- | ----------------------- | ---------------------- | --------- | --------------------- |
-| Cisco               | ✓ IOS           | ✓ IOS L2          | ✓ ASAv                  | ✗                      | ✓ Viptela | ✓ NGIPS               |
-| Fortinet            | ✓ FGT           | ✗                 | ✓ FGT                   | ✓ FAD                  | ✓ FGT     | ✓ FNDR                |
-| Huawei              | ✓ AR1000v       | ✓ CE12800         | ✓ USG6kv                | ✗                      | ✗         | ✗                     |
-| Extreme<br>Networks | ✓ VOSS          | ✓ EXOS            | ✗                       | ✗                      | ✗         | ✗                     |
-| Hillstone           | ✗               | ✗                 | ✓ CloudEdge             | ✓ vADC                 | ✗         | ✓ vIPS                |
-| VyOS                | ✓ VyOS          | ✓ VyOS            | ✓ VyOS                  | ✓ VyOS                 | ✗         | ✗                     |
-| Citrix              | ✗               | ✗                 | ✗                       | ✓ NetScaler            | ✓ SD-WAN  | ✗                     |
-| MikroTik            | ✓ CHR           | ✗                 | ✗                       | ✗                      | ✗         | ✗                     |
-| Aruba               | ✗               | ✓ CX              | ✗                       | ✗                      | ✗         | ✗                     |
-| Palo Alto           | ✗               | ✗                 | ✓ PAN-OS                | ✗                      | ✗         | ✓                     |
-| F5                  | ✗               | ✗                 | ✗                       | ✓ Big-IP               | ✗         | ✗                     |
-| A10                 | ✗               | ✗                 | ✗                       | ✓ vThunder             | ✗         | ✗                     |
-| Open Source         | ✓\* FRR<br>Bird | ✓ SONiC           | ✓ pf/OPNsense<br>IPFire | ✓\* HAproxy<br>Traefik | ✗         | ✓\* Snort<br>Suricata |
-\*: Se instala sobre Linux, no existe como Appliance Independiente
+| Vendor              | Router<br>L3     | Switch<br>L2 / L3 | Firewall              | Load<br>Balancer        | SD-WAN    | IDS/IPS                |
+| ------------------- | ---------------- | ----------------- | --------------------- | ----------------------- | --------- | ---------------------- |
+| Cisco               | ✓ IOS            | ✓ IOS L2          | ✓ ASAv                | ✗                       | ✓ Viptela | ✓ NGIPS                |
+| Fortinet            | ✓ FGT            | ✗                 | ✓ FGT                 | ✓ FAD                   | ✓ FGT     | ✓ FNDR                 |
+| Huawei              | ✓ AR1000v        | ✓ CE12800         | ✓ USG6kv              | ✗                       | ✗         | ✗                      |
+| Extreme<br>Networks | ✓ VOSS           | ✓ EXOS            | ✗                     | ✗                       | ✗         | ✗                      |
+| Hillstone           | ✗                | ✗                 | ✓ CloudEdge           | ✓ vADC                  | ✗         | ✓ vIPS                 |
+| VyOS                | ✓                | ✓                 | ✓                     | ✓                       | ✗         | ✗                      |
+| Citrix              | ✗                | ✗                 | ✗                     | ✓ NetScaler             | ✓ SD-WAN  | ✗                      |
+| MikroTik            | ✓ CHR            | ✗                 | ✗                     | ✗                       | ✗         | ✗                      |
+| Aruba               | ✗                | ✓ CX              | ✗                     | ✗                       | ✗         | ✗                      |
+| Palo Alto           | ✗                | ✗                 | ✓ PAN-OS              | ✗                       | ✗         | ✓                      |
+| F5                  | ✗                | ✗                 | ✗                     | ✓ Big-IP                | ✗         | ✗                      |
+| A10                 | ✗                | ✗                 | ✗                     | ✓ vThunder              | ✗         | ✗                      |
+| Open Source         | ✓\* FRR/<br>Bird | ✓ SONiC           | ✓ OPNsense/<br>IPFire | ✓\* HAproxy/<br>Traefik | ✗         | ✓\* Snort/<br>Suricata |
+
+`*`: Se instala sobre Linux, no existe como Appliance Independiente
 
 **Detalle Imagenes Utilizadas**
 
@@ -212,9 +211,6 @@ Es famoso, tiene sus certificados NSE y cosas, ademas de dominar el mercado, per
 	- FNDR (Forti Network Detection and Response) v7.4-build0520
 
 ## Instalacion de EVE-NG
-> [!IMPORTANT] Importante
-> - Al instalar [EVE-NG Community](https://www.eve-ng.net/index.php/community/) Usa automaticamente la version de Ubuntu 22.04.4 LTS (Jammy Jellyfish), no se debe actualizar la version o dejara de funcionar
-> 	- Disponibilidad hasta Apr 2027 - ESM 2032 | [Ubuntu - Release Page](https://www.releases.ubuntu.com/22.04/)
 
 > [!NOTE] Documentacion Recomendada
 > - [Documentacion Eve-NG - First Boot](https://www.eve-ng.net/index.php/documentation/installation/howto-configure-eve-during-first-boot/)
@@ -229,24 +225,24 @@ Es famoso, tiene sus certificados NSE y cosas, ademas de dominar el mercado, per
 > 	- Hoja 48: 4.2 - EVE-NG Community Upgrade
 > 	- Hoja 57: 6 - EVE WEB GUI Managent
 
+EVE-NG esta basado en Ubuntu 22.04.4 LTS (Jammy Jellyfish), no se debe actualizar a una version mas nueva o EVE-NG dejara de funcionar. Su disponibilidad sera hasta Apr 2027 y luego comienza el soporte extendido de seguridad hasta 2032
+
 Requerimientos
+- Imagen ISO de EVE-NG
 - USB de al menos 8GB
-- Descargar [Ventoy](https://www.ventoy.net/en/index.html) o [Rufus](https://rufus.ie) para configurar el Pendrive
+- Descargar [Ventoy](https://www.ventoy.net/en/index.html) (Linux/Windows) o [Rufus](https://rufus.ie) (Windows) para configurar el Pendrive
 
+Instrucciones
 1. Iniciar el LiveUSB
-2. Elegir "`Bare Metal Option`" y luego "`install EVE NG Community 6.2.0-4`"
-3. Selecciona el idioma `Español`
-4. Selecciona el teclado Layout y Variant `Spanish (Latin America)`
-5. Apreta "`Continuar`" este paso formateara todos los discos que encuentre automaticamente, y se reiniciara automaticamente
-6. Luego instalara otras cosas se demora 15 minutos y se reiniciara. No debes iniciar sesion en esta etapa
+2. Inicia Grub y se autoselecciona "Install EVE-NG Community 6.2.0-4"
+3. Selecciona el idioma (`Español`)
+4. Selecciona la disposicion y variante del teclado (`Spanish (Latin American)`)
+5. Selecciona "`Continuar`", formateara el disco instalado e instalara el sistema, se demora 5 minutos y se reiniciara automaticamente al terminar
+6. Iniciara EVE-NG para la segunda etapa de instalacion, no debes iniciar sesion, automaticamente instalara el resto del sistema, se demora unos 15 a 20 minutos
 
-> [!NOTE] Inicio Sesion
-> - Login CLI
-> 	- User: `root`
-> 	- Pass: `eve`
-> - WebUI
-> 	- User: `admin`
-> 	- Pass: `eve`
+| CLI User | CLI Pass | WEB User | Web Pass |
+| -------- | -------- | -------- | -------- |
+| `root`   | `eve`    | `admin`  | `eve`    |
 
 > Al iniciar, te saldra este prompt de inicio, y sera tapado por otras cosas, simplemente inicia con las credenciales
 ```
@@ -283,7 +279,12 @@ apt autoremove
 
 > Hacer la vida mas sencilla
 ```
-apt install micro btop kitty weston git tree imagemagick p7zip-full
+apt install micro btop kitty git tree imagemagick p7zip-full qemu-guest-agent lm-sensors
+```
+
+> Inicia el servicio de Guest Agent
+```
+sudo systemctl enable qemu-guest-agent --now
 ```
 
 > Agrega los reopositoris para instalar [Fish Shell](https://fishshell.com/) y [Fastfetch](https://github.com/fastfetch-cli/fastfetch)
@@ -319,7 +320,7 @@ rm lsd_1.2.0_amd64.deb
 
 Recuerda tener descargadas tus imagenes para pasarlas al servidor, puedes encontrar mas informacion en [[#Soporte de Imagenes]]
 
-En este Write-UP no hablare sobre Dynamips (ej: `c7200.images`), ya que fue el metodo original de emular IOS (Por los años 2000) y hoy en dia, IOL cumple con el mismo proposito de forma mas eficiente
+En este Write-UP no hablare sobre Dynamips (ej: `c7200.image`), ya que fue el metodo original de emular IOS (Por los años 2000) y hoy en dia, IOL cumple con el mismo proposito de forma mas eficiente
 
 Por lo que quedan 2 metodos para ejecutar imagenes:
 - IOL (**I**OS **o**n **L**inux): Son binarios que corren directamente en el kernel de Linux, sin necesidad de emular hardware completo. Esto es lo que los hace liviandos en RAM y CPU
@@ -448,11 +449,11 @@ Para obtener estas imagenes, debes registrarte en *Cisco CML-Free* (Puedes a tra
 
 Extrae el contenido del archivo ZIP y luego la imagen ISO. Dentro encontraras el directorio `virl-base-images`, que contiene las imagenes qcow2 o binarios que necesitamos
 
-A partir de este punto, las siguientes secciones asumen que ya tienes acceso al contenido de esta carpeta para poder instalar cada imagen de EVE-NG
+A partir de este punto, las siguientes secciones asumen que ya tienes acceso al contenido de esta carpeta para poder instalar las imagenes de Cisco que lo requieran para EVE-NG
 
 ### Cisco IOS
 > [!IMPORTANT] Documentacion Recomendada
-> - [EVE-NG Docs - Howto add Cisco IOL](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-cisco-iol-ios-on-linux/)
+> - [EVE-NG Docs - Cisco IOL](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-cisco-iol-ios-on-linux/)
 > - [BlackBox Blog (Ru) - Eve-NG Arreglar imagenes IOL](https://it-blackbox.blogspot.com/2018/06/eve-ng-cisco-iouiol.html)
 > - [Github - ishare2-org/ishare2-cli](https://github.com/ishare2-org/ishare2-cli) | [Generate new iourc license](https://github.com/ishare2-org/ishare2-cli?tab=readme-ov-file#generate-a-new-iourc-license-for-bin-images)
 > - Github CiscoIOUKeygen
@@ -523,16 +524,21 @@ Las versiones no tienen descripciones, siempre tienen el mismo nombre
 - IOS XE Switch L2/L3: `x86_64_crb_linux_l2-adventerprisek9-ms.bin`
 
 Para extraer las imagenes desde CML-Free:
-1. Entra a `virl-base-images` y busca la carpeta `iol-xe-17-18-02`
+1. Entra a `virl-base-images` y busca la carpeta `iol-xe-{version}`
 2. Descomprime el `.tar.gz` que encuentres
-3. Abre la carpeta `blobs` y luego `sha256` y busca el archivo comprimido mas pesado del listado, en mi caso `ac697212b57ca1706f4a5618a2b11e42746eb8d6e11f797d2878999ca108c955`. Debes descomprimirlo y te extraerla la imagen con la extension `.iol`
+3. Abre la carpeta `blobs` y luego `sha256` y busca el archivo comprimido mas pesado del listado, en mi caso `SHA256: ac697212b57ca1706f4a5618a2b11...`. Debes descomprimirlo y te extraerla la imagen con la extension `.iol`
 4. Debes cambiar la extension de `.iol` a `.bin`
 5. Y lo mueves a la carpeta de binarios IOL de EVE-NG
-6. Repite lo mismo con la carpeta `ioll2-xe-17-18-02`
+6. Repite lo mismo con la carpeta `ioll2-xe-{version}`
 
-> Envia ambos binarios a la carpeta de IOL
+> Envia el binario del router L3 a la carpeta de IOL
 ```
-rsync -Phvr *.bin root@{ip-server}:/opt/unetlab/addons/iol/bin/
+rsync -Phvr x86_64_crb_linux-adventerprisek9-ms.bin root@{ip-server}:/opt/unetlab/addons/iol/bin/
+```
+
+> Envia el binario del Switch L2/L3 a la carpeta de IOL
+```
+rsync -Phvr x86_64_crb_linux_l2-adventerprisek9-ms.bin root@{ip-server}:/opt/unetlab/addons/iol/bin/
 ```
 
 > Arregla los permisos
@@ -659,7 +665,7 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/asav-plr{ver
 
 ### Cisco vIOS
 
-Esta imagenes son las que [[#No recomiendo]]
+Esta imagen entra en el listado de las que [[#No recomiendo]]
 
 > [!IMPORTANT] Documentacion Recomendada
 > - [EVE-NG Docs - Cisco vIOS](https://www.eve-ng.net/index.php/documentation/howtos/howto-add-cisco-vios-from-virl/)
@@ -673,28 +679,40 @@ Esta imagenes son las que [[#No recomiendo]]
 | `vios-{version}`   | virtioa | N/A  | N/A  | 2 min |
 | `viosl2-{version}` | virtioa | N/A  | N/A  | 2 min |
 
-El metodo para conseguir las imagenes es igual que con los [[#Cisco IOS XE]], el nombre dentro de la carpeta `virl-base-images` son:
-- L3: `iosv-159-3-m12`
-- L2: `iosvl2-20200929`
+Recomiendo utilizar [[#Cisco IOS XE]], ya que su comportamiento es el mismo
 
-> Crea carpeta L3
+Para acceder a estas imagenes debes extraerlas desde CML-Free, accedes a `virl-base-images` y luego buscas las carpetas:
+- Router L3: `iosv-159-3-m12`
+- Switch L2/L3: `iosvl2-20200929`
+
+> Crea carpeta para el Router L3
 ```
 mkdir /opt/unetlab/addons/qemu/vios-{version}
 ```
 
-> Crea Carpeta L2
+> Crea Carpeta para el Switch L2
 ```
 mkdir /opt/unetlab/addons/qemu/viosl2-{version}
 ```
 
-> Renombra las imagenes (Tanto de L2 como L3)
+> Renombra la imagen del Router L3
 ```
-mv vios-{version}.qcow2 virtioa.qcow2
+mv vios-adventerprisek9-m.spa.{version}.qcow2 virtioa.qcow2
 ```
 
-> Envia las imagenes a la carpeta correspondiente
+> Renombra la imagen del Switch L2/L3
 ```
-rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vios-{version}/
+mv vios_l2-adventerprisek9-m.ssa.high_iron_{version}.qcow2 virtioa.qcow2
+```
+
+> Envia la imagen del Router L3
+```
+rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vios-{version}
+```
+
+> Envia la imagen del Switch L2/L3
+```
+rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/viosl2-{version}
 ```
 
 > Arregla los permisos
@@ -2003,11 +2021,6 @@ Una vez que tengas tu nodo clonado y listo para la topologia, si necesitas image
 | `winserver-{version}` > 2016 | virtioa | N/A  | N/A  | 5 min |
 | `winserver-{version}` < 2012 | hda     | N/A  | N/A  | 5 min |
 
-> [!NOTE] Nombre Imagen
-> - Carpeta MS Windows Server: `winserver-{version}`
-> 	- Disco QEMU >=2016: `virtioa`
-> 	- Disco QEMU <=2012: `hda`
-
 ### Win Host (XP, 7, 10, 11)
 > [!IMPORTANT] Documentacion Recomendada
 > - [EVE-NG Docs - MS Windows Host](https://www.eve-ng.net/index.php/documentation/howtos/howto-create-own-windows-host-on-the-eve/)
@@ -2087,8 +2100,9 @@ rm cdrom.iso
 
 Enciende el nodo otra vez y haz un par de configuraciones
 
-1. Activar RDP (No me funciono)
+1. Activar RDP
 	- Vas a Configuraciones > Sistema > Escritorio Remoto y Activas "Escritorio Remoto" y presionas "Confirmar"
+	- Desactiva el Firewall (O configura tu interfaz como Privada para que confie en su entorno)
 2. Activa Windows (Porfavor)
 	- Abre Powershell en modo Administrador y pide porfavor y listo :P
 3. Instala drivers de Virtio
@@ -2821,12 +2835,9 @@ Oficialmente EVE-NG no soporta funciones Wireless, pero igual hay que recopilar 
 > - [Blog - Networkz - vSONIC on EVE-NG](https://networkzblogger.wordpress.com/2021/07/31/vsonic-virtual-switch-on-eve-ng/)
 > - [Sonic - Latest Images](https://sonic-net.github.io/SONiC/sonic_latest_images.html) | [Alternative Unnoficial Automatic Index](https://sonic.software/)
 
-> [!NOTE] Nombre Imagen
-> - Carpeta SONiC: `sonic-{version}`
-> 	- Disco QEMU: `virtioa`
-> - Default Login
-> 	- User: `admin`
-> 	- Pass: `YourPaSsWoRd`
+| Carpeta           | Disco   | User    | Pass           | Boot  |
+| ----------------- | ------- | ------- | -------------- | ----- |
+| `sonic-{version}` | virtioa | `admin` | `YourPaSsWoRd` | 1 min |
 
 SONiC (**S**oftware for **O**pen **N**etworking *i*n the **C**loud) es un sistema operativo de red de codigo abierto, desarrollado originalmente Microsoft para Azure y actualmente mantenido por la Linux Foundation. Tiene distintos appliance para chips ASIC, para CPU general aka. x86 se utiliza **VS** (Virtual Switch), por lo que debes descargar desde la imagen "`sonic-vs.img.gz`".
 

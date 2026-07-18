@@ -1,7 +1,9 @@
 # Introduccion
 
-> [!FAIL] Cambio de modelo de licenciamiento
-> La ultima version de community es la 6.2.0-4, ahora el modelo cambiara a freemium, la misma base PRO, pero las funcionalidades se habilitan con licencia, la verdad, probe 7.x, y lo encontre un desproposito, mi recomendacion, utiliza la version Community hasta que deje de existir
+> [!DANGER] Estado de EVE-NG
+> La ultima version de EVE-NG Community es la version `6.2.0-4` basada en Ubuntu 22.04LTS (Jammy), desde 7.0.0, EVE-NG Community dejara de ser desarrollado para desarrollar solamente EVE-NG Pro, el cual pasa a tener una version gratuita llamada Freemium, la peor caracteristica es que solo soporta 7 nodos activos... Mi recomendacion es utilizar la version Community hasta que deje de existir
+> 
+> Encontre un metodo para actualizar el Kernel y QEMU a sus ultimas versiones, va en contra de las intenciones del equipo de EVE-NG y quedas sin soporte oficial (Del que ya no existe), disponible en [[800 - Extras/Write-Ups/EVE-NG/EVE-NG - QEMU & Kernel|EVE-NG - QEMU & Kernel]]
 
 EVE-NG (**E**mulated **V**irtual **E**nvironment - **N**ext **G**eneration) es una plataforma de emulacion de redes que permite virtualizar dispositivos como Router, Switches, Firewall, Load Balancer, IDS/IPS, etc. utilizando imagenes reales de sus sistemas operativos.
 
@@ -56,34 +58,41 @@ Su antiguo modelo de licenciamiento se basa en 3 tiers descritos en la siguiente
 
 **HW**
 - CPU: Debe soportar Intel VT-X/EPT (**E**xtended **P**age **T**ables) o AMD-V/RVI
-	- Recomendado: 2xE5-2650v4 
-- RAM: Entre mas RAM, mas maquinas, puede funcionar perfectamente con 16GB 
+	- Minimo: 4vCPU (2 Nucleos / 2 Hilos) con VTX/EPT o AMD-V/RVI
+	- Recomendado: 2xE5-2650v4 | [TechPowerUp](https://www.techpowerup.com/cpu-specs/xeon-e5-2650-v4.c3791)
+- RAM: Entre mas RAM, mas nodos funcionando
+	- Minimo: 16GB
 	- Recomendado: 64GB o mas
-- Storage: De mejor a Peor M.2 PCIe > SSD Sata > HDD Sata. Algunas imagenes realmente llegan a ser muy pesadas
-	- Recomendado: 2TB o mas
+- Storage: M.2 PCIe > SSD Sata > HDD Sata
+	- Algunas imagenes necesitan 100GB de espacio libre por si solas
+	- Minimo: 250GB
+	- Recomendado: 1TB o mas
 - Motherboard: El soporte IOMMU es opcional pero ayuda a mejorar la paravirtualizacion
+
+**Recomendacion de HW**
 
 > [!TIP] Servidores
 > - [Wikipedia - Proliant @ Product Lines](https://en.wikipedia.org/wiki/ProLiant#Product_lines)
 > - [Wikipedia - List of Dell PowerEdge @ Gen13](https://en.wikipedia.org/wiki/List_of_PowerEdge_servers#Generation_13)
 
-Si quieres un servidor empresarial de segunda mano, te puedo recomendar:
-- HPE: Gen 9 o superior (DL360 G9, DL380 G9, DL580 G9)
-- Dell: Gen 13 o superior (R530, R730, R730xd)
+Si estas pensando en comprar un servidor (de segunda mano) dedicado para EVE-NG, una buena referencia son las siguientes plataformas:
+- HPE: Gen 9 o superior (ej. DL360 G9, DL380 G9, DL580 G9)
+- Dell: Gen 13 o superior (ej. R530, R730, R730xd)
 
-Aunque esas recomendaciones son para servidores dedicados, con varios nodos 24/7, para explorar EVE-NG es mucho mas laxo, puedes usar cualquier computador que soporte virtualizacion. La diferencia es cuantos nodos podras tener al mismo tiempo. Con 4 hilos y 16GB de ram puedes armar topologias pequeñas para estudiar o certificarte. Aunque no podrias tener una topologia de 40 nodos con Firewalls y cosas raras.
+Sin embargo, **no necesitas** un servidor empresarial para comenzar. Con cualquier computador que soporte virtualizacion por hardware (VT-X/AMD-V) es suficiente para aprender, practicar o preparar certificaciones. La unica diferencia real es cuantos nodos podras utilizar simultaneamente
 
 **SW**
 
-Existen 3 metodos para instalar que estan soportados
-- Bare-Metal: Utilizas el 100% del Servidor para EVE-NG, es el que menos problemas da, pero es muy poco flexible
-- Hipervisor Tipo 1: Es un OS base el cual su funcion es ejecutar otros OS encima
-	- VMware ESXi: ya no es gratuito, su licencia llega a los 1000USD anuales, la version minima es 6.7
-	- Proxmox: FOSS (Free and Open Source Software). 
-- Hipervisor Tipo 2: Es una aplicacion que se ejecuta sobre un OS base como Windows o Linux
-	- QEMU/KVM: Gratuito, Nativo del Kernel Linux
-	- VMware Player: Gratuito
-	- VMware Workstation: Pago
+EVE-NG puede desplegarse de distintas formas (Algunas Soportadas por el Team EVE-NG, y otras no), dependiendo del uso que quieras darle:
+- Bare Metal:
+	- EVE-NG: Se instala directamente sobre el servidor fisico utilizando todos sus recursos. Es la opcion mas sencila pero el equipo queda dedicado exclusivamente a EVE-NG
+- Hipervisor: Se instala en un VM sobre un OS enfocado a la virtualizacion
+	- VMware ESXi: Requiere ESXi 6.7 o superior. Desde la adquisicion por Broadcom dejo de ofrecer una edicion gratuita para nuevos usuarios
+	- Proxmox VE: Plataforma libre y de codigo abierto basada en KVM
+- OS de escritorio: 
+	- QEMU/KVM (Linux)
+	- VMware Workstation 17.5.2 o superior (Windows). Lee este [Post](https://knowledge.broadcom.com/external/article/368667/download-and-license-vmware-desktop-hype.html)
+	- VMware Fusion 13.5.2 o superior (Mac). Lee este [Post](https://knowledge.broadcom.com/external/article/368667/download-and-license-vmware-desktop-hype.html)
 
 En el host donde manejas el WEBUI recuerda configurar las [[#Consolas Nativas]]
 
@@ -159,7 +168,7 @@ QEMU image list:
 	- Host (XP, 7, 10, 11)
 	- Server (2008-2025)
 - Microtik RouterOS 7.23.2 - [Free](https://mikrotik.com/download)
-- OpenWRT 25.12.4 - [Open Source](https://openwrt.org/)
+- OpenWRT 25.12.5 - [Open Source](https://openwrt.org/)
 - OPNsense 25.1 - [Open Source](https://opnsense.org/)
 - Palo Alto 11.2.5
 - PfSense-pfs 2.7.2 - [Open Source](https://atxfiles.netgate.com/mirror/downloads/)
@@ -209,6 +218,18 @@ Es famoso, tiene sus certificados NSE y cosas, ademas de dominar el mercado, per
 	- FAC (FortiAuthentication) 6.6.2
 	- FGT (Fortigate) 7.6.2.F-build3462
 	- FNDR (Forti Network Detection and Response) v7.4-build0520
+
+> [!TIP] Significado Nombres
+> - Fuentes: [Fortinet Customer - Deciphering abbreviations for Fortinet products](https://community.fortinet.com/t5/Customer-Service/Technical-Tip-Deciphering-abbreviations-for-Fortinet-products/ta-p/196062)
+> - FAD: FortiADC
+> - FAZ: FortiAnalyzer
+> - FAC: FortiAuthenticator
+> - FGT: Fortigate
+> - FMG: FortiManager
+> - FNDR: FortiNDR (Network Detection and Response)
+> - FWB: FortiWeb
+
+EVE-NG solo tiene una plantilla para Fortinet, por lo que se diferencia por versiones en vez de carpetas
 
 ## Instalacion de EVE-NG
 
@@ -279,7 +300,7 @@ apt autoremove
 
 > Hacer la vida mas sencilla
 ```
-apt install micro btop kitty git tree imagemagick p7zip-full qemu-guest-agent lm-sensors
+apt install micro btop kitty git tree imagemagick p7zip-full qemu-guest-agent lm-sensors ffmpeg jq fzf resvg xclip xsel fd-find libpoppler118 poppler-utils ripgrep zoxide
 ```
 
 > Inicia el servicio de Guest Agent
@@ -316,6 +337,17 @@ sudo apt install ./lsd_1.2.0_amd64.deb
 rm lsd_1.2.0_amd64.deb
 ```
 
+> Instala [Yazi](https://github.com/sxyazi/yazi) | Comprueba la ultima version desde [Releases](https://github.com/sxyazi/yazi/releases) y debe ser la version MUSL
+```
+wget https://github.com/sxyazi/yazi/releases/download/v26.5.6/yazi-x86_64-unknown-linux-musl.deb
+
+apt install ./yazi-x86_64-unknown-linux-musl.deb
+```
+
+Te recomiendo [[#Actualizar Templates]]
+
+Te vuelvo a recordar que puedes actulizar el Kernel y QEMU a sus versiones mas actuales siguiendo [[800 - Extras/Write-Ups/EVE-NG/EVE-NG - QEMU & Kernel|EVE-NG - QEMU & Kernel]]
+
 # Instalacion de Imagenes
 
 Recuerda tener descargadas tus imagenes para pasarlas al servidor, puedes encontrar mas informacion en [[#Soporte de Imagenes]]
@@ -326,7 +358,7 @@ Por lo que quedan 2 metodos para ejecutar imagenes:
 - IOL (**I**OS **o**n **L**inux): Son binarios que corren directamente en el kernel de Linux, sin necesidad de emular hardware completo. Esto es lo que los hace liviandos en RAM y CPU
 - QEMU: Emulacion completa de Hardware mediante imagenes de disco (qcow2), lo que permite correr sistemas operativos reales tal y como vienen del fabricante, por lo que consume mas RAM y CPU
 
-La mayoria de las imagenes que se usan en EVE-NG usan el metodo de QEMU, a excepcion, de obviamente, IOL
+La mayoria de las imagenes que se usan en EVE-NG usan el metodo de QEMU, a excepcion, de obviamente, [[#Cisco IOS]] y [[#Cisco IOS XE]]
 
 ## Aruba CX Switch
 
@@ -523,13 +555,19 @@ Las versiones no tienen descripciones, siempre tienen el mismo nombre
 - IOS XE Router L3: `x86_64_crb_linux-adventerprisek9-ms.bin`
 - IOS XE Switch L2/L3: `x86_64_crb_linux_l2-adventerprisek9-ms.bin`
 
-Para extraer las imagenes desde CML-Free:
+Para extraer las imagenes desde CML-Free para Router L3:
 1. Entra a `virl-base-images` y busca la carpeta `iol-xe-{version}`
-2. Descomprime el `.tar.gz` que encuentres
-3. Abre la carpeta `blobs` y luego `sha256` y busca el archivo comprimido mas pesado del listado, en mi caso `SHA256: ac697212b57ca1706f4a5618a2b11...`. Debes descomprimirlo y te extraerla la imagen con la extension `.iol`
-4. Debes cambiar la extension de `.iol` a `.bin`
-5. Y lo mueves a la carpeta de binarios IOL de EVE-NG
-6. Repite lo mismo con la carpeta `ioll2-xe-{version}`
+2. Descomprime el archivo `iol-xe-{version}.tar.gz`
+3. Abre la carpeta `blobs`, luego `sha256` y descomprime el archivo comprimido mas pesado del listado, en mi caso `SHA256: ac697212b57ca1706f4a5618a2b11...`.
+4. Extraera el archivo `x86_64_crb_linux-adventerprisek9-ms.iol`.
+5. Debes cambiar la extension de `.iol` a `.bin`
+
+Para extraer las imagenes desde CML-Free para Switch L2/L3
+1. Entra a `virl-base-images` y busca la carpeta `ioll2-xe-{version}`
+2. Descomprime el archivo `ioll2-xe-{version}.tar.gz`
+3. Abre la carpeta `blobs`, luego `sha256` y descomprime el archivo comprimido mas pesado del listado, en mi caso `SHA256: 59fc7486ad1682cf83253a...`
+4. Extraera el archivo `x86_64_crb_linux_l2-adventerprisek9-ms.iol`.
+5. Debes cambiar la extension de `.iol` a `.bin`
 
 > Envia el binario del router L3 a la carpeta de IOL
 ```
@@ -555,10 +593,10 @@ rsync -Phvr x86_64_crb_linux_l2-adventerprisek9-ms.bin root@{ip-server}:/opt/une
 > - [Cisco Software](https://software.cisco.com/download/home/)
 > 	- [CML Free](https://software.cisco.com/download/home/286193282/type/286326381/release/CML-Free)
 
-| Carpeta          | Disco   | User | Pass | Boot  |
-| ---------------- | ------- | ---- | ---- | ----- |
-| `asav-{version}` | virtioa | N/A  | N/A  | 2 min |
-
+| Carpeta              | Disco   | User | Pass       | Boot  |
+| -------------------- | ------- | ---- | ---------- | ----- |
+| `asav-{version}`     | virtioa | N/A  | N/A        | 2 min |
+| `asav-plr-{version}` | virtioa | N/A  | `cisco132` | 2 min |
 
 Puedes conseguir esta imagen actualizada con el metodo de [[#Cisco IOS XE]] (Mediante CML-Free), pero estan sin licencia.
 
@@ -615,42 +653,45 @@ Cluster                           : Enabled
 
 Cada Imagen PLR viene con un UUID en su archivo YML. Sin el, la imagen no funciona, debe estar en la misma carpeta donde descargaste la imagen, copialo y tengo en mente
 
-> Ejemplo de YML PLR
+> Crea el archivo `asav-plr.yml`
 ```
 ---
 type: qemu
-name: ASAv-PLR
 config_script: config_asav.py
 description: Cisco ASAv PLR Licensed
+name: ASAv-PLR
 cpulimit: 1
 icon: ASA.png
 cpu: 1
 ram: 2048
 ethernet: 8
+eth_name: ["Mgmt0/0"]
+eth_format: "Gi0/{0}"
+qemu_nic: virtio-net-pci
 console: telnet
 qemu_arch: x86_64
+qemu_version: 11.0.2
 uuid: 91f99252-4bf8-406d-afc2-183ccee337c1
-qemu_options: -machine type=pc-1.0,accel=kvm -serial mon:stdio -nographic -nodefconfig
-  -nodefaults -display none -vga std -rtc base=utc
+qemu_options: -machine type=q35,accel=kvm -serial mon:stdio -nographic -no-user-config -cpu host -nodefaults -display none -rtc base=utc -uuid 91f99252-4bf8-406d-afc2-183ccee337c1
 ...
 ```
 
-> Copiar el YML para Template de Intel
+> Copia `asav-plr.yml` para Template de Intel
 ```
 rsync -Phvr asav-plr.yml root@{ip-server}:/opt/unetlab/html/templates/intel/
 ```
 
-> Copiar el YML para template de AMD
+> Copia `asav-plr.yml` para template de AMD
 ```
 rsync -Phvr asav-plr.yml root@{ip-server}:/opt/unetlab/html/templates/amd/
 ```
 
-> Crear la carpeta para ASAv-PLR
+> Crear la carpeta para `ASAv-PLR`
 ```
 mkdir /opt/unetlab/addons/qemu/asav-plr-{version}
 ```
 
-> Envia la imagen al servidor, en ASAv-PLR
+> Envia la imagen al servidor
 ```
 rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/asav-plr{version}/
 ```
@@ -660,8 +701,8 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/asav-plr{ver
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
-> [!WARNING] UUID
-> Cuando crees un nodo, debes copiar el UUID de tu YML en las configuraciones de cada Nodo. De otra manera no funcionara correctamente la imagen
+> [!WARNING] Funcionamiento de Licencia PLR
+> El template deberia cargar el UUID directamente al ASAv-PLR y verificar su licencia durante el inicio. En caso de fallar, modificar el valor UUID de EVE-NG con el UUID del template
 
 ### Cisco vIOS
 
@@ -1072,19 +1113,6 @@ Esta es una imagen que [[#No recomiendo]]
 > - [Reddit - Tricks and tips for new and old players](https://old.reddit.com/r/fortinet/comments/lnxv0h/fgtfazfmg_tricks_and_tips_for_new_and_old_players/)
 > - [End Of Life - FortiOS](https://endoflife.date/fortios)
 
-> [!TIP] Significado Nombres
-> - Fuentes: [Fortinet Customer - Deciphering abbreviations for Fortinet products](https://community.fortinet.com/t5/Customer-Service/Technical-Tip-Deciphering-abbreviations-for-Fortinet-products/ta-p/196062)
-> - FAD: FortiADC
-> - FAZ: FortiAnalyzer
-> - FAC: FortiAuthenticator
-> - FGT: Fortigate
-> - FMG: FortiManager
-> - FNDR: FortiNDR (Network Detection and Response)
-> - FWB: FortiWeb
-
-> [!TIP] Nombres
-> EVE-NG no separa las versiones de Fortinet, por lo que todos nacen desde el mismo nombre base
-
 Para acceder a algunos VMs, basta con create una cuenta en Fortinet Support, y servira para servicios como Support, FortiCare, FortiCloud, etc. Las imagenes que estan disponibles son:
 - FortiADC (FAD)
 - FortiAnalyzer (FAZ)
@@ -1114,7 +1142,7 @@ Esta es una imagen que [[#No recomiendo]]
 
 Ve a Fortinet Download VM, elige el producto es FortiGate, y la plataforma es KVM. Yo elegi: `New deployment of FortiGate for KVM FGT_VM64_KVM-v8.0.0.F-build0167-FORTINET.out.kvm.zip (120.91 MB)`
 
-Si deseas una version mas antigua, te recomienda una anterior a 7.2.0, como por ejemplo: `fortinet-FGT-v7.0.3build0237`
+Antes de la version `7.2.0` el licenciamiento era mas laxo, algunas personas las utilizan, yo encontre: `fortinet-FGT-v7.0.3build0237`
 
 > Descomprimimos el ZIP
 ```
@@ -1402,7 +1430,7 @@ mkdir /opt/unetlab/addons/qemu/huaweine40e-{version}
 rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/huaweine40e-{version}/
 ```
 
-> Ejemplo YML `huaweine40e.yml`
+> Crea el archivo `huaweine40e.yml`
 ```
 ---
 type: qemu
@@ -1413,22 +1441,14 @@ icon: Router.png
 cpu: 2
 ram: 2048
 ethernet: 12
-console: telnet
-qemu_arch: x86_64
-qemu_options: -cpu host -machine type=pc-1.0,accel=kvm -serial mon:stdio -nographic -nodefconfig -nodefaults -rtc base=utc 
 eth_name:
 - eth0
 - eth1
-- 1/0/0
-- 1/0/1
-- 1/0/2
-- 1/0/3
-- 1/0/4
-- 1/0/5
-- 1/0/6
-- 1/0/7
-- 1/0/8
-- 1/0/9
+eth_format: "1/0/{0}"
+console: telnet
+qemu_arch: x86_64
+qemu_version: 11.0.2
+qemu_options: -machine type=pc,accel=kvm -cpu host -serial mon:stdio -nographic -nodefaults -rtc base=utc 
 ...
 ```
 
@@ -1956,6 +1976,16 @@ Aparece Grub, selecciona la opcion de instalarlo para evitar la espera de 60 seg
 
 Recuerda que debes hacer [[#Commit al Qcow2]]
 
+### FreeIPA
+
+Interesante...
+- https://www.freeipa.org/
+- https://codeberg.org/freeipa/freeipa
+- https://www.freeipa.org/page/Documentation
+- https://hub.docker.com/r/freeipa/freeipa-server/
+
+
+
 ### Issabel
 > [!TIP] Lecturas Recomendadas
 > - [Official Page](https://www.issabel.org/)
@@ -2031,6 +2061,13 @@ Los discos Qcow2 para un Host de windows son de 40GB para <= Win 7 y de 60GB par
 
 Recomiendo descargar las isos desde Massgrave, son las mas limpias y windows no te entregara una iso actualizada de XP o Win 7 por ejemplo.
 
+> Yo modifique el template para que me funcionara correctamente  QEMU options
+```
+-smp cpus=8,sockets=1,cores=1,threads=8
+```
+
+Yo utilize la ISO de Win10: `es-es_windows_10_consumer_editions_version_22h2_updated_oct_2025_x64_dvd_38efd00d.iso` 
+
 > Crea la carpeta
 ```
 mkdir /opt/unetlab/addons/qemu/win-{version}
@@ -2038,7 +2075,7 @@ mkdir /opt/unetlab/addons/qemu/win-{version}
 
 > Renombra el archivo
 ```
-mv es-mx_windows_10_consumer_editions_version_22h2_updated_oct_2025_x64_dvd_38efd00d.iso cdrom.iso
+mv es-es_windows_10_consumer_editions_{version}_x64_dvd.iso cdrom.iso
 ```
 
 > Copia el Archivo
@@ -2059,13 +2096,6 @@ cd /opt/unetlab/addons/qemu/win-{version}
 > Arregla los permisos
 ```
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
-```
-
-Yo tuve que cambiar las opciones de qemu, de pc a q35 y alli funciono, no se si sera algo fortuito o necesario
-
-Tambien parece que debes modificar la cantidad de CPU en el qemu, configura la gui como 1vCPU, y agregas el -smp
-```
--smp cpus=8,sockets=1,cores=8,threads=1
 ```
 
 Crea un nodo, configuralo con 4vCPU y 8196M de ram, conectalo a Cloud0 e inicia el nodo y sigue las instrucciones
@@ -2131,9 +2161,11 @@ Los discos Qcow2 para Windows server son de minimo 60GB de espacio
 
 La version minima que recomiendo es Windows Server 2022, para atras dependes de soporte de seguridad extendido, aunque siguen exactamente el mismo metodo
 
+Como imagen ISO, utilize: `es-es_windows_server_2022_updated_june_2026_x64_dvd_dda28eeb.iso`
+
 > Renombra la iso
 ```
-mv es-es_windows_server_2022_updated_june_2026_x64_dvd_dda28eeb.iso cdrom.iso
+mv es-es_windows_server_2022_{version}_x64_dvd_dda28eeb.iso cdrom.iso
 ```
 
 > Crea la carpeta
@@ -2153,22 +2185,52 @@ cd /opt/unetlab/addons/qemu/winserver-{version}
 
 > Crea un disco de 60GB
 ```
-/opt/qemu/bin/qemu-img create -f qcow2 virtioa.qcow2 60G
+/opt/qemu/bin/qemu-img create -f qcow2 virtioa.qcow2 80G
 ```
 
-Crea un nuevo nodo de Windows Server, y crea un nodo de red "Cloud0" para que pueda conectarse a internet e inicia el nodo
+Crea un nodo, configuralo con 4vCPU y 8196M de ram, conectalo a Cloud0 e inicia el nodo y sigue las instrucciones
+- Elige tus preferencias de idioma y teclado y dale en "Siguiente", y luego en "Instalar ahora"
+- Presiona en "No tengo clave del producto"
+- Eliges "Windows 2022 Datacenter (experiencia de escritorio)" y presionas "Siguiente"
+- Lees y Aceptas los terminos de licencia
+- Selecciona "Instalacion Avanzada"
 
-> [!CAUTION] Drivers Disco
-> Cuando la instalacion te pida seleccionar un disco, posible no aparesca nada, deber ir a "Cargar Driver", buscar y elegir la ruta `FDD B/storage/2003R2/AMD64 or x86`, seleccionas y buscara el driver "`HDD RedHat Virtio SCSI HDD`" y ahora podra reconocer el disco
+No reconocera el disco virtual, debes cargar el driver
+- Ve a "Cargar Controlador" y dale en "Examinar" al mensaje
+- Ve a "Unidad de disquete `A:`"
+- Abre `Storage` > `2003R2` > `amd64` y dale click en "Aceptar"
+- Elige el controlador "`Red Hat VirtIO SCSI controller, packaged by Canonical, Ltd. blablabla`" y dale en "Siguiente"
 
-Continua con la instalacion normalmente
+Elige el disco y dale a siguiente, la instalacion se demora una hora y se reinicia automaticamente
 
-> [!TIP] Acceso RDP
-> Si quieres acceder mediante RDP para EVE-NG, debes configurar un usuario y contraseña, permitir el acceso RDP a la maquina y asegurarte de poder conectarse de forma remota para acceso publico
+Al reiniciar, parece que no carga la ISO y continua con la instalacion, Configurando la contraseña de "`Administrator`", en mi caso sera: `Alumno.2026` y confirma
 
-Finaliza la instalacion y apaga el VM cuando este listo
+- Ve a configuraciones > Sistema > Escritorio Remoto y habilitalo
+- Ve a Firewall de Windows y apagalo (Para hacer funcionar RDP)
 
-Ahora deberas hacer [[#Commit al Qcow2]] y Elimina el disco
+Apaga el nodo
+
+> Ve a la carpeta de instalacion de Windows Server
+```
+cd /opt/unetlab/addons/qemu/winserver-{version}
+```
+
+> Elimina el disco iso
+```
+rm cdrom.iso
+```
+
+Ve a la configuracion del nodo y cambia la configuracion de VNC a RDP para un poquitin de mejor rendimiento
+
+Te conectas con
+- User: `ADMINISTRADOR`
+- Pass: `Alumno.2026`
+
+Respecto a las licencias, te toca hacer un poco de Magia Negra
+
+Busca Actualizaciones y actualiza el nodo. Reinicia cuando sea necesario hasta que este listo para ser utilizado
+
+Apaga el nodo y deberas hacer [[#Commit al Qcow2]]
 
 > Nunca olvides arreglar los permisos para eve-ng
 ```
@@ -2217,9 +2279,9 @@ Crea un nodo, conectalo a Cloud0 y enciendelo
 ## OcNOS
 
 > [!TIP] Lecturas Recomendadas
-> [VM Demo Gratuitas con Registro](https://www.ipinfusion.com/free-software-demos/ocnos-eve/) - PSST: Puedes poner info falsa, no verifica nada
-> [IPinfusion SP Docs 7.x](https://documentation.ipinfusion.com/ocnos-sp-release-notes-7.0/Content/Home.htm)
-> [Youtube - Zero to Hero Course](https://www.youtube.com/playlist?list=PLMeBQ51gYDADN31R_Wga3VnOTvePIGR_4)
+> - [VM Demo Gratuitas con Registro](https://www.ipinfusion.com/free-software-demos/ocnos-eve/) - PSST: Puedes poner info falsa, no verifica nada
+> - [IPinfusion SP Docs 7.x](https://documentation.ipinfusion.com/ocnos-sp-release-notes-7.0/Content/Home.htm)
+> - [Youtube - Zero to Hero Course](https://www.youtube.com/playlist?list=PLMeBQ51gYDADN31R_Wga3VnOTvePIGR_4)
 
 | Carpeta           | Disco   | User    | Pass    | Boot  |
 | ----------------- | ------- | ------- | ------- | ----- |
@@ -2227,7 +2289,7 @@ Crea un nodo, conectalo a Cloud0 y enciendelo
 
 OcNOS VM, creada por IP Infusion, se creo para validar configuraciones y probar L2, L3 y MPLS limitado sin costos asociados y tiene una licencia trial de 365 dias.
 
-La historia de OcNOS empieza con GNU Zebra en los años 90s, fue uno de los primeros proyectos open source en implementar protocolos de enrutamiento basados en Linux, de los cuales, salieron dos caudales
+La historia de OcNOS empieza con GNU Zebra en los años 90s, el cual fue uno de los primeros proyectos open source en implementar protocolos de enrutamiento basados en Linux, de los cuales, salieron dos caudales
 - FOSS: Quagga -> FRRouting
 - Corporativo: ZebOS -> OcNOS
 
@@ -2252,7 +2314,7 @@ convert ocnos.png -resize 64x43 -strip ocnos.png
 rsync -Phvr ocnos.png root@{ip-server}:/opt/unetlab/html/images/icons/
 ``` 
 
-> Crea el archivo `OcNOS.yml` con el siguiente contenido
+> Crea el archivo `ocnos.yml` con el siguiente contenido
 ```
 ################################################################################
 #
@@ -2287,7 +2349,7 @@ eth_format: eth{1}
 console: vnc
 shutdown: 1
 qemu_arch: x86_64
-qemu_version: 2.12.0
+qemu_version: 11.0.2
 qemu_nic: virtio-net-pci
 qemu_options: -machine type=pc,accel=kvm -vga std -serial mon:stdio -usbdevice tablet -boot order=cd
 ...
@@ -2344,7 +2406,7 @@ Debes descargar la imagen correspondiente de algun mirror
 - Arquitectura: amd64
 - Tipo de Imagen: dvd
 
-En mi caso descargue: `OPNsense-26.1.6-dvd-amd64.iso.bz2`
+En mi caso descargue: `OPNsense-26.7-dvd-amd64.iso.bz2`
 
 > Descomprime el archivo
 ```
@@ -2514,6 +2576,68 @@ Ahora deberas hacer [[#Commit al Qcow2]] y Elimina el disco
 ```
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
+
+## SONiC
+
+> [!TIP] Documentacion Recomendada
+> - [Sonic Foundation](https://sonicfoundation.dev/)
+> - [Github - sonic-net/SONiC](https://github.com/sonic-net/SONiC)
+> 	- [User Manual](https://github.com/sonic-net/SONiC/blob/master/doc/user-manual/SONiC-User-Manual.md)
+> 	- [Wiki](https://github.com/sonic-net/SONiC/wiki)
+> - [Github - sonic-net/sonic-buildimage](https://github.com/sonic-net/sonic-buildimage)
+> - [Blog - Networkz - vSONIC on EVE-NG](https://networkzblogger.wordpress.com/2021/07/31/vsonic-virtual-switch-on-eve-ng/)
+> - [Sonic - Latest Images](https://sonic-net.github.io/SONiC/sonic_latest_images.html) | [Alternative Unnoficial Automatic Index](https://sonic.software/)
+
+| Carpeta           | Disco   | User    | Pass           | Boot  |
+| ----------------- | ------- | ------- | -------------- | ----- |
+| `sonic-{version}` | virtioa | `admin` | `YourPaSsWoRd` | 1 min |
+
+SONiC (**S**oftware for **O**pen **N**etworking *i*n the **C**loud) es un sistema operativo de red de codigo abierto, desarrollado originalmente Microsoft para Azure y actualmente mantenido por la Linux Foundation. Tiene distintos appliance para chips ASIC, para CPU general aka. x86 se utiliza **VS** (Virtual Switch), por lo que debes descargar desde la imagen "`sonic-vs.img.gz`".
+
+Las compilaciones publicas se generan desde la rama "Master" por lo que no tiene releases, recomiendo utilizar la fecha de compilacion como version de carpeta, ejemplo: `sonic-20260707`
+
+Yo utilize la rama `Master` el dia: `12-Jul-2026`
+
+> Descomprime el archivo
+```
+gunzip sonic-vs.img.gz
+```
+
+> Renombra la imagen, no la conviertas
+```
+mv sonic-vs.img virtioa.qcow2
+```
+
+> Crea la carpeta
+```
+mkdir /opt/unetlab/addons/qemu/sonicsw-{version}
+```
+
+> Envia la imagen
+```
+rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/sonicsw-{version}/
+```
+
+> Modifica el final `/opt/unetlab/html/templates/intel/sonicsw.yml`
+```
+qemu_arch: x86_64
+qemu_version: 11.0.2
+qemu_nic: virtio-net-pci
+qemu_options: -machine type=q35,accel=kvm -vga std -device usb-ehci -device usb-tablet
+```
+
+> Arregla los permisos
+```
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+```
+
+Crea un nodo, y modifica los siguientes parametros
+- QEMU Version: `11.0.2`
+- QEMU Arch: x86_64
+- QEMU custom options: `-machine type=q35,accel=kvm -vga std -device usb-ehci -device usb-tablet`
+
+> [!TIP] Sobre inicio
+> Inicia la imagen desde grub, y dice que el sistema no encontro los archivos para iniciar y se cuelga
 
 ## VyOS
 > [!IMPORTANT] Documentacion Recomendada
@@ -2708,9 +2832,9 @@ En caso de fallar por ejemplo Putty al iniciar, deberas modificar un archivo .re
 cd /opt/unetlab/html/
 ```
 
-> Evita cagasos
+> Elimina los viejos templates
 ```
-mv templates templates.bak
+rm -drf templates
 ```
 
 > Clona el repositorio desde Gitlab
@@ -2816,67 +2940,12 @@ Oficialmente EVE-NG no soporta funciones Wireless, pero igual hay que recopilar 
 
 > [!IMPORTANT] Documentacion Recomendada
 > - [Github Gist - rodrigojusto/Eve-NG - OpenWRT x86](https://gist.github.com/rodrigojusto/684308f6d65ac86a3c845912cee86789)
-> - [OpenWRT Download 25.12.4](https://downloads.openwrt.org/releases/25.12.4/targets/x86/64/)
+> - [OpenWRT Download 25.12.5](https://downloads.openwrt.org/releases/25.12.5/targets/x86/64/)
 > - [OpenWRT Docs - Run in QEMU x86-64](https://openwrt.org/docs/guide-user/virtualization/qemu#openwrt_in_qemu_x86-64)
 
 > [!NOTE] Nombre Imagen
 > - Carpeta OpenWRT: `openwrt-{version}`
 > 	- Disco QEMU: `hda`
-
-
-## SONiC
-
-> [!TIP] Documentacion Recomendada
-> - [Sonic Foundation](https://sonicfoundation.dev/)
-> - [Github - sonic-net/SONiC](https://github.com/sonic-net/SONiC)
-> 	- [User Manual](https://github.com/sonic-net/SONiC/blob/master/doc/user-manual/SONiC-User-Manual.md)
-> 	- [Wiki](https://github.com/sonic-net/SONiC/wiki)
-> - [Github - sonic-net/sonic-buildimage](https://github.com/sonic-net/sonic-buildimage)
-> - [Blog - Networkz - vSONIC on EVE-NG](https://networkzblogger.wordpress.com/2021/07/31/vsonic-virtual-switch-on-eve-ng/)
-> - [Sonic - Latest Images](https://sonic-net.github.io/SONiC/sonic_latest_images.html) | [Alternative Unnoficial Automatic Index](https://sonic.software/)
-
-| Carpeta           | Disco   | User    | Pass           | Boot  |
-| ----------------- | ------- | ------- | -------------- | ----- |
-| `sonic-{version}` | virtioa | `admin` | `YourPaSsWoRd` | 1 min |
-
-SONiC (**S**oftware for **O**pen **N**etworking *i*n the **C**loud) es un sistema operativo de red de codigo abierto, desarrollado originalmente Microsoft para Azure y actualmente mantenido por la Linux Foundation. Tiene distintos appliance para chips ASIC, para CPU general aka. x86 se utiliza **VS** (Virtual Switch), por lo que debes descargar desde la imagen "`sonic-vs.img.gz`".
-
-Las compilaciones publicas se generan desde la rama "Master" por lo que no tiene releases, recomiendo utilizar la fecha de compilacion como version de carpeta, ejemplo: `sonic-20260707`
-
-Hay un template para Sonic FW pero recomiendo modificarlo
-
-> Descomprime el archivo
-```
-7z x sonic-vs.img.gz
-```
-
-> Renombra la imagen, no la conviertas
-```
-mv sonic-vs.img virtioa.qcow2
-```
-
-> Crea la carpeta
-```
-mkdir /opt/unetlab/addons/qemu/sonicsw-{version}
-```
-
-> Envia la imagen
-```
-rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/sonicsw-{version}/
-```
-
-> Arregla los permisos
-```
-/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
-```
-
-Crea un nodo, conectalo a Cloud0 y enciendelo, aparecera grub, y al seleccionar la imagen, dice que no encontro nada, al seleccionar cualquier tecla inicia la imagen???? que extraño
-
-> [!TIP] Sobre inicio
-> Inicia la imagen desde grub, y dice que el sistema no encontro los archivos para iniciar y se cuelga
-
-> [!IMPORTANT] Alternativa
-> La imagen `sonicsw-20250412-1.tgz - 1.83G` funciona, pero yo quiero usar una mas nueva
 
 ## Huawei WAF5K
 
@@ -2898,7 +2967,7 @@ No esta en EVE-NG por lo que hay que agregar
 mkdir /opt/unetlab/addons/qemu/huaweiwaf5k-{version}
 ```
 
-> Crea el archivo `huaweiwaf5k.yaml` con el siguiente contenido
+> Crea el archivo `huaweiwaf5k.yml` con el siguiente contenido
 ```
 # Copyright (c) 2016, Andrea Dainese
 # Copyright (c) 2018, Alain Degreffe

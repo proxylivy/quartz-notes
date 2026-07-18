@@ -12,7 +12,7 @@ De todas formas no afectara a la corrupcion futura de EVE-NG debido a que la ver
 
 ## Arregla QEMU Version
 
-EVE-NG tiene un array hardcodeado en `/opt/unetlab/html/includes/apu_nodes.php` entre las lineas 645 y 656 que define que versiones de QEMU aparecen disponibles en la interfaz. Las versiones instaladas en `/opt` que no esten en este array simplemente no aparecen como opcion al configurar un nodo, existen en el disco pero son invisibles para EVE-NG
+EVE-NG tiene un array hardcodeado en `/opt/unetlab/html/includes/api_nodes.php` entre las lineas 645 y 656 que define que versiones de QEMU aparecen disponibles en la interfaz. Las versiones instaladas en `/opt` que no esten en este array simplemente no aparecen como opcion al configurar un nodo, existen en el disco pero son invisibles para EVE-NG
 
 Antes, el array original solo tenia hasta la version 6.0.0, aunque en `/opt` ya existen versiones mas nuevas instaladas por EVE-NG
 
@@ -49,12 +49,12 @@ Compilado y probado en Ubuntu 22.04 LTS (Jammy), usando la version de Qemu `11.0
 
 > Instala las dependencias de compilacion para Ubuntu 24.04LTS
 ```
-sudo apt install python3-pip python3-tomli autoconf automake bison build-essential cmake flex libasound2-dev libepoxy-dev libfdt-dev libgbm-dev libgcrypt20-dev libglib2.0-dev libgtk-3-dev libpipewire-0.3-dev libpixman-1-dev libpulse-dev libslirp-dev libspice-server-dev libsdl2-dev libsdl2-net-dev libsdl2-image-dev libsdl2-ttf-dev libtool libusb-1.0-0-dev libbz2-dev libcbor-dev liblzo2-dev libncurses-dev libvirglrenderer-dev ninja-build zlib1g zlib1g-dev libaio-dev liburing-dev libseccomp-dev libcap-ng-dev libzstd-dev libcurl4-openssl-dev libnuma-dev libgnutls28-dev libusbredirparser-dev libbpf-dev libssh-dev libcapstone-dev libfuse3-dev libsnappy-dev libiscsi-dev
+sudo apt install python3-pip python3-tomli autoconf automake bison build-essential cmake flex libasound2-dev libepoxy-dev libfdt-dev libgbm-dev libgcrypt20-dev libglib2.0-dev libgtk-3-dev libpipewire-0.3-dev libpixman-1-dev libpulse-dev libslirp-dev libspice-server-dev libsdl2-dev libsdl2-net-dev libsdl2-image-dev libsdl2-ttf-dev libtool libusb-1.0-0-dev libbz2-dev libcbor-dev liblzo2-dev libncurses-dev libvirglrenderer-dev ninja-build zlib1g zlib1g-dev libaio-dev liburing-dev libseccomp-dev libcap-ng-dev libzstd-dev libcurl4-openssl-dev libnuma-dev libgnutls28-dev libusbredirparser-dev libbpf-dev libssh-dev libcapstone-dev libfuse3-dev libsnappy-dev libiscsi-dev acpica-tools sphinx
 ```
 
 > Crea una carpeta temporal de compilacion y ve alli
 ```
-mkdir /root/test && cd /root/test
+mkdir /root/qemu && cd /root/qemu
 ```
 
 > Revisa las fuentes disponibles para QEMU y descarga el TAR | [QEMU Download Source](https://www.qemu.org/download/)
@@ -74,7 +74,7 @@ cd qemu-11.0.2
 
 > Configura QEMU
 ```
-./configure --prefix=/opt/qemu-11.0.2 --target-list=i386-softmmu,x86_64-softmmu --enable-kvm --enable-vhost-net --enable-vnc --enable-vnc-jpeg --enable-spice --enable-spice-protocol --enable-slirp --enable-libusb --enable-virtfs --enable-opengl --enable-virglrenderer --enable-guest-agent --disable-docs
+./configure --prefix=/opt/qemu-11.0.2 --target-list=i386-softmmu,x86_64-softmmu --enable-kvm --enable-vhost-net --enable-vnc --enable-vnc-jpeg --enable-spice --enable-spice-protocol --enable-slirp --enable-libusb --enable-virtfs --enable-opengl --enable-virglrenderer --enable-guest-agent --disable-docs --enable-sdl --audio-drv-list="alsa, oss" --enable-curses
 ```
 
 > Compila la configuracion de QEMU (Se demoro 1:24min en 20 hilos)
@@ -84,10 +84,10 @@ make -j$(nproc)
 
 > Instala la version compilada en el prefijo `/opt/qemu-11.0.2`
 ```
-make install
+make -j$(nproc) install
 ```
 
-> Escribe la nueva version en el array de EVE-NG para que aparesca en la interfaz, agrega la linea en `/opt/unetlab/html/includes/apu_nodes.php`
+> Escribe la nueva version en el array de EVE-NG para que aparesca en la interfaz, agrega la linea en `/opt/unetlab/html/includes/api_nodes.php`
 ```
 '11.0.2' => '11.0.2',
 ```
@@ -160,15 +160,26 @@ La solucion es utilizar los kernels compilados por el equipo de EVE-NG para la v
 mkdir /root/linux && cd /root/linux
 ```
 
-> Descarga las versiones, corrobora con el callout de arriba
+Descarga las versiones de Linux para EVE-NG corroborando las versiones, si ha pasado un tiempo, estos wget no serviran, tomalos de ejemplo
+
+> Descarga Linux-hv-utils (89K)
 ```
-wget https://www.eve-ng.net/noble/pool/main/l/linux-hv-utils-7.1.1-eve-ksm+/linux-hv-utils-7.1.1-eve-ksm+_7.1.1-eve-ksm+-1_amd64.deb
+wget -4 https://www.eve-ng.net/noble/pool/main/l/linux-hv-utils-7.1.1-eve-ksm+/linux-hv-utils-7.1.1-eve-ksm+_7.1.1-eve-ksm+-1_amd64.deb
+```
 
-wget https://www.eve-ng.net/noble/pool/main/l/linux-upstream/linux-headers-7.1.1-eve-ksm+_7.1.1-eve-ksm-g0fc53eda58f0-1_amd64.deb
+> Descarga linux-libc-dev (1.9M)
+```
+wget -4 https://www.eve-ng.net/noble/pool/main/l/linux-upstream/linux-libc-dev_7.1.1-eve-ksm-g0fc53eda58f0-1_amd64.deb
+```
 
-wget https://www.eve-ng.net/noble/pool/main/l/linux-upstream/linux-image-7.1.1-eve-ksm+_7.1.1-eve-ksm-g0fc53eda58f0-1_amd64.deb
+> Descarga linux-headers (13M)
+```
+wget -4 https://www.eve-ng.net/noble/pool/main/l/linux-upstream/linux-headers-7.1.1-eve-ksm+_7.1.1-eve-ksm-g0fc53eda58f0-1_amd64.deb
+```
 
-wget https://www.eve-ng.net/noble/pool/main/l/linux-upstream/linux-libc-dev_7.1.1-eve-ksm-g0fc53eda58f0-1_amd64.deb
+> Descarga Linux-Image (132M)
+```
+wget -4 https://www.eve-ng.net/noble/pool/main/l/linux-upstream/linux-image-7.1.1-eve-ksm+_7.1.1-eve-ksm-g0fc53eda58f0-1_amd64.deb
 ```
 
 > Instala los paquetes descargados
@@ -178,7 +189,7 @@ sudo apt install ./*.deb
 
 > Reinicia y deberia eligir automaticamente el nuevo kernel
 ```
-Reboot
+reboot
 ```
 
 > Antes

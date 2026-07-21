@@ -1,6 +1,9 @@
 
 Esta prueba analiza la conexion entre dispositivos y uso de cableado, conversion IPv4 de Binario a Decimal y aplicacion de IPv6
 
+Testing
+![](https://copyparty.proxylivy.work/Tutorial%20Eje%202.mp4)
+
 # Info
 **Topologia**
 ![](https://slink.proxylivy.work/image/20bd1598-9555-4aba-a8cf-994d8efa3dee.png)

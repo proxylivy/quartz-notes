@@ -17,7 +17,7 @@ const config: QuartzConfig = {
     },
     locale: "es-ES",
     baseUrl: "notes.proxylivy.work",
-    ignorePatterns: ["private", "templates", ".obsidian", "000 - Config/Plantillas", "999 - Archivado"],
+    ignorePatterns: ["private", "templates", ".obsidian", "000 - Config", "999 - Archivado"],
     defaultDateType: "created",
     theme: {
       fontOrigin: "googleFonts",

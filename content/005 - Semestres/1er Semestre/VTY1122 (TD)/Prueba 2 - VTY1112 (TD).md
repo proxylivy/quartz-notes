@@ -1,17 +1,34 @@
+# Info
+
+> [!TIP] Lecturas Recomendadas
+> - [Copyparty - VTY1122 - Prueba 2](https://copyparty.proxylivy.work/Duoc/Conectividad%20y%20Redes/1er%20Semestre/VTY1122%20(TD)/Pruebas/Prueba%202/)
+
+## Anexos de Practica
+
+Dentro, encontraras 2 anexos, estos sirven como practica guiada en Packet Tracer para la Prueba
+
+Video: Eje Practico 1
+![](https://copyparty.proxylivy.work/Duoc/Conectividad%20y%20Redes/1er%20Semestre/VTY1122%20(TD)/Pruebas/Prueba%202/Anexos/Tutorial%20Practico%20Eje%201.mp4)
+
+Video: Eje Practico 2
+![](https://copyparty.proxylivy.work/Duoc/Conectividad%20y%20Redes/1er%20Semestre/VTY1122%20(TD)/Pruebas/Prueba%202/Anexos/Tutorial%20Practico%20Eje%202.mp4)
+
+## Contenido
 
 Esta prueba analiza la conexion entre dispositivos y uso de cableado, conversion IPv4 de Binario a Decimal y aplicacion de IPv6
 
-Testing
-![](https://copyparty.proxylivy.work/Tutorial%20Eje%202.mp4)
-
-# Info
 **Topologia**
+
 ![](https://slink.proxylivy.work/image/20bd1598-9555-4aba-a8cf-994d8efa3dee.png)
 
 **Contexto del Cliente:**
+
 El minimarket “Doña Juanita” visto en la clase anterior, presentó una caída en sus ventas del 20% durante el 2018, El Gerente General Benjamín Toledo, ha contratado sus servicios como consultor TIC para que presente una solución tecnológica que permita revertir esta situación, logrando mejorar las ventas y experiencias del cliente.
+
 Se propusieron soluciones basadas en conectividad e IOT, que podrían ayudar a mejorar las ventas del minimarket, en el cual se ha elegido un prototipo, el cual será implementado y puesto a prueba, según las etapas del Desing Thinking.
 Por tal motivo, su labor como consultor TIC, será la implementación de dicho prototipo, el testeo de la solución y análisis global de la solución que se realizará en dependencias del cliente. Para esta actividad dispone de 120 minutos.
+
+## Requerimientos
 
 1. Conectorizacion de Dispositivos de Red
 	- Realizar la interconexión de dispositivos de red, utilizando cableado adecuado para aquello, y realización la conexión según la información proporcionada en las siguientes tablas:
@@ -85,4 +102,3 @@ Por tal motivo, su labor como consultor TIC, será la implementación de dicho p
 	- Revisar desde el PC de la red, el acceso a la página web de `www.transformaciondigital.cl` comprobando el funcionamiento de la misma.
 5. Reflexion sobre prototipo y testeo
 	- En documento anexo, deberá reflexionar y responder sobre el prototipo implementado y las pruebas realizadas para su funcionamiento.
-

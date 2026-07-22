@@ -1,16 +1,12 @@
 # Info
-¡Hola! Soy Livy. Gracias por interesarte en este vault, el cual esta basado en los apuntes y notas tomadas en [Obsidian](https://obsidian.md/) y estan enfocados principalmente en mi carrera de [Ingenieria en Conectividad y Redes](https://www.duoc.cl/carreras/ingenieria-redes-telecomunicaciones/) (En 2025 el nombre cambio a Redes y Telecomunicaciones) en DuocUC
+¡Hola! Soy Livy. Gracias por interesarte en este vault, el cual esta basado en los apuntes y notas tomadas en [Obsidian](https://obsidian.md/) y estan enfocados principalmente en mi carrera de [Ingenieria en Conectividad y Redes](https://www.duoc.cl/carreras/ingenieria-en-redes-y-telecomunicaciones/) (En 2025 el nombre cambio a Redes y Telecomunicaciones) en DuocUC
 
 Si tienes alguna duda, consejo o solamente quieres contactar en alguna red de [Littlelink](https://littlelink.proxylivy.work/), en los cuales estan [Github](https://github.com/proxylivy), [Linkedin](https://www.linkedin.com/in/gabo-z-montecinos), entre otros
 
-Mi intencion es crear un "2do Cerebro", un sistema o metodo de estudio acuñado por [Tiago Forte](https://fortelabs.com/), el cual mejora el manejo de informacion, la productividad y el aprendizaje, su principal fuerte que le veo es la externalizacion de informacion, notas atomicas e interconectar notas que estan interconectadas, lo cual permite evitar duplicar informacion. Si te interesa saber como aprendo, revisa mis [[000 - Config/Tecnicas de Estudio y Flujo de Estudio|Tecnicas de Estudio y Flujo de Estudio]]
+Mi intencion es crear un "2do Cerebro", un sistema o metodo de estudio acuñado por [Tiago Forte](https://fortelabs.com/), el cual mejora el manejo de informacion, la productividad y el aprendizaje, su principal fuerte que le veo es la externalizacion de informacion, notas atomicas e interconectar notas que estan interconectadas, lo cual permite evitar duplicar informacion. Si te interesa saber como aprendo, revisa mis [[800 - Extras/Tecnicas de Estudio y Flujo de Estudio|Tecnicas de Estudio y Flujo de Estudio]]
 
 ## Carpetas
 Explicaciones de la finalidad de las carpetas, para poder navegar mejor por los directorios
-
-`000 - Config`: Configuración de plugins para el vault
-- `Plantillas`: Notas para acceder de forma rapida y evitar reescribir
-- [[000 - Config/Lista To-Do|Lista To-Do]]: Nota donde recopilo dudas, proyectos pendientes, sitios de referencia y más. ¡Si quieres ayudar, mándame tu solución!
 
 `005 - Semestres`: Trabajos y tareas organizados por semestre y por ramo
 
@@ -25,8 +21,9 @@ Explicaciones de la finalidad de las carpetas, para poder navegar mejor por los 
 - `020.2 - Seguridad`: Minimizar las superficies de ataque
 - `020.3 - Fundamentos`: Informacion Base para comprender como funcionan las redes
 - `020.4 - Dispositivos de Red`: Diferentes Marcas y Modelos que se usan en redes
+- `020.5 - Red HFC`: Explicacion de los componentes en una red Hibrida
 
-`999 - Archivado`: Notas incompletas o en proceso de clasificación, similar a [[000 - Config/Lista To-Do|Lista To-Do]].
+`800 - Extras`: Documentos que no tienen que ver con la carrera per se, pero son muy utiles
 
 ---
 ## Bibliografia

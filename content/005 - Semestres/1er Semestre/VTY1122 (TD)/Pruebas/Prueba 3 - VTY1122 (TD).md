@@ -3,11 +3,25 @@
 ![](https://slink.proxylivy.work/image/c7242f80-8d04-469b-8568-1d7030e163d9.png)
 
 **Contexto Cliente**
+
+Han transcurridos 3 meses de aplicadas las mejoras al Minimarket “Doña Juanita”.
+En este tiempo, su dueño Benajmín Toledo, ha notado un incremento en las ventas, lo que se ha traducido en pequeños márgenes de utilidades mensuales. Esto ha generado un convencimiento de su parte, esto es, que la inclusión de tecnología y mejoras en los servicios realmente tiene un impacto positivo en las ventas.
+
+Por lo anterior, usted junto a su grupo de trabajo son llamados a realizar una segunda propuesta de mejora en las instalaciones y nuevos servicios a entregar al cliente. En los cuales, se espera considere:
+1. Incluir acceso a Internet inalámbrico
+2. Agregar nuevos servicios que incluya el uso de dispositivos IOT
+3. Propuestas para mejorar la gestión del minimarket, así como también, para obtener opiniones y estadísticas de sus clientes, de tal forma generar una fidelización. Por ejemplo, puede considerar para esto, el uso de redes sociales, uso de encuestas encuestas locales mediante ubicación de mapa, herramientas para stock de mercadería, entre otras opciones.
+
 El minimarket “Doña Juanita” visto en experiencias pasadas, presentó una caída en sus ventas del 20% durante el 2018, El Gerente General Benjamín Toledo, ha contratado sus servicios como consultor TIC para que presente una solución tecnológica que permita revertir esta situación, logrando mejorar las ventas y experiencias del cliente.
-Dentro de las soluciones realizadas por usted fue la implementación de dispositivos finales y de IOT que operaban bajo direccionamiento IPv4/IPv6, lo cual operaron por un tiempo determinado (en imagen de documento entregado por docente). El Gerente detectó que muchos equipos de IOT se desconectaban debido al estado del cableado instalado que correspondía a UTP 5e, por lo cual ahora se recableará utilizando cableado UTP Categoría 6, además de solicitar que los equipos IOT estén conectados mediante conexión inalámbrica, utilizando para esto la solución de autenticación más robusta que ofrecen los routers inalámbricos adquiridos por este minimarket.
+
+Dentro de las soluciones realizadas por usted fue la implementación de dispositivos finales y de IOT que operaban bajo direccionamiento IPv4/IPv6, lo cual operaron por un tiempo determinado. El Gerente detectó que muchos equipos de IOT se desconectaban debido al estado del cableado instalado que correspondía a UTP 5e, por lo cual ahora se recableará utilizando cableado UTP Categoría 6, además de solicitar que los equipos IOT estén conectados mediante conexión inalámbrica, utilizando para esto la solución de autenticación más robusta que ofrecen los routers inalámbricos adquiridos por este minimarket.
+
 Por tal motivo, su tarea como consultor TIC, será el recableado de la red, según lo especificado por el cliente, la configuración de equipos IOT, mediante conexión inalámbrica y mecanismos de autenticación seguros, además de la asignación de IPv4/IPv6 en equipos apropiados.
 Para esta labor, dispone de un total de 120 minutos.
 Se muestra a continuación, solución realizada anteriormente en minimarket “Doña Juanita”
+
+Es importante aplicar elementos asociados con direccionamiento IP, topologías, nuevos dispositivos, seguridad, aplicaciones y configuraciones para el funcionamiento de dispositivos IOT. Todo esto, enfocado en una mejora a la problemática estudiada en la primera versión del prototipo del caso.
+
 
 1. Conectorizacion de Dispositivos de Red
 	- Realizar la interconexión de dispositivos de red, utilizando cable UTP categoría 6, según la información señala en las siguientes tablas:

@@ -1,7 +1,7 @@
 # Info
-**I**nternet **o**f **T**hings es la conexion entre una variedad de sensores, actuadores y dispositivos interconectados a travez de internet, permiten automatizar procesos y permiten la [[020 - Conceptos/020.1 - Administracion/Automatizacion en Redes|Automatizacion en Redes]]
+**I**nternet **o**f **T**hings es la conexion de una variedad de sensores, actuadores y dispositivos ligeros a travez de internet, permitiendo conectar objetos que antes no lo estaban (como puertas, ampolletas, ventanas, etc.)
 
-Conectando Objetos que no se conectaban antes, mas datos para analizar, generar redes P2P, M2P o M2M (Seguimiento de recursos fisicos, optimizacion de operacion, datos de sensores, ) y en procesos que se ejecutan en el momento preciso y adecuadamente.
+Esto habilita la [[020 - Conceptos/020.1 - Administracion/Automatizacion en Redes|Automatizacion en Redes]] y de procesos, ejecutandolos en el momento preciso y de forma adecuada, ademas de la generacion de redes P2P, M2P o M2M, utiles para el seguimiento de recursos, la optimizacion de opearaciones y la recoleccion de datos de sensores
 
 Su base son las conexiones [[020 - Conceptos/020.3 - Fundamentos/WLAN|WLAN]], mediante protocolos de comunicacion tales como:
 - Basados en IEEE 802.15

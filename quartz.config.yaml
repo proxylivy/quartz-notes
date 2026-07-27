@@ -115,7 +115,7 @@ plugins:
   - source: "github:quartz-themes/core#main"
     enabled: true
     options:
-      theme: rose-pine-minimal
+      theme: anuppuccin
       mode: both
   - source: "github:quartz-community/remove-draft"
     enabled: true

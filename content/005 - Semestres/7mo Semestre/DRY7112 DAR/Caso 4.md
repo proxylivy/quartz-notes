@@ -1,0 +1,9 @@
+- WAN (MPLS L2/L3 - Metro Ethernet)
+- Ancho de banda entre las sucursales A → B
+- Transportar información
+    - Datos
+    - Voz
+    - Video
+- Costos/Beneficios
+- MPLS
+- GLBP

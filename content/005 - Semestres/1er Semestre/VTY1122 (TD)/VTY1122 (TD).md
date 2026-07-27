@@ -1,8 +1,8 @@
 La transformacion Digital es la aplicacion de tecnologia digital para proporcionar escenarios en que las personas, empresas e industrias puedan innovar. Se utiliza y configuran laboratorios en [Packet Tracer](https://www.netacad.com/resources/lab-downloads), y se ven los conceptos de [[020 - Conceptos/020.3 - Fundamentos/IoT|IoT]], , Diagramas de Red, Configuracion Inalambrica, Ciberseguridad, DHCP, Switching y Routing
 
-Ademas de comprender el concepto de Design Thinking
-- Empatizar
-- Definición
-- Ideación
-- Prototipo
-- Prueba
+Ademas de centrar las solucion en el Desing Thinking, el cual es un método para generar ideas innovadoras que centra su eficacia en entender y dar solución a las necesidades reales de los usuarios. Proviene de la forma en la que trabajan los diseñadores de producto, los pasos de esta metodología son:
+1. Empatia: El proceso de Design Thinking comienza con una profunda comprensión de las necesidades de los usuarios implicados en la solución que estemos desarrollando, y también de su entorno. Debemos ser capaces de ponernos en la piel de dichas personas para ser capaces de generar soluciones consecuentes con sus realidades.
+2. Definicion: Durante la etapa de Definición, debemos depurar la información recopilada durante la fase de Empatía y quedarnos con lo que realmente aporta valor y nos lleva al alcance de nuevas perspectivas interesantes. Identificaremos problemas cuyas soluciones serán clave para la obtención de un resultado innovador.
+3. Ideacion: La etapa de Ideación tiene como objetivo la generación de un sinfín de opciones. No debemos quedarnos con la primera idea que se nos ocurra. En esta fase, las actividades favorecen el pensamiento expansivo y debemos eliminar los juicios de valor. A veces, las ideas más estrambóticas son las que generan soluciones visionarias.
+4. Prototipado: En la etapa de Prototipado volvemos las ideas realidad. Construir prototipos hace las ideas palpables y nos ayuda a visualizar las posibles soluciones, poniendo de manifiesto elementos que debemos mejorar o refinar antes de llegar al resultado final.
+5. Test: Durante la fase de Testeo, probaremos nuestros prototipos con los usuarios implicados en la solución que estemos desarrollando. Esta fase es crucial, y nos ayudará a identificar mejoras significativas, fallos a resolver, posibles carencias. Durante esta fase evolucionaremos nuestra idea hasta convertirla en la solución que estábamos buscando.

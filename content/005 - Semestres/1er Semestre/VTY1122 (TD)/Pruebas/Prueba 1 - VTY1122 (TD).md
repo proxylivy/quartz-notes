@@ -3,15 +3,6 @@ Este es un Informe para la actividad "Propuesta de Tecnologías Emergente", en d
 
 Para esta propuesta o idea, se espera además que se incluya y considere el uso de Big data, IoT, Cloud Computing, Machine Learning, fibra óptica, entre otras tecnologías emergentes asociadas con transformación digital.
 
-## Apoyo
-
-Desing Thinking es un método para generar ideas innovadoras que centra su eficacia en entender y dar solución a las necesidades reales de los usuarios. Proviene de la forma en la que trabajan los diseñadores de producto, los pasos de esta metodología son:
-1. Empatia: El proceso de Design Thinking comienza con una profunda comprensión de las necesidades de los usuarios implicados en la solución que estemos desarrollando, y también de su entorno. Debemos ser capaces de ponernos en la piel de dichas personas para ser capaces de generar soluciones consecuentes con sus realidades.
-2. Definicion: Durante la etapa de Definición, debemos depurar la información recopilada durante la fase de Empatía y quedarnos con lo que realmente aporta valor y nos lleva al alcance de nuevas perspectivas interesantes. Identificaremos problemas cuyas soluciones serán clave para la obtención de un resultado innovador.
-3. Ideacion: La etapa de Ideación tiene como objetivo la generación de un sinfín de opciones. No debemos quedarnos con la primera idea que se nos ocurra. En esta fase, las actividades favorecen el pensamiento expansivo y debemos eliminar los juicios de valor. A veces, las ideas más estrambóticas son las que generan soluciones visionarias.
-4. Prototipado: En la etapa de Prototipado volvemos las ideas realidad. Construir prototipos hace las ideas palpables y nos ayuda a visualizar las posibles soluciones, poniendo de manifiesto elementos que debemos mejorar o refinar antes de llegar al resultado final.
-5. Test: Durante la fase de Testeo, probaremos nuestros prototipos con los usuarios implicados en la solución que estemos desarrollando. Esta fase es crucial, y nos ayudará a identificar mejoras significativas, fallos a resolver, posibles carencias. Durante esta fase evolucionaremos nuestra idea hasta convertirla en la solución que estábamos buscando.
-
 Recomendaciones
 - Video: [Platzi - Design Thinking: Que es y ejemplos de sus 5 etapas](https://youtu.be/Fs_n3g5mrvA?si=eiTAChd0-3e5j_b2)
 

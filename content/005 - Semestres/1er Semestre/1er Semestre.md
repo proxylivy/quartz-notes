@@ -14,7 +14,5 @@ PLC1101: Aprendi a comunicarme correctamente y escuchar, ademas tengo el mejor i
 
 SRY1132: Detectar errores en PC finales, armar cables coaxiales y sus normativas, verificar corrientes con multimetro, Protocolos de seguridad manejo electricidad, Conexiones inalambricas y su configuracion, Atender clientes, Analisis de problemas tecnicos con clientes y las respuestas a casos especificos
 
-SRY1142: Mantencion del Hardware y sus perifericos, Sistemas de archivos, Software de configuracion, plan de accion cambios con problemas de red, plan mantencion de perfiles en ambientes y directorios en red, Servicios de comunicacion, Documentar mantenciones, Mesas de ayuda
-
 ---
 Puedes revisar el contenido en [Copyparty - 1er Semestre](https://copyparty.proxylivy.work/Duoc/Conectividad%20y%20Redes/1er%20Semestre/)

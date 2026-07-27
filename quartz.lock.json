@@ -143,8 +143,8 @@
     "footer": {
       "source": "github:quartz-community/footer",
       "resolved": "https://github.com/quartz-community/footer.git",
-      "commit": "1706842c70f525944bb2b93c20973c69b6c99a07",
-      "installedAt": "2026-07-27T16:51:09.729Z"
+      "commit": "9551f6dba23e31d75fbc43a0f78ff2c7450176a0",
+      "installedAt": "2026-07-27T21:04:35.901Z"
     },
     "github-flavored-markdown": {
       "source": "github:quartz-community/github-flavored-markdown",

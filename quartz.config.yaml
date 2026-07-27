@@ -5,7 +5,7 @@ configuration:
   enableSPA: true
   enablePopovers: true
   analytics:
-    provider: plausible
+    provider: null
   locale: en-US
   baseUrl: notes-v5.proxylivy.work
   ignorePatterns:
@@ -115,7 +115,7 @@ plugins:
   - source: "github:quartz-themes/core#main"
     enabled: true
     options:
-      theme: default
+      theme: rose-pine-minimal
       mode: both
   - source: "github:quartz-community/remove-draft"
     enabled: true
@@ -221,7 +221,7 @@ plugins:
       priority: 5
       condition: not-index
   - source: "github:quartz-community/comments"
-    enabled: false
+    enabled: true
     options:
       provider: giscus
       options:

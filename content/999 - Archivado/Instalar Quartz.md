@@ -115,6 +115,11 @@ micro /quartz.config.yaml
 
 > FIX TEMPORAL: Agrega `#main` al final de `quartz-themes/core`
 
+> FIX TEMPORAL: Arregla `https://github.com/quartz-community/syntax-highlighting`
+```
+pone como dependencia shiki
+```
+
 > Instala los plugins
 ```
 npx quartz plugin install --from-config
@@ -176,7 +181,7 @@ rsync -druLPO --no-times --delete --exclude ".*" /home/docker/services/syncthing
 
 > Instala temas
 ```
-npm install @quartz-themes/catppuccin @quartz-themes/rose-pine-minimal @quartz-themes/minimal @quartz-themes/half-life @quartz-themes/material-gruvbox @quartz-themes/monokai-filtersun-spectrum @quartz-themes/muted-blue @quartz-themes/neovim @quartz-themes/nightfox @quartz-themes/notation @quartz-themes/obsidian-nord @quartz-themes/poimandres @quartz-themes/pomme-notes @quartz-themes/praxis @quartz-themes/royal-velvet @quartz-themes/serika @quartz-themes/termina
+npm install @quartz-themes/neovim @quartz-themes/catppuccin @quartz-themes/muted-blue @quartz-themes/poimandres
 ```
 
 > Modifica el config para cambiar el theme de core de default a minimal? o rose-pine

@@ -319,7 +319,7 @@ sudo apt install fish fastfetch
 > Instalar [Fisher](https://github.com/jorgebucaran/fisher)
 > 
 > Nota: Solo funciona cuando dentro de `fish`
-```
+```sh
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 ```
 

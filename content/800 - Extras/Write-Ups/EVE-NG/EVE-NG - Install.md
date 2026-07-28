@@ -265,8 +265,9 @@ Instrucciones
 | -------- | -------- | -------- | -------- |
 | `root`   | `eve`    | `admin`  | `eve`    |
 
-> Al iniciar, te saldra este prompt de inicio, y sera tapado por otras cosas, simplemente inicia con las credenciales
-```
+
+Al iniciar, te saldra este prompt de inicio, y sera tapado por otras cosas, simplemente inicia con las credenciales
+```md
 Eve-NG (default root password is 'eve')
 Use http:///
 

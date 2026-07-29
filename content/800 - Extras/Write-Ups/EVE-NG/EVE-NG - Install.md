@@ -274,8 +274,8 @@ Use http:///
 eve-ng login:
 ```
 
-> Configuracion TUI Basica
-```
+Configuracion TUI Basica
+```md
 - Nueva Contraseña: eve
 - Hostname: eve-ng
 - DNS Domain Name: example.com 
@@ -284,53 +284,51 @@ eve-ng login:
 - Proxy Server: Direct Connection
 ```
 
-> En este paso se reinicia automaticamente el VM, deberia aparecer la IP en el baneer para iniciar sesion
+En este paso se reinicia automaticamente el VM, deberia aparecer la IP en el baneer para iniciar sesion
 
 > [!INFO] Sobre Gestionar VM
 > Teniendo la IP, ya puedes conectarte por ssh, su gestion es mucho mas comoda
-> ```
+> ```sh
 > ssh root@{ip-eve-ng}
 > ``` 
 
-> Prueba de internet y Actualizar Paquetes Servidor (Si necesitas reiniciar servicios, reinicialos todos)
-```
+Prueba de internet y Actualizar Paquetes Servidor (Si necesitas reiniciar servicios, reinicialos todos)
+```sh
 ping -c 2 google.cl
 apt update && apt upgrade
 apt autoremove
 ```
 
-> Hacer la vida mas sencilla
-```
+Hacer la vida mas sencilla
+```sh
 apt install micro btop kitty git tree imagemagick p7zip-full qemu-guest-agent lm-sensors ffmpeg jq fzf resvg xclip xsel fd-find libpoppler118 poppler-utils ripgrep zoxide
 ```
 
-> Inicia el servicio de Guest Agent
-```
+Inicia el servicio de Guest Agent
+```sh
 sudo systemctl enable qemu-guest-agent --now
 ```
 
-> Agrega los reopositoris para instalar [Fish Shell](https://fishshell.com/) y [Fastfetch](https://github.com/fastfetch-cli/fastfetch)
-```
+Agrega los reopositoris para instalar [Fish Shell](https://fishshell.com/) y [Fastfetch](https://github.com/fastfetch-cli/fastfetch)
+```sh
 sudo apt-add-repository ppa:fish-shell/release-3
 sudo add-apt-repository ppa:zhangsongcui3371/fastfetch
 sudo apt update
 sudo apt install fish fastfetch
 ```
 
-> Instalar [Fisher](https://github.com/jorgebucaran/fisher)
-> 
-> Nota: Solo funciona cuando dentro de `fish`
-```sh
+Instalar [Fisher](https://github.com/jorgebucaran/fisher) | Desde `fish`
+```fish
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 ```
 
-> Instalar [Tide](https://github.com/IlanCosman/tide)
-```
+Instalar [Tide](https://github.com/IlanCosman/tide) | Desde `fish`
+```fish
 fisher install IlanCosman/tide@v6
 ```
 
-> Instala [LSD](https://github.com/lsd-rs/lsd)
-```
+Instala [LSD](https://github.com/lsd-rs/lsd)
+```sh
 wget https://github.com/lsd-rs/lsd/releases/download/v1.2.0/lsd_1.2.0_amd64.deb
 
 sudo apt install ./lsd_1.2.0_amd64.deb
@@ -338,8 +336,8 @@ sudo apt install ./lsd_1.2.0_amd64.deb
 rm lsd_1.2.0_amd64.deb
 ```
 
-> Instala [Yazi](https://github.com/sxyazi/yazi) | Comprueba la ultima version desde [Releases](https://github.com/sxyazi/yazi/releases) y debe ser la version MUSL
-```
+Instala [Yazi](https://github.com/sxyazi/yazi) | Comprueba la ultima version desde [Releases](https://github.com/sxyazi/yazi/releases) y debe ser la version MUSL
+```sh
 wget https://github.com/sxyazi/yazi/releases/download/v26.5.6/yazi-x86_64-unknown-linux-musl.deb
 
 apt install ./yazi-x86_64-unknown-linux-musl.deb
@@ -388,33 +386,33 @@ Una vez con tu cuenta creada, busca el termino "`AOS-CX OVA`" desde el buscador 
 
 Te recomiendo revisar el Changelog de Aruba para ver cuales son los ultimos cambios y lanzamientos de cada rama.
 
-> Crea la carpeta en el servidor
-```
+Crea la carpeta en el servidor
+```sh
 mkdir /opt/unetlab/addons/qemu/arubacx-{version}
 ```
 
-> Descomprime el .zip que contiene el OVA
-```
+Descomprime el .zip que contiene el OVA
+```sh
 7z x AOS-CX_Switch_Simulator_10_18_0001_ova.zip
 ```
 
-> Luego descomprime el OVA
-```
+Luego descomprime el OVA
+```sh
 7z x AOS-CX_10_18_0001.ova
 ```
 
-> Convierte el archivo vmdk a qcow2
-```
+Convierte el archivo vmdk a qcow2
+```sh
 qemu-img convert -f vmdk -O qcow2 arubaoscx-disk-image-genericx86-p4-20260521162224.vmdk virtioa.qcow
 ```
 
-> Copia la imagen al servidor
-```
+Copia la imagen al servidor
+```sh
 rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/arubacx-{version}/
 ```
 
-> Arregla los permisos
-```
+Arregla los permisos
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
@@ -496,7 +494,7 @@ A partir de este punto, las siguientes secciones asumen que ya tienes acceso al 
 > 	- [robin113x - keygen](https://github.com/robin113x/keygen/blob/main/CiscoIOUKeygen.py)
 
 > [!BUG] Evita este Router
-> Evita usar la version `L3 15.5.2T` (Router) debido a que se congela en standby y no podras acceder a la consola
+> No uses el Router con IOS `L3 15.5.2T` debido a que se congela en standby (No Accede a Consola)
 
 Cisco IOS (**I**nternetwork **O**perative **S**ystem) o IOL (**I**OS **O**n **L**inux) utilizan un formato distinto al de las maquinas virtuales tradicionales. En lugar de ejecutarse como una imagen de QEMU, IOL consiste en binarios compilados especificamente para Linux, una arquitectura heredada de los primeros laboratorios internos de Cisco (WebIOL) y fue posteriormente adoptada pro herramientas como IOU WEB, UNL y finalmente EVE-NG.
 
@@ -512,31 +510,31 @@ Las versiones que recomiendo son
 
 IOURC es el archivo de licencia que leen los binarios de IOS para poder ejecutarse, dependen de los valores `hostname` y `Host_id` por lo que es importarte rehacerlo cuando cambias los archivos `/etc/hostname` y `/etc/hosts`.
 
-> Crea un archivo `NETMAP` y `iourc`
-```
+Crea un archivo `NETMAP` y `iourc`
+```sh
 touch /opt/unetlab/addons/iol/bin/NETMAP /opt/unetlab/addons/iol/bin/iourc
 ```
 
-> Te recomiendo buscar el Keygen y copiarlo en un archivo `script.py` y ejecutalo usando Python
-```
+Te recomiendo buscar el Keygen y copiarlo en un archivo `script.py` y ejecutalo usando Python
+```sh
 python3 script.py
 ```
 
-> El output del script copialo dentro de `/opt/unetlab/addons/iol/bin/iourc`
-```
+El output del script copialo dentro de `/opt/unetlab/addons/iol/bin/iourc`
+```md
 [license]
 eve-ng = 972xxxxxxxxx1616;
 ```
 
 **BIN**
 
-> Copia las imagenes desde tu pc al servidor
-```
+Copia las imagenes desde tu pc al servidor
+```sh
 rsync -Phvr *.bin root@{ip-server}:/opt/unetlab/addons/iol/bin/
 ```
 
-> Arregla los permisos
-```
+Arregla los permisos
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
@@ -570,18 +568,18 @@ Para extraer las imagenes desde CML-Free para Switch L2/L3
 4. Extraera el archivo `x86_64_crb_linux_l2-adventerprisek9-ms.iol`.
 5. Debes cambiar la extension de `.iol` a `.bin`
 
-> Envia el binario del router L3 a la carpeta de IOL
-```
+Envia el binario del router L3 a la carpeta de IOL
+```sh
 rsync -Phvr x86_64_crb_linux-adventerprisek9-ms.bin root@{ip-server}:/opt/unetlab/addons/iol/bin/
 ```
 
-> Envia el binario del Switch L2/L3 a la carpeta de IOL
-```
+Envia el binario del Switch L2/L3 a la carpeta de IOL
+```sh
 rsync -Phvr x86_64_crb_linux_l2-adventerprisek9-ms.bin root@{ip-server}:/opt/unetlab/addons/iol/bin/
 ```
 
-> Arregla los permisos
-```
+Arregla los permisos
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
@@ -601,18 +599,18 @@ rsync -Phvr x86_64_crb_linux_l2-adventerprisek9-ms.bin root@{ip-server}:/opt/une
 
 Puedes conseguir esta imagen actualizada con el metodo de [[#Cisco IOS XE]] (Mediante CML-Free), pero estan sin licencia.
 
-> Crear las carpetas para ASAv
-```
+Crear las carpetas para ASAv
+```sh
 mkdir /opt/unetlab/addons/qemu/asav-{version}
 ```
 
-> Envia las imagenes a la carpeta ASA
-```
+Envia las imagenes a la carpeta ASA
+```sh
 rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/asav-{version}/
 ```
 
-> Arregla permisos
-```
+Arregla permisos
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
@@ -623,8 +621,8 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/asav-{versio
 
 Las imagenes "**P**ermanent **L**icense **R**eservation (PLR)" traen la licencia integrada y expanden las funcionalidades del ASAv. El truco es que deben configurarse de forma especifica, de lo contrario el sistema detecta que es una imagen clonada y eliminara la licencia automaticamente
 
-> Caracteristicas Licencia ASAv Universal v10
-```
+Caracteristicas Licencia ASAv Universal v10
+```md
 License mode: Smart Licensing
 License reservation: Enabled
 ASAv Platform License State: Licensed
@@ -654,8 +652,8 @@ Cluster                           : Enabled
 
 Cada Imagen PLR viene con un UUID en su archivo YML. Sin el, la imagen no funciona, debe estar en la misma carpeta donde descargaste la imagen, copialo y tengo en mente
 
-> Crea el archivo `asav-plr.yml`
-```
+Crea el archivo `asav-plr.yml`
+```yaml
 ---
 type: qemu
 config_script: config_asav.py
@@ -677,28 +675,28 @@ qemu_options: -machine type=q35,accel=kvm -serial mon:stdio -nographic -no-user-
 ...
 ```
 
-> Copia `asav-plr.yml` para Template de Intel
-```
+Copia `asav-plr.yml` para Template de Intel
+```sh
 rsync -Phvr asav-plr.yml root@{ip-server}:/opt/unetlab/html/templates/intel/
 ```
 
-> Copia `asav-plr.yml` para template de AMD
-```
+Copia `asav-plr.yml` para template de AMD
+```sh
 rsync -Phvr asav-plr.yml root@{ip-server}:/opt/unetlab/html/templates/amd/
 ```
 
-> Crear la carpeta para `ASAv-PLR`
-```
+Crear la carpeta para `ASAv-PLR`
+```sh
 mkdir /opt/unetlab/addons/qemu/asav-plr-{version}
 ```
 
-> Envia la imagen al servidor
-```
+Envia la imagen al servidor
+```sh
 rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/asav-plr{version}/
 ```
 
-> Arregla permisos
-```
+Arregla permisos
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
@@ -727,38 +725,38 @@ Para acceder a estas imagenes debes extraerlas desde CML-Free, accedes a `virl-b
 - Router L3: `iosv-159-3-m12`
 - Switch L2/L3: `iosvl2-20200929`
 
-> Crea carpeta para el Router L3
-```
+Crea carpeta para el Router L3
+```sh
 mkdir /opt/unetlab/addons/qemu/vios-{version}
 ```
 
-> Crea Carpeta para el Switch L2
-```
+Crea Carpeta para el Switch L2
+```sh
 mkdir /opt/unetlab/addons/qemu/viosl2-{version}
 ```
 
-> Renombra la imagen del Router L3
-```
+Renombra la imagen del Router L3
+```sh
 mv vios-adventerprisek9-m.spa.{version}.qcow2 virtioa.qcow2
 ```
 
-> Renombra la imagen del Switch L2/L3
-```
+Renombra la imagen del Switch L2/L3
+```sh
 mv vios_l2-adventerprisek9-m.ssa.high_iron_{version}.qcow2 virtioa.qcow2
 ```
 
-> Envia la imagen del Router L3
-```
+Envia la imagen del Router L3
+```sh
 rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vios-{version}
 ```
 
-> Envia la imagen del Switch L2/L3
-```
+Envia la imagen del Switch L2/L3
+```sh
 rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/viosl2-{version}
 ```
 
-> Arregla los permisos
-```
+Arregla los permisos
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
@@ -777,23 +775,23 @@ Cisco **C**loud **S**ervices **R**outer 1000v es un router virtual basado en Cis
 
 Su estado es EOL y se usa para laboratorios viejos para aprender automatizacion
 
-> Crea la carpeta para CSR1000vng
-```
+Crea la carpeta para CSR1000vng
+```sh
 mkdir /opt/unetlab/addons/qemu/csr1000vng-{version}
 ```
 
-> Renombra el archivo
-```
+Renombra el archivo
+```sh
 mv csr1000vng-universalk9.{version}-serial virtioa.qcow2
 ```
 
-> Mueve la imagen para CSR1000vng
-```
+Mueve la imagen para CSR1000vng
+```sh
 rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/csr1000vng-{version}/
 ```
 
-> Arregla los permisos
-```
+Arregla los permisos
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
@@ -818,45 +816,45 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/csr1000vng-{
 > [!WARNING] Sobre Requisitos
 > Solo este nodo (vtmgmt) es extremadamente pesado, necesita 100GB de espacio extra y 32GB de ram para correr correctamente
 
-> Crea la carpeta
-```
+Crea la carpeta
+```sh
 mkdir /opt/unetlab/addons/qemu/vtmgmt-{version}
 ```
 
-> Mueve el Qcow2
-```
+Mueve el Qcow2
+```sh
 rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vtmgmt-{version}/
 ```
 
-> Ve a esa carpeta
-```
+Ve a esa carpeta
+```sh
 cd /opt/unetlab/addons/qemu/vtmgmt-{version}
 ```
 
-> Crea un segundo disco de 100GB llamado "`virtiob.qcow2`"
-```
+Crea un segundo disco de 100GB llamado "`virtiob.qcow2`"
+```sh
 /opt/qemu/bin/qemu-img create -f qcow2 virtiob.qcow2 100G
 ```
 
-> Aregla los permisos
-```
+Aregla los permisos
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
 #### vSmart
 
-> Crea la carpeta
-```
+Crea la carpeta
+```sh
 mkdir /opt/unetlab/addons/qemu/vtsmart-{version}
 ```
 
-> Mueve el Qcow2
-```
+Mueve el Qcow2
+```sh
 rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vtsmart-{version}/
 ```
 
-> Aregla los permisos
-```
+Aregla los permisos
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
@@ -865,18 +863,18 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vtsmart-{ver
 > [!INFO] Qcow2
 > vBond y vEdge utilizan la misma imagen: `viptela-edge-{version}-genericx86-64.qcow2`
 
-> Crea la carpeta
-```
+Crea la carpeta
+```sh
 mkdir /opt/unetlab/addons/qemu/vtbond-{version}
 ```
 
-> Mueve el Qcow2
-```
+Mueve el Qcow2
+```sh
 rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vtbond-{version}/
 ```
 
-> Aregla los permisos
-```
+Aregla los permisos
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
@@ -885,18 +883,18 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vtbond-{vers
 > [!INFO] Qcow2
 > vBond y vEdge utilizan la misma imagen: `viptela-edge-{version}-genericx86-64.qcow2`
 
-> Crea la carpeta
-```
+Crea la carpeta
+```sh
 mkdir /opt/unetlab/addons/qemu/vtedge-{version}
 ```
 
-> Mueve el Qcow2
-```
+Mueve el Qcow2
+```sh
 rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vtedge-{version}/
 ```
 
-> Aregla los permisos
-```
+Aregla los permisos
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
@@ -917,23 +915,23 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/vtedge-{vers
 
 VOSS significa VSP Operating System Software, desde la version 9.0.0 que cambio el nombre a Fabric Engine (FE)
 
-> Crea la carpeta
-```
+Crea la carpeta
+```sh
 mkdir /opt/unetlab/addons/qemu/extremevoss-{version}
 ```
 
-> Cambia el nombre del archivo
-```
+Cambia el nombre del archivo
+```sh
 mv FEGNS3.{version}.qcow2 hda.qcow2
 ```
 
-> Mueve el archivo
-```
+Mueve el archivo
+```sh
 rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/extremevoss-{version}/
 ```
 
-> Arregla los permisos
-```
+Arregla los permisos
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
@@ -950,23 +948,23 @@ rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/extremevoss-{ver
 
 Desde la version 31.6.x, EXOS ahora pasa a ser Switch Engine
 
-> Crea la carpeta
-```
+Crea la carpeta
+```sh
 mkdir /opt/unetlab/addons/qemu/extremexos-{version}
 ```
 
-> Renombra el archivo
-```
+Renombra el archivo
+```sh
 mv EXOS-VM_{version}.qcow2 hda.qcow2
 ```
 
-> Envia el archivo al servidor
-```
+Envia el archivo al servidor
+```sh
 rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/extremexos-{version}/
 ```
 
-> Arregla los permisos
-```
+Arregla los permisos
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
@@ -996,28 +994,28 @@ Registra e inicia sesion en una cuenta, luego ve al menu de Descarga y seleccion
 
 Yo descargue: `BIGIP-21.1.0-0.0.38.ALL.qcow2`
 
-> Crea la carpeta
-```
+Crea la carpeta
+```sh
 mkdir /opt/unetlab/addons/qemu/bigip-{version}
 ```
 
-> Descomprime el archivo
-```
+Descomprime el archivo
+```sh
 7z x BIGIP-{version}.ALL.qcow2.zip
 ```
 
-> Renombra el archivo
-```
+Renombra el archivo
+```sh
 mv BIGIP-{version}.ALL.qcow2 virtioa.qcow2
 ```
 
-> Mueve la imagen
-```
+Mueve la imagen
+```sh
 rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/bigip-{version}/
 ```
 
-> Arregla los permisos
-```
+Arregla los permisos
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
@@ -1038,33 +1036,33 @@ rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/bigip-{versi
 
 EVE-NG no tiene documentacion oficial, pero tiene un template, debes descargar el instalador DVD1 para una instalacion offline, en mi caso `FreeBSD-15.1-RELEASE-amd64-dvd1.iso`
 
-> Crea la carpeta
-```
+Crea la carpeta
+```sh
 mkdir /opt/unetlab/addons/qemu/freebsd-{version}
 ```
 
-> Renombra el archivo
-```
+Renombra el archivo
+```sh
 mv FreeBSD-{version}-RELEASE-amd64-dvd1.iso cdrom.iso
 ```
 
-> Envia la imagen al servidor
-```
+Envia la imagen al servidor
+```sh
 rsync -Phvr cdrom.iso root@{ip-server}:/opt/unetlab/addons/qemu/freebsd-{version}/
 ```
 
-> Ve a la carpeta de Freebsd
-```
+Ve a la carpeta de Freebsd
+```sh
 cd /opt/unetlab/addons/qemu/freebsd-{version}
 ```
 
-> Crea un disco de 10GB
-```
+Crea un disco de 10GB
+```sh
 /opt/qemu/bin/qemu-img create -f qcow2 virtioa.qcow2 10G
 ```
 
-> Arregla los permisos
-```
+Arregla los permisos
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
@@ -1095,8 +1093,8 @@ Sigue estas instrucciones de instalacion
 
 Ahora deberas hacer [[#Commit al Qcow2]] y elimina el disco `cdrom.iso`
 
-> Nunca olvides arreglar los permisos para eve-ng
-```
+Nunca olvides arreglar los permisos para eve-ng
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
@@ -1145,42 +1143,42 @@ Ve a Fortinet Download VM, elige el producto es FortiGate, y la plataforma es KV
 
 Antes de la version `7.2.0` el licenciamiento era mas laxo, algunas personas las utilizan, yo encontre: `fortinet-FGT-v7.0.3build0237`
 
-> Descomprimimos el ZIP
-```
+Descomprimimos el ZIP
+```sh
 7z x FGT_VM64_KVM-{version}-FORTINET.out.kvm.zip
 ```
 
-> Renombramos el archivo
-```
+Renombramos el archivo
+```sh
 mv fortios.qcow2 virtioa.qcow2
 ```
 
-> Crear carpeta para FGT
-```
+Crear carpeta para FGT
+```sh
 mkdir /opt/unetlab/addons/qemu/fortinet-FGT-{version}
 ```
 
-> Mueve la imagen para FGT
-```
+Mueve la imagen para FGT
+```sh
 rsync -Phvr virtioa.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/fortinet-FGT-{version}/
 ```
 
-> Arregla permisos
-```
+Arregla permisos
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
 Crea un nodo de FGT, y conectalo a Cloud0 e inicia el nodo, se demora en iniciar 2 minutos
 
 Desde la CLI configura una nueva contraseña (Esta tambien te servira para acceder a la web) y revisa que ip te dio en el port1
-```
+```plain
 show system interface ?
 ```
 
 Ingresa a la ip de port1 y licencia tu VM, con una licencia Trial asociada a tu cuenta
 
 Te saldra un mensaje en la consola y se reiniciara
-```
+```plain
 show system interface Requesting FortiCare Trial license, proxy:(null)
 ```
 
@@ -1216,23 +1214,23 @@ EVE-NG solo tiene consideracion por la imagen de "FW" (CloudEdge), pero puedes c
 La ultima version que encontre fue
 - `SG6000-CloudEdge-5.5R12P2.44-v6.qcow2 - Tamaño: 268,2 MB - Última actualización: 30/06/2026 17:53:24`
 
-> Crear carpeta para CloudEdge
-```
+Crear carpeta para CloudEdge
+```sh
 mkdir /opt/unetlab/addons/qemu/hillstone-sg6000-CloudEdge-{version}
 ```
 
-> Renombra el archivo
-```
+Renombra el archivo
+```sh
 mv SG6000-CloudEdge-{version}.qcow2 hda.qcow2
 ```
 
-> Mueve el archivo
-```
+Mueve el archivo
+```sh
 rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/hillstone-sg6000-CloudEdge-{version}/
 ```
 
-> Arregla los permisos
-```
+Arregla los permisos
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
@@ -1275,23 +1273,23 @@ Crea un nodo, luego conectalo a Cloud0 y enciendelo
 Yo encontre
 - `SG6000-vADC-5.5R12-5.0-v6.qcow2 - Tamaño: 309,9 MB - Última actualización: 28/05/2026 22:26:44`
 
-> Crear carpeta para vADC
-```
+Crear carpeta para vADC
+```sh
 mkdir /opt/unetlab/addons/qemu/hillstone-sg6000-vADC-{version}
 ```
 
-> Renombra el archivo
-```
+Renombra el archivo
+```sh
 mv SG6000-vADC-{version}-v6.qcow2 hda.qcow2
 ```
 
-> Mueve el archivo
-```
+Mueve el archivo
+```sh
 rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/hillstone-sg6000-vADC-{version}/
 ```
 
-> Arregla los permisos
-```
+Arregla los permisos
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
@@ -1319,23 +1317,23 @@ Crea un nodo, entras las opciones, configura 2vCPU y 4096MB de ram, en caso cont
 Yo encontre
 - `SG6000-vIPS-5.5R12-6.2-v6.qcow2 - Size: 288.6 MB - Última actualización: 2026-03-25 14:29:11`
 
-> Crear carpeta para vIPS
-```
+Crear carpeta para vIPS
+```sh
 mkdir /opt/unetlab/addons/qemu/hillstone-sg6000-vIPS-{version}
 ```
 
-> Renombra el archivo
-```
+Renombra el archivo
+```sh
 mv SG6000-vIPS-{version}-v6.qcow2 hda.qcow2
 ```
 
-> Mueve el archivo
-```
+Mueve el archivo
+```sh
 rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/hillstone-sg6000-vIPS-{version}/
 ```
 
-> Arregla los permisos
-```
+Arregla los permisos
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
@@ -1384,18 +1382,18 @@ Yo encontre: `huaweiar1k-5.170 - 509.75M` (`V300R019C00SPC300`)
 
 NetEngine AR1000v es un router NFV (Network Functions Virtualization) de borde empresarial, equivalente a un AR fisico usando su propia plataforma VRP (Versatile Routing Platform), permitiendo hacer VPN, routing, SD-WAN para la nube, entre otros.
 
-> Crea la carpeta
-```
+Crea la carpeta
+```sh
 mkdir /opt/unetlab/addons/qemu/huaweiar1k-{version}
 ```
 
-> Envia la imagen al servidor
-```
+Envia la imagen al servidor
+```sh
 rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/huaweiar1k-{version}/
 ```
 
-> Arregla los permisos
-```
+Arregla los permisos
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
@@ -1421,18 +1419,18 @@ Su template no esta en EVE-NG, no confundir con NE40, son distintos
 
 Un router con aires mas de ISP, para MPLS, BGP y ese tipo de cosas
 
-> Crea la carpeta
-```
+Crea la carpeta
+```sh
 mkdir /opt/unetlab/addons/qemu/huaweine40e-{version}
 ```
 
-> Mueve el archivo
-```
+Mueve el archivo
+```sh
 rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/huaweine40e-{version}/
 ```
 
-> Crea el archivo `huaweine40e.yml`
-```
+Crea el archivo `huaweine40e.yml`
+```yaml
 ---
 type: qemu
 description: Huawei NE40E
@@ -1453,18 +1451,18 @@ qemu_options: -machine type=pc,accel=kvm -cpu host -serial mon:stdio -nographic 
 ...
 ```
 
-> Envia el template `huaweine40e.yml` a Intel
-```
+Envia el template `huaweine40e.yml` a Intel
+```sh
 rsync -Phvr huaweine40e.yml root@{ip-server}:/opt/unetlab/html/templates/intel/
 ```
 
-> Envia el template `huaweine40e.yml` a AMD
-```
+Envia el template `huaweine40e.yml` a AMD
+```sh
 rsync -Phvr huaweine40e.yml root@{ip-server}:/opt/unetlab/html/templates/amd/
 ```
 
-> Arregla los permisos
-```
+Arregla los permisos
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
@@ -1488,18 +1486,18 @@ Cloud Engine 12800 es un Switch empresarial enfocado a Data Center y VXLAN
 
 No esta el template en EVE-NG, asi que debes importarlo desde un archivo yml
 
-> Crea la carpeta
-```
+Crea la carpeta
+```sh
 mkdir /opt/unetlab/addons/qemu/huaweice12800-{version}
 ```
 
-> Envia el icono de `ce.png`
-```
+Envia el icono de `ce.png`
+```sh
 rsync -Phvr ce.png root@{ip-server}:/opt/unetlab/html/images/icons/
 ``` 
 
-> Crea el archivo `huaweice12800.yml` con el siguiente contenido
-```
+Crea el archivo `huaweice12800.yml` con el siguiente contenido
+```yaml
 # Copyright (c) 2016, Andrea Dainese
 # Copyright (c) 2018, Alain Degreffe
 # All rights reserved.
@@ -1547,23 +1545,23 @@ qemu_options:  -machine type=q35,accel=kvm -serial mon:stdio -nographic -nodefau
 ...
 ```
 
-> Envia el template `huaweice12800.yml` a Intel
-```
+Envia el template `huaweice12800.yml` a Intel
+```sh
 rsync -Phvr huaweice12800.yml root@{ip-server}:/opt/unetlab/html/templates/intel/
 ```
 
-> Envia el template `huaweice12800.yml` a AMD
-```
+Envia el template `huaweice12800.yml` a AMD
+```sh
 rsync -Phvr huaweice12800.yml root@{ip-server}:/opt/unetlab/html/templates/amd/
 ```
 
-> Mueve el archivo
-```
+Mueve el archivo
+```sh
 rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/huaweice12800-{version}/
 ```
 
-> Arregla los permisos
-```
+Arregla los permisos
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
@@ -1578,18 +1576,18 @@ Crea un nodo y enciendelo
 
 Yo encontre: `huaweiusg6kv-5.1.7-2018 - 728.52M` (`V500R005C00SPC100`)
 
-> Crea la carpeta
-```
+Crea la carpeta
+```sh
 mkdir /opt/unetlab/addons/qemu/huaweiusg6kv-{version}
 ```
 
-> Mueve el archivo
-```
+Mueve el archivo
+```sh
 rsync -Phvr hda.qcow2 root@{ip-server}:/opt/unetlab/addons/qemu/huaweiusg6kv-{version}/
 ```
 
-> Arregla los permisos
-```
+Arregla los permisos
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
@@ -1598,7 +1596,7 @@ Crea un nodo, en las opciones, cambia de VNC a Telnet, luego conectalo a Cloud0 
 > [!TIP] Sobre inicio
 > Carga el kernel de Linux e inicializa el sistema, se demora 3 minutos
 
-No logre iniciar sesion debido al `@` que utiliza, Skill Issue
+No logre iniciar sesion debido al `@` que utiliza, Skill Issue, supongo que en Windows funcionaria
 
 ## Linux
 > [!IMPORTANT] Documentacion Recomendada
@@ -1624,18 +1622,18 @@ No logre iniciar sesion debido al `@` que utiliza, Skill Issue
 > 	- [Fastly Mirro - Latest Image](https://fastly.mirror.pkgbuild.com/images/latest/)
 > 	- [Geo Mirror - Latest Image](https://geo.mirror.pkgbuild.com/images/latest/)
 
-> Crea la carpeta
-```
+Crea la carpeta
+```sh
 mkdir /opt/unetlab/addons/qemu/linux-archlinux-{version}
 ```
 
-> Descarga la ultima imagen Base
-```
+Descarga la ultima imagen Base
+```sh
 wget https://fastly.mirror.pkgbuild.com/images/latest/Arch-Linux-x86_64-basic.qcow2 -O /opt/unetlab/addons/qemu/linux-archlinux-{version}/virtioa.qcow2
 ```
 
-> Arregla los permisos
-```
+Arregla los permisos
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
@@ -1650,33 +1648,33 @@ Crea un nodo, conectalo a Cloud0, y enciendelo
 
 En el sitio de descarga, ve a la categoria "Virtual" y descarga la version "x86_64", en mi caso: `alpine-virt-{version}-x86_64.iso`
 
-> Crea la carpeta
-```
+Crea la carpeta
+```sh
 mkdir /opt/unetlab/addons/qemu/linux-alpine-{version}
 ```
 
-> Renombra el ISO
-```
+Renombra el ISO
+```sh
 mv alpine-virt-{version}-x86_64.iso cdrom.iso
 ```
 
-> Envia el archivo
-```
+Envia el archivo
+```sh
 rsync -Phvr cdrom.iso root@{ip-server}:/opt/unetlab/addons/qemu/linux-alpine-{version}/
 ```
 
-> Ve a la carpeta
-```
+Ve a la carpeta
+```sh
 cd /opt/unetlab/addons/qemu/linux-alpine-{version}
 ```
 
-> Crea un disco de 10GB
-```
+Crea un disco de 10GB
+```sh
 /opt/qemu/bin/qemu-img create -f qcow2 virtioa.qcow2 10G
 ```
 
-> Arregla los permisos
-```
+Arregla los permisos
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
@@ -1703,20 +1701,20 @@ Ejecuta el comando `setup-alpine` y sigue los siguientes pasos
 - Presiona `y` para eliminar el contenido del disco y utilizarlo
 - Termino la instalacion, escribe `poweroff` para apagar la maquina
 
-> Ve a la carpeta de Linux Alpine
-```
+Ve a la carpeta de Linux Alpine
+```sh
 cd /opt/unetlab/addons/qemu/linux-alpine-{version}
 ```
 
-> Elimina el disco iso
-```
+Elimina el disco iso
+```sh
 rm cdrom.iso
 ```
 
 Ahora debes hacer [[#Commit al Qcow2]]
 
-> Arregla los permisos
-```
+Arregla los permisos
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
@@ -1730,33 +1728,33 @@ Busca un [Mirror](https://cdimage.kali.org/README?mirrorlist), yo por ejemplo ut
 
 Yo utilizo: `kali-linux-2026-W28-qemu-amd64.7z`
 
-> Crea la carpeta
-```
+Crea la carpeta
+```sh
 mkdir /opt/unetlab/addons/qemu/linux-kali-{version}
 ```
 
-> Descarga la imagen directamente en el servidor (debes copiar el archivo desde el mirror)
-```
+Descarga la imagen directamente en el servidor (debes copiar el archivo desde el mirror)
+```sh
 wget kali-linux-{version}-qemu-amd64.7z
 ```
 
-> Descomprime la imagen
-```
+Descomprime la imagen
+```sh
 7z x kali-linux-{version}-qemu-amd64.7z
 ```
 
-> Elimina el 7z
-```
+Elimina el 7z
+```sh
 rm kali-linux-{version}-qemu-amd64.7z
 ```
 
-> Renombra el archivo
-```
+Renombra el archivo
+```sh
 mv kali-linux-{version}-qemu-amd64.qcow2 virtioa.qcow2
 ```
 
-> Arregla los permisos
-```
+Arregla los permisos
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
@@ -1774,33 +1772,33 @@ Tienes 3 ramas para elegir
 
 Descarga el DVD ISO desde la pagina oficial
 
-> Crea la carpeta
-```
+Crea la carpeta
+```sh
 mkdir /opt/unetlab/addons/qemu/linux-rockylinux-{version}
 ```
 
-> Renombra el ISO
-```
+Renombra el ISO
+```sh
 mv Rocky-{version}-x86_64-dvd.iso cdrom.iso
 ```
 
-> Envia el archivo
-```
+Envia el archivo
+```sh
 rsync -Phvr cdrom.iso root@{ip-server}:/opt/unetlab/addons/qemu/linux-rockylinux-{version}/
 ```
 
-> Ve a la carpeta
-```
+Ve a la carpeta
+```sh
 cd /opt/unetlab/addons/qemu/linux-rockylinux-{version}
 ```
 
-> Crea un disco de 10GB
-```
+Crea un disco de 10GB
+```sh
 /opt/qemu/bin/qemu-img create -f qcow2 virtioa.qcow2 10G
 ```
 
-> Arregla los permisos
-```
+Arregla los permisos
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 
@@ -1829,8 +1827,8 @@ Al arrancar con la ISO de Rocky Linux 8.10, aparece el menu de instalacion grafi
 
 Luego apagas la maquina y haces [[#Commit al Qcow2]]
 
-> Arregla los permisos
-```
+Arregla los permisos
+```sh
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
 

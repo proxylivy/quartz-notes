@@ -356,7 +356,7 @@ Instala los siguientes programas
 - SSH via Win32-OpenSSH | [Github PowerShell/Win32-OpenSSH](https://github.com/PowerShell/Win32-OpenSSH/releases)
 - Putty | [Download Snapshot](https://www.chiark.greenend.org.uk/~sgtatham/putty/snapshot.html)
 - Cmder | [Official Page](https://cmder.app/) | [Github cmderdev/cmder](https://github.com/cmderdev/cmder) | Recomiendo Full
-- eNSP -> Sigue [[500 - Personal/500.3 - Write-Ups/eNSP/Instalar eNSP|Instalar eNSP]]
+- eNSP -> Sigue [[800 - Extras/Write-Ups/Windows/eNSP - Base|eNSP - Base]]
 
 Modificar las opciones con "`netplwiz`"
 - Modificar ambos usuarios como administradores

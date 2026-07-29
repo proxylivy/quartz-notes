@@ -1,8 +1,9 @@
 
+Actividad de [[005 - Semestres/1er Semestre/SRY1132 (SRAA)/SRY1132 (SRAA)|SRY1132 (SRAA)]]
+
 Una estupidez que te pasan como mantra sobre como atender un cliente, nunca olvides este meme
 
 ![](https://slink.proxylivy.work/image/237597c2-c2c2-4217-bb79-fb062e9837d0.jpg)
-
 
 # Conceptos Principales
 

@@ -1,5 +1,5 @@
 # Info
-La version recomendad es: [[300 - Conocimiento/Write-Ups/IOU-WEB/IOU WEB - Atlas - Rocky Linux 8.10|IOU WEB - Atlas - Rocky Linux 8.10]]
+La version recomendad es: [[800 - Extras/Write-Ups/IOU WEB/IOU WEB - Rocky Linux 8.10|IOU WEB - Rocky Linux 8.10]]
 
 ## ¿Que hay de nuevo?
 
@@ -27,7 +27,6 @@ Version 2 (Icarus):
 
 > [!WARNING] Sobre Emulacion x86_64
 > - A pesar de ser una instalacion 64 bits, no soporta los routers y switch XE (`x86_64_crb_linux`), intente compilar una version de GLIBC mayor a >=2.27 (2.34) y solo XE L3 funciona sin problemas, XE L2 tiene problemas extraños y no me da el cerebro para solucionarlos
-> - Si quieres ayuda, puedes leer [[300 - Conocimiento/Write-Ups/IOU-WEB/IOU WEB - Intentos Fallidos|IOU WEB - Intentos Fallidos]], compilar los otros programas y solucionar el problema de los XE L2, y me mandas un correo ^^
 > - La compilacion de OpenSSL y OpenSSH todavia no se hace realmente
 
 ## Porfiado y Creativo: Asi nacio IOU WEB Icarus
@@ -36,7 +35,7 @@ Este proyecto nacio durante las clases de *Routing y Switching Coporativo* de 5t
 
 > "Cuando configuren `ip nat inside` dentro de una interfaz, ese router quedara cargando por una hora."
 
-A simple vista no parecia normal, asi que empeze a investigar. Descubri que IOU WEB tiene dos ramas principales de soporte en su epoca: una basada en la familia Debian y otra en RedHat. Durante 1 año estuve trabajando en la variante de 32 bits de CentOS 6.x como lo documente en [[300 - Conocimiento/Write-Ups/IOU-WEB/IOU WEB - 32 Bits CentOS 6 (Legacy)|IOU WEB - 32 Bits CentOS 6 (Legacy)]], pero siempre me incomodo no contar con un entorno completamente funcional de 64 bits.
+A simple vista no parecia normal, asi que empeze a investigar. Descubri que IOU WEB tiene dos ramas principales de soporte en su epoca: una basada en la familia Debian y otra en RedHat. Durante 1 año estuve trabajando en la variante de 32 bits de CentOS 6.x como lo documente en [[800 - Extras/Write-Ups/IOU WEB/IOU WEB - 32 Bits - CentOS 6 (Legacy)|IOU WEB - 32 Bits - CentOS 6 (Legacy)]], pero siempre me incomodo no contar con un entorno completamente funcional de 64 bits.
 
 A partir de esa inquietud, decidi contruir el sistema desde cero, haciendo ingeniera inversa al funcionamiento, investigando sobre la estructura, apache2, php y mas intentos de otras personas por lograr algo parecido. 
 
@@ -1720,7 +1719,7 @@ VBoxManage modifymedium --compact IOU-WEB-Icarus.vdi
 
 **Configura Virtualbox**
 > [!TIP] Lecturas Recomendadas
-> [[300 - Conocimiento/Write-Ups/IOU-WEB/IOU WEB - Config Win 10-11|IOU WEB - Config Win 10-11]]: Recopilacion de configuraciones especificas para el Host de Windows
+> [[800 - Extras/Write-Ups/IOU WEB/IOU WEB - Config en Win 10|IOU WEB - Config en Win 10]]: Recopilacion de configuraciones especificas para el Host de Windows
 
 # Hacer Pruebas
 

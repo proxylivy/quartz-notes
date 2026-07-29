@@ -1,7 +1,10 @@
+# Info
+
+Actividad de [[005 - Semestres/1er Semestre/SRY1132 (SRAA)/SRY1132 (SRAA)|SRY1132 (SRAA)]]
 
 Encuentras el material en [Copyparty - EX4](https://copyparty.proxylivy.work/Duoc/Conectividad%20y%20Redes/1er%20Semestre/SRY1132%20(SRAA)/Actividades/EX4/) y en el Anexo [[005 - Semestres/1er Semestre/SRY1132 (SRAA)/Actividades/EX 4 - Principios de Atencion|EX 4 - Principios de Atencion]]
 
-# Parte 1
+## Parte 1
 
 **Contexto**
 
@@ -28,7 +31,7 @@ Conforme a lo expresado anteriormente, los alumnos deben describir cada una de l
 
 Una vez desarrolladas estas tareas, los alumnos deben diseñar un mapa conceptual, utilizando el programa CMapTools, en el cual se detallan todas las acciones realizadas para resolver el caso, relacionando los diferentes conceptos técnicos involucrados (aspectos indagados), las preguntas formuladas para definir el problema planteado, las posibles respuestas del cliente (la información significativa que necesita para resolver los problemas en base a datos y no solo a opiniones subjetivas), las acciones recomendadas al cliente (para identificar lo que es y no es un problema y la toma de decisión para abordarlo) y los resultados obtenidos, el cumplimiento de un método lógico de análisis de la información, el cumplimiento de un método lógico para identificar las causas de un problema y no quedarse en los síntomas.
 
-# Parte 2
+## Parte 2
 
 **Contexto**
 

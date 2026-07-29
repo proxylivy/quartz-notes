@@ -1,5 +1,7 @@
 # Info
 
+Actividad de [[005 - Semestres/1er Semestre/VTY1122 (TD)/VTY1122 (TD)|VTY1122 (TD)]]
+
 Se basa en "Actividad 09 - IoT.pka" desde [Copyparty - Actividades](https://copyparty.proxylivy.work/Duoc/Conectividad%20y%20Redes/1er%20Semestre/VTY1122%20(TD)/Actividades/)
 
 El propietario de una casa ha estado leyendo sobre IOT y está muy entusiasmado con las capacidades de los sistemas de IOT de automatización del hogar. El propietario de la casa quiere instalar dicho sistema en su casa, pero no sabe como hacerlo. Se ha contactado con una compañía que puede diseñar e instalar el sistema. La compañía se centra en la seguridad en todo el proceso de diseño, aprovisionamiento y el desarrollo del sistema. Actualmente están desarrollando un modelo de amenaza para el sistema. Ha sido contratado por la empresa y su primera tarea es completar el modelo de amenaza.

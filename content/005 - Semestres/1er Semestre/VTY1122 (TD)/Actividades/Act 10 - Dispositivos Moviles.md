@@ -1,5 +1,7 @@
 # Info
 
+Actividad de [[005 - Semestres/1er Semestre/VTY1122 (TD)/VTY1122 (TD)|VTY1122 (TD)]]
+
 Se basa en "Actividad 10 - Dispositivos Moviles.pka" desde [Copyparty - Actividades](https://copyparty.proxylivy.work/Duoc/Conectividad%20y%20Redes/1er%20Semestre/VTY1122%20(TD)/Actividades/)
 
 **Tablas de la Topologia**

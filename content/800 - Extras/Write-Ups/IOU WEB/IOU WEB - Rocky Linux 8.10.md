@@ -1,11 +1,10 @@
 # Info
-Version modernizada de IOU WEB ejecutandose sobre Rocky Linux 8.10 (64 bits) con mejoras de seguridad, estabilidad y rendimiento frente a las versiones legacy [[300 - Conocimiento/Write-Ups/IOU-WEB/IOU WEB - 32 Bits CentOS 6 (Legacy)|IOU WEB - 32 Bits CentOS 6 (Legacy)]] y [[300 - Conocimiento/Write-Ups/IOU-WEB/IOU WEB - 64 Bits CentOS 7 (Legacy)|IOU WEB - 64 Bits CentOS 7 (Legacy)]]
+Version modernizada de IOU WEB ejecutandose sobre Rocky Linux 8.10 (64 bits) con mejoras de seguridad, estabilidad y rendimiento frente a las versiones legacy [[800 - Extras/Write-Ups/IOU WEB/IOU WEB - 32 Bits - CentOS 6 (Legacy)|IOU WEB - 32 Bits - CentOS 6 (Legacy)]] y [[800 - Extras/Write-Ups/IOU WEB/IOU WEB - CentOS 7 (Legacy)|IOU WEB - CentOS 7 (Legacy)]]
 
 Basado en el trabajo de **Andrea Dainese** ([@dainok](https://github.com/dainok)) y mejorado en un fork por [@proxylivy](https://github.com/proxylivy) en [Github - proxylivy/iou-web](https://github.com/proxylivy/iou-web).
 
 > [!WARNING] Sobre IOS XE
-> - NO soporta switches y routers IOS XE `x86_64_crb_linux`. Si necesitas estas imagenes, prefiere [[300 - Conocimiento/Write-Ups/Eve-NG/Eve-NG Community|Eve-NG Community]] o [GNS3](https://gns3.com/)
-> - Si quieres ayudar, puedes revisar [[300 - Conocimiento/Write-Ups/IOU-WEB/IOU WEB - Intentos Fallidos|IOU WEB - Intentos Fallidos]] y enviarme una posible solucion a alguno de los bloques
+> - NO soporta switches y routers IOS XE `x86_64_crb_linux`. Si necesitas estas imagenes, prefiere [[800 - Extras/Write-Ups/EVE-NG/EVE-NG - Install|EVE-NG]] o [GNS3](https://gns3.com/)
 
 ## Requisitos
 - CPU: 2vCPU
@@ -38,7 +37,7 @@ Basado en el trabajo de **Andrea Dainese** ([@dainok](https://github.com/dainok)
 
 Luego de 2 años investigando en experimentos fallidos, documentacion abandonada y muchas horas de troubleshooting, cada pieza termina calzando y el resultado es mejor de lo que pude pensar y logre con versiones anteriores.
 
-Esta version continua donde quedo [[300 - Conocimiento/Write-Ups/IOU-WEB/IOU WEB - 64 Bits CentOS 7 (Legacy)|IOU WEB - 64 Bits CentOS 7 (Legacy)]], avandonando varias ideas como compilaciones extras, compatibilidad con glibc superior y enfoques que no ayudaban en nada. Utilizar una base como lo es *Rocky Linux 8.10* es mucho 
+Esta version continua donde quedo [[800 - Extras/Write-Ups/IOU WEB/IOU WEB - CentOS 7 (Legacy)|IOU WEB - CentOS 7 (Legacy)]], avandonando varias ideas como compilaciones extras, compatibilidad con glibc superior y enfoques que no ayudaban en nada. Utilizar una base como lo es *Rocky Linux 8.10* es mucho 
 
 
 La base se reconstruyo desde cero sobre `Rocky Linux 8.10`, una distribucion moderna y firme, nacida tras la caida de CentOS.
@@ -1677,11 +1676,11 @@ chmod g+r /etc/ssh/ssh_host_ed25519_key /etc/ssh/ssh_host_rsa_key
 > 	- [Install.md](https://github.com/openssl/openssl/blob/master/INSTALL.md)
 
 > [!IMPORTANT] Entorno Compilacion
-> Yo utilize un entorno de 32 bits basado en [[300 - Conocimiento/Write-Ups/IOU-WEB/IOU WEB - 32 Bits CentOS 6 (Legacy)|IOU WEB - 32 Bits CentOS 6 (Legacy)]]. No he probado compilar en un entorno multilib de 64 bits
+> Yo utilize un entorno de 32 bits basado en [[800 - Extras/Write-Ups/IOU WEB/IOU WEB - 32 Bits - CentOS 6 (Legacy)|IOU WEB - 32 Bits - CentOS 6 (Legacy)]]. No he probado compilar en un entorno multilib de 64 bits
 > > [!TIP] Entorno en 32 bits
 > > Automaticamente, al ejecutar `./config`, selecciona `linux-elf` para su compilacion
 
-Actualmente esta basado en OpenSSL 1.0.2zl (11 Febrero 2025)
+Actualmente esta basado en OpenSSL 1.0.2zq (14 Junio 2026)
 
 > Ve a la carpeta Git
 ```

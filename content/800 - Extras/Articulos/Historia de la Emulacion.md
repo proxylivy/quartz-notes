@@ -172,18 +172,13 @@ Durante ese tiempo existio un sitio web llamado "Evil Routers" a.k.a "routerefle
 
 > [!NOTE] Nota sobre IOU WEB
 > He trabajado un buen tiempo en maquinas virtuales con [[020 - Conceptos/020.4 - Dispositivos de Red/IOU WEB|IOU WEB]], solucionando un par de problemas importantes, puedes ver mi esfuerzo en distintos Write UPS
-> - [[300 - Conocimiento/Write-Ups/IOU-WEB/IOU WEB - 32 Bits CentOS 6 (Legacy)|IOU WEB - 32 Bits CentOS 6 (Legacy)]]: La implementacion que me entregaron, una maquina de 32 bits con CentOS 6, es la que mejor funciona
-> - [[300 - Conocimiento/Write-Ups/IOU-WEB/IOU WEB - 64 Bits CentOS 7 (Legacy)|IOU WEB - 64 Bits CentOS 7 (Legacy)]]: Intente mejorar el funcionamiento para aceptar maquinas de 64 bits como los routers XE
-> - [[300 - Conocimiento/Write-Ups/IOU-WEB/IOU WEB - Config Win 10-11|IOU WEB - Config Win 10-11]]: Set de configuraciones para Windows
-> - [[300 - Conocimiento/Write-Ups/IOU-WEB/IOU WEB - Intentos Fallidos|IOU WEB - Intentos Fallidos]]: Coleccion de ideas que no llegaron a buen puerto...
+> - [[800 - Extras/Write-Ups/IOU WEB/IOU WEB - 32 Bits - CentOS 6 (Legacy)|IOU WEB - 32 Bits - CentOS 6 (Legacy)]]: La implementacion que me entregaron, una maquina de 32 bits con CentOS 6, es la que mejor funciona
+> - [[800 - Extras/Write-Ups/IOU WEB/IOU WEB - CentOS 7 (Legacy)|IOU WEB - CentOS 7 (Legacy)]]: Intente mejorar el funcionamiento para aceptar maquinas de 64 bits como los routers XE
+> - [[800 - Extras/Write-Ups/IOU WEB/IOU WEB - Config en Win 10|IOU WEB - Config en Win 10]]: Set de configuraciones para Windows
 
 Se redistribuyeron 2 grandes version, la version de CentOS 6.2 (WEBUI) y la version de Debian (TTY)
 
 Yo nunca probe la version de Debian, sino la de CentOS y la que me encargue de mejorar
-
-
-
-
 
 ## Comunitarios
 ### GNS3

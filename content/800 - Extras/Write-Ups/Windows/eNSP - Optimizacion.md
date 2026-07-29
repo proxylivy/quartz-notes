@@ -1,4 +1,5 @@
 # Info
+
 ## Datos
 > [!TIP] Lecturas Recomendadas
 > - [Proxmox Docs - Windows 7 Guest Best Practices](https://pve.proxmox.com/wiki/Windows_7_guest_best_practices)

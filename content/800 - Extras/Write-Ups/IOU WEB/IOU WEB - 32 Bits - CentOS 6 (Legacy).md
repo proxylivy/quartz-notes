@@ -1,5 +1,5 @@
 # Info
-La version recomendad es: [[300 - Conocimiento/Write-Ups/IOU-WEB/IOU WEB - Atlas - Rocky Linux 8.10|IOU WEB - Atlas - Rocky Linux 8.10]]
+La version recomendad es: [[800 - Extras/Write-Ups/IOU WEB/IOU WEB - Rocky Linux 8.10|IOU WEB - Rocky Linux 8.10]]
 
 ## Que tiene de nuevo?
 IOU WEB Interface 32 Bits

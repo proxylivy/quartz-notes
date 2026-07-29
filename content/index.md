@@ -1,14 +1,14 @@
 # Info
-¡Hola! Soy Livy. Gracias por interesarte en este vault, el cual esta basado en los apuntes y notas tomadas en [Obsidian](https://obsidian.md/) y estan enfocados principalmente en mi carrera de [Ingenieria en Conectividad y Redes](https://www.duoc.cl/carreras/ingenieria-en-redes-y-telecomunicaciones/) (En 2025 el nombre cambio a Redes y Telecomunicaciones) en DuocUC
+¡Hola! Soy Livy. Gracias por interesarte en este vault, basado en los apuntes y notas que tomo en [Obsidian](https://obsidian.md/), enfocados en mi carrera de [Ingeniería en Conectividad y Redes](https://www.duoc.cl/carreras/ingenieria-en-redes-y-telecomunicaciones/) (en 2025 el nombre cambió a Redes y Telecomunicaciones) en DuocUC.
 
-Si tienes alguna duda, consejo o solamente quieres contactar en alguna red de [Littlelink](https://littlelink.proxylivy.work/), en los cuales estan [Github](https://github.com/proxylivy), [Linkedin](https://www.linkedin.com/in/gabo-z-montecinos), entre otros
+Si quieres contactarme para responder una duda, tomar consejo o simplemente hablar, puedes encontrar info en mi [Littlelink](https://littlelink.proxylivy.work/), en el cual hay enlaces a [Github](https://github.com/proxylivy), [Linkedin](https://www.linkedin.com/in/gabo-z-montecinos), etc. 
 
-Mi intencion es crear un "2do Cerebro", un sistema o metodo de estudio acuñado por [Tiago Forte](https://fortelabs.com/), el cual mejora el manejo de informacion, la productividad y el aprendizaje, su principal fuerte que le veo es la externalizacion de informacion, notas atomicas e interconectar notas que estan interconectadas, lo cual permite evitar duplicar informacion. Si te interesa saber como aprendo, revisa mis [[800 - Extras/Tecnicas de Estudio y Flujo de Estudio|Tecnicas de Estudio y Flujo de Estudio]]
+Mi intención con esta pagina es crear un "2do Cerebro", un sistema o método de estudio acuñado por [Tiago Forte](https://fortelabs.com/), que mejora el manejo de información, la productividad y el aprendizaje. Su principal fortaleza, a mi parecer, es la externalización de información: notas atómicas e interconectadas que permiten evitar duplicar contenido. Si te interesa saber cómo aprendo, revisa mis [[800 - Extras/Flujo de Estudio|Técnicas de Estudio y Flujo de Estudio]].
 
 ## Carpetas
 Explicaciones de la finalidad de las carpetas, para poder navegar mejor por los directorios
 
-`005 - Semestres`: Trabajos y tareas organizados por semestre y por ramo
+[[005 - Semestres/005 - Semestres|005 - Semestres]]: Aqui esta el contenido de mi carrera de forma organizada por ramo
 
 `010 - Protocolos`: Informacion sobre protocolos de red, dividida en:
 - `010.1 - Routing`: Protocolos de capa 3 ([[020 - Conceptos/020.4 - Dispositivos de Red/Router|Router]]).
@@ -61,4 +61,5 @@ Explicaciones de la finalidad de las carpetas, para poder navegar mejor por los 
 Para crear las imagenes de topologias en red con [[020 - Conceptos/020.4 - Dispositivos de Red/IOU WEB|IOU WEB]] se puede usar Visio + "[Network Topology Icons Web for Visio](https://www.cisco.com/c/en/us/about/brand-center/network-topology-icons.html)" by Cisco.
 
 Una vez, un profesor de redes dijo en una prueba:
-> *"Le pueden pedir ayuda a Diosito, pero Diosito no sabe sobre topologías de red."*
+
+"*Le pueden pedir ayuda a Diosito, pero Diosito no sabe sobre topologías de red.*"

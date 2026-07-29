@@ -1,7 +1,10 @@
+# Info
+
+Actividad de [[005 - Semestres/1er Semestre/SRY1132 (SRAA)/SRY1132 (SRAA)|SRY1132 (SRAA)]]
 
 Encuentras las rubricas en [Copyparty - EX2](https://copyparty.proxylivy.work/Duoc/Conectividad%20y%20Redes/1er%20Semestre/SRY1132%20(SRAA)/Actividades/EX2/)
 
-# Parte 1
+## Parte 1
 
 Materiales
 - Router AP (Linksys o TPLink)
@@ -18,7 +21,7 @@ Debes generar escenarios para ver el comportamiento del Router AP, te dejo algua
 - Que pasa si el router se pone detras de un objeto metalico
 - A los cuantos metros se pierde la señal?
 
-# Parte 2
+## Parte 2
 
 En la actividad anterior, se realizó un enlace inalámbrico entre un router y un PC, el cual se sometió a diferentes escenarios físicos. Uno de los fenómenos que se pudo observar es la variación en el nivel de la potencia de la señal recibida. Las variaciones de potencia pueden deberse a varias causas, y una de las más importantes es la distancia entre el transmisor y el receptor.
 En la presente actividad, aprenderemos cómo calcular las pérdidas de potencia en relación a la distancia entre el equipo que transmite la señal, y el equipo que la recibe.

@@ -1,5 +1,7 @@
 # Info
 
+Actividad de [[005 - Semestres/1er Semestre/VTY1122 (TD)/VTY1122 (TD)|VTY1122 (TD)]]
+
 Se basa en "Actividad 07 - IP.pka" desde [Copyparty - Actividades](https://copyparty.proxylivy.work/Duoc/Conectividad%20y%20Redes/1er%20Semestre/VTY1122%20(TD)/Actividades/)
 
 La presenta actividad, tiene como finalidad en los alumnos de individual puedan realizar la interconexión de dispositivos intermedios, equipos finales y de IOT, además de la asignación de direccionamiento IPv4/IPv6 según las técnicas correspondientes.

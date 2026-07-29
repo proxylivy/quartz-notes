@@ -1,7 +1,10 @@
+# Info
+
+Actividad de [[005 - Semestres/1er Semestre/SRY1132 (SRAA)/SRY1132 (SRAA)|SRY1132 (SRAA)]]
 
 Encuentras el material en [Copyparty - EX3](https://copyparty.proxylivy.work/Duoc/Conectividad%20y%20Redes/1er%20Semestre/SRY1132%20(SRAA)/Actividades/EX3/)
 
-# Parte 1
+## Parte 1
 
 La electricidad es una de las principales formas de energía usadas en el mundo. Sin ella no existiría la iluminación, las comunicaciones de radio y televisión, ni servicios de telecomunicaciones; y las personas tendrían que prescindir de dispositivos eléctricos que actualmente constituyen parte integral del desarrollo de las mismas, tanto a nivel personal como laboral.
 
@@ -36,7 +39,7 @@ Finalmente, luego de haber realizado los cálculos teóricos de los elementos (a
 - Riesgos eléctricos asociados a la instalación de red de acceso (externa y en domicilio).
 - Consideraciones relevantes para llevar a cabo una correcta instalación y medición de los elementos activos en el interior de los domicilios (revisión de tensión y puesta a tierra en el domicilio).
 
-# Parte 2
+## Parte 2
 
 **Contexto**
 

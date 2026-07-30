@@ -3,7 +3,7 @@
 
 ## Datos
 - Funciona mediante AS (Autonomous System)
-- Algoritmo calculo de Ruta: **Vector Distancia**, basado en el rumor y [Bellman-Ford](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm)
+- Algoritmo calculo de Ruta: **Vector Distancia**, basado en el rumor y [[010 - Protocolos/010.1 - Routing/EIGRP/Bellman-Ford|Bellman-Ford]]
 - Motor de calculo de Rutas: **Dual** (**D**iffusing **U**pdate **Al**gorithm)
 - Identificador de encabezado IP: 88
 - Valores [[020 - Conceptos/020.3 - Fundamentos/Tabla Distancia Administrativa|Tabla Distancia Administrativa]]

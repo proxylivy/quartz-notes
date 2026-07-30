@@ -9,9 +9,11 @@
 ## Funcionamiento
 Envia [[010 - Protocolos/010.1 - Routing/OSPF/Paquetes OSPF#LSA|LSA]] a los vecinos, se almacenan en [[010 - Protocolos/010.1 - Routing/OSPF/Paquetes OSPF#LSDB|LSDB]] y su funcionamiento esta basado en Areas detectando automaticamente los cambios y calcula rutas en poco tiempo y con un trafico minimo en la red
 
+Permite aplicar [[020 - Conceptos/020.1 - Administracion/Interfaces Pasivas|Interfaces Pasivas]] para no generar adyacencia evitando enviar paquetes Hello ni recibirlos
+
 ## Datos
 - Algoritmo de calculo de Ruta: **Estado de Enlace**
-- Motor de calculo de Rutas: **SPF** ([Dijistra](https://es.wikipedia.org/wiki/Algoritmo_de_Dijkstra)) ([Info](https://www.freecodecamp.org/espanol/news/algoritmo-de-la-ruta-mas-corta-de-dijkstra-introduccion-grafica/))
+- Motor de calculo de Rutas: **SPF** ([[010 - Protocolos/010.1 - Routing/OSPF/Dijsktra|Dijsktra]]) ([Info](https://www.freecodecamp.org/espanol/news/algoritmo-de-la-ruta-mas-corta-de-dijkstra-introduccion-grafica/))
 - Identificador de encabezado IP: 89
 - Valores [[020 - Conceptos/020.3 - Fundamentos/Tabla Distancia Administrativa|Tabla Distancia Administrativa]]
 	- OSPF -> 110

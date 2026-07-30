@@ -182,3 +182,42 @@ http [ip-network-inside] [dec-mask] inside
 # Extra
 NOTA: BGP se configura cuando hay 2 sucursales.
 Modificar MPF(Mecanismo de Politica) que se modifica porque aunque el PAT, los saltos no los va a pescar, ese trafico se debe autorizar, permitiendo los ping
+
+
+## Activar Firewall (No se ve AUN)
+```
+ip inspect name [name] [protocol]
+ip access-list extended [name]
+permit tcp [ip] [wildcard] [destination] eq [port]
+deny ip any any
+```
+
+## Zona ZPF
+```
+license boot module c1900 technology-package securityk9
+copy running-config unix:
+zone security [name-zone-1] #Privada
+exit
+zone security [name-zone-2] #Publica
+class-map type inspect match-any [name-class-map]
+match protocol [http|https|dns|...]
+policy-map type inspect [name-policy-map]
+class type inspect [??]
+inspect
+zone-pair security [name-zone-pair] source [name-zone-1] destination [name-zone-2]
+service-policy type inspect [name-policy-map]
+int [int S/S/P]
+zone-member security [name-zone-1|name-zone-2]
+exit
+```
+### Alternativo: 
+Permitir Class-map con access list
+```
+ip access-list extended [acl-name]
+permit ip [IPv4] [Wildcard]
+class-map type inspect match-all [name-class-map]
+match access-group [acl-name]
+```
+
+# Visualizacion
+`show policy-map type inspect zone-pair sessions` -> # Comprobar Funcionamiento de ZPF

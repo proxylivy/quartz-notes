@@ -1,0 +1,4 @@
+- `010.1 - Routing`: Protocolos de capa 3 ([[020 - Conceptos/020.4 - Dispositivos de Red/Router|Router]]).
+- `010.2 - Switching`: Protocolos de capa 2 ([[020 - Conceptos/020.4 - Dispositivos de Red/Switch|Switch]]).
+- `010.3 - Comunicaciones`: Protocolos de capas 4-7 ([[020 - Conceptos/020.3 - Fundamentos/Modelo OSI|Modelo OSI]])
+- `010.9 - Estándares` (WIP): Información de estándares como [RFC](https://www.rfc-editor.org/standards) o [IEEE IETF](https://www.ietf.org/).

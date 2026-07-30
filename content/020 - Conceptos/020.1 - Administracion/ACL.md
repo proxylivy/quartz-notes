@@ -184,3 +184,7 @@ access-list 101 permit tcp any any eq 80 time-range HORARIO_LABORAL
 
 ## IPv6
 Los mensajes NA y NS para NDP deben estar permitidos una configuracion como `deny ipv6 any any log` puede romper eso y generar problemas en IPv6
+
+# Extra
+
+Puedes aplicarla a un contexto mas avanzado para clasificar el trafico utilizando [[020 - Conceptos/020.1 - Administracion/CoPP|CoPP]]

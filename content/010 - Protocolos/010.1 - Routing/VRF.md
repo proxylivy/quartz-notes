@@ -1,6 +1,6 @@
 **V**irtual **R**outing and **F**orwarding es una tecnologia que permite la coexistencia de multiples instancias de tablas de enrutamiento en un mismo router, lo que permite manetener separadas las rutas de diferentes clientes o redes
 
-`VRF-Lite` es la implementacion de VRF sin la necesidad de [[010 - Protocolos/010.1 - Routing/MPLS|MPLS]], Se utiliza para crear instancias de enrutamiento separadas en [[020 - Conceptos/020.4 - Dispositivos de Red/Router|Router]] sin la complejidad de MPLS, permitiendo la segmentacion de redes en entornos empresariales o para soportar multiples conexiones [[010 - Protocolos/010.3 - Comunicaciones/VPN|VPN]]
+`VRF-Lite` es la implementacion de VRF sin la necesidad de [[010 - Protocolos/010.1 - Routing/MPLS|MPLS]] mediante [[010 - Protocolos/010.3 - Comunicaciones/EVN|EVN]], se utiliza para crear instancias de enrutamiento separadas en [[020 - Conceptos/020.4 - Dispositivos de Red/Router|Router]] sin la complejidad de MPLS, permitiendo la segmentacion de redes en entornos empresariales o para soportar multiples conexiones [[010 - Protocolos/010.3 - Comunicaciones/VPN|VPN]]
 
 Recuerda dar ip de las interfaces troncales entre routers antes de configurar VRF
 

@@ -1,5 +1,5 @@
 # Info
-**P**assword **A**uthentication **P**rotocol es un enlace con autenticacion en texto plano y verifica ambas bases de datos locales
+PAP (**P**assword **A**uthentication **P**rotocol) es un metodo de autenticacion en texto plano y verifica ambas bases de datos locales
 
 `Username = Hostname Local Router` y la contraseña es compartida
 

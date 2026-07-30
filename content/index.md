@@ -1,64 +1,59 @@
 # Info
-¡Hola! Soy Livy. Gracias por interesarte en este vault, basado en los apuntes y notas que tomo en [Obsidian](https://obsidian.md/), enfocados en mi carrera de [Ingeniería en Conectividad y Redes](https://www.duoc.cl/carreras/ingenieria-en-redes-y-telecomunicaciones/) (en 2025 el nombre cambió a Redes y Telecomunicaciones) en DuocUC.
+¡Hola! Soy Livy ^^
 
-Si quieres contactarme para responder una duda, tomar consejo o simplemente hablar, puedes encontrar info en mi [Littlelink](https://littlelink.proxylivy.work/), en el cual hay enlaces a [Github](https://github.com/proxylivy), [Linkedin](https://www.linkedin.com/in/gabo-z-montecinos), etc. 
+Gracias por interesarte en este vault, basado en los apuntes y notas que tomo en [Obsidian](https://obsidian.md/), enfocados en mi carrera de [Ingeniería en Conectividad y Redes](https://www.duoc.cl/carreras/ingenieria-en-redes-y-telecomunicaciones/) (en 2025 el nombre cambió a Redes y Telecomunicaciones) en DuocUC.
 
-Mi intención con esta pagina es crear un "2do Cerebro", un sistema o método de estudio acuñado por [Tiago Forte](https://fortelabs.com/), que mejora el manejo de información, la productividad y el aprendizaje. Su principal fortaleza, a mi parecer, es la externalización de información: notas atómicas e interconectadas que permiten evitar duplicar contenido. Si te interesa saber cómo aprendo, revisa mis [[800 - Extras/Flujo de Estudio|Técnicas de Estudio y Flujo de Estudio]].
+¿Quieres contactarme? Ya sea para resolver una duda, pedir un consejo o simplemente conversar, puedes encontrar la info en mi [Littlelink](https://littlelink.proxylivy.work/), donde hay enlaces a [Github](https://github.com/proxylivy), [Linkedin](https://www.linkedin.com/in/gabo-z-montecinos), entre otros.
+
+Mi intención con esta pagina es crear un "2do Cerebro", un sistema o método de estudio acuñado por [Tiago Forte](https://fortelabs.com/), que mejora el manejo de información, la productividad y el aprendizaje. A mi parecer, su mayor fortaleza es la externalizacion de informacion mediante notas atomicas e interconectadas, evitando asi duplicar contenido.
+
+Si te interesa saber cómo aprendo, revisa mi [[800 - Extras/Flujo de Estudio|Flujo de Estudio]].
 
 ## Carpetas
-Explicaciones de la finalidad de las carpetas, para poder navegar mejor por los directorios
 
-[[005 - Semestres/005 - Semestres|005 - Semestres]]: Aqui esta el contenido de mi carrera de forma organizada por ramo
+En la barra lateral tendras las carpetas, para que puedas navegar mejor por cada directorio
 
-`010 - Protocolos`: Informacion sobre protocolos de red, dividida en:
-- `010.1 - Routing`: Protocolos de capa 3 ([[020 - Conceptos/020.4 - Dispositivos de Red/Router|Router]]).
-- `010.2 - Switching`: Protocolos de capa 2 ([[020 - Conceptos/020.4 - Dispositivos de Red/Switch|Switch]]).
-- `010.3 - Comunicaciones`: Protocolos de capas 4-7 ([[020 - Conceptos/020.3 - Fundamentos/Modelo OSI|Modelo OSI]])
-- `010.9 - Estándares` (WIP): Información de estándares como [RFC](https://www.rfc-editor.org/standards) o [IEEE IETF](https://www.ietf.org/).
-
-`020 - Conceptos`: Conceptos Generales, Herramientas y Tecnicas ordenadas por tema
-- `020.1 - Administración`: Segmentación y Gestión de redes
-- `020.2 - Seguridad`: Minimizar las superficies de ataque
-- `020.3 - Fundamentos`: Informacion Base para comprender como funcionan las redes
-- `020.4 - Dispositivos de Red`: Diferentes Marcas y Modelos que se usan en redes
-- `020.5 - Red HFC`: Explicacion de los componentes en una red Hibrida
-
-`800 - Extras`: Documentos que no tienen que ver con la carrera per se, pero son muy utiles
+- [[005 - Semestres/005 - Semestres|005 - Semestres]]: Contenido de mis 8 semestres organizados por semestre y ramo
+- [[010 - Protocolos/010 - Protocolos|010 - Protocolos]]: Protocolos de red para Routing, Switching, Comunicaciones y Estandares
+	- Routing: BGP, OSPF, EIGRP
+	- Switching: STP, MAC, L2
+	- Comunicaciones: AAA, Diag, IP
+	- Estandares: IEEE 802
+- [[020 - Conceptos/020 - Conceptos|020 - Conceptos]]: Teoria general y fundamientos varios ^^
+- [[030 - Plataformas/030 - Plataformas|030 - Plataformas]]: Comandos, configuraciones entre Linux, Windows, Cisco IOS, entre otros
+- [[800 - Extras/800 - Extras|800 - Extras]]: Contenido fuera de la malla curricular pero util, contiene articulos, Write-ups, entre otras cosas
 
 ---
+
 ## Bibliografia
-- Acceso solamente a los libros
-	- [Onedrive - Bibliografia y Libros](https://duoccl0-my.sharepoint.com/:f:/g/personal/ga_zunigam_duocuc_cl/Eo1dZhto_UtMrIXkIvQ050oBQKfSUaNb63JxabRAwwf68g?e=zTIzS3)
-- Acceso a mis archivos
-	- [Onedrive - Duoc](https://duoccl0-my.sharepoint.com/:f:/g/personal/ga_zunigam_duocuc_cl/Et3dYEWc6GpKlGCNntyIS90BeIeDJM0zPPRTCG4jdM7WZQ?e=jWwSEw)
-- [CCDE 400-007, 1st ed](https://www.ciscopress.com/store/cisco-certified-design-expert-ccde-400-007-official-9780137601042) (2023)
-	- DRY7112 - Diseño de Arquitectura de Red
-- [CCNA 200-301 Vol 1, 2nd ed](https://www.ciscopress.com/store/ccna-200-301-official-cert-guide-volume-1-9780138229634) (2024) y [CCNA 200-301 Vol 2, 2nd ed](https://www.ciscopress.com/store/ccna-200-301-official-cert-guide-volume-2-9780138214951) (2024)
-	- VTY1112 - Transformacion Digital
-	- VTY2112 - Conectividad Escencial
-	- ARY3112 - Routing y Switching
-	- ARY4112 - Redes Escalables y WAN
+
+Gran parte de los ramos siguen el contenido de las certificaciones de Cisco, utilizando como referencia los libros de Cisco Press. Esta es una lista que relaciona los libros y las asignaturas donde tiene mayor relevancia
+
+- [CCNA 200-301 Vol 1, 2nd ed](https://www.ciscopress.com/store/ccna-200-301-official-cert-guide-volume-1-9780138229634) (2024) | [CCNA 200-301 Vol 2, 2nd ed](https://www.ciscopress.com/store/ccna-200-301-official-cert-guide-volume-2-9780138214951) (2024)
+	- [[005 - Semestres/1er Semestre/VTY1122 (TD)/VTY1122 (TD)|VTY1122 (TD)]]
+	- VTY2112 - Conectividad Esencial
+	- [[005 - Semestres/3er Semestre/ARY3112 (RS)/ARY3112 (RS)|ARY3112 (RS)]]
+	- [[005 - Semestres/4to Semestre/ARY4112 (REW)/ARY4112 (REW)|ARY4112 (REW)]]
 - [CCNA CyberOps - CBROPS 200-201, 1st ed](https://www.ciscopress.com/store/cisco-cyberops-associate-cbrops-200-201-official-cert-9780136807834) (2020)
-	- CSY4132 - Operaciones en Ciberseguridad
-	- CSY5122 - Seguridad en Redes Corporativas
+	- [[005 - Semestres/5to Semestre/CSY5122 (SRC)/CSY5122 (SRC)|CSY5122 (SRC)]]
 - [CCNA Cyber Ops - SECFND 210-250, 1st ed](https://www.ciscopress.com/store/ccna-cyber-ops-secfnd-210-250-official-cert-guide-9781587147029) (2017)
 	- CSY4132 - Operaciones en Ciberseguridad
-- [CCNP ENARSI 350-301, 2nd ed](https://www.ciscopress.com/store/ccnp-enterprise-advanced-routing-enarsi-300-410-official-9780138217525) (2023)
-	- ARY6112 - Troubleshooting
 - [CCNP CCIE - ENCOR 350-401, 2nd ed](https://www.ciscopress.com/store/ccnp-and-ccie-enterprise-core-encor-350-401-official-9780138216764) (2023)
-	- ARY5112 - Routing y Switching Corporativo
-- [CCNP CCIE - SCOR 350-701, 2nd ed](https://www.ciscopress.com/store/ccnp-and-ccie-security-core-scor-350-701-official-cert-9780138221263) (2023)
+	- [[005 - Semestres/5to Semestre/ARY5112 (RSC)/ARY5112 (RSC)|ARY5112 (RSC)]]
 - [CCNP CCIE - CLCOR 350-801, 2nd ed](https://www.ciscopress.com/store/ccnp-and-ccie-collaboration-core-clcor-350-801-official-9780138200947) (2023)
-	- CUY5132 - Comunicaciones Unificadas
-	- CUY6142 - Telepresencia y entornos innovadores de colaboracion humana
-- [CCST Networking 100-150, 1st ed](https://www.ciscopress.com/store/cisco-certified-support-technician-ccst-networking-9780138213428) (2023)
-- [Cisco SD-WAN, 1st ed](https://www.ciscopress.com/store/cisco-software-defined-wide-area-networks-designing-9780136533177) (2020)
-	- DRY8111 / DRY7122 - Programacion y Redes Virtualizadas (SDN-NFV)
-- [DevNet DEVASC 200-901, 1st ed](https://www.ciscopress.com/store/cisco-certified-devnet-associate-devasc-200-901-official-9780136642961) (2020)
-	- DRY8111 / DRY7122 - Programacion y Redes Virtualizadas (SDN-NFV)
+	- [[005 - Semestres/5to Semestre/CUY5132 (CU)/CUY5132 (CU)|CUY5132 (CU)]]
+	- [[005 - Semestres/6to Semestre/CUY6142 (TEICH)/CUY6142 (TEICH)|CUY6142 (TEICH)]]
+- [CCNP ENARSI 350-301, 2nd ed](https://www.ciscopress.com/store/ccnp-enterprise-advanced-routing-enarsi-300-410-official-9780138217525) (2023)
+	- [[005 - Semestres/6to Semestre/ARY6112 (T)/ARY6112 (T)|ARY6112 (T)]]
+- [CCDE 400-007, 1st ed](https://www.ciscopress.com/store/cisco-certified-design-expert-ccde-400-007-official-9780137601042) (2023)
+	- [[005 - Semestres/7mo Semestre/DRY7112 (DAR)/DRY7112 (DAR)|DRY7112 (DAR)]]
+- [Cisco SD-WAN, 1st ed](https://www.ciscopress.com/store/cisco-software-defined-wide-area-networks-designing-9780136533177) (2020) | [DevNet DEVASC 200-901, 1st ed](https://www.ciscopress.com/store/cisco-certified-devnet-associate-devasc-200-901-official-9780136642961) (2020)
+	- [[005 - Semestres/7mo Semestre/DRY7122 (PRV)/DRY7122 (PRV)|DRY7122 (PRV)]] / DRY8111
+- Extras
+	- [CCST Networking 100-150, 1st ed](https://www.ciscopress.com/store/cisco-certified-support-technician-ccst-networking-9780138213428) (2023)
+	- [CCNP CCIE - SCOR 350-701, 2nd ed](https://www.ciscopress.com/store/ccnp-and-ccie-security-core-scor-350-701-official-cert-9780138221263) (2023)
 
-# Extra
-Para crear las imagenes de topologias en red con [[020 - Conceptos/020.4 - Dispositivos de Red/IOU WEB|IOU WEB]] se puede usar Visio + "[Network Topology Icons Web for Visio](https://www.cisco.com/c/en/us/about/brand-center/network-topology-icons.html)" by Cisco.
+Puedes acceder a los libros desde [Copyparty - Bibliografia](https://copyparty.proxylivy.work/Duoc/Conectividad%20y%20Redes/Bibliografia/)
 
 Una vez, un profesor de redes dijo en una prueba:
 

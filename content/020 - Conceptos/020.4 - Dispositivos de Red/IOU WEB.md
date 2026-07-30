@@ -96,3 +96,6 @@ no ip domain-lookup
 ```
 terminal lenght 0
 ```
+
+# Extra
+Para crear las imagenes de topologias en red se puede usar Visio + "[Network Topology Icons Web for Visio](https://www.cisco.com/c/en/us/about/brand-center/network-topology-icons.html)" by Cisco.

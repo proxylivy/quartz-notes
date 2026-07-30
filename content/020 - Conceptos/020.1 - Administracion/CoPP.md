@@ -7,6 +7,7 @@
 > - Se recomienda limitar el acceso a rangos especificos de IP que residan dentro del **NOC** (Network Operation Center)
 
 ## Funcionamiento
+
 Se utilizan [[020 - Conceptos/020.1 - Administracion/ACL#ACL Extendida Nombrada|ACL Extendida Nombrada]] para identificar el trafico interesante mediante reglas "*permit*", luego lo clasifica mediante [[020 - Conceptos/020.1 - Administracion/Class-Map|Class-Map]] segun el tipo de trafico y se configura una [[020 - Conceptos/020.1 - Administracion/Policy-Map|Policy-Map]] para poder aplicar una tasa de velocidad.
 
 # Sintaxis Configuracion

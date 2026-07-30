@@ -5,6 +5,8 @@ Existen 2 tipos de empalme
 - Fusion: Se genera un arco electrico por una fuente de 4000 y 5000 volts mediante una Fusionadora y realiza el alineamiento de las fibras, las fusiona, calcula las perdidas y no se demora mas de 10 segundos, luego tienes que proteger las fibras fusionadas con un manguito termocontraible de 40mm o de 60mm
 - Mecanico: Se empalman en un contenedor relleno con gel igualador de indice de refraccion, son conexiones provisorias y que solo se usan en situaciones de emergencia no permanentes
 
+El cual tiene un metodo de [[020 - Conceptos/020.5 - Red HFC/Practicas y Procedimientos|Practicas y Procedimientos]] especiales
+
 # Herramientas
 La instalacion y el mantenimiento de fibra optica requieren un conjunto de herramientas especializadas. En general, podemos agruparlas en tres grandes categorias segun la fase del trabajo
 

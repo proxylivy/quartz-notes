@@ -1,17 +1,19 @@
-## Que es?
-Debido a que las contraseñas son debiles e inseguras, se creo un protocolo para verificar la informacion de login con un [[020 - Conceptos/020.4 - Dispositivos de Red/Servidor|Servidor]]
+# Info
+
+AAA (Authentication, Authorization and Accounting) es un marco de trabajo que centraliza el control de acceso a dispositivos y servicios de red. 
+
+ebido a que las contraseñas son debiles e inseguras, se creo un protocolo para verificar la informacion de login con un [[020 - Conceptos/020.4 - Dispositivos de Red/Servidor|Servidor]]
 ## Componenetes
 - Autenticacion(Authentication): Los administradores deben demostrar quienes son
 - Autorizacion(Authorization): Limites de servicios permitidos a los usuarios
 - Auditar(Accounting): recolecta y reporta datos como inicio y termino de conexiones con fecha y hora del comando ingresado, util para resolver problemas
 ## Metodos de Autenticacion
-- Modo de Caracteres: `login`, `exec` y `enable`, Administracion remota, puertos console, vty, aux y tty 
-- Modo de Paquetes: `ppp` y `network`, Acceso remoto, Puertos Dial-up y VPN
-- Autenticacion Local: Tambien conocidad como `autenticacion Autocontenida` Se utiliza el [[020 - Conceptos/020.4 - Dispositivos de Red/Router|Router]] para la verificacion en la base de datos, es la misma para [[020 - Conceptos/020.2 - Seguridad/Administracion Segura#CLI Basada en roles|CLI Basada en Roles]]
-- Autenticacion AAA Basada en Servidor: El [[020 - Conceptos/020.4 - Dispositivos de Red/Router|Router]] hace conexion con un [[020 - Conceptos/020.4 - Dispositivos de Red/Servidor|Servidor]] Externo, con RADIUS o TACACS+
+- Autenticacion Local: la base de datos de usuarios esta dentro del dispositivo en donde se puede seguir una [[020 - Conceptos/020.2 - Seguridad/Administracion Segura#CLI Basada en roles|CLI Basada en Roles]]
+	- Modo de Caracteres: `login`, `exec` y `enable`, Administracion remota, puertos console, vty, aux y tty 
+	- Modo de Paquetes: `ppp` y `network`, Acceso remoto, Puertos Dial-up y VPN. PPP puede utilizar [[010 - Protocolos/010.3 - Comunicaciones/010.3.1 - AAA/PAP|PAP]] o [[010 - Protocolos/010.3 - Comunicaciones/010.3.1 - AAA/CHAP|CHAP]]
+- Autenticacion Basada en Servidor: El dispositivo consulta un servidor AAA Externo mediante [[010 - Protocolos/010.3 - Comunicaciones/010.3.1 - AAA/Radius|Radius]] o [[010 - Protocolos/010.3 - Comunicaciones/010.3.1 - AAA/Tacacs+|Tacacs+]]
+
 ## Tabla Diferencia
-Nota 1: TACACS+ es una mejora de Cisco a TACACS, a pesar del nombre, son incompatibles, soportado desde 10.3 de IOS
-Nota 2: Radius tiene la mejor seguridad de contraseña pero lo demas lo envia en texto plano, usa los puertos en UDP 1645 o 1812 para la autenticacion con autorizacion y el 1646 o 1813 para la auditoria.
 
 |                    | Tacacs+                           | Radius                                                                     |
 | ------------------ | --------------------------------- | -------------------------------------------------------------------------- |
@@ -23,6 +25,7 @@ Nota 2: Radius tiene la mejor seguridad de contraseña pero lo demas lo envia en
 | Confidencialidad   | Paquete Cifrado 100%              | Contraseña Cifrada                                                         |
 | Personalizacion    | Provee autorizacion de comandos   | No tiene opciones para autorizar                                           |
 | Registro Auditoria | Limitado                          | Extensivo                                                                  |
+
 Se puede integrar Tacacs+ y Radius con ACS en Windows Server, sus caracteristicas son
 - Arquitectura distribuida en gran escala
 - Interfaz grafica para clientes

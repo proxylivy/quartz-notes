@@ -1,7 +1,8 @@
 # Info
-Una interfaz pasiva en protocolos de enrutamiento dinamico (Como [[010 - Protocolos/010.1 - Routing/EIGRP/EIGRP|EIGRP]] o [[010 - Protocolos/010.1 - Routing/OSPF/OSPFv2|OSPFv2]]) **desactiva el envio y recepcion** de mensajes de descubrimiento y adyacencia en una interfaz especifica. La red asociada a la interfaz puede ser anunciada y enrutada por routers vecinos.
+Una interfaz pasiva en protocolos de enrutamiento dinamico (Como [[010 - Protocolos/010.1 - Routing/EIGRP/EIGRP|EIGRP]] o [[010 - Protocolos/010.1 - Routing/OSPF/OSPF|OSPF]]) **desactiva el envio y recepcion** de mensajes de descubrimiento y adyacencia en una interfaz especifica. La red asociada a la interfaz puede ser anunciada y enrutada por routers vecinos.
 
 La configuracion `default`, activa todas las interfaces como pasivas y tendras que desactivar una por una.
+
 ## Ventajas
 - Reduccion del trafico del protocolo al evitar enviar mensajes extra
 - Añade seguridad al evitar que routers no autorizados sean parte de la red

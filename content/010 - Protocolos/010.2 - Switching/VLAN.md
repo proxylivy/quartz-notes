@@ -3,6 +3,7 @@ Segmentacion Logica mediante dominios de broadcast, no se pueden comunicar entre
 Se puede aplicar [[010 - Protocolos/010.2 - Switching/Seguridad de Puerto|Seguridad de Puerto]]
 
 Ultima Revision Estandar: [802.1Q-2022](https://ieeexplore.ieee.org/document/10004498)
+
 ## Campos
 Total: 32 Bits
 - Destination MAC

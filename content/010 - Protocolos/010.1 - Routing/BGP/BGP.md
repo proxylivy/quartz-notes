@@ -158,6 +158,8 @@ Los ASN se pueden usar para enrutar pero no para internet (enviado por `as-path`
 - La [[020 - Conceptos/020.3 - Fundamentos/Sumarizacion de Redes|Sumarizacion]] puede ser sin o con supresion de redes
 - Permite ser integrados en uso de [[010 - Protocolos/010.3 - Comunicaciones/VPN|VPN]] con [[010 - Protocolos/010.1 - Routing/MPLS|MPLS]]
 
+Para arquitecturas escalables, existe [[020 - Conceptos/020.1 - Administracion/LISP|LISP]]
+
 ## Estandares
 - BGP-3
 	- Definido en [RFC1267](https://www.rfc-editor.org/rfc/rfc1267)

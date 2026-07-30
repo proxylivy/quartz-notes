@@ -1,4 +1,6 @@
-Protocolo de Separacion de Ubicacion/ID propietario de Cisco, alternativo a BGP dentro de DFZ(Rutas de Internet)
+# Info
+
+Protocolo de Separacion de Ubicacion/ID propietario de Cisco, alternativo a [[010 - Protocolos/010.1 - Routing/BGP/BGP|BGP]] dentro de DFZ(Rutas de Internet)
 Las traducciones son DNS(Nombre a IP) → LISP(IP a IP), las mac no se usan
 EID(Network ip) -> RLOC(IP) `[Map Reply]`
 Problemas que aborda

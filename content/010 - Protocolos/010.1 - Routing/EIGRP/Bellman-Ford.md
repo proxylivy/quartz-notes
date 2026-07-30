@@ -1,3 +1,7 @@
+# Info
+
+Utilizado por [[010 - Protocolos/010.1 - Routing/EIGRP/EIGRP|EIGRP]], puedes leer al respecto en [Wikipedia - Bellman-Ford](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm)
+
 ## Datos
 - Vista de red: Informacion desde el punto de vista del vecino
 - Calculo del mejor camino: Basado en el menor numero de saltos

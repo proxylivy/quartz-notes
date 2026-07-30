@@ -1,14 +1,19 @@
----
-aliases:
- - mask
----
+# Info
 
-Note: La cantidad de IP Usables es ($\text{N° IP Disponibles} - 2$) excepto en la Mascara /31 puede usar 2 ip en Enlaces Punto a Punto [RFC3021](https://datatracker.ietf.org/doc/html/rfc3021)
+Define que parte de una direccion [[010 - Protocolos/010.3 - Comunicaciones/010.3.4 - IP/IPv4|IPv4]] corresponde a la red y cual al host
 
-Formas de anotacion
-CIDR o Lenght: /32
-Decimal(Dec): 255.255.255.255
-Wildcard: 0.0.0.0
+Habitualmente se representa utilizando el [[020 - Conceptos/020.3 - Fundamentos/Sistemas de Numeracion|Sistemas de Numeracion]] Decimal, aunque internamente es un sistema de bits en binario
+
+Ademmas se pueden usar
+- CIDR (Longitud de prefijo): `/24`
+- Mascara decimal: `255.255.255.0`
+- Wildcard (Marcara Invertida): `0.0.0.255`
+
+> [!NOTE] IP Disponibles utilizables
+> Sigue la formula ($2^{\text{Bits de Host}}-2$)
+> 
+> A excepcion de `/31` que tiene 2 IPs utilizables en un enlace Punto a Punto, referencia [RFC3021](https://datatracker.ietf.org/doc/html/rfc3021)
+
 ## Tabla Completa
 
 | CIDR | Decimal(Dec)    | Wildcard        | N° IP Disponibles |

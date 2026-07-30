@@ -1,3 +1,7 @@
+# Info
+
+Puedes leer al respecto en [Wikipedia - Dijistra](https://es.wikipedia.org/wiki/Algoritmo_de_Dijkstra)
+
 ## Datos
 - Vista de red: Informacion Completa de la topologia de red
 - Calculo del mejor camino: Basada en el "costo"

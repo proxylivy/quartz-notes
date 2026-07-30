@@ -1,5 +1,5 @@
 # Info
-**C**hallenge-**H**andshake **A**uthentication **P**rotocol es un enlace basado en el saludo de 3 vias, autenticacion mediante MD5. Su funcionamiento verifica ambas bases de datos locales para poder iniciar sesion
+CHAP (**C**hallenge-**H**andshake **A**uthentication **P**rotocol) es un metodo de autenticacion basado en el saludo de 3 vias, autenticacion mediante MD5. Su funcionamiento verifica ambas bases de datos locales para poder iniciar sesion
 
 `Username = Hostname Local Router`, la contraseña es compartida
 

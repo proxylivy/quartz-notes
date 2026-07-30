@@ -7,7 +7,7 @@
 
 EVE-NG (**E**mulated **V**irtual **E**nvironment - **N**ext **G**eneration) es una plataforma de emulacion de redes que permite virtualizar dispositivos como Router, Switches, Firewall, Load Balancer, IDS/IPS, etc. utilizando imagenes reales de sus sistemas operativos.
 
-La version con la cual escribo esta guia es `EVE-NG Community Edition 6.2.0-4`
+La version con la cual escribo esta guia es `EVE-NG Community Edition 6.2.0-4`, y utilizo [[020 - Conceptos/020.4 - Dispositivos de Red/Qemu|Qemu]]
 
 Si te interesa, tengo un articulo que habla mas en profundidad sobre la [[800 - Extras/Articulos/Historia de la Emulacion|Historia de la Emulacion]]
 

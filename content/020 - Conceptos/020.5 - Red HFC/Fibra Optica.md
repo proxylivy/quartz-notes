@@ -1,4 +1,10 @@
 # Info
+
+> [!TIP] Lecturas Recomendadas
+> - [The FOA (Fiber Optic Association) (Español)](https://www.thefoa.org/ESP/index.htm)
+> 	- [Cableado de Fibra Optica](https://www.thefoa.org/ESP-Premises/5%20Cableado%20de%20Fibra%20Optica.html)
+> - [Win Blog - Que es la fibra optica](https://win.pe/blog/conectate-al-futuro-todo-sobre-la-fibra-optica/)
+
 Es un filamento de vidrio de alta pureza con un diametro muy fino. Su funcion principal es transportar luz entre dos extremos, permitiendo:
 - Altas velocidades de transmision (Tb/s)
 - Baja Atenuacion a lo largo de grandes distancias
@@ -175,16 +181,30 @@ La formula es:
 $$P_{R}=P_{T} - A_{T} + P_{rep}$$
 
 
-# Gran Escala
+# Infraestructura
 
-La fibra optica se utiliza (con muchas protecciones) para interconectar paises, mediante una red de cableado troncal, las mas conocidas, son estas
+> [!TIP] Lecturas Recomendadas
+> - [TeleGeography - Submarine Cable Map](https://www.submarinecablemap.com/) (SCM)
 
+Antes de la fibra Optica, en 1858, se creo un cable de telegrafo entre Europa y America bajo el agua, esa es la base de la fibra optica mmoderna, la cual se utiliza (con muchas protecciones) para interconectar paises, mediante una red de cableado troncal.
 
+Algunos ejemplos, son:
 - Cableado Submarino
-	- Cable SAM-1 con [Emergia](https://www.emergiacc.com) por Consorcio [Telefonica](https://www.telefonica.com/es/)-[Te Connectivity](https://www.te.com/es/home.html), ahora propiedad de [Lumen Technologies](https://www.lumen.com/en-us/home.html) | [Licenciamiento](https://transition.fcc.gov/Bureaus/International/Orders/2000/da001826.txt) | 
-	- Cable SAC (**S**outh **A**merican **C**rossing) de Global Crossing por Distribuidoras Nautilus, INSAT y otras Telco | [Blog - Gerencia - Un anillo de conectividad garantizada](https://www.gerencia.cl/networking/south-american-crossing-un-anillo-de-conectividad-garantizada/) | [Blog - SantaTeresita - Fibra Optica en las Toninas](https://www.santateresita.com.ar/infotonina.htm)
-	- Cables de Google
+	- Cable SAC (2000) (**S**outh **A**merican **C**rossing) de [Cirion Technologies](https://www.ciriontechnologies.com/en/) + [Sparkle](https://www.tisparkle.com/) | [SCM](https://www.submarinecablemap.com/submarine-cable/south-american-crossing-sac)
+		- [Blog - Gerencia - Un anillo de conectividad garantizada](https://www.gerencia.cl/networking/south-american-crossing-un-anillo-de-conectividad-garantizada/)
+		- [Blog - SantaTeresita - Fibra Optica en las Toninas](https://www.santateresita.com.ar/infotonina.htm)
+	- Cable SAM-1 (2001) con [Emergia](https://www.emergiacc.com) por Consorcio [Telefonica](https://www.telefonica.com/es/) - [Te Connectivity](https://www.te.com/es/home.html) | [Licenciamiento](https://transition.fcc.gov/Bureaus/International/Orders/2000/da001826.txt) | [SCM](https://www.submarinecablemap.com/submarine-cable/south-america-1-sam-1)
+	- Cable Curie (2020) por [Google](https://cloud.google.com/) | [SCM](https://www.submarinecablemap.com/submarine-cable/curie)
+	- Cable Mistral (2021) por [America Movil](https://www.americamovil.com/English/overview/default.aspx) + [Telxius](https://telxius.com) | [SCM](https://www.submarinecablemap.com/submarine-cable/south-pacific-cable-system-spcsmistral)
+	- Cable Halaihai (aka Humboldt) (2029) por [Google](https://cloud.google.com/) | [SCM](https://www.submarinecablemap.com/submarine-cable/halaihai)
+- Cableado Fibra Interna del Pais
+	- FOS Quellon-Chacabuco (2015) por [GTD](https://www.gtd.cl/) | [SCM](https://www.submarinecablemap.com/submarine-cable/fos-quellon-chacabuco)
+	- Proyecto [FOA](https://foa.subtel.gob.cl/) (Fibra Optica Austral) (2020) por [Internet Archive - CTR + Huawei Marine Press News](https://web.archive.org/web/20201129014048/http://www.huaweimarine.com/en/News/2018/press-releases/PR20180323) + [Silica Networks](https://www.silicanetworks.com/es/foa/) | [SCM](https://www.submarinecablemap.com/submarine-cable/fibra-optica-austral)
+	- Cable Prat (2020) por [GTD](https://www.gtd.cl/) | [SCM](https://www.submarinecablemap.com/submarine-cable/prat)
 - Enlaces entre Oficinas Centrales con PSTN
 - Anillos de distribucion HUBs y Nodales en redes HFC
-- PITs
+- PITs o IXP
 	- [PIT Chile](https://www.pitchile.cl/wp/)
+	- [IXP Chile](https://ixpchile.cl/) via [PIT](https://pit.net/)
+	- [PIT Entel](https://www.pitentel.cl/)
+	- [PatagoniaIX](https://patagoniaix.cl/)

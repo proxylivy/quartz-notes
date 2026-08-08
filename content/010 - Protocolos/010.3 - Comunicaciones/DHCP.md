@@ -1,14 +1,22 @@
 # Info
-**D**ynamic **H**ost **C**onfiguration **P**rotocol
+**D**ynamic **H**ost **C**onfiguration **P**rotocol se utiliza para entregar red IP ([[010 - Protocolos/010.3 - Comunicaciones/010.3.4 - IP/IPv4|IPv4]] o [[010 - Protocolos/010.3 - Comunicaciones/010.3.4 - IP/IPv6|IPv6]]) con su mascara de red y Gateway, ademas de configuraciones extras desde un servidor mediante UDP
 
-Proporciona
-- Direccion IP
-- Mascara de Subred
-- Gateway Predeterminado
-- Informacion Extra para la configuracion
-## Datos
-- Server: UDP 67
-- Cliente: UDP 68
+## Funcionamiento
+
+Para IPv4 (DORA) utiliza los puertos UDP 67 (Servidor) y UDP 68 (Cliente)
+- Discover (Descubrir): El cliente envia un mensaje de Broadcast preguntando por algun servidor DHCP
+- Offer (Ofrecer): Los servidores responden la solicitud y le dicen que estan disponibles en Broadcast
+- Request (Solicitar): El cliente responde que le parece bien en Broadcast
+- Ack (Confirmacion): El servidor confirma y le envia la informacion al cliente como Broadcast para que la acepte
+
+Para IPv6 (SAAR) utiliza los puertos UDP 547 (Servidor) y UDP 546 (Cliente)
+- Solicit (Solicitar): Envia Multicast hacia un servidor DHCP (`ff02::1:2`)
+- Advertise (Anunciar): Responde de vuelta 
+- Request (Solicitar): 
+- Reply (Responder): 
+
+
+Una implementacion es [[030 - Plataformas/Linux/dhclient|dhclient]] para entornos Linux
 
 # Configuracion
 ## Crear DHCP Router

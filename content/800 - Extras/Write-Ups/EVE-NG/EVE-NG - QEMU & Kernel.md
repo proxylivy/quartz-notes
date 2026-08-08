@@ -10,6 +10,18 @@ De todas formas no afectara a la corrupcion futura de EVE-NG debido a que la ver
 
 # QEMU
 
+> [!TIP] Lecturas Recomendadas
+> - [Qemu - Download](https://www.qemu.org/download/): En el final explica Version Numbering
+> - [Qemu - Docs](https://www.qemu.org/docs/master/)
+> 	- [Deprecated](https://www.qemu.org/docs/master/about/deprecated.html)
+> 	- [Removed Features](https://www.qemu.org/docs/master/about/removed-features.html)
+
+Desde la version `3.0.0`, QEMU usa un esquema de numeracion de versiones basada en el tiempo, donde el incremento de la version mayor se hace una vez al año, sin implicar necesariamente una ruptura drastica de compatibilidad.
+
+No hay breaking changes entre versiones de QEMU, solo deprecations, que se resuelven actualizando el template correspondiente. Por lo tanto mantener una version antigua (2.12.0 de 2018) sin ninguna razon tecnica es un fix artificial y placebo.
+
+Por ejemplo, eNSP si necesita una version menor de VirtualBox porque tuvo un breaking change de 5.x a 6.x donde la API interna funcioan distinto. Pero esto rara vez es el caso de QEMU
+
 ## Arregla QEMU Version
 
 EVE-NG tiene un array hardcodeado en `/opt/unetlab/html/includes/api_nodes.php` entre las lineas 645 y 656 que define que versiones de QEMU aparecen disponibles en la interfaz. Las versiones instaladas en `/opt` que no esten en este array simplemente no aparecen como opcion al configurar un nodo, existen en el disco pero son invisibles para EVE-NG
@@ -132,16 +144,16 @@ cp /usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so /opt/unetlab/jai
 
 # Kernel
 
-> [!TIP] Documentacion
-> - [EVE-NG Repo - Noble/dists/noble/main/binary-amd64/Packages](https://www.eve-ng.net/noble/dists/noble/main/binary-amd64/Packages)
+## Instala desde 7.x
 
-Fuentes (Lo unico util de aqui es el nuevo kernel)
-- https://www.eve-ng.net/noble/ (EVE-NG 7.x)
-	- https://www.eve-ng.net/noble/dists/noble/main/binary-amd64/Packages
-	- https://www.eve-ng.net/noble/pool/main/
-- https://www.eve-ng.net/jammy/ (EVE-NG 6.x)
-	- https://www.eve-ng.net/jammy/dists/jammy/main/binary-amd64/Packages
-	- https://www.eve-ng.net/jammy/pool/main/
+> [!TIP] Documentacion
+> - [EVE-NG 7.x - Noble Repo](https://www.eve-ng.net/noble/)
+> 	- [main](https://www.eve-ng.net/noble/pool/main/)
+> 		- [binary-amd64/Packages](https://www.eve-ng.net/noble/dists/noble/main/binary-amd64/Packages)
+> 		- [l](https://www.eve-ng.net/noble/pool/main/l/) (Linux)
+> - [EVE-NG 6.x - Jammy Repo](https://www.eve-ng.net/jammy/)
+> 	- [main/binary-amd64/Packages](https://www.eve-ng.net/jammy/dists/jammy/main/binary-amd64/Packages)
+> 	- [pool/main](https://www.eve-ng.net/jammy/pool/main/)
 
 EVE-NG requiere un kernel con soporte para KSM (**K**ernel **S**ame-page **M**erging), una funcion que fusiona paginas de memoria identicas entre multiples VMs, permitiendo que varios nodos compartan la misma base de imagen sin duplicar el uso de RAM. Es lo que hae que levantar 10 nodos con la misma imagen no consuma 10 veces la misma memoria
 
@@ -205,6 +217,41 @@ uname -r
 
 7.1.1-eve-ksm+
 ```
+
+## Compila
+
+(WIP) En Proceso, puedes usar [[#Instala desde 7.x]]. Esta seccion seria mas importante en caso que ya no funcione ese metodo :P
+
+EVE-NG no hace magia, debe salir de algun lado, y puedes observar el contenido del kernel
+
+Asi que tomare como referencia el kernel 7.1.1
+> Descarga el kernel
+```
+wget https://www.eve-ng.net/noble/pool/main/l/linux-upstream/linux-image-7.1.1-eve-ksm+_7.1.1-eve-ksm-g0fc53eda58f0-1_amd64.deb
+```
+
+> Descomprimelo
+```
+ar x linux-image-7.1.1-eve-ksm+_7.1.1-eve-ksm-g0fc53eda58f0-1_amd64.deb
+```
+
+> Extrae Data
+```
+mkdir data && tar -xf data.tar.gz -C data
+```
+
+> Extrae Control
+```
+mkdir control && tar -xf control.tar.gz -C control
+```
+
+
+Comparalo con una version normal
+```
+https://kernel.ubuntu.com/mainline/v7.1.1/
+```
+
+Me dio flojera :P
 
 # Cierre
 

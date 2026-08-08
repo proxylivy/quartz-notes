@@ -2,7 +2,7 @@
 
 Actividad de [[005 - Semestres/1er Semestre/SRY1132 (SRAA)/SRY1132 (SRAA)|SRY1132 (SRAA)]]
 
-Encuentras el material en [Copyparty - EX4](https://copyparty.proxylivy.work/Duoc/Conectividad%20y%20Redes/1er%20Semestre/SRY1132%20(SRAA)/Actividades/EX4/) y en el Anexo [[005 - Semestres/1er Semestre/SRY1132 (SRAA)/Actividades/EX 4 - Principios de Atencion|EX 4 - Principios de Atencion]]
+Encuentras el material en [Copyparty - EX4](https://copyparty.proxylivy.work/Duoc/Conectividad%20y%20Redes/1er%20Semestre/SRY1132%20(SRAA)/Actividades/EX4/) y en el Anexo [[005 - Semestres/1er Semestre/SRY1132 (SRAA)/Actividades/EX 4 - Anexo - Principios de Atencion|EX 4 - Anexo - Principios de Atencion]]
 
 ## Parte 1
 

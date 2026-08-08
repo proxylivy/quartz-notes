@@ -6,5 +6,5 @@ Ramo de [[005 - Semestres/1er Semestre/1er Semestre|1er Semestre]] enfocado a de
 	- [[005 - Semestres/1er Semestre/SRY1132 (SRAA)/Actividades/EX 2 - Realiza Cableado|EX 2 - Realiza Cableado]]
 	- [[005 - Semestres/1er Semestre/SRY1132 (SRAA)/Actividades/EX 3 - Alimentacion Electrica|EX 3 - Alimentacion Electrica]]
 	- [[005 - Semestres/1er Semestre/SRY1132 (SRAA)/Actividades/EX 4 - Atendiendo Clientes|EX 4 - Atendiendo Clientes]]
-		- [[005 - Semestres/1er Semestre/SRY1132 (SRAA)/Actividades/EX 4 - Principios de Atencion|EX 4 - Principios de Atencion]]
+		- [[005 - Semestres/1er Semestre/SRY1132 (SRAA)/Actividades/EX 4 - Anexo - Principios de Atencion|EX 4 - Anexo - Principios de Atencion]]
 - [[005 - Semestres/1er Semestre/SRY1132 (SRAA)/ET|ET]]

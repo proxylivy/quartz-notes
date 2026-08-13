@@ -47,7 +47,7 @@ Instrucciones Cableado Vertical
 3. Utiliza 1 cable de 3m para conectar un puerto GE (GigabitEthernet) (ej. G0/0) del Switch a un punto de red con internet
 
 Topologia Visual
-```ascii
+```
               Internet
                  │
                  │
@@ -122,7 +122,7 @@ Instrucciones
 6. Conecten 1 Patch Cord (0.5m) desde un puerto FE del Switch ("Servidor") al Patch panel donde conectaron el PC2
 
 Topologia a recrear
-```ascii
+```
 
               Internet
                  │
@@ -170,7 +170,7 @@ Instrucciones
 9. Conecten 2 Patch Cord (0.5m) desde el Switch "1" a los PC2 y PC3
 
 Topologia Visual de la conexion
-```ascii
+```
                      Internet
                          │
                   [Switch "Servidor"]

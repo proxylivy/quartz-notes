@@ -6,25 +6,30 @@
 
 ## Tabla Comparativa
 
-| Standard TCP/IP model | OSI model      | Equivalent TCP/IP model | PDU                 |
-| --------------------- | -------------- | ----------------------- | ------------------- |
-| 4- Aplication         | 7- Application | 5- Application          | Data                |
-| "                     | 6- Prentation  | "                       | "                   |
-| "                     | 5- Session     | "                       | "                   |
-| 3- Host-to-Host       | 4- Transport   | 4- Transport            | Segmento, Datagrama |
-| 2- Internet           | 3- Network     | 3- Network              | Paquete             |
-| 1- Network Access     | 2- Data Link   | 2- Data Link            | Frame               |
-| "                     | 1- Physical    | 1- Physical             | Bit                 |
+| Standard TCP/IP model | OSI model       | Equivalent TCP/IP model | PDU                 |
+| --------------------- | --------------- | ----------------------- | ------------------- |
+| 4. Application        | 7. Application  | 5. Application          | Data                |
+| "                     | 6. Presentation | "                       | "                   |
+| "                     | 5. Session      | "                       | "                   |
+| 3. Host-to-Host       | 4. Transport    | 4. Transport            | Segmento, Datagrama |
+| 2. Internet           | 3. Network      | 3. Network              | Paquete             |
+| 1. Network Access     | 2. Data Link    | 2. Data Link            | Frame               |
+| "                     | 1. Physical     | 1. Physical             | Bit                 |
 # Capas
 ## Capa 1: Fisica
 Responsable de la transmision de datos raw entre dispostivos, infraestructura basica donde se arma todo, se comunican bits(`1/0`) a travez de un medio fisico
 
 Ejemplos:
-- Señales de Radio
-- Señales Opticas
-- Enchufes
-- Conectores (IEEE 802.3ab: Gigabit Ethernet)
-- Cableado
+- Señales
+	- [[020 - Conceptos/020.5 - Red HFC/RF|RF]]
+	- Opticas ([[020 - Conceptos/020.5 - Red HFC/Fibra Optica|Fibra Optica]])
+- Conectores
+	- RJ45 (8P8C)
+	- [[020 - Conceptos/020.3 - Fundamentos/Cableado Estructurado/Coaxial|Coaxial]]
+- [[020 - Conceptos/020.3 - Fundamentos/Cableado Estructurado/Cableado Estructurado|Cableado Estructurado]]
+- [[020 - Conceptos/020.5 - Red HFC/PON|PON]]
+- RS-232
+- USB
 
 Problemas Comunes:
 - Desconexiones Fisicas o defectuosas
@@ -112,14 +117,13 @@ La capa 3 de divide en 3 subcapas, las cuales permiten diseñar un sistema de da
 - 3c: Subnetwork Independent Convergence
 
 Protocolos:
-- [[010 - Protocolos/010.3 - Comunicaciones/010.3.4 - IP/IPv4|IPv4]]
-- [[020 - Conceptos/020.3 - Fundamentos/EGP|EGP]]
-- [[020 - Conceptos/020.3 - Fundamentos/IGP|IGP]]
-- [[010 - Protocolos/010.1 - Routing/EIGRP/EIGRP|EIGRP]]
+- [[010 - Protocolos/010.3 - Comunicaciones/010.3.4 - IP/IP|IP]] | ([[010 - Protocolos/010.3 - Comunicaciones/010.3.4 - IP/IPv4|IPv4]] - [[010 - Protocolos/010.3 - Comunicaciones/010.3.4 - IP/IPv6|IPv6]])
+- [[020 - Conceptos/020.3 - Fundamentos/EGP|EGP]] ([[010 - Protocolos/010.1 - Routing/BGP/BGP|BGP]])
+- [[020 - Conceptos/020.3 - Fundamentos/IGP|IGP]] ([[010 - Protocolos/010.1 - Routing/OSPF/OSPFv2|OSPFv2]] y [[010 - Protocolos/010.1 - Routing/OSPF/OSPFv3|OSPFv3]] | [[010 - Protocolos/010.1 - Routing/EIGRP/EIGRP|EIGRP]] | [[010 - Protocolos/010.1 - Routing/IS-IS|IS-IS]])
 - [[010 - Protocolos/010.3 - Comunicaciones/010.3.2 - Diag y Control/ICMP|ICMP]]
 - [[010 - Protocolos/010.1 - Routing/IPSEC|IPSEC]] (AH,ESP)
-- [[010 - Protocolos/010.1 - Routing/OSPF/OSPFv2|OSPFv2]] y [[010 - Protocolos/010.1 - Routing/OSPF/OSPFv3|OSPFv3]]
 - [[010 - Protocolos/010.1 - Routing/Tunel GRE|Tunel GRE]]
+- [[010 - Protocolos/010.3 - Comunicaciones/010.3.2 - Diag y Control/ICMP|ICMP]]
 
 Problemas Comunes
 - Direcciones IP Duplicadas o incorrectas
@@ -165,10 +169,8 @@ Ejemplos:
 - TCP
 - UDP
 - QUIC
-- SSL
-- Socks
-- [[010 - Protocolos/010.3 - Comunicaciones/VPN|VPN]]
 - PPPoE (Point-to-Point Protocol Over Ethernet)
+- [[010 - Protocolos/010.3 - Comunicaciones/VPN|VPN]]
 - Wireguard
 
 Problemas Comunes
@@ -196,6 +198,7 @@ Ejemplo:
 - NetBIOS
 - SOCKS
 - RTP
+- SMB
 
 Problemas Comunes
 - Fallos con la sesiones
@@ -233,14 +236,16 @@ Ejemplos:
 - [[010 - Protocolos/010.3 - Comunicaciones/NTP|NTP]]
 - [[010 - Protocolos/010.3 - Comunicaciones/SSH|SSH]] | Telnet
 - [[010 - Protocolos/010.3 - Comunicaciones/010.3.2 - Diag y Control/SNMP|SNMP]]
+- [[010 - Protocolos/010.3 - Comunicaciones/DHCP|DHCP]]
 - POP3 | IMAP | SMTP
-- SSL
-- DNS
+- [[010 - Protocolos/010.3 - Comunicaciones/DNS|DNS]]
 - FTP | TFTP | SFTP
-- DHCP
 - BOOTP
 - MQTT (Message Queuing Telemetry Transport)
 - [[010 - Protocolos/010.1 - Routing/IPSEC|IPSEC]] (ISAKMP)
+- RTSP
+- NFS
+- [[010 - Protocolos/010.3 - Comunicaciones/NTP|NTP]]
 
 ## Capas Multiples
 Hay protocolos que afectan mas de una capa, o que viven entre ellas, como los protocolos orientados a la administracion o seguridad (Confidencialidad, Integridad y Disponibilidad).

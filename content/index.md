@@ -55,6 +55,13 @@ Gran parte de los ramos siguen el contenido de las certificaciones de Cisco, uti
 
 Puedes acceder a los libros desde [Copyparty - Bibliografia](https://copyparty.proxylivy.work/Duoc/Conectividad%20y%20Redes/Bibliografia/)
 
+Descubrimientos que merecen reconocimiento
+- [TLM Unavarra - Dr. Daniel Morato Oses](https://www.tlm.unavarra.es/~daniel/index.html): Profesor Universitario de la UPNA (Universidad Publica de Navarra)
+	- [Publicaciones](https://www.tlm.unavarra.es/~daniel/publicaciones/index.html)
+	- [Docencia](https://www.tlm.unavarra.es/~daniel/docencia/index.html): Cursos que imparte y contenido publico para estudiar
+- [MIT OCW](https://ocw.mit.edu/) (ENGLISH): Cursos, examenes y videos del MIT completamente gratuitos
+
+
 Una vez, un profesor de redes dijo en una prueba:
 
 "*Le pueden pedir ayuda a Diosito, pero Diosito no sabe sobre topologías de red.*"

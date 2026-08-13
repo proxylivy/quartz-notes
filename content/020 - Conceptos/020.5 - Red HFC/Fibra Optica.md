@@ -41,52 +41,22 @@ Ventanas de Transmision Clasicas
 ## Multiplexacion
 La DWDM (Dense Wavelenght Division Multiplexing) en español "Multiplexacion por Division de Longitud de Onda" permite combinar hasta 160 longitudes de onda dentro de una misma fibra. Cada canal (longitud de onda) transporta datos independientes, multiplicando la capacidad total sin aumentar el numero de fibras fisicas.
 
-## Ventajas
-- Baja Atenuacion
-- Gran Ancho de Banda
-- Diametro Reducido / Poco Peso
-- Inmune a Interferencias
-- Largas Distancias
-- Facil Mantenimiento luego de ser instalada
+## Ventajas y Desventajas
 
-## Desventajas
-- No tranporta corriente electrica (Por ahora)
-- Materia Prima y dopantes muy puros: Fabricacion Especializada
-- Manipulacion Fragil: Requiere personal calificado
-- Herramientas y equipos costosos (Fusionadoras, OTDR, Cortadoras, etc.)
-- Alto costo de Implementacion
-- Necesidad de conversion Optico-Electrico en los extremos (Transceptores)
-
-## Comportamiento
-La **Reflexion interna total** permite confinar la luz en el nucleo. Se produce cuando el angulo de incidencia es mayor que el **Angulo Critico** ($\alpha_{c}$), lo que evita que el rayo "escape" al revestimiento
-
-En el vacio la velocidad de la luz es aproximadamente $3 \times 10^{8}\text{m/s}$, cuando se desplaza por un medio (Agua, Vidrio, etc.) su velocidad se reduce
-
-### Indice de Refraccion
-Se representa como $n$ y relaciona la velocidad de la luz en el vacio ($C$) con su velocidad de algun medio ($V_{p}$): 
-
-$$n=\dfrac{C}{V_{p}}$$
-
-Donde:
-- $C$ es la velocidad de la luz en el vacio
-- $V_p$ es la velocidad de la luz en el medio
-- $n$ es el indice de refraccion
-
-Ejemplos de indices de refraccion
-- $\text{Aire} \approx 1,0003$
-- $\text{Agua} \approx 1,33$
-- $\text{Vidrio} \approx 1,6$
-- $\text{Diamante} \approx 2,417$
-
-### Ley de Snell
-Al cambiar de un medio con indice $n_1$ a otro de indice $n_2$: 
-
-$$n_1 \sin(\theta_{1})=n_2\sin(\theta_{2})$$
-
-- $\theta_{1}$: Angulo de incidencia
-- $\theta_{2}$: Angulo de refraccion
-
-Cuando $\theta_{2}$ es exactamente $90^\circ$, se define el **Angulo critico** ($\alpha_{c}$)
+- Ventajas
+	- Baja Atenuacion
+	- Gran Ancho de Banda
+	- Diametro Reducido / Poco Peso
+	- Inmune a Interferencias
+	- Largas Distancias
+	- Facil Mantenimiento luego de ser instalada
+- Desventajas
+	- No tranporta corriente electrica (Por ahora)
+	- Materia Prima y dopantes muy puros: Fabricacion Especializada
+	- Manipulacion Fragil: Requiere personal calificado
+	- Herramientas y equipos costosos (Fusionadoras, OTDR, Cortadoras, etc.)
+	- Alto costo de Implementacion
+	- Necesidad de conversion Optico-Electrico en los extremos (Transceptores)
 
 ### Apertura Numerica (NA)
 El **Angulo de aceptacion** ($\phi_{NA}$) es el maximo angulo (medido respecto al eje de la fibra) que permite que los rayos se confinen en el nucleo. La **Apertura Numerica** (NA) se expresa de varias formas equivalentes:
@@ -151,35 +121,95 @@ El cableado se distingue entre:
 
 La norma [ANSI/TIA/EIA 598-D (Autodescarga)](https://incab.co/files/tia-598-d.pdf) (o equivalentes) regula los colores de los hilos en el interior del cable, facilitando la identificacion y la gestion de varios hilos/fibras, tambien hay [explicaciones](https://www.daenotes.com/electronics/communication-system/EIA-598-A-Standard) al respecto
 
-# Atenuacion
+# Fenomenos
 
-La atenuacion es la perdida de potencia que sufre la señal al viajar por la fibra. Se mide en decibeles (dB). Es el factor mas importante que afecta la calidad de un enlace de fibra optica. Para calcular la potencia que llega al receptor, se suman las ganancias y se restan las perdidas
+**Atenuacion**
 
-Primero se calcula la atenuacion total del enlace. Esta es la suma de todas las perdidas presentes: Conectores, Fusiones y el propio cable
+La atenuacion es la perdida de potencia que sufre una señal al viajar por la FO, se mide en dB (Decibeles) y es uno de los principales factores que limitan el alcance de un enlace de FO.
 
-Definiones:
-- $A_{T}$ = Atenuacion Total del enlace (dB)
-- $A_{C}$ = Atenuacion promedio de un conector (dB)
-- $N_{C}$ = Numero de conectores
-- $A_{S}$ = Atenuacion promedio de una fusion (dB)
-- $N_{S}$ = Numero de fusiones
-- $A_{L}$ = Atenuacion del cable por kilometro (dB/km)
-- $L$ = Longitud del enlace (km)
+La atenuacion total de un enlace corresponde a la suma de todas las perdidas, incluyendo conectores, fusiones y el largo del cable.
 
-La Formula de la atenuacion total es:
-$$A_{T} = (N_{C} \times A_{C}) + (N_{S} \times A_{S}) + (L \times A_{L})$$
-Esto simplemente suma todas las perdidas individuales del enlace
+La formula de atenuacion total es:
+$$A_{T} = (N_{C} \cdot A_{C}) + (N_{S} \cdot A_{S}) + (L \cdot A_{L})$$
+Donde
+$$
+\begin{aligned}
+A_{T} &: \text{Atenuacion Total del enlace (dB)} \\
+A_{C} &: \text{Atenuacion promedio de un conector (dB)} \\
+N_{C} &: \text{Numero de conectores} \\
+A_{S} &: \text{Atenuacion promedio de una fusion (dB)} \\
+N_{S} &: \text{Numero de fusiones} \\
+A_{L} &: \text{Atenuacion del cable por kilometro (dB/km)} \\
+L &: \text{Longitud del enlace (km)} \\
+\end{aligned}
+$$
 
-Una vez obtenida la atenuacion total, se calcula la potencia recibida.
+Una vez obtenida la atenuacion total, se puede calcular la potencia que llegara al receptor
 
-Definiciones:
-- $P_{R}$ = Potencia Recibida (dBm)
-- $P_{T}$ = Potencia del transmisor (dBm)
-- $P_{rep}$ = Ganancia del Repetidor (dB)
+Esta formula es:
+$$P_{R} = P_{T} - A_{T}$$
+Donde
+$$
+\begin{aligned}
+P_{R} &: \text{Potencia Recibida (dBm)} \\
+P_{T} &: \text{Potencia del transmisor (dBm)} \\
+A_{T} &: \text{Atenuacion Total del enlace (dB)} \\
+\end{aligned}
+$$
 
-La formula es:
-$$P_{R}=P_{T} - A_{T} + P_{rep}$$
+**Refraccion**
 
+Cuando la luz pasa de un medio a otro (por ejemplo, desde el aire hacia el vidrio), su velocidad cambia. Este cambio de velocidad puede provocar que la trayectoria de la luz cambie de dirección; este fenómeno se conoce como **refracción**.
+
+La cantidad en que la luz cambia su velocidad al atravesar un medio se describe mediante el **índice de refracción**, representado por "${n}$". Este valor es la division entre la velocidad de la luz en el vacío (valor aprox: $c=3\cdot 10^{8}\,\text{m/s}=300.000.000\,\text{m/s}$) con la velocidad que alcanza al propagarse por un determinado medio ($V_{p}$).
+
+Mientras mayor sea el índice de refracción de un medio, menor será la velocidad de propagación de la luz en él.
+
+Se define como
+$$n=\dfrac{c}{V_{p}}$$
+
+Donde
+$$
+\begin{aligned}
+n &: \text{Indice de refraccion} \\
+c &: \text{Velocidad de la luz en el vacio} \\
+V_{P} &: \text{Velocidad de la luz en el medio} \\
+\end{aligned}
+$$
+
+Cuando un rayo de luz pasa de un medio con un índice de refracción "$n_1$" a otro con un índice "$n_2$", su dirección puede cambiar. La relación entre ambos medios y los ángulos involucrados está descrita por la **Ley de Snell**, mostrada a continuacion
+
+$$
+n_1 \sin(\theta_1) = n_2 \sin(\theta_2)
+$$
+
+Donde
+$$
+\begin{aligned}
+n_1 &: \text{Índice de refracción del primer medio} \\
+n_2 &: \text{Índice de refracción del segundo medio} \\
+\theta_1 &: \text{Ángulo de incidencia} \\
+\theta_2 &: \text{Ángulo de refracción}
+\end{aligned}
+$$
+
+Si la luz se propaga desde un medio con mayor índice de refracción hacia uno con menor índice, existe un ángulo de incidencia a partir del cual la luz deja de refractarse hacia el segundo medio y comienza a reflejarse completamente dentro del primero. Este se denomina **ángulo crítico** ($\alpha_{c}$).
+
+Cuando el ángulo de incidencia es mayor que el ángulo crítico, ocurre la **reflexión interna total**.
+
+En una fibra óptica, el núcleo posee un índice de refracción ligeramente mayor que el revestimiento. Esto permite que la luz que viaja por el núcleo experimente reflexión interna total en la interfaz entre ambos, manteniéndose confinada dentro del núcleo y permitiendo transmitir la señal a grandes distancias.
+
+**Difraccion**
+
+La difracción es el fenómeno que ocurre cuando una onda encuentra un obstáculo o atraviesa una abertura, provocando que se desvíe y se propague hacia regiones que no estarían directamente expuestas a la onda.
+
+El efecto se vuelve más evidente cuando el tamaño del obstáculo o abertura es comparable con la longitud de onda. El experimento de la doble rendija es un ejemplo clásico que permite observar este comportamiento.
+
+**Dispersion**
+
+La dispersión es el fenómeno por el cual una onda se propaga a diferentes velocidades dependiendo de su longitud de onda. Como consecuencia, distintas componentes de una señal pueden llegar en momentos diferentes.
+
+En la fibra óptica, la dispersión puede provocar el ensanchamiento de los pulsos de luz, dificultando que el receptor distinga correctamente una señal de otra cuando se transmite a grandes distancias.
 
 # Infraestructura
 

@@ -4,7 +4,7 @@ Las radiofrecuencias abarcan un rango amplio de frecuencias electronicas utiliza
 - Sistema
 	- Radio (Transmisor, Receptor o Transceptor)
 	- [[020 - Conceptos/020.5 - Red HFC/Antenas|Antenas]]
-	- Cable [[020 - Conceptos/020.5 - Red HFC/Coaxial|Coaxial]] con conectores para interconectar la radio a la antena
+	- Cable [[020 - Conceptos/020.3 - Fundamentos/Cableado Estructurado/Coaxial|Coaxial]] con conectores para interconectar la radio a la antena
 
 ## Impedancia
 Es fundamental para entender como se comporta la señal en cables, antenas y equipos de transmision
@@ -17,7 +17,7 @@ Terminologia
 
 Se expresa matematicamente como: $Z=R+jX$
 
-Los cables [[020 - Conceptos/020.5 - Red HFC/Coaxial|Coaxial]] y las antenas se fabrican con un valor de impedancia especificos y que van a depender de sus caraceteristicas
+Los cables [[020 - Conceptos/020.3 - Fundamentos/Cableado Estructurado/Coaxial|Coaxial]] y las antenas se fabrican con un valor de impedancia especificos y que van a depender de sus caraceteristicas
 - 50 ohmios: Usado en la mayoria de sistemas de telecomunicaciones (Wi-Fi, Telefonia Movil, Radioaficionado, etc.)
 - 75 ohmios: TV cable o satelital, etc.
 

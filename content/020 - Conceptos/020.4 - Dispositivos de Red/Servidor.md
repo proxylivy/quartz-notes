@@ -1,8 +1,10 @@
 # Info
 
-Un servidor es un dispositivo fisico o VM que entrega uno o mas servicios a otros dispositivos (clientes) a travez de una red
+El termino "Servidor" puede definirse desde dos perspectivas
+- HW: Sistema fisico o virtual conectado a una red que ejecuta un [[020 - Conceptos/020.6 - Sistemas/OS|OS]] y proporciona uno o mas servicios a otros dispositivos
+- SW: Programa que atiende solicitudes de clientes y proporciona determinada funcionalidad, normalmente mediante una red.
 
-Un mismo servidor puede ofrecer multiples servicios al mismo tiempo, y un servicio puede distribuirse entre varios servidores para mejorar su disponibilidad o rendimiento
+El termino describe un rol/funcion/nombre, no sus especificaciones ni potencia, no tiene que ser necesariamente un "`HPE DL380 G10`" sino que puede ser un PC, una laptop, un SBC o un VM, incluso un contenedor.
 
 Ejemplo de servicios
 - [[010 - Protocolos/010.3 - Comunicaciones/DHCP|DHCP]]

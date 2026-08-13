@@ -57,7 +57,9 @@ Asi que solo debes agregar las versiones que faltan antes de la linea vacia `''`
 > 	- [arcsin2 - Install QEMU on Ubuntu 22.04](https://arcsin2.cloud/en/2023/03/03/Install%20QEMU%20on%20Ubuntu%2022.04/): Instalo QEMU 7.2.0
 > 	- [Domenico Mustara - Create Linux VM under Ubuntu](https://domenicomustara.blogspot.com/2023/11/how-to-create-virtual-linux-machine.html): Instalo QEMU 8.2.0
 
-Compilado y probado en Ubuntu 22.04 LTS (Jammy), usando la version de Qemu `11.0.2` sin problemas
+Actualizado a `12/Aug/2026` con la version de QEMU: `11.1.0`
+
+Como bien sabes, EVE-NG esta basado en Ubuntu 22.04 LTS (Jammy) y he podido instalar QEMU sin ningun problema
 
 > Instala las dependencias de compilacion para Ubuntu 24.04LTS
 ```
@@ -71,22 +73,22 @@ mkdir /root/qemu && cd /root/qemu
 
 > Revisa las fuentes disponibles para QEMU y descarga el TAR | [QEMU Download Source](https://www.qemu.org/download/)
 ```
-wget https://download.qemu.org/qemu-11.0.2.tar.xz
+wget https://download.qemu.org/qemu-11.1.0.tar.xz
 ```
 
 > Descomprime el TAR
 ```
-tar xvJf qemu-11.0.2.tar.xz
+tar xvJf qemu-11.1.0.tar.xz
 ```
 
 > Entra a la carpeta creada
 ```
-cd qemu-11.0.2
+cd qemu-11.1.0
 ```
 
 > Configura QEMU
 ```
-./configure --prefix=/opt/qemu-11.0.2 --target-list=i386-softmmu,x86_64-softmmu --enable-kvm --enable-vhost-net --enable-vnc --enable-vnc-jpeg --enable-spice --enable-spice-protocol --enable-slirp --enable-libusb --enable-virtfs --enable-opengl --enable-virglrenderer --enable-guest-agent --disable-docs --enable-sdl --audio-drv-list="alsa, oss" --enable-curses
+./configure --prefix=/opt/qemu-11.1.0 --target-list=i386-softmmu,x86_64-softmmu --enable-kvm --enable-vhost-net --enable-vnc --enable-vnc-jpeg --enable-spice --enable-spice-protocol --enable-slirp --enable-libusb --enable-virtfs --enable-opengl --enable-virglrenderer --enable-guest-agent --disable-docs --enable-sdl --audio-drv-list="alsa, oss" --enable-curses
 ```
 
 > Compila la configuracion de QEMU (Se demoro 1:24min en 20 hilos)
@@ -94,19 +96,19 @@ cd qemu-11.0.2
 make -j$(nproc)
 ```
 
-> Instala la version compilada en el prefijo `/opt/qemu-11.0.2`
+> Instala la version compilada en el prefijo `/opt/qemu-11.1.0`
 ```
 make -j$(nproc) install
 ```
 
 > Escribe la nueva version en el array de EVE-NG para que aparesca en la interfaz, agrega la linea en `/opt/unetlab/html/includes/api_nodes.php`
 ```
-'11.0.2' => '11.0.2',
+'11.1.0' => '11.1.0',
 ```
 
 > Crea la carpeta en el skeleton (`/opt/unetlab/skeleton/`) para que EVE-NG pueda crear correctamente el punto de montaje dentro de jails para cada nodo
 ```
-mkdir /opt/unetlab/skeleton/opt/qemu-11.0.2
+mkdir /opt/unetlab/skeleton/opt/qemu-11.1.0
 ```
 
 EVE-NG ejecuta cada nodo dentro de un chroot jail, QEMU 11.0.2 enlaza librerias mas nuevas que las incluidas en el jail base, por lo que se deben copiar
@@ -141,6 +143,8 @@ cp /usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so /opt/unetlab/jai
 ```
 /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
 ```
+
+Con esto, podras seleccionar la nueva version desde el selector de plantilla de cada imagen
 
 # Kernel
 

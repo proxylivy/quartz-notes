@@ -647,6 +647,7 @@ Sitios Web:
 		- `filetype:sql “MySQL dump” (pass|password|passwd|pwd)`
 		- `site:gov filetype:doc allintitle:restricted`
 		- `inurl:”ViewerFrame?Mode=”`
+		- `indexof:"QUERY"`
 - [GHDB](https://github.com/readloud/Google-Hacking-Database) (Google Hacking DataBase): [Exploit-db](https://www.exploit-db.com/google-hacking-database) | [Maltergo (OS)](https://www.maltego.com/downloads/)
 	- Ver archivos con contraseñas
 	- Acceso a bases de datos

@@ -29,6 +29,7 @@ Las normativas al momento de escribir son (Siempre corrobora esta info):
 - TIA/EIA 606-D (2021)
 - ISO/IEC 14763-2 (2019)
 - EN 50174-1 (2026)
+- ISO/IEC 11801 (2017): CAT
 
 > [!WARNING] Algunas version desactualizadas
 > Mucho material academico, apuntes o infografias no son inmunes al tiempo y pueden indicar normativas viejas, simplemente ignoralas y comparalas con las que aparecen arriba o mas nuevas

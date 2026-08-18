@@ -18,6 +18,10 @@ Modelo OSI, Topologias de Red LAN, Configuracion basica para administracion loca
 	- EX 3
 		- [[005 - Semestres/2do Semestre/VTY2112 (CE)/Actividades/EX 3/AA1 - Conmutacion en Redes LAN|AA1 - Conmutacion en Redes LAN]]
 		- [[005 - Semestres/2do Semestre/VTY2112 (CE)/Actividades/EX 3/AA2 - Segmentacion en Capa 2|AA2 - Segmentacion en Capa 2]]
+		- [[005 - Semestres/2do Semestre/VTY2112 (CE)/Actividades/EX 3/AA3 - Aplicando ICMP|AA3 - Aplicando ICMP]]
+		- [[005 - Semestres/2do Semestre/VTY2112 (CE)/Actividades/EX 3/AA4 - Solucionar Problemas de Conectividad|AA4 - Solucionar Problemas de Conectividad]]
 - Pruebas
-	- 
+	- [[005 - Semestres/2do Semestre/VTY2112 (CE)/Pruebas/Prueba 01|Prueba 01]]
+	- [[005 - Semestres/2do Semestre/VTY2112 (CE)/Pruebas/Prueba 02|Prueba 02]]
+	- [[005 - Semestres/2do Semestre/VTY2112 (CE)/Pruebas/Prueba 03|Prueba 03]]
 - [[005 - Semestres/2do Semestre/VTY2112 (CE)/ET|ET]]

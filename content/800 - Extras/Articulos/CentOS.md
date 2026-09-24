@@ -1,3 +1,4 @@
+# Info
 Este articulo fue publicado en junio de 2024
 
 ## RedHat RedHat RedHat, Alternativas a CentOS
@@ -7,12 +8,12 @@ CentOS esta terminando su vida util(Si es que no contamos su version Stream), po
 ## Sobre Redhat
 
 [Redhat](https://www.redhat.com/) es el lider mundial de soluciones de codigo abierto enfocado a empresas, dando Soporte Tecnico, Recursos de seguridad, Ecosistema de partners, Ciclos de vida con soporte, Plan de los productos, entre otros, como se puede ver [aqui](https://www.redhat.com/es/about/value-of-Red-Hat)  
-Su nacimiento fue en 1993, para ser una empresa enfocada en otras empresas, centrandose en el desarrollo Open Source, en 2018 fue [adquirida por IBM](https://www.redhat.com/en/about/press-releases/ibm-acquire-red-hat-completely-changing-cloud-landscape-and-becoming-worlds-1-hybrid-cloud-provider?intcmp=701f2000000RWK2AAO), para centrarse en Computacion en la Nube Hibrida, el desarrollo de aplicaciones en la nube y automatizar TI
+Su nacimiento fue en 1993, para ser una empresa enfocada en otras empresas, centrandose en el desarrollo Open Source, en 2018 fue [adquirida por IBM](https://www.redhat.com/en/about/press-releases/ibm-acquire-red-hat-completely-changing-cloud-landscape-and-becoming-worlds-1-hybrid-cloud-provider?intcmp=701f2000000RWK2AAO), para $centrarse en Computacion en la Nube Hibrida, el desarrollo de aplicaciones en la nube y automatizar TI
 
 ## Distribucion oficial de RedHat
 
 Una de sus creaciones fue RedHat Enterprise Linux (RHEL) la cual es una plataforma basada en linux, para dar soporte a un largo y confiable ecosistema, que te permite desplegar aplicaciones en Hardware fisico o maquinas virtuales, ademas de Entornos en la Nube.  
-Hay 2 formas de obtener una licencia para [RHEL](https://developers.redhat.com/products/rhel/download), la primera es con una subscripcion mensual individual para el programa de desarrollador "Sin costo", [FAQ](https://developers.redhat.com/articles/faqs-no-cost-red-hat-enterprise-linux) o con una [licencia anual](https://www.redhat.com/en/store/linux-platforms), la cual empieza en los $179 dolares para la version Workstation o $349 dolares para la Edicion Servidor
+Hay 2 formas de obtener una licencia para [RHEL](https://developers.redhat.com/products/rhel/download), la primera es con una subscripcion mensual individual para el programa de desarrollador "Sin costo", [FAQ](https://developers.redhat.com/articles/faqs-no-cost-red-hat-enterprise-linux) o con una [licencia anual](https://www.redhat.com/en/store/linux-platforms), la cual empieza en los \$179 dolares para la version Workstation o \$349 dolares para la Edicion Servidor
 
 ## Funcionamiento de basados en RHEL
 

@@ -12,11 +12,11 @@ Materiales
 
 Topologia Visual a utilizar
 ```
-                      WebServer AWS
+                    WebServer AWS
                           │
-                      Internet
+                       Internet
                           │
-                   LAN 10.20.1.0/24
+                    LAN 10.20.1.0/24
                           │
                   ┌───────────────┐
                   │     Switch    │
